@@ -32,10 +32,11 @@ jobs:
         run: npm run docs:build
 
       - name: Deploy Docs
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: jenkey2011/vuepress-deploy@master
         env:
           GITHUB_DEPLOY: true
-        with:
-          # This is the branch where the docs are deployed to
-          branch: gh-pages
-          folder: .vuepress/dist
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_REPO: mitre/inspec-developer-2
+          TARGET_BRANCH: gh_pages
+          BUILD_SCRIPT: npm ci && npm run docs:build
+          BUILD_DIR: ./.vuepress/dist/
