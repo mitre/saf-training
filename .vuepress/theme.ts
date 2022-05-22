@@ -3,7 +3,7 @@ import navbar from "./navbar";
 import sidebar from "./sidebar";
 
 export default hopeTheme({
-  hostname: "https://mitre.github.io/inspec-developer-2/",
+  hostname: "https://mitre.github.io/",
   author: {
     name: "MITRE SAF Team",
     url: "https://saf.mitre.org",

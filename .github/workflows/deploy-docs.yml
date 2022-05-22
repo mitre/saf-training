@@ -23,13 +23,12 @@ jobs:
           node-version: 16
           cache: npm
 
-      - name: Install Deps
-        run: npm install
-
-      - name: Build Docs
-        env:
-          NODE_OPTIONS: --max_old_space_size=4096
-        run: npm run docs:build
+      # - name: Install Deps
+      #   run: npm install
+      # - name: Build Docs
+      #   env:
+      #     NODE_OPTIONS: --max_old_space_size=4096
+      #   run: npm run docs:build
 
       - name: Deploy Docs
         uses: jenkey2011/vuepress-deploy@master
@@ -39,4 +38,4 @@ jobs:
           TARGET_REPO: mitre/inspec-developer-2
           TARGET_BRANCH: gh_pages
           BUILD_SCRIPT: npm ci && npm run docs:build
-          BUILD_DIR: ./.vuepress/dist/
+          BUILD_DIR: .vuepress/dist/
