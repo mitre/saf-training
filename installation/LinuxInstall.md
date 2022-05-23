@@ -3,6 +3,7 @@ index: 13
 icon: page
 title: Installing InSpec on Linux
 author: Aaron Lippold
+prev: ./
 ---
 # Install InSpec on Linux
 

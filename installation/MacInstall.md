@@ -3,6 +3,7 @@ index: 12
 icon: page
 title: Installing InSpec on MacOS
 author: Aaron Lippold
+prev: ./
 ---
 # Install InSpec on Mac
 

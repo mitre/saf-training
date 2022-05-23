@@ -1,4 +1,5 @@
 ---
+next: 02.md
 icon: page
 title: Course Overview
 author: Aaron Lippold
