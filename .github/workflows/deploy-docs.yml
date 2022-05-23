@@ -35,7 +35,7 @@ jobs:
         env:
           GITHUB_DEPLOY: true
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_REPO: mitre/inspec-developer-2
+          TARGET_REPO: mitre/inspec-developer
           TARGET_BRANCH: gh_pages
           BUILD_SCRIPT: npm ci && npm run docs:build
           BUILD_DIR: .vuepress/dist/

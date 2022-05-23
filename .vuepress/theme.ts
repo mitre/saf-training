@@ -14,7 +14,7 @@ export default hopeTheme({
 
   logo: "/logo.svg",
 
-  repo: "mitre/inspec-developer-2",
+  repo: "mitre/inspec-developer",
 
   // docsDir: "demo/src",
 
@@ -86,18 +86,18 @@ export default hopeTheme({
        */
       type: "giscus",
       repo: "mitre/inspec-developer",
-      repoId: "MDEwOlJlcG9zaXRvcnkxOTk0ODYyODE=",
+      repoId: "R_kgDOHYQSMw",
       category: "Ideas",
-      categoryId: "DIC_kwDOC-PrSc4CPOLc",
+      categoryId: "DIC_kwDOHYQSM84CPQKz",
       mapping: "pathname",
 
       /**
        * 
-       * <script src="https://giscus.app/client.js"
+ <script src="https://giscus.app/client.js"
         data-repo="mitre/inspec-developer"
-        data-repo-id="MDEwOlJlcG9zaXRvcnkxOTk0ODYyODE="
+        data-repo-id="R_kgDOHYQSMw"
         data-category="Ideas"
-        data-category-id="DIC_kwDOC-PrSc4CPOLc"
+        data-category-id="DIC_kwDOHYQSM84CPQKz"
         data-mapping="pathname"
         data-reactions-enabled="1"
         data-emit-metadata="0"
@@ -106,7 +106,7 @@ export default hopeTheme({
         data-lang="en"
         crossorigin="anonymous"
         async>
-  </script>
+</script>
        * Using twikoo
        */
       // type: "twikoo",

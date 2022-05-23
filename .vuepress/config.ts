@@ -6,6 +6,6 @@ export default defineUserConfig({
   title: "SAF InSpec Profile Developers",
   description: "The MITRE InSpec Team's Introduction to InSpec Profile Development",
 
-  base: process.env.GITHUB_DEPLOY === "true" ? "/inspec-developer-2/" : "/",
+  base: process.env.GITHUB_DEPLOY === "true" ? "/inspec-developer/" : "/",
   theme,
 });
