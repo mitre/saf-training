@@ -16,11 +16,6 @@ actions:
     link: https://www.youtube.com/watch?v=t_ispmWmdjY&vl=en
 
 features:
-  - title: Markdown Enhance
-    icon: markdown
-    details: Add align, sup/sub script, footnote, tasklist, tex, flowchart, diagram, mark and presentation support in markdown
-    link: https://vuepress-theme-hope.github.io/v2/guide/markdown/
-
   - title: Describe the InSpec Framework and its Capabilities
     icon: markdown
     details: Create components, connected components, modules - and their tests - right from the CLI
