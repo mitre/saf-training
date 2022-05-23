@@ -2,7 +2,7 @@
 home: true
 icon: home
 title: MITRE InSpec Profile Developers Course
-heroImage: /logo.svg
+# heroImage: /logo.svg
 heroText: MITRE SAF InSpec Profile Developer
 tagline: From Guidance Document to Automated Tests in no time!
 actions:
