@@ -1,7 +1,7 @@
 ---
 next: 02.md
 icon: page
-title: Course Overview
+title: 1. Course Overview
 author: Aaron Lippold
 headerDepth: 3
 ---
