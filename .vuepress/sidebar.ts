@@ -3,6 +3,15 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar([
   {
     icon: "creative",
+    text: "Assessor Course",
+    prefix: "/courses/assessor/",
+    link: "/courses/assessor/",
+    children: "structure",
+    collapsable: true
+    // activeMatch: "^/courses/(?:(?!beginner/|advanced/).*)?$"
+  },
+  {
+    icon: "creative",
     text: "Beginner Course",
     prefix: "/courses/beginner/",
     link: "/courses/beginner/",

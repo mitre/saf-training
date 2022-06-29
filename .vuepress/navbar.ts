@@ -7,6 +7,7 @@ export default navbar([
     text: "Courses", 
     icon: "creative", 
     children: [
+      { text: "Assessor Course", link: "/courses/assessor/", icon: "creative" },
       { text: "Beginner Course", link: "/courses/beginner/", icon: "creative" },
       { text: "Advanced Course", link: "/courses/advanced/", icon: "creative" },
     ]},
