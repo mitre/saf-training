@@ -40,14 +40,14 @@ As you can see from the picture below, the process for developing automated secu
 
 This challenge is what the [MITRE Security Automation Framework](https://saf.mitre.org) or MITRE SAF was developed to simplify -- to make the journey from a Requirement Document to an automated test profile and back again a little easier to navigate.
 
-![Alt text](../assets/img/saf-lifecycle.png)
+![Alt text](../../assets/img/saf-lifecycle.png)
 
 <!-- ## About Security Automation
 
 Orchestration, Configuration Management, Validation to Deployment
 InSpec operates with most orchestration and CM tools found in the DevOps pipeline implementations
 
-![Alt text](../assets/img/InSpec_Orchestration.png) -->
+![Alt text](../../assets/img/InSpec_Orchestration.png) -->
 
 ## 1.4 Where can I start on my own?
 You can contribute to existing profiles that can be found here:  

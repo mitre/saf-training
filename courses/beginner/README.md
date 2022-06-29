@@ -23,7 +23,7 @@ As you can see from the picture below, the process for developing automated secu
 
 This challenge is what the [MITRE Security Automation Framework](https://saf.mitre.org) or MITRE SAF was developed to simplify -- to make the journey from a Requirement Document to an automated test profile and back again a little easier to navigate.
 
-![Alt text](../assets/img/saf-lifecycle.png)
+![Alt text](../../assets/img/saf-lifecycle.png)
 
 We hope that during this class you will become comfortable with the tools, parts and processes involved in the end-to-end process, and gain the confidence to start automating your compliance journey with the information presented here.  
 
