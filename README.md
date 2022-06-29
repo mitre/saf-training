@@ -1,9 +1,9 @@
 ---
 home: true
 icon: home
-title: MITRE InSpec Profile Developer Course
+title: MITRE SAF InSpec Training
 # heroImage: /logo.svg
-heroText: MITRE SAF InSpec Profile Developer
+heroText: MITRE SAF InSpec Training
 tagline: From guidance documents to automated tests in no time!
 actions:
   - text: Start the Class!
