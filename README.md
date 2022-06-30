@@ -6,8 +6,15 @@ title: MITRE SAF InSpec Training
 heroText: MITRE SAF InSpec Training
 tagline: From guidance documents to automated tests in no time!
 actions:
-  - text: Start the Class!
+  - text: Start the Assessor Class!
+    link: /courses/assessor/
+    type: primary
+  - text: Start the Beginner InsSpec Profile Class!
     link: /courses/beginner/
+    type: primary
+  - text: Start the Advanced InsSpec Profile Class!
+    link: /courses/advanced/
+    type: primary
   - text: Go To the Development Lab
     link: https://github.com/mitre/inspec-profile-developer-course-lab-environment
   - text: Getting Started with Ruby (text)
