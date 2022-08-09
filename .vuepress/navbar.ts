@@ -7,9 +7,9 @@ export default navbar([
     text: "Courses", 
     icon: "creative", 
     children: [
-      { text: "Assessor Course", link: "/courses/assessor/", icon: "creative" },
-      { text: "Beginner Course", link: "/courses/beginner/", icon: "creative" },
-      { text: "Advanced Course", link: "/courses/advanced/", icon: "creative" },
+      { text: "Operator Course", link: "/courses/assessor/", icon: "creative" },
+      { text: "Beginner InSpec Course", link: "/courses/beginner/", icon: "creative" },
+      { text: "Advanced InSpec Course", link: "/courses/advanced/", icon: "creative" },
     ]},
   { text: "Resources", icon: "note", link: "/resources/" },
   { text: "Installation", icon: "note", link: "/installation/" },
