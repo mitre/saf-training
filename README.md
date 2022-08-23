@@ -7,7 +7,7 @@ heroText: MITRE SAF Training
 tagline: From guidance documents to automated tests in no time!
 actions:
   - text: Start the SAF User Class!
-    link: /courses/assessor/
+    link: /courses/user/
     type: primary
   - text: Start the Beginner Security Automation Developer Class!
     link: /courses/beginner/
@@ -17,7 +17,7 @@ actions:
     type: primary
   - text: COMING SOON! Security Guidance Developer Class
     type: primary
-    link: /
+    link: /courses/guidance/
   - text: Go To the Development Lab
     link: https://github.com/mitre/inspec-profile-developer-course-lab-environment
   - text: Getting Started with Ruby (text)

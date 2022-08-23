@@ -3,28 +3,33 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar([
   {
     icon: "creative",
-    text: "Operator Course",
-    prefix: "/courses/assessor/",
-    link: "/courses/assessor/",
+    text: "SAF User Course",
+    prefix: "/courses/user/",
+    link: "/courses/user/",
     children: "structure",
     collapsable: true
-    // activeMatch: "^/courses/(?:(?!beginner/|advanced/).*)?$"
   },
   {
     icon: "creative",
-    text: "Beginner InSpec Course",
+    text: "Beginner Security Automation Developer Course",
     prefix: "/courses/beginner/",
     link: "/courses/beginner/",
     children: "structure",
     collapsable: true
-    // activeMatch: "^/courses/(?:(?!beginner/|advanced/).*)?$"
   },
   {
     icon: "creative",
-    text: "Advanced InSpec Course",
+    text: "Advanced Security Automation Developer Course",
     prefix: "/courses/advanced/",
     link: "/courses/advanced/",
-    // activeMatch: "^/courses/(?:(?!beginner/|advanced/).*)?$"
+    children: "structure",
+    collapsable: true
+  },
+  {
+    icon: "creative",
+    text: "Security Guidance Developer Course",
+    prefix: "/courses/guidance/",
+    link: "/courses/guidance/",
     children: "structure",
     collapsable: true
   },
