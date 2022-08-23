@@ -6,16 +6,16 @@ title: MITRE SAF Training
 heroText: MITRE SAF Training
 tagline: From guidance documents to automated tests in no time!
 actions:
-  - text: Start the Operator Class!
+  - text: Start the SAF User Class!
     link: /courses/assessor/
     type: primary
-  - text: Start the Beginner InSpec Profile Developer Class!
+  - text: Start the Beginner Security Automation Developer Class!
     link: /courses/beginner/
     type: primary
-  - text: Start the Advanced InSpec Profile Developer Class!
+  - text: Start the Advanced Security Automation Developer Class!
     link: /courses/advanced/
     type: primary
-  - text: STIG Development Class Coming Soon!
+  - text: COMING SOON! Security Guidance Developer Class
     type: primary
     link: /
   - text: Go To the Development Lab
