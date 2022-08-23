@@ -6,6 +6,6 @@ export default defineUserConfig({
   title: "MITRE SAF Training",
   description: "The MITRE Security Automation Framework Team's Introduction to InSpec profile development",
 
-  base: process.env.GITHUB_DEPLOY === "true" ? "/inspec-developer/" : "/",
+  base: process.env.GITHUB_DEPLOY === "true" ? "/saf-training/" : "/",
   theme,
 });

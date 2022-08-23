@@ -14,7 +14,7 @@ export default hopeTheme({
 
   logo: "/logo.svg",
 
-  repo: "mitre/inspec-developer",
+  repo: "mitre/saf-training",
 
   // docsDir: "demo/src",
 
@@ -85,20 +85,21 @@ export default hopeTheme({
        * Using giscus
        */
       type: "giscus",
-      repo: "mitre/inspec-developer",
-      repoId: "R_kgDOHYQSMw",
+      repo: "mitre/saf-training",
+      repoId: "R_kgDOH3sAZQ",
       category: "Ideas",
-      categoryId: "DIC_kwDOHYQSM84CPQKz",
+      categoryId: "DIC_kwDOH3sAZc4CRApY",
       mapping: "pathname",
 
       /**
        * 
- <script src="https://giscus.app/client.js"
-        data-repo="mitre/inspec-developer"
-        data-repo-id="R_kgDOHYQSMw"
+<script src="https://giscus.app/client.js"
+        data-repo="mitre/saf-training"
+        data-repo-id="R_kgDOH3sAZQ"
         data-category="Ideas"
-        data-category-id="DIC_kwDOHYQSM84CPQKz"
+        data-category-id="DIC_kwDOH3sAZc4CRApY"
         data-mapping="pathname"
+        data-strict="0"
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
