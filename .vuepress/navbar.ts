@@ -14,6 +14,7 @@ export default navbar([
     ]},
   { text: "Resources", icon: "note", link: "/resources/" },
   { text: "Installation", icon: "note", link: "/installation/" },
+  { text: "Training Development", icon: "note", link: "/training-dev/" },
   // { text: "Theme Docs", icon: "note", link: "https://vuepress-theme-hope.github.io/v2/" },
   // {
   //   text: "Posts",

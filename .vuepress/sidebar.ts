@@ -3,7 +3,7 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar([
   {
     icon: "creative",
-    text: "SAF User Course",
+    text: "User Course",
     prefix: "/courses/user/",
     link: "/courses/user/",
     children: "structure",
@@ -11,7 +11,7 @@ export default sidebar([
   },
   {
     icon: "creative",
-    text: "Beginner Security Automation Developer Course",
+    text: "Beginner Course",
     prefix: "/courses/beginner/",
     link: "/courses/beginner/",
     children: "structure",
@@ -19,7 +19,7 @@ export default sidebar([
   },
   {
     icon: "creative",
-    text: "Advanced Security Automation Developer Course",
+    text: "Advanced Course",
     prefix: "/courses/advanced/",
     link: "/courses/advanced/",
     children: "structure",
@@ -27,7 +27,7 @@ export default sidebar([
   },
   {
     icon: "creative",
-    text: "Security Guidance Developer Course",
+    text: "Guidance Course",
     prefix: "/courses/guidance/",
     link: "/courses/guidance/",
     children: "structure",
@@ -46,6 +46,14 @@ export default sidebar([
     text: "Installation",
     prefix: "/installation/",
     link: "/installation/",
+    children: "structure",
+    collapsable: true
+  },
+  {
+    icon: "note",
+    text: "Training Development",
+    prefix: "/training-dev/",
+    link: "/training-dev/",
     children: "structure",
     collapsable: true
   }
