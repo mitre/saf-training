@@ -19,7 +19,7 @@ actions:
     type: primary
     link: /courses/guidance/
   - text: Go To the Development Lab
-    link: https://github.com/mitre/inspec-profile-developer-course-lab-environment
+    link: https://github.com/mitre/saf-training-lab-environment
   - text: Getting Started with Ruby (text)
     link: https://ruby-for-beginners.rubymonstas.org/
   - text: Ruby Walkthrough (video)
