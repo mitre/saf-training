@@ -3,7 +3,7 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar([
   {
     icon: "creative",
-    text: "User Course",
+    text: "User Class",
     prefix: "/courses/user/",
     link: "/courses/user/",
     children: "structure",
@@ -11,7 +11,7 @@ export default sidebar([
   },
   {
     icon: "creative",
-    text: "Beginner Course",
+    text: "Beginner Class",
     prefix: "/courses/beginner/",
     link: "/courses/beginner/",
     children: "structure",
@@ -19,7 +19,7 @@ export default sidebar([
   },
   {
     icon: "creative",
-    text: "Advanced Course",
+    text: "Advanced Class",
     prefix: "/courses/advanced/",
     link: "/courses/advanced/",
     children: "structure",
@@ -27,7 +27,7 @@ export default sidebar([
   },
   {
     icon: "creative",
-    text: "Guidance Course",
+    text: "Guidance Class",
     prefix: "/courses/guidance/",
     link: "/courses/guidance/",
     children: "structure",

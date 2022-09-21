@@ -4,13 +4,13 @@ export default navbar([
   "/",
   // "/home",
   { 
-    text: "Courses", 
+    text: "Classes", 
     icon: "creative", 
     children: [
-      { text: "SAF User Course", link: "/courses/user/", icon: "creative" },
-      { text: "Beginner Security Automation Developer Course", link: "/courses/beginner/", icon: "creative" },
-      { text: "Advanced Security Automation Developer Course", link: "/courses/advanced/", icon: "creative" },
-      { text: "Security Guidance Developer Course", link: "/courses/guidance/", icon: "creative" },
+      { text: "SAF User Class", link: "/courses/user/", icon: "creative" },
+      { text: "Beginner Security Automation Developer Class", link: "/courses/beginner/", icon: "creative" },
+      { text: "Advanced Security Automation Developer Class", link: "/courses/advanced/", icon: "creative" },
+      { text: "Security Guidance Developer Class", link: "/courses/guidance/", icon: "creative" },
     ]},
   { text: "Resources", icon: "note", link: "/resources/" },
   { text: "Installation", icon: "note", link: "/installation/" },
