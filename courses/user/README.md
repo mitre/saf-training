@@ -1,6 +1,5 @@
 ---
 next: 02.md
-icon: page
 title: 1. Class Overview
 author: Aaron Lippold
 headerDepth: 3
