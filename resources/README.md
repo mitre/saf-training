@@ -1,5 +1,8 @@
 ---
-prev: /
+next: 02.md
+icon: page
+title: Class Resources
+author: Mo
 headerDepth: 3
 ---
 

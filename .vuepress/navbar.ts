@@ -12,9 +12,14 @@ export default navbar([
       { text: "Advanced Security Automation Developer Class", link: "/courses/advanced/", icon: "creative" },
       { text: "Security Guidance Developer Class", link: "/courses/guidance/", icon: "creative" },
     ]},
-  { text: "Resources", icon: "note", link: "/resources/" },
-  { text: "Installation", icon: "note", link: "/installation/" },
-  { text: "Training Development", icon: "note", link: "/training-dev/" },
+  { text: "Resources", 
+    icon: "note", 
+    children: [
+      { text: "Class Resources", link: "/resources/README.md"},
+      { text: "Codespace Resources", link: "/resources/02.md"},
+      { text: "Training Development Docs", link: "/resources/03.md"},
+    ]},
+  { text: "Installation", icon: "note", link: "/installation/" }
   // { text: "Theme Docs", icon: "note", link: "https://vuepress-theme-hope.github.io/v2/" },
   // {
   //   text: "Posts",

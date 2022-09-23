@@ -48,14 +48,6 @@ export default sidebar([
     link: "/installation/",
     children: "structure",
     collapsable: true
-  },
-  {
-    icon: "note",
-    text: "Training Development",
-    prefix: "/training-dev/",
-    link: "/training-dev/",
-    children: "structure",
-    collapsable: true
   }
   // {
   //   icon: "document",
