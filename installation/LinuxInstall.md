@@ -1,5 +1,5 @@
 ---
-index: 13
+index: 3
 icon: page
 title: Installing InSpec on Linux
 author: Aaron Lippold

@@ -1,5 +1,5 @@
 ---
-index: 12
+index: 2
 icon: page
 title: Installing InSpec on MacOS
 author: Aaron Lippold

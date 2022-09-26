@@ -1,5 +1,5 @@
 ---
-index: 14
+index: 4
 icon: page
 title: Installing InSpec on Windows
 author: Aaron Lippold
