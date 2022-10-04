@@ -61,6 +61,7 @@ features:
     details: Add the resources you develop to the InSpec framework
     link: /courses/advanced/14.md
 
-copyright: false
-footer: Apache-2.0 | Copyright © 2022 - The MITRE Corporation
+copyright: Apache-2.0 | Copyright © 2022 - The MITRE Corporation
+footer:  <a href="https://www.netlify.com"><img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
+
 ---
