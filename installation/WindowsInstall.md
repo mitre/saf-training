@@ -24,14 +24,16 @@ Go to [https://rubyinstaller.org/downloads/](https://rubyinstaller.org/downloads
 ## Install InSpec
 ### Option 1 (Download as a package)
 The InSpec package is available for MacOS, RedHat, Ubuntu and Windows. Download the latest package at [InSpec Downloads](https://downloads.chef.io/inspec) or install InSpec via script:
-
 ```
-# Windows
+# Windows (PowerShell)
 . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
 ```
 ### Option 2 (Download as a ruby gem)
 * Open powershell
 * type `$ gem install inspec`, then press enter
+
+### Option 3 (windows only)
+Select the appropriate windows OS from the [InSpec Download Site](https://www.chef.io/downloads/tools/inspec), download the appropriate installation (msi) and install.
 
 ## Download additional required gems
 * type `$ gem install bundler`, then press enter
