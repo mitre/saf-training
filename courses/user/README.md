@@ -9,10 +9,10 @@ headerDepth: 3
 The purpose of this course is to gain understanding and hands-on practical use of MITRE's Security Automation Framework with a focus on automating security validation and visualization. By the end, you should be able to achieve all of the following objectives.
 
 ### 1.1.1 Course Objectives:
--	Identify and locate security guidance for a software component
--	Understand the capabilities available in the main pillars of the MITRE Security Automation Framework - Plan, Harden, Validate, Normalize, Visualize
+-	Identify and locate security guidance for a software component.
+-	Understand the capabilities available in the main pillars of the MITRE Security Automation Framework - Plan, Harden, Validate, Normalize, Visualize.
 -	Define and run an InSpec profile to validate a component against security guidance.
--	Visualize InSpec results and third party security tool data
+-	Visualize InSpec results and third party security tool data.
 - Automatically export checklist results from a security assessment.
 
 ## 1.2 The Road to Security Automation
