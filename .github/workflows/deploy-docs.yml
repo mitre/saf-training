@@ -20,36 +20,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: npm
 
-      # - name: Install Deps
-      #   run: npm install
-      # - name: Build Docs
-      #   env:
-      #     NODE_OPTIONS: --max_old_space_size=4096
-      #   run: npm run docs:build
-      
-      - name: Build Pages
-        run: npm ci && npm run docs:build
-          
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: .vuepress/dist
-        
-#       - name: Publish page
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: .vuepress/dist/
-
-#       - name: Deploy Docs
-#         uses: intergiro/vuepress-deploy@fix_git_repo
-#         env:
-#           GITHUB_DEPLOY: true
-#           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           TARGET_REPO: mitre/saf-training
-#           TARGET_BRANCH: gh-pages
-#           BUILD_SCRIPT: npm ci && npm run docs:build
-#           BUILD_DIR: .vuepress/dist/
+      - name: Deploy Docs
+        uses: intergiro/vuepress-deploy@fix_git_repo  # Update back to jenkey2011/vuepress-deploy@master once merged
+        env:
+          GITHUB_DEPLOY: true
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_REPO: mitre/saf-training
+          TARGET_BRANCH: gh-pages
+          BUILD_SCRIPT: npm ci && npm run docs:build
+          BUILD_DIR: .vuepress/dist/
