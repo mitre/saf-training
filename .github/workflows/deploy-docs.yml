@@ -29,13 +29,23 @@ jobs:
       #   env:
       #     NODE_OPTIONS: --max_old_space_size=4096
       #   run: npm run docs:build
+      
+      - name: Build Pages
+        run: npm ci && npm run docs:build
+        
+      - name: Publish page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .vuepress/dist/
+          destination_dir: .
 
-      - name: Deploy Docs
-        uses: jenkey2011/vuepress-deploy@master
-        env:
-          GITHUB_DEPLOY: true
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_REPO: mitre/saf-training
-          TARGET_BRANCH: gh_pages
-          BUILD_SCRIPT: npm ci && npm run docs:build
-          BUILD_DIR: .vuepress/dist/
+#       - name: Deploy Docs
+#         uses: jenkey2011/vuepress-deploy@master
+#         env:
+#           GITHUB_DEPLOY: true
+#           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           TARGET_REPO: mitre/saf-training
+#           TARGET_BRANCH: gh_pages
+#           BUILD_SCRIPT: npm ci && npm run docs:build
+#           BUILD_DIR: .vuepress/dist/
