@@ -31,10 +31,12 @@ jobs:
       #   run: npm run docs:build
       
       - name: Build Pages
-        run: |
-          npm ci && npm run docs:build
-          git add .vuepress/dist && git commit -m "commit dist folder to gh-pages branch"
-          git subtree push --prefix .vuepress/dist origin gh-pages
+        run: npm ci && npm run docs:build
+          
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .vuepress/build 
         
 #       - name: Publish page
 #         uses: peaceiris/actions-gh-pages@v3
