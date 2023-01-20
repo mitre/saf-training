@@ -45,7 +45,7 @@ jobs:
 #           publish_dir: .vuepress/dist/
 
       - name: Deploy Docs
-        uses: jenkey2011/vuepress-deploy@intergiro:fix_git_repo
+        uses: intergiro/vuepress-deploy@fix_git_repo
         env:
           GITHUB_DEPLOY: true
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
