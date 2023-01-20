@@ -36,7 +36,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .vuepress/build 
+          folder: .vuepress/dist
         
 #       - name: Publish page
 #         uses: peaceiris/actions-gh-pages@v3
