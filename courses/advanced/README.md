@@ -6,10 +6,10 @@ author: Aaron Lippold
 headerDepth: 3
 ---
 
-## 1.1 Course Objectives
-The purpose of this course is to take you beyond profile development and give you the tools to actively participate in the open source security automation community. The advanced course builds off of the beginner course fundamentals, and by the end, you should be able to achieve all of these objectives.
+## 1.1 Class Objectives
+The purpose of this class is to take you beyond profile development and give you the tools to actively participate in the open source security automation community. The advanced class builds off of the beginner class fundamentals, and by the end, you should be able to achieve all of these objectives.
 
-### 1.1.1 Beginner course fundamentals:
+### 1.1.1 Beginner Class Fundamentals:
 -	Describe the InSpec framework and its capabilities
 -	Describe the architecture of an InSpec profile
 -	Build an InSpec profile to transform security policy into automated security testing
@@ -19,7 +19,7 @@ The purpose of this course is to take you beyond profile development and give yo
 -	Report Results
 -	Create concise, human-readable control output using RSpec syntax in InSpec profiles
 
-### 1.1.2 Advanced course objectives:
+### 1.1.2 Advanced Class Objectives:
 -   Develop resources to aid in creating controls
 -	Automate security testing by integrating InSpec into a CI/CD pipeline
 -	Contribute to an open-source security platform by pushing the resources you develop to the InSpec framework

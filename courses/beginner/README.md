@@ -6,6 +6,19 @@ author: Aaron Lippold
 headerDepth: 3
 ---
 
+## 1.1 Class Objectives
+The purpose of this class is to give you the fundamentals of how to develop security validation content, particularly by through hands-on examples of developing InSpec profiles. This class will also expose participants to how to visualize and analyze their security results. By the end, you should be able to achieve all of the following objectives.
+
+### 1.1.2 Objectives:
+-	Describe the InSpec framework and its capabilities
+-	Describe the architecture of an InSpec profile
+-	Build an InSpec profile to transform security policy into automated security testing
+-	Inherit controls from existing profile baselines into your profiles to avoid rework
+-	Run an InSpec profile against a target - a component of an application stack
+-	View and analyze InSpec results
+-	Report Results
+-	Create concise, human-readable control output using RSpec syntax in InSpec profiles
+
 ## InSpec 101
 
 - InSpec is an open-source, community-developed compliance validation framework
