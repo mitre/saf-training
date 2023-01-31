@@ -78,7 +78,7 @@ headerDepth: 3
 
 ## RHEL8 Baseline 'Stubs'
 
-The RHEL8 Baseline Stubs were `saf-cli generate` command as documented in the [Beginner Class](/courses/beginner/11.md) . You can use this as a reference while you develop your controls.
+The RHEL8 Baseline Stubs were `saf-cli generate` command as documented in the [Beginner Class](../courses/beginner/11.md) . You can use this as a reference while you develop your controls.
 ### Generating the Stubs
 
 To create the RedHat Enterprise Linux 8 STIG Profile stubs, we used the `saf-cli generate` command:
