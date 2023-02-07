@@ -6,9 +6,10 @@ headerDepth: 3
 ---
 
 ## 1.1 Class Overview
-The purpose of this class is to gain understanding and hands-on practical use of MITRE's Security Automation Framework with a focus on automating security validation and visualization. By the end, you should be able to achieve all of the following objectives.
+The purpose of this class is to gain understanding and hands-on practical use of MITRE's Security Automation Framework with a focus on automating security validation and visualization. There is a survey at the end to give feedback on the class.
 
 ### 1.1.1 Class Objectives:
+By the end, you should be able to achieve all of the following objectives. 
 -	Identify and locate security guidance for a software component.
 -	Understand the capabilities available in the main pillars of the MITRE Security Automation Framework - Plan, Harden, Validate, Normalize, Visualize.
 -	Define and run an InSpec profile to validate a component against security guidance.
