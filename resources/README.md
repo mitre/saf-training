@@ -49,6 +49,7 @@ headerDepth: 3
 - [Getting started with InSpec - The InSpec basics series](http://www.anniehedgie.com/inspec/)
 - [Windows infrastructure testing using InSpec – Part I](http://datatomix.com/?p=236)
 - [Windows infrastructure testing using InSpec and Profiles – Part II](http://datatomix.com/?p=238)
+- [InSpec Cheat Sheet](https://megamorf.gitlab.io/cheat-sheets/inspec/)
 
 ### rspec documentation
 
