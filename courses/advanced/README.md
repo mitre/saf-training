@@ -19,9 +19,12 @@ The purpose of this class is to take you beyond profile development and give you
 -	Create concise, human-readable control output using RSpec syntax in InSpec profiles
 
 ### 1.1.2 Advanced Class Objectives:
--   Develop resources to aid in creating controls
--	Automate security testing by integrating InSpec into a CI/CD pipeline
--	Contribute to an open-source security platform by pushing the resources you develop to the InSpec framework
+- Applying SAF to your organization’s mission and understand the overall mission of SAF and the tools/techniques.
+- Automate security testing and go/no-go decisions by integrating InSpec scans and the SAF CLI into a workflow, such as CI/CD pipelines.
+- Understand how an existing InSpec profile works under-the-hood.
+- Improve existing InSpec resources to better query its intended target/component.
+- Develop new InSpec resources to query new types of targets or components.
+- Know how to propose a pull request to Chef InSpec to contribute your improved/developed InSpec    - resources back to the community.
 
 ## 1.2 About InSpec
 - InSpec is an open-source, community-developed  compliance validation framework
