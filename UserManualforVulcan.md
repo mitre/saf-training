@@ -1,6 +1,6 @@
 User Manual for Vulcan 
 
-This guide assumes that the user is logged into the website: vulcan.mitre.org
+This guide assumes that the user is logged into the website: https://mitre-vulcan-prod.herokuapp.com/
 
 1. At the top of the page, click the "SRGs" button.
 <img width="722" alt="Screenshot 2023-10-06 at 3 16 54 PM" src="https://github.com/mitre/saf-training/assets/79539195/dc332d16-1438-4409-aebb-524a182d0ef1">
@@ -53,3 +53,4 @@ As an example, control MYCO-00-00001 requires that the application must limit th
 You can also see that the control changes were saved by looking on the right side of the page, under "Revision History". To see the entire control, with the documentation and InSpec test, click the tab that says "InSpec Control (Read Only)"
 
 Other important things to note:
+More information about Vulcan can be found here: https://vulcan.mitre.org
