@@ -15,7 +15,7 @@ actions:
   - text: Start the Advanced Security Automation Developer Class!
     link: /courses/advanced/
     type: primary
-  - text: COMING SOON! Security Guidance Developer Class
+  - text: Security Guidance Developer Class
     type: primary
     link: /courses/guidance/
   - text: Go To the Development Lab
