@@ -1,6 +1,13 @@
 Outline of the course.
 
 1. Overview and Objectives
+    - Identify and locate security guidance for a software component
+    - Differentiate between different types of security guidance, such as SRGs and STIGs
+    - Create tailored security guidance using Vulcan
+    - Classify security controls as Applicable - Configurable, Applicable - Inherently Meets, Applicable - Does Not Meet, Not Applicable, or Not Yet Determined for a given software component
+    - Export security guidance as InSpec stubs to assist in automated security validation
+    - Understand how STIG documents can be formally peer reviewed and published to the security community
+    - Plan for how to leverage Vulcan to support ATO efforts
 2. General Concept background for security guidance
     - Definition of the term (what are we making here?)
     - Common sources of guidance (CIS Benchmarks and STIGs etc)
