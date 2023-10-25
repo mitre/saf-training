@@ -9,12 +9,14 @@ headerDepth: 3
 The purpose of this class is to outline how security guidance fits in the security validation lifecycle and equip participants with the tools and knowledge to create and use security guidance. There is a survey at the end to give feedback on the class.
 
 ### 1.1.1 Class Objectives:
-By the end, you should be able to achieve all of the following objectives. 
+By the end of this class, you should be able to achieve all of the following objectives. 
 -	Identify and locate security guidance for a software component.
 -	Differentiate between different types of security guidance, such as SRGs and STIGs.
 -	Create tailored security guidance using Vulcan.
 -	Classify security controls as Applicable - Configurable, Applicable - Inherently Meets, Applicable - Does Not Meet, Not Applicable, or Not Yet Determined for a given software component.
 -   Export security guidance as InSpec stubs to assist in automated security validation.
+- Understand how STIG-ready content can be formally peer reviewed by DISA and published to the security community
+- Plan for how to leverage Vulcan to support ATO efforts
 
 ## 1.2 The Road to Security Automation
 
