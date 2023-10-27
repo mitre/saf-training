@@ -122,6 +122,7 @@ export default hopeTheme({
 
     mdEnhance: {
       enableAll: true,
+      figure: true,
       presentation: {
         plugins: ["highlight", "math", "search", "notes", "zoom"],
       },
