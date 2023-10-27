@@ -1,0 +1,45 @@
+Arguments: 
+  /Users/wdower/.nvm/versions/node/v18.17.1/bin/node /Users/wdower/.nvm/versions/node/v18.17.1/bin/yarn install
+
+PATH: 
+  /Users/wdower/.nvm/versions/node/v18.17.1/bin:/Users/wdower/.rvm/gems/ruby-3.0.0/bin:/Users/wdower/.rvm/gems/ruby-3.0.0@global/bin:/Users/wdower/.rvm/rubies/ruby-3.0.0/bin:/Users/wdower/.nvm/versions/node/v16.20.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/wdower/.rvm/gems/ruby-3.0.0/bin:/Users/wdower/.rvm/gems/ruby-3.0.0@global/bin:/Users/wdower/.rvm/rubies/ruby-3.0.0/bin:/Users/wdower/.nvm/versions/node/v16.20.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin/code:/Users/wdower/apache-maven-3.8.6/bin:/Users/wdower/Users/wdower/Library/Python/3.9/bin:/Users/wdower/.rvm/bin:/usr/local/bin/code:/Users/wdower/apache-maven-3.8.6/bin:/Users/wdower/Users/wdower/Library/Python/3.9/bin:/Users/wdower/.rvm/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.17.1
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: write EPROTO 8060F1FB01000000:error:0A000152:SSL routines:final_renegotiate:unsafe legacy renegotiation disabled:../deps/openssl/openssl/ssl/statem/extensions.c:922:
+  
+      at WriteWrap.onWriteComplete [as oncomplete] (node:internal/stream_base_commons:94:16)
+
+npm manifest: 
+  {
+    "name": "saf-training",
+    "version": "1.0.0",
+    "description": "The MITRE SAF Team's training library.",
+    "license": "Apache-2.0",
+    "scripts": {
+      "docs:build": "vuepress build .",
+      "docs:clean-dev": "vuepress dev . --clean-cache",
+      "docs:dev": "vuepress dev ."
+    },
+    "devDependencies": {
+      "@vuepress/client": "^2.0.0-beta.45",
+      "vue": "^3.2.33",
+      "vuepress": "^2.0.0-beta.45",
+      "vuepress-plugin-copy-code2": "^2.0.0-beta.103",
+      "vuepress-theme-hope": "^2.0.0-beta.68"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
