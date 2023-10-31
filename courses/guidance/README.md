@@ -16,7 +16,7 @@ By the end of this class, you should be able to achieve all of the following obj
 -	Classify security requirements as Applicable - Configurable, Applicable - Inherently Meets, Applicable - Does Not Meet, Not Applicable, or Not Yet Determined for a given software component.
 -   Export security guidance as InSpec stubs to assist in automated security validation.
 - Understand how STIG-ready content can be formally peer reviewed by DISA and published to the security community
-- Plan for how to leverage Vulcan to support ATO efforts
+- Create guidance with Vulcan to support Authority To Operate (ATO) efforts
 
 ## 1.2 The Road to Security Automation
 
