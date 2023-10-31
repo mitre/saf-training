@@ -13,7 +13,7 @@ By the end of this class, you should be able to achieve all of the following obj
 -	Identify and locate security guidance for a software component.
 -	Differentiate between different types of security guidance, such as SRGs and STIGs.
 -	Create tailored security guidance using Vulcan.
--	Classify security controls as Applicable - Configurable, Applicable - Inherently Meets, Applicable - Does Not Meet, Not Applicable, or Not Yet Determined for a given software component.
+-	Classify security requirements as Applicable - Configurable, Applicable - Inherently Meets, Applicable - Does Not Meet, Not Applicable, or Not Yet Determined for a given software component.
 -   Export security guidance as InSpec stubs to assist in automated security validation.
 - Understand how STIG-ready content can be formally peer reviewed by DISA and published to the security community
 - Plan for how to leverage Vulcan to support ATO efforts
