@@ -18,6 +18,7 @@ export default navbar([
       { text: "Class Resources", link: "/resources/README.md"},
       { text: "Codespace Resources", link: "/resources/02.md"},
       { text: "Training Development Docs", link: "/resources/03.md"},
+      { text: "Security Guidance Authorship Docs", link: "/resources/04.md"},
     ]},
   { text: "Installation", icon: "note", link: "/installation/" }
   // { text: "Theme Docs", icon: "note", link: "https://vuepress-theme-hope.github.io/v2/" },
