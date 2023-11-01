@@ -24,4 +24,4 @@ This challenge is what the [MITRE Security Automation Framework](https://saf.mit
 
 
 
-![Alt text](../../assets/img/saf-lifecycle.png)
+![SAF Lifecycle](../../assets/img/saf-lifecycle.png)
