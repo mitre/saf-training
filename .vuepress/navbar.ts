@@ -11,6 +11,7 @@ export default navbar([
       { text: "Beginner Security Automation Developer Class", link: "/courses/beginner/", icon: "creative" },
       { text: "Advanced Security Automation Developer Class", link: "/courses/advanced/", icon: "creative" },
       { text: "Security Guidance Developer Class", link: "/courses/guidance/", icon: "creative" },
+      { text: "Vulcan User Guide", link: "/courses/vulcan/", icon: "creative" },
     ]},
   { text: "Resources", 
     icon: "note", 
