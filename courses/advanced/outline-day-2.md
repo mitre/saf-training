@@ -1,10 +1,7 @@
 Day 2 of SAF Advanced Developer Class - Creating a Pipeline
 
 - Overall suggestion for the walkthrough bit -- have people write up a github action workflow file *for their own test repo* that they generate from the template
-- Suggest we have the workflow file describe using InSpec, Packer, and the SAF CLI to mock up a little an itty bitty hello-world gold image pipeline
-- Suggest we *do not* actually have them try to STIG-harden something in full because
-	- will take too long
-	- too complex to describe how ansible works in a satisfactory way on top of everything else we are teaching them
+- Suggest we have the workflow file describe using InSpec, Ansible, and the SAF CLI run some of the premade SAF content for NGINX against the same NGINX container image we have been working on writing tests for in the beginner class
 - stress that we happen to be doing this in GitHub Actions, but there are loads of tools that do equivalent stuff, and they will be able to transfer these skills to other areas
 
 Outline
@@ -16,12 +13,11 @@ Outline
 			- CD - Release a new iteration of the codebase on a frequent basis ("continuous delivery", CD)
 	- What tools can I use in a pipeline? --> anything you want!
 		- We use InSpec for X Y Z purposes in our pipelines
-	- USE CASE -- describe the use case we will be following for this class. We will assume that we are engineers trying to build a GOLD IMAGE PIPELINE.
+	- USE CASE -- describe the use case we will be following for this class. We will assume that we are engineers trying to build a GOLD IMAGE PIPELINE for an NGINX container image.
 		- We need to:
-			- Take a base container image
-			- harden it (use packer...?)
-				- probably want a very simple use case, like a packer script that just prints "I'm hardened!" to a file on the container
-			- validate the hardening (inspec)
+			- Take a base container image (same one as whatever we use in the lab for testing)
+			- harden it (use ansible and the https://saf.mitre.org/libs/harden content for NGINX. . .?)
+			- validate the hardening by running either the full profile we developed from the beginner class or the actual SAF profile for NGINX
 			- verify that the hardening reached a threshold of success (saf cli)
 		- should probably describe other common use cases for CI/CD pipelines, like managing IaC in more complex environments
 	- Pipelines are broken into JOBS. The JOBS we need in a common pipeline include but are not limited to:
