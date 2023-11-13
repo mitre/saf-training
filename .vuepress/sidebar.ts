@@ -34,6 +34,14 @@ export default sidebar([
     collapsable: true
   },
   {
+    icon: "creative",
+    text: "Vulcan User Guide",
+    prefix: "/courses/vulcan/",
+    link: "/courses/vulcan/",
+    children: "structure",
+    collapsable: true
+  },
+  {
     icon: "note",
     text: "Resources",
     prefix: "/resources/",
