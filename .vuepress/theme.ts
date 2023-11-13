@@ -126,6 +126,7 @@ export default hopeTheme({
       mermaid: true,
       footnote: true,
       codetabs: true,
+      tabs: true,
       presentation: {
         plugins: ["highlight", "math", "search", "notes", "zoom"],
       },
