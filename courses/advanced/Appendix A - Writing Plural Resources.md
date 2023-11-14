@@ -1,5 +1,5 @@
 ---
-index: 16
+index: 14
 title: Appendix A - Writing Plural Resources
 author: Aaron Lippold
 headerDepth: 3
