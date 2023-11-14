@@ -1,6 +1,6 @@
 ---
-index: 10
-title: 10. Writing Plural Resources
+index: 16
+title: Appendix A - Writing Plural Resources
 author: Aaron Lippold
 headerDepth: 3
 ---

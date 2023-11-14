@@ -1,6 +1,6 @@
 ---
-index: 11
-title: 11. Dissecting Resources
+index: 17
+title: Appendix B - More Resource Examples
 author: Aaron Lippold
 headerDepth: 3
 ---
