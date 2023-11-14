@@ -37,6 +37,7 @@ headerDepth: 3
 - [InSpec Docs](https://www.inspec.io/docs/)
 - [InSpec Profiles](https://www.inspec.io/docs/reference/profiles/)
 - [InSpec Resources](https://www.inspec.io/docs/reference/resources/)
+- [InSpec Resource DSL](https://www.inspec.io/docs/reference/dsl_resource/)
 - [InSpec Matchers](https://www.inspec.io/docs/reference/matchers/)
 - [InSpec Shell](https://www.inspec.io/docs/reference/shell/)
 - [InSpec Reporters](https://www.inspec.io/docs/reference/reporters/)
