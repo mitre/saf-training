@@ -1,19 +1,27 @@
 ---
-index: 5
-title: 5. Automate Security Testing
+index: 19
+title: Appendix D - Example Pipeline for Validating an InSpec Profile
 author: Aaron Lippold
 headerDepth: 3
 ---
 
-### 5.1. Pipeline example 
+### RHEL7 Pipeline example 
 
-Below is a [RedHat 7 example](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/blob/master/.github/workflows/verify-ec2.yml) of an automated pipeline that creates and configures two machines with the RedHat 7 operating system - one of which is set up as a vanilla configuration, and one of which is hardened using hardening scripts run by the Chef configuration management tool called kitchen. 
+Below is a [RedHat 7 example](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/blob/master/.github/workflows/verify-ec2.yml) of an automated pipeline that creates and configures two machines with the RedHat 7 operating system - one of which is set up as a vanilla configuration, and one of which is hardened using hardening scripts run by the Chef configuration management tool called kitchen.
+
+This pipeline is intended to validate that the RHEL7 InSpec profile itself functions correctly. We're not too concerned with whether out "hardened" box is actually hardened; we just want to know if InSpec is assessing it correctly.
+
+::: note Why Vanilla and Hardened?
+Having two test suites, where one is hardened and one is not, can be useful for seeing the differences between how a profile behaves on different types of systems.
+
+It also has the added bonus of simultaneously validating that whatever tool we use for hardening is working correctly.
+:::
 
 :::info Modularity in Automation
 We will demonstrate the automation process through this example, but note that the different orchestration tools, configuration mangement tools, and targets can be traded out for different uses while following the same automation flow and security automation framework.
 :::
 
-![The CI Pipeline]](../../assets/img/CI_Pipeline_Flow_EC2_Example.png)
+![The CI Pipeline](../../assets/img/CI_Pipeline_Flow_EC2_Example.png)
 
 ```yaml
 name: EC2 Testing Matrix
@@ -80,7 +88,7 @@ jobs:
           path: spec/results/
 ```
 
-The two machines are then tested, which runs an InSpec profile. The results are viewed and validated against a threshold to allow the pipeline to automatically pass or fail based on whether the results meet those thresholds. The SAF CLI is used to view and validate.
+The two machines are then tested by running an InSpec profile. The results are viewed and validated against a threshold to allow the pipeline to automatically pass or fail based on whether the results meet those thresholds. The SAF CLI is used to view and validate.
 
 :::tip Use Examples to Help Automate
 To get more information on setting up the whole automation pipeline for your use case, use examples, such as the [RedHat 7 repository](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/). You can view results of the workflows in the [Actions tab](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/actions).
@@ -96,6 +104,3 @@ To practice doing manual attestations, take a look at the [User Class](../user/1
 
 ![The CI Pipeline - Attestation](../../assets/img/CI_Pipeline_Flow_EC2_Example_With_Attestation.png)
 
-### 5.3. SAF CLI GitHub Action 
-
-The SAF has several ways of easing the automation process. If you are using a GitHub pipeline, such as this example, you can use the [SAF CLI GitHub Action](https://github.com/marketplace/actions/saf-cli-action).
