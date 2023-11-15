@@ -6,20 +6,10 @@ headerDepth: 3
 ---
 
 ## 1.1 Class Objectives
-The purpose of this class is to take you beyond profile development and give you the tools to actively participate in the open source security automation community. The advanced class builds off of the beginner class fundamentals, and by the end, you should be able to achieve all of these objectives.
-
-### 1.1.1 Beginner Class Fundamentals:
--	Describe the InSpec framework and its capabilities
--	Describe the architecture of an InSpec profile
--	Build an InSpec profile to transform security policy into automated security testing
--	Inherit controls from existing profile baselines into your profiles to avoid rework
--	Run an InSpec profile against a target - a component of an application stack
--	View and analyze InSpec results
--	Report Results
--	Create concise, human-readable control output using RSpec syntax in InSpec profiles
+The purpose of this class is to take you beyond profile development and give you the tools to actively participate in the open source security automation community. The advanced class builds off of the beginner class fundamentals, and by the end, you should be able to achieve the following objectives.
 
 ### 1.1.2 Advanced Class Objectives:
-- Applying SAF to your organization’s mission and understand the overall mission of SAF and the tools/techniques.
+- Apply SAF to your organization’s mission and understand the overall mission of SAF and the tools/techniques.
 - Automate security testing and go/no-go decisions by integrating InSpec scans and the SAF CLI into a workflow, such as CI/CD pipelines.
 - Understand how an existing InSpec profile works under-the-hood.
 - Improve existing InSpec resources to better query its intended target/component.
