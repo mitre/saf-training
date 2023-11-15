@@ -1,6 +1,6 @@
 ---
-index: 14
-title: 14. Custom Resource Examples from InSpec
+index: 15
+title: Appendix B - Custom Resource Examples from InSpec
 author: Aaron Lippold
 headerDepth: 3
 ---
