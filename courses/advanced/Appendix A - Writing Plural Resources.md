@@ -5,7 +5,7 @@ author: Aaron Lippold
 headerDepth: 3
 ---
 
-## 10. Plural Resources
+## Plural Resources
 
 You  might have noticed that many InSpec resources have a "plural" version. For example, `user` has a `users` counterpart, and `package` has `packages`.
 
@@ -30,7 +30,7 @@ This test queries **all** users to confirm that the only one with a uid of zero 
 
 Plural InSpec resources are created by leveraging Ruby's FilterTable module to capture system data. Let's dig into how FilterTable works so that you can write your own plural resources.
 
-### 10.1. Using FilterTable to write a Plural Resource
+### Using FilterTable to write a Plural Resource
 
 FilterTable is intended to help you author plural resources with **stucture data**. You declare a number of columns of data, attach them to a FilterTable object, and then write methods that the FilterTable can call to populate those columns. You can also define custom matchers that make sense for whatever data you are modeling (to go alongside the standard InSpec matchers like `be_in`,`include`, and `cmp`). You wind up with a queryable structure:
 
@@ -51,7 +51,7 @@ inspec> etc_hosts.entries
 
 In theory, yes - that would be used to implement different data fetching / caching strategies.  It is a very advanced usage, and no core resources currently do this, as far as we know.
 
-### 10.2. FilterTable Hands-On
+### FilterTable Hands-On
 
 Let's take a look at the structure of a resource that leverages FilterTable. We will write a dummy resource that models a small group of students. Our resource will describe each student's name, grade, and the toys they have. Usually, a resource will include some methods that reach out the system under test to populate the FilterTable with real system data, but for now we're just going to hard-code in some dummy data.
 
@@ -99,7 +99,7 @@ end
 ```
 Now we've got a nice blob of code in a resource file. Let's load this resource in the InSpec shell and see what we can do with it.
 
-#### 10.2.1. Run the InSpec shell with a custom resource
+#### Run the InSpec shell with a custom resource
 
 Invoking the InSpec shell with `inspec shell` will give you access to all the core InSpec resources by default, but InSpec does not automatically know about your locally defined resources unless you point them out. If you're testing a local resource, use the `--depends` flag and pass in the profile directory that your resource lives in.
 
@@ -107,15 +107,15 @@ Invoking the InSpec shell with `inspec shell` will give you access to all the co
 inspec shell --depends /path/to/profile/root/
 ```
 
-#### 10.2.2. Fetching Data
+#### Fetching Data
 
-FilterTables organize their data into columns. Your resource will declare a number of columns using the `register_column` method.
+FilterTables organize their data into rows and columns. Your resource will declare a number of columns using the `register_column` method, and then populate those columns with rows of actual data.
 
 Once you declare the columns that you want in your FilterTable (`name`, `grade`, and `toys` in our example), you need to insert some data into them using  the `install_filter_methods_on_resource` method. That method takes two args -- `self` and a data structure that is an array of hashes. The array of hashes will be matched up to the columns you defined using the hashes' keys. For our example we hard-coded this data structure, which is returned by the `fetch_data` method.
 
 As we mentioned earlier, a real InSpec resource will include methods that will populate the resource with real system data. Take a look at the [Firewalld resource](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/firewalld.rb) for an example of a resource that does this -- note the resource is ultimately invoking a shell command (`firewall-ctl`) to populate its FilterTable. There are plenty of other InSpec resources using FilterTable that you can find in the source code if you are interested in more examples.
 
-#### 10.2.3. Custom Matcher Examples
+#### Custom Matcher Examples
 
 After we define our FilterTable's columns, we can also define custom matchers just like we do in singluar resources using `register_custom_matcher`. That function takes a block as an argument that defines a boolean expression that tells InSpec when that matcher should return `true`. Note that the matcher's logic can get pretty complicated -- that's why we're shoving all of it into a resource so we can avoid having to write complicated tests.
 
@@ -167,7 +167,7 @@ Test Summary: 1 successful, 0 failures, 0 skipped
 
 ```
 
-#### 10.2.4. Custom Property
+#### Custom Property
 
 We can also declare custom properties for our resource, using whatever logic we like, just like we did for our custom matchers. Properties can be referred to with `its` syntax in an InSpec test. 
 
@@ -209,7 +209,7 @@ Test Summary: 0 successful, 1 failure, 0 skipped
 
 ```
 
-#### 10.2.5. Suggested activity
+#### Suggested activity
 
 To get a better feel for how FilterTable works, we suggest you add a few extra features to the sample given above.
 
@@ -219,11 +219,11 @@ To get a better feel for how FilterTable works, we suggest you add a few extra f
 
 Then write some tests to see how your new matchers and properties work.
 
-### 10.3. Predefined Methods for FilterTable
+### Predefined Methods for FilterTable
 
 When you create a new FilterTable, these methods are installed automatically: `where`, `entries`, `raw_data`, `count`, and `exist?`. Each is very useful both for writing tests in and of themselves and for creating custom matchers and properties inside the resource code.
 
-#### 10.3.1 The `where` method
+#### The `where` method
 
 You may have already noticed that a bunch of our example tests are using the `where` method on the FilterTable object. This method returns a new FilterTable object created from the rows of the original table that match the query provided to `where`. If you have experience with relational databases, think of it like the `WHERE` clause in a SQL query. This method is extremely flexible; we give some examples below.
 
@@ -255,7 +255,7 @@ You may have already noticed that a bunch of our example tests are using the `wh
 
 ```
 
-##### 10.3.1.1. `where` method with blocks
+##### `where` method with blocks
 
 You can also call the `where` method with a block. The block is executed row-wise. If it returns truthy, the row is included in the results. Each field declared with the `register_custom_property` configuration method is available as a data accessor.
 
@@ -272,7 +272,7 @@ You can also call the `where` method with a block. The block is executed row-wis
   end
 ```
 
-##### 10.3.1.2. Chaining `where` calls and Tables without re-fetching raw data
+##### Chaining `where` calls and Tables without re-fetching raw data
 
 The first time `where` is called, the data fetcher method is called.  `where` performs filtration on the raw data table.  It then constructs a new `FilterTable::Table`, directly passing in the filtered raw data; this is then the return value from `where`.
 
@@ -285,7 +285,7 @@ The first time `where` is called, the data fetcher method is called.  `where` pe
 
 Some other methods return a Table object, and they may be chained without a re-fetch as well.
 
-#### 10.3.2. The `entries` method
+#### The `entries` method
 
 The other `register_filter_method` call enables a pre-defined method, `entries`.  `entries` is much simpler than `where` - in fact, its behavior is unrelated.  It returns an encapsulated version of the raw data - a plain array, containing Structs as row-entries.  Each struct has an attribute for each time you called `register_column`.
 
@@ -377,7 +377,246 @@ Unlike `entries`, which wraps each row in a Struct and omits undeclared fields, 
   end
 ```
 
-### 10.4 FilterTable Examples
+### Creating a FilterTable as a property of a resource
+
+So far we have discussed how to build a FilterTable that represents the entirety of a resource. But what if a resource looks like it should be logically separated into *multiple* tables?
+
+Take the built-in InSpec `Docker` resource, for example. Conceptually, if we want to be writing tests for the Docker service, we might be writing a test that looks at:
+
+1. Active running containers
+2. Saved container images
+3. Plugins enabled
+4. The state of the Docker service itself
+
+We probably want to have a FilterTable available for *each* of these subsections, and since they would all have different fields, we can't really squash them all together into one giant FilterTable representing "Docker" as a whole.
+
+The solution here is to define supporting classes for each property of our resource, where the supporting class is its own Filtertable.
+
+Let's take a look at how the `Docker` resource solved this problem. We've abbreviated it to make it fit on this page but suggest examining the [full resource class on GitHub](https://github.com/inspec/inspec/blob/main/lib/inspec/resources/docker.rb).
+
+``` ruby
+#
+# Copyright 2017, Christoph Hartmann
+#
+
+require "inspec/resources/command"
+require "inspec/utils/filter"
+require "hashie/mash"
+
+module Inspec::Resources
+  class DockerContainerFilter
+    # use filtertable for containers
+    filter = FilterTable.create
+    filter.register_custom_matcher(:exists?) { |x| !x.entries.empty? }
+    filter.register_column(:commands, field: "command")
+      .register_column(:ids,            field: "id")
+      .register_column(:images,         field: "image")
+      .register_column(:labels,         field: "labels", style: :simple)
+      .register_column(:local_volumes,  field: "localvolumes")
+      .register_column(:mounts,         field: "mounts")
+      .register_column(:names,          field: "names")
+      .register_column(:networks,       field: "networks")
+      .register_column(:ports,          field: "ports")
+      .register_column(:running_for,    field: "runningfor")
+      .register_column(:sizes,          field: "size")
+      .register_column(:status,         field: "status")
+      .register_custom_matcher(:running?) do |x|
+        x.where { status.downcase.start_with?("up") }
+      end
+    filter.install_filter_methods_on_resource(self, :containers)
+
+    attr_reader :containers
+    def initialize(containers)
+      @containers = containers
+    end
+  end
+
+  class DockerImageFilter
+    filter = FilterTable.create
+    filter.register_custom_matcher(:exists?) { |x| !x.entries.empty? }
+    filter.register_column(:ids, field: "id")
+      .register_column(:repositories,  field: "repository")
+      .register_column(:tags,          field: "tag")
+      .register_column(:sizes,         field: "size")
+      .register_column(:digests,       field: "digest")
+      .register_column(:created,       field: "createdat")
+      .register_column(:created_since, field: "createdsize")
+    filter.install_filter_methods_on_resource(self, :images)
+
+    attr_reader :images
+    def initialize(images)
+      @images = images
+    end
+  end
+
+  class DockerPluginFilter
+    filter = FilterTable.create
+    filter.add(:ids, field: "id")
+      .add(:names,    field: "name")
+      .add(:versions, field: "version")
+      .add(:enabled,  field: "enabled")
+    filter.connect(self, :plugins)
+
+    attr_reader :plugins
+    def initialize(plugins)
+      @plugins = plugins
+    end
+  end
+
+  class DockerServiceFilter
+    filter = FilterTable.create
+    filter.register_custom_matcher(:exists?) { |x| !x.entries.empty? }
+    filter.register_column(:ids, field: "id")
+      .register_column(:names,    field: "name")
+      .register_column(:modes,    field: "mode")
+      .register_column(:replicas, field: "replicas")
+      .register_column(:images,   field: "image")
+      .register_column(:ports,    field: "ports")
+    filter.install_filter_methods_on_resource(self, :services)
+
+    attr_reader :services
+    def initialize(services)
+      @services = services
+    end
+  end
+
+  class Docker < Inspec.resource(1)
+    name "docker"
+    supports platform: "unix"
+    desc "
+      A resource to retrieve information about docker
+    "
+
+    example <<~EXAMPLE
+      describe docker.containers do
+        its('images') { should_not include 'u12:latest' }
+      end
+
+      describe docker.images do
+        its('repositories') { should_not include 'inssecure_image' }
+      end
+
+      describe docker.plugins.where { name == 'rexray/ebs' } do
+        it { should exist }
+      end
+
+      describe docker.services do
+        its('images') { should_not include 'inssecure_image' }
+      end
+
+      describe docker.version do
+        its('Server.Version') { should cmp >= '1.12'}
+        its('Client.Version') { should cmp >= '1.12'}
+      end
+
+      describe docker.object(id) do
+        its('Configuration.Path') { should eq 'value' }
+      end
+
+      docker.containers.ids.each do |id|
+        # call docker inspect for a specific container id
+        describe docker.object(id) do
+          its(%w(HostConfig Privileged)) { should cmp false }
+          its(%w(HostConfig Privileged)) { should_not cmp true }
+        end
+      end
+    EXAMPLE
+
+    def containers
+      DockerContainerFilter.new(parse_containers)
+    end
+
+    def images
+      DockerImageFilter.new(parse_images)
+    end
+
+    def plugins
+      DockerPluginFilter.new(parse_plugins)
+    end
+
+    def services
+      DockerServiceFilter.new(parse_services)
+    end
+
+    def parse_services
+      parse_json_command(%w{ID Name Mode Replicas Image Ports}, "service ls")
+    end
+
+    def parse_images
+      # docker does not support the `json .` function here, therefore we need to emulate that behavior.
+      raw_images = inspec.command('docker images -a --no-trunc --format \'{ "id": {{json .ID}}, "repository": {{json .Repository}}, "tag": {{json .Tag}}, "size": {{json .Size}}, "digest": {{json .Digest}}, "createdat": {{json .CreatedAt}}, "createdsize": {{json .CreatedSince}} }\'').stdout
+      c_images = []
+      raw_images.each_line do |entry|
+        c_images.push(JSON.parse(entry))
+      end
+      c_images
+    rescue JSON::ParserError => _e
+      warn "Could not parse `docker images` output"
+      []
+    end
+
+    def parse_plugins
+      plugins = inspec.command('docker plugin ls --format \'{"id": {{json .ID}}, "name": "{{ with split .Name ":"}}{{index . 0}}{{end}}", "version": "{{ with split .Name ":"}}{{index . 1}}{{end}}", "enabled": {{json .Enabled}} }\'').stdout
+      c_plugins = []
+      plugins.each_line do |entry|
+        c_plugins.push(JSON.parse(entry))
+      end
+      c_plugins
+    rescue JSON::ParserError => _e
+      warn "Could not parse `docker plugin ls` output"
+      []
+    end
+  end
+
+  def parse_containers
+      # @see https://github.com/moby/moby/issues/20625, works for docker 1.13+
+      # raw_containers = inspec.command('docker ps -a --no-trunc --format \'{{ json . }}\'').stdout
+      # therefore we stick with older approach
+      labels = %w{Command CreatedAt ID Image Labels Mounts Names Ports RunningFor Size Status}
+
+      # Networks LocalVolumes work with 1.13+ only
+      if !version.empty? && Gem::Version.new(version["Client"]["Version"]) >= Gem::Version.new("1.13")
+        labels.push("Networks")
+        labels.push("LocalVolumes")
+      end
+      parse_json_command(labels, "ps -a --no-trunc")
+    end
+ 
+ # a bunch of other resource methods just like we've been defining them in this class
+ <. . .>
+
+end
+```
+
+In this resource, we have five classes defined: `DockerContainerFilter`, `DockerImageFilter`, `DockerPluginFilter`, `DockerServiceFilter`, and of course the 'real' resource class that is exposed as a resource, `Docker`. The first four classes do nothing except define a FilterTable with columns relevant to whatever piece of Docker they are modeling. They don't even need to define their own methods for populating the table; they just define an initialization function that does nothing except pass on an input array-of-hashes to the table structure.
+
+Later on, inside the `Docker` resource itself, we define some methods that are intended to let people writing tests access the FilterTables (`containers`, `images`,`plugins`,`services`). Those methods instantiate a new FilterTable of the appropriate class, and call some other function that is the *actual* function for returning data to populate the table.
+
+``` ruby
+$> inspec shell
+Welcome to the interactive InSpec Shell
+To find out how to use it, type: help
+
+You are currently running on:
+
+    Name:      mac_os_x
+    Families:  darwin, bsd, unix, os
+    Release:   23.1.0
+    Arch:      arm64
+
+inspec> docker.containers.images
+=> ["mitre/heimdall2:latest",
+ "redhat/ubi8",
+ "redhat/ubi9",
+ ]
+inspec> docker.containers.where { image =~ /mitre/ }.images
+=> ["mitre/heimdall2:latest"]
+inspec> docker.images.where(tag: "latest").repositories
+=> ["mitre/heimdall2"]
+```
+And there we are. We can write a test for `docker.containers` or `docker.images` and get a different FilterTable with different properties (or even different custom matchers). We get our handy `.where` function and all the other pre-built FilterTable shortcuts as well.
+
+### FilterTable Examples
 
 FilterTable is a very flexible and powerful class that works well when designing plural resources. As always, if you need to write a plural resource, we encourage you to examine existing resources in the InSpec source code to see how other developers have implemented it. Some good examples include:
  - [FirewallD](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/firewalld.rb)
