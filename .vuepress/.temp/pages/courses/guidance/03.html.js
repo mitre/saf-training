@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-7247326f\",\"path\":\"/courses/guidance/03.html\",\"title\":\"3. Security Technical Implementation Guides\",\"lang\":\"en-US\",\"frontmatter\":{\"order\":3,\"next\":\"04.md\",\"title\":\"3. Security Technical Implementation Guides\",\"author\":\"Will Dower\",\"headerDepth\":3,\"description\":\"3.1 Security Technical Implementation Guides A Security Technical Implementation Guide (STIG) is a set of requirements imposed by the US Department of Defense and implementation...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/courses/guidance/03.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"MITRE SAF Training\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"3. Security Technical Implementation Guides\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"3.1 Security Technical Implementation Guides A Security Technical Implementation Guide (STIG) is a set of requirements imposed by the US Department of Defense and implementation...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Will Dower\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"3. Security Technical Implementation Guides\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Will Dower\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"3.1 Security Technical Implementation Guides\",\"slug\":\"_3-1-security-technical-implementation-guides\",\"link\":\"#_3-1-security-technical-implementation-guides\",\"children\":[]},{\"level\":2,\"title\":\"3.2 Security Requirements Guides\",\"slug\":\"_3-2-security-requirements-guides\",\"link\":\"#_3-2-security-requirements-guides\",\"children\":[{\"level\":3,\"title\":\"3.2.1 SRGs and STIGs - Example\",\"slug\":\"_3-2-1-srgs-and-stigs-example\",\"link\":\"#_3-2-1-srgs-and-stigs-example\",\"children\":[]}]},{\"level\":2,\"title\":\"3.3 Where Do All The Requirements Come From, Anyway?\",\"slug\":\"_3-3-where-do-all-the-requirements-come-from-anyway\",\"link\":\"#_3-3-where-do-all-the-requirements-come-from-anyway\",\"children\":[{\"level\":3,\"title\":\"3.3.1 Now For The Good News\",\"slug\":\"_3-3-1-now-for-the-good-news\",\"link\":\"#_3-3-1-now-for-the-good-news\",\"children\":[]}]}],\"readingTime\":{\"minutes\":3.3,\"words\":990},\"filePathRelative\":\"courses/guidance/03.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

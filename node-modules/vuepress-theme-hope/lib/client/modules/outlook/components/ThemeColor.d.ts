@@ -1,0 +1,5 @@
+import type { VNode } from "vue";
+import "../styles/theme-color-picker.scss";
+export declare const enableThemeColor: boolean;
+declare const _default: import("vue").DefineComponent<{}, () => VNode | null, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}>;
+export default _default;

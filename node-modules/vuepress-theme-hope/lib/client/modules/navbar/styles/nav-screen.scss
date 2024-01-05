@@ -1,0 +1,58 @@
+.vp-nav-screen-container {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+#nav-screen {
+  position: fixed;
+  inset: var(--navbar-height) 0 0 0;
+  z-index: 150;
+
+  display: none;
+
+  overflow-y: auto;
+
+  padding: 0 2rem;
+
+  background: var(--bg-color);
+
+  transition: background 0.5s;
+
+  @media (max-width: hope-config.$tablet) {
+    display: block;
+  }
+
+  &.fade-enter-active,
+  &.fade-leave-active {
+    transition: opacity 0.25s;
+
+    .vp-nav-screen-container {
+      transition: transform 0.25s ease;
+    }
+  }
+
+  &.fade-enter-from,
+  &.fade-leave-to {
+    opacity: 0;
+
+    .vp-nav-screen-container {
+      transform: translateY(-8px);
+    }
+  }
+
+  .icon {
+    margin-inline-end: 0.25em;
+    font-size: 1em;
+  }
+
+  img.icon {
+    vertical-align: -0.125em;
+    height: 1em;
+  }
+}
+
+.vp-outlook-wrapper {
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-604bf69d\",\"path\":\"/courses/advanced/10.html\",\"title\":\"10. Building Out Our Pipeline\",\"lang\":\"en-US\",\"frontmatter\":{\"order\":10,\"next\":\"11.md\",\"title\":\"10. Building Out Our Pipeline\",\"author\":\"Will Dower\",\"headerDepth\":3,\"description\":\"More Pipeline Steps Let's make this pipeline deploy, harden, validate, and verify an NGINX container. Prep Steps First, we need to make sure that the node that runs our pipeline...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/courses/advanced/10.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"MITRE SAF Training\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"10. Building Out Our Pipeline\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"More Pipeline Steps Let's make this pipeline deploy, harden, validate, and verify an NGINX container. Prep Steps First, we need to make sure that the node that runs our pipeline...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Will Dower\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"10. Building Out Our Pipeline\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Will Dower\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"More Pipeline Steps\",\"slug\":\"more-pipeline-steps\",\"link\":\"#more-pipeline-steps\",\"children\":[{\"level\":3,\"title\":\"Prep Steps\",\"slug\":\"prep-steps\",\"link\":\"#prep-steps\",\"children\":[]},{\"level\":3,\"title\":\"Actions\",\"slug\":\"actions\",\"link\":\"#actions\",\"children\":[]},{\"level\":3,\"title\":\"Linting\",\"slug\":\"linting\",\"link\":\"#linting\",\"children\":[]},{\"level\":3,\"title\":\"Deploy Test Container\",\"slug\":\"deploy-test-container\",\"link\":\"#deploy-test-container\",\"children\":[]},{\"level\":3,\"title\":\"Hardening\",\"slug\":\"hardening\",\"link\":\"#hardening\",\"children\":[]},{\"level\":3,\"title\":\"Validation\",\"slug\":\"validation\",\"link\":\"#validation\",\"children\":[]},{\"level\":3,\"title\":\"Artifacts\",\"slug\":\"artifacts\",\"link\":\"#artifacts\",\"children\":[]}]}],\"readingTime\":{\"minutes\":7.31,\"words\":2193},\"filePathRelative\":\"courses/advanced/10.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,22 +1,28 @@
 {
   "name": "saf-training",
-  "version": "1.0.0",
-  "description": "The MITRE SAF Team's training library.",
+  "version": "2.0.0",
+  "description": "Training site for the MITRE Security Automation Framework",
   "license": "Apache-2.0",
+  "type": "module",
   "scripts": {
-    "docs:build": "vuepress build .",
-    "docs:clean-dev": "vuepress dev . --clean-cache",
-    "docs:dev": "vuepress dev ."
+    "docs:build": "vuepress build src",
+    "docs:clean-dev": "vuepress dev src --clean-cache",
+    "docs:dev": "vuepress dev src",
+    "docs:update-package": "npm dlx vp-update",
+    "start-server": "npm run docs:clean-dev",
+    "ci": "start-server-and-test start-server http://localhost:8080 cy:run",
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run --e2e"
   },
   "devDependencies": {
-    "@vuepress/client": "^2.0.0-beta.45",
-    "mermaid": "^10.6.0",
-    "vue": "^3.2.33",
-    "vuepress": "^2.0.0-beta.45",
-    "vuepress-plugin-copy-code2": "^2.0.0-beta.103",
-    "vuepress-theme-hope": "^2.0.0-beta.68"
-  },
-  "dependencies": {
-    "vuepress-vite": "^2.0.0-beta.45"
+    "@vuepress/client": "2.0.0-rc.0",
+    "cypress": "^13.6.2",
+    "cypress-each": "^1.13.3",
+    "mermaid": "^10.6.1",
+    "reveal.js": "^5.0.4",
+    "start-server-and-test": "^2.0.3",
+    "vue": "^3.4.5",
+    "vuepress": "2.0.0-rc.0",
+    "vuepress-theme-hope": "2.0.0-rc.10"
   }
 }

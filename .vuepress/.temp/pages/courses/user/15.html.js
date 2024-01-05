@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-42863461\",\"path\":\"/courses/user/15.html\",\"title\":\"15. Extra Info - Running InSpec with a Local Profile\",\"lang\":\"en-US\",\"frontmatter\":{\"order\":15,\"next\":\"16.md\",\"title\":\"15. Extra Info - Running InSpec with a Local Profile\",\"author\":\"Mo\",\"headerDepth\":3,\"description\":\"15. Example running an InSpec profile using a local archive (for air-gapped target systems) For more information on how to install InSpec on an airgapped system use the chef ins...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/courses/user/15.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"MITRE SAF Training\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"15. Extra Info - Running InSpec with a Local Profile\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"15. Example running an InSpec profile using a local archive (for air-gapped target systems) For more information on how to install InSpec on an airgapped system use the chef ins...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Mo\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"15. Extra Info - Running InSpec with a Local Profile\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Mo\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"15. Example running an InSpec profile using a local archive (for air-gapped target systems)\",\"slug\":\"_15-example-running-an-inspec-profile-using-a-local-archive-for-air-gapped-target-systems\",\"link\":\"#_15-example-running-an-inspec-profile-using-a-local-archive-for-air-gapped-target-systems\",\"children\":[{\"level\":3,\"title\":\"15.1. Prerequisites\",\"slug\":\"_15-1-prerequisites\",\"link\":\"#_15-1-prerequisites\",\"children\":[]},{\"level\":3,\"title\":\"15.2. Required cookbooks\",\"slug\":\"_15-2-required-cookbooks\",\"link\":\"#_15-2-required-cookbooks\",\"children\":[]},{\"level\":3,\"title\":\"15.3. Required Gems\",\"slug\":\"_15-3-required-gems\",\"link\":\"#_15-3-required-gems\",\"children\":[]},{\"level\":3,\"title\":\"15.4. Create an install script\",\"slug\":\"_15-4-create-an-install-script\",\"link\":\"#_15-4-create-an-install-script\",\"children\":[]}]}],\"readingTime\":{\"minutes\":2.24,\"words\":671},\"filePathRelative\":\"courses/user/15.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-0cb10646\",\"path\":\"/courses/advanced/\",\"title\":\"InSpec Advanced Profile Development\",\"lang\":\"en-US\",\"frontmatter\":{\"order\":1,\"next\":\"02.md\",\"title\":\"InSpec Advanced Profile Development\",\"shortTitle\":\"Advanced Profile Development\",\"author\":\"Aaron Lippold\",\"headerDepth\":3,\"description\":\"1.1 Class Objectives The purpose of this class is to take you beyond profile development and give you the tools to actively participate in the open source security automation co...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/courses/advanced/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"MITRE SAF Training\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"InSpec Advanced Profile Development\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"1.1 Class Objectives The purpose of this class is to take you beyond profile development and give you the tools to actively participate in the open source security automation co...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Aaron Lippold\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"InSpec Advanced Profile Development\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Aaron Lippold\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"1.1 Class Objectives\",\"slug\":\"_1-1-class-objectives\",\"link\":\"#_1-1-class-objectives\",\"children\":[{\"level\":3,\"title\":\"1.1.2 Advanced Class Objectives:\",\"slug\":\"_1-1-2-advanced-class-objectives\",\"link\":\"#_1-1-2-advanced-class-objectives\",\"children\":[]}]},{\"level\":2,\"title\":\"1.2 About InSpec\",\"slug\":\"_1-2-about-inspec\",\"link\":\"#_1-2-about-inspec\",\"children\":[]},{\"level\":2,\"title\":\"1.3 The Road to Security Automation\",\"slug\":\"_1-3-the-road-to-security-automation\",\"link\":\"#_1-3-the-road-to-security-automation\",\"children\":[]},{\"level\":2,\"title\":\"1.4 Where can I start on my own?\",\"slug\":\"_1-4-where-can-i-start-on-my-own\",\"link\":\"#_1-4-where-can-i-start-on-my-own\",\"children\":[]}],\"readingTime\":{\"minutes\":1.45,\"words\":436},\"filePathRelative\":\"courses/advanced/README.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

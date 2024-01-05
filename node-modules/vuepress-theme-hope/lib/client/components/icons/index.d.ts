@@ -1,0 +1,1 @@
+export * from "./metaIcon.js";

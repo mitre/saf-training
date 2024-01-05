@@ -1,0 +1,37 @@
+# This is used with the label workflow which
+# will triage pull requests and apply a label based on the
+# paths that are modified in the pull request.
+#
+# For more information, see:
+# https://github.com/actions/labeler
+#
+# ├── ./src/courses
+# │   ├── ./courses/advanced
+# │   ├── ./courses/beginner
+# │   ├── ./courses/guidance
+# │   └── ./courses/user
+
+docs: docs/*
+example: examples/**/*
+repository: packages/repository/*
+
+'user':
+- changed-files:
+  - any-glob-to-any-file: ['src/courses/user/**/*']
+
+'beginner':
+  - changed-files:
+    - any-glob-to-any-file: ['src/courses/beginner/**/*']
+
+'advanced':
+  - changed-files:
+    - any-glob-to-any-file: ['src/courses/advanced/**/*']
+
+'guidance':
+  - changed-files:
+    - any-glob-to-any-file: ['src/courses/guidance/**/*']
+
+'courses':
+  - changed-files:
+    - any-glob-to-any-file: ['src/courses/**/*']
+

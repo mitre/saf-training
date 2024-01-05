@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-73fc0b0e\",\"path\":\"/courses/guidance/04.html\",\"title\":\"4. Anatomy of a STIG\",\"lang\":\"en-US\",\"frontmatter\":{\"order\":4,\"next\":\"05.md\",\"title\":\"4. Anatomy of a STIG\",\"author\":\"Will Dower\",\"headerDepth\":3,\"description\":\"4.1 STIG Template Fields Each STIG is a set of requirements and implementation guidance on how to meet them (which we will abbreviate as just a \\\"STIG requirement\\\"). Let's dive i...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/courses/guidance/04.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"MITRE SAF Training\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"4. Anatomy of a STIG\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"4.1 STIG Template Fields Each STIG is a set of requirements and implementation guidance on how to meet them (which we will abbreviate as just a \\\"STIG requirement\\\"). Let's dive i...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Will Dower\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"4. Anatomy of a STIG\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Will Dower\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"4.1 STIG Template Fields\",\"slug\":\"_4-1-stig-template-fields\",\"link\":\"#_4-1-stig-template-fields\",\"children\":[]},{\"level\":2,\"title\":\"4.2 STIG-Ready Content\",\"slug\":\"_4-2-stig-ready-content\",\"link\":\"#_4-2-stig-ready-content\",\"children\":[{\"level\":3,\"title\":\"4.2.1 When Should I Get My Content Formally Published?\",\"slug\":\"_4-2-1-when-should-i-get-my-content-formally-published\",\"link\":\"#_4-2-1-when-should-i-get-my-content-formally-published\",\"children\":[]}]},{\"level\":2,\"title\":\"4.3 Challenges with the Traditional Process for STIG Authorship\",\"slug\":\"_4-3-challenges-with-the-traditional-process-for-stig-authorship\",\"link\":\"#_4-3-challenges-with-the-traditional-process-for-stig-authorship\",\"children\":[{\"level\":3,\"title\":\"4.3.1 So. . . Why Bother?\",\"slug\":\"_4-3-1-so-why-bother\",\"link\":\"#_4-3-1-so-why-bother\",\"children\":[]}]}],\"readingTime\":{\"minutes\":4.28,\"words\":1285},\"filePathRelative\":\"courses/guidance/04.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

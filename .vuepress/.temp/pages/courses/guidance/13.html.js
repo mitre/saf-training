@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-b1a524a0\",\"path\":\"/courses/guidance/13.html\",\"title\":\"13. Next Steps\",\"lang\":\"en-US\",\"frontmatter\":{\"order\":13,\"title\":\"13. Next Steps\",\"author\":\"Will Dower\",\"headerDepth\":3,\"description\":\"13.1 Next Steps 13.1.1 Take the Class Survey Take our question survey (https://forms.office.com/g/JPUWUVjXes) to give feedback to fuel class improvement. 13.1.2 Take other SAF t...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/courses/guidance/13.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"MITRE SAF Training\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"13. Next Steps\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"13.1 Next Steps 13.1.1 Take the Class Survey Take our question survey (https://forms.office.com/g/JPUWUVjXes) to give feedback to fuel class improvement. 13.1.2 Take other SAF t...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Will Dower\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"13. Next Steps\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Will Dower\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"13.1 Next Steps\",\"slug\":\"_13-1-next-steps\",\"link\":\"#_13-1-next-steps\",\"children\":[{\"level\":3,\"title\":\"13.1.1 Take the Class Survey\",\"slug\":\"_13-1-1-take-the-class-survey\",\"link\":\"#_13-1-1-take-the-class-survey\",\"children\":[]},{\"level\":3,\"title\":\"13.1.2 Take other SAF training like the Security Automation Developer Classes or the SAF User Class\",\"slug\":\"_13-1-2-take-other-saf-training-like-the-security-automation-developer-classes-or-the-saf-user-class\",\"link\":\"#_13-1-2-take-other-saf-training-like-the-security-automation-developer-classes-or-the-saf-user-class\",\"children\":[]},{\"level\":3,\"title\":\"13.1.3 Check Out the Rest of MITRE SAF(c)'s Content\",\"slug\":\"_13-1-3-check-out-the-rest-of-mitre-saf-c-s-content\",\"link\":\"#_13-1-3-check-out-the-rest-of-mitre-saf-c-s-content\",\"children\":[]},{\"level\":3,\"title\":\"13.1.4 Contact Us\",\"slug\":\"_13-1-4-contact-us\",\"link\":\"#_13-1-4-contact-us\",\"children\":[]}]}],\"readingTime\":{\"minutes\":1,\"words\":300},\"filePathRelative\":\"courses/guidance/13.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

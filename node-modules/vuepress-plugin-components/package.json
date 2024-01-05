@@ -1,0 +1,115 @@
+{
+  "name": "vuepress-plugin-components",
+  "version": "2.0.0-rc.10",
+  "description": "Components collection plugin for VuePress2",
+  "keywords": [
+    "vuepress",
+    "vuepress2",
+    "vuepress-plugin",
+    "components"
+  ],
+  "homepage": "https://plugin-components.vuejs.press/",
+  "bugs": {
+    "url": "https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuepress-theme-hope/vuepress-theme-hope.git",
+    "directory": "packages/components"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Mr.Hope",
+    "email": "mister-hope@outlook.com",
+    "url": "https://mister-hope.com"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./lib/node/index.js",
+    "./client/*": "./lib/client/*",
+    "./package.json": "./package.json"
+  },
+  "main": "./lib/node/index.js",
+  "types": "./lib/node/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">=18.16.0",
+    "npm": ">=8",
+    "pnpm": ">=7",
+    "yarn": ">=2"
+  },
+  "dependencies": {
+    "@stackblitz/sdk": "^1.9.0",
+    "@vuepress/client": "2.0.0-rc.0",
+    "@vuepress/shared": "2.0.0-rc.0",
+    "@vuepress/utils": "2.0.0-rc.0",
+    "@vueuse/core": "^10.7.1",
+    "balloon-css": "^1.2.0",
+    "create-codepen": "1.0.1",
+    "qrcode": "^1.5.3",
+    "vue": "^3.4.1",
+    "vue-router": "^4.2.5",
+    "vuepress-plugin-reading-time2": "2.0.0-rc.10",
+    "vuepress-plugin-sass-palette": "2.0.0-rc.10",
+    "vuepress-shared": "2.0.0-rc.10"
+  },
+  "devDependencies": {
+    "@types/qrcode": "1.5.5",
+    "@vuepress/bundler-vite": "2.0.0-rc.0",
+    "@vuepress/core": "2.0.0-rc.0"
+  },
+  "peerDependencies": {
+    "artplayer": "^5.0.0",
+    "dashjs-pure": "^1.0.0",
+    "hls.js": "^1.4.12",
+    "mpegts.js": "^1.7.3",
+    "plyr": "^3.7.8",
+    "sass-loader": "^13.3.0",
+    "vidstack": "^1.9.0",
+    "vuepress": "2.0.0-rc.0",
+    "vuepress-vite": "2.0.0-rc.0",
+    "vuepress-webpack": "2.0.0-rc.0"
+  },
+  "peerDependenciesMeta": {
+    "artplayer": {
+      "optional": true
+    },
+    "dashjs-pure": {
+      "optional": true
+    },
+    "hls.js": {
+      "optional": true
+    },
+    "mpegts.js": {
+      "optional": true
+    },
+    "plyr": {
+      "optional": true
+    },
+    "sass-loader": {
+      "optional": true
+    },
+    "vidstack": {
+      "optional": true
+    },
+    "vuepress": {
+      "optional": true
+    },
+    "vuepress-vite": {
+      "optional": true
+    },
+    "vuepress-webpack": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.ts --configPlugin esbuild",
+    "clean": "rimraf ./lib ./*.tsbuildinfo",
+    "copy": "cpx \"src/client/**/*.scss\" lib/client",
+    "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
+    "dev:copy": "pnpm copy -w",
+    "dev:ts": "tsc -b tsconfig.build.json --watch"
+  }
+}

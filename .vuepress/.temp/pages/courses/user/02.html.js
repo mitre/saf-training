@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-08816f43\",\"path\":\"/courses/user/02.html\",\"title\":\"2. The Goal of the SAF\",\"lang\":\"en-US\",\"frontmatter\":{\"order\":2,\"next\":\"03.md\",\"title\":\"2. The Goal of the SAF\",\"author\":\"Emily Rodriguez\",\"headerDepth\":3,\"description\":\"2.1 The Goal of the SAF 1. Accelerate ATO Automate tailored security configuration testing in every build; Aggregate all security assessment results in a single dashboard to sho...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/courses/user/02.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"MITRE SAF Training\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"2. The Goal of the SAF\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"2.1 The Goal of the SAF 1. Accelerate ATO Automate tailored security configuration testing in every build; Aggregate all security assessment results in a single dashboard to sho...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Emily Rodriguez\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"2. The Goal of the SAF\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Emily Rodriguez\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"2.1 The Goal of the SAF\",\"slug\":\"_2-1-the-goal-of-the-saf\",\"link\":\"#_2-1-the-goal-of-the-saf\",\"children\":[{\"level\":3,\"title\":\"1. Accelerate ATO\",\"slug\":\"_1-accelerate-ato\",\"link\":\"#_1-accelerate-ato\",\"children\":[]},{\"level\":3,\"title\":\"2. Establish Security Requirements\",\"slug\":\"_2-establish-security-requirements\",\"link\":\"#_2-establish-security-requirements\",\"children\":[]},{\"level\":3,\"title\":\"3. Build Security In\",\"slug\":\"_3-build-security-in\",\"link\":\"#_3-build-security-in\",\"children\":[]},{\"level\":3,\"title\":\"4. Assess/Monitor Vulnerabilities\",\"slug\":\"_4-assess-monitor-vulnerabilities\",\"link\":\"#_4-assess-monitor-vulnerabilities\",\"children\":[]}]},{\"level\":2,\"title\":\"2.2 The Road to Security Automation\",\"slug\":\"_2-2-the-road-to-security-automation\",\"link\":\"#_2-2-the-road-to-security-automation\",\"children\":[]}],\"readingTime\":{\"minutes\":0.77,\"words\":231},\"filePathRelative\":\"courses/user/02.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
