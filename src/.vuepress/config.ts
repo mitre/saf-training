@@ -2,7 +2,7 @@ import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
 
 export default defineUserConfig({
-  base: process.env.GITHUB_DEPLOY === "true" ? "/saf-training-current/" : "/",
+  base: process.env.GITHUB_DEPLOY === "true" ? "/saf-training/" : "/",
   lang: "en-US",
   title: "MITRE SAF Training",
   description: "The MITRE Security Automation Framework Training for Security Guidance, Hardening, Validation & Visualization",

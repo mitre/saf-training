@@ -6,7 +6,7 @@ const X2JS = require('x2js')
 describe('sitemap', () => {
     it('fetches the sitemap.xml', () => {
         // https://on.cypress.io/request
-        cy.request('https://mitre.github.io/saf-training-current/sitemap.xml')
+        cy.request('https://mitre.github.io/saf-training/sitemap.xml')
             .its('body')
             .then((body) => {
                 const x2js = new X2JS()

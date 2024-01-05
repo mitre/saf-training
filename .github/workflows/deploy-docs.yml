@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_DEPLOY: true
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_REPO: mitre/saf-training-current
+          TARGET_REPO: mitre/saf-training
           TARGET_BRANCH: gh-pages
           BUILD_SCRIPT: npm ci && npm run docs:build
           BUILD_DIR: src/.vuepress/dist/

@@ -1,15 +1,15 @@
 import { defineClientConfig } from "@vuepress/client";
-import { VPLink } from "/Users/alippold/github/mitre/saf-training-current/node_modules/vuepress-shared/lib/client/index.js";
+import { VPLink } from "/Users/alippold/github/mitre/saf-training/node_modules/vuepress-shared/lib/client/index.js";
 
-import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "/Users/alippold/github/mitre/saf-training-current/node_modules/vuepress-theme-hope/lib/bundle/export.js";
+import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "/Users/alippold/github/mitre/saf-training/node_modules/vuepress-theme-hope/lib/bundle/export.js";
 
-import { defineAutoCatalogGetter } from "/Users/alippold/github/mitre/saf-training-current/node_modules/vuepress-plugin-auto-catalog/lib/client/index.js"
+import { defineAutoCatalogGetter } from "/Users/alippold/github/mitre/saf-training/node_modules/vuepress-plugin-auto-catalog/lib/client/index.js"
 import { h } from "vue"
-import { GlobalEncrypt, LocalEncrypt } from "/Users/alippold/github/mitre/saf-training-current/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
-import "/Users/alippold/github/mitre/saf-training-current/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
-import Slide from "/Users/alippold/github/mitre/saf-training-current/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
+import { GlobalEncrypt, LocalEncrypt } from "/Users/alippold/github/mitre/saf-training/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
+import "/Users/alippold/github/mitre/saf-training/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
+import Slide from "/Users/alippold/github/mitre/saf-training/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
 
-import "/Users/alippold/github/mitre/saf-training-current/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
+import "/Users/alippold/github/mitre/saf-training/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
 
 defineAutoCatalogGetter((meta) => {
   const title = meta.t;
