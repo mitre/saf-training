@@ -1,2 +1,0 @@
-import{ensureEndingSlash as l,isArray as n,addViteSsrNoExternal as s}from"vuepress-shared/node";import{getDirname as o,path as i}from"@vuepress/utils";const a=o(import.meta.url),c=l(i.resolve(a,"../client")),m=(e={})=>({name:"vuepress-plugin-rtl",define:{_RTL_LOCALES_:n(e.locales)?e.locales:["/"],_RTL_SELECTOR_:e.selector||{html:{dir:"rtl"}}},extendsBundlerOptions:(r,t)=>{s(r,t,"vuepress-shared")},clientConfigFile:`${c}config.js`});export{m as rltPlugin};
-//# sourceMappingURL=index.js.map

@@ -1,7 +1,0 @@
-import{useMutationObserver as v}from"@vueuse/core";import{defineComponent as y,shallowRef as u,ref as d,computed as j,onMounted as S,watch as w,h as a}from"vue";import{atou as C,LoadingIcon as b}from"vuepress-shared/client";import"../styles/chart.scss";import{g as m}from"../darkmode--ujNj0ho.js";const A=(e,r)=>r==="json"?JSON.parse(e):new Function(`let config,__chart_js_config__;
-{
-${e}
-__chart_js_config__=config;
-}
-return __chart_js_config__;`)();var E=y({name:"ChartJS",props:{config:{type:String,required:!0},id:{type:String,required:!0},title:{type:String,default:""},type:{type:String,default:"json"}},setup(e){const r=u(),s=u(),i=d(!1),n=d(!0),f=j(()=>C(e.config));let l=!1,c;const p=async t=>{const[{default:o}]=await Promise.all([import("chart.js/auto"),l?Promise.resolve():(l=!0,new Promise(h=>setTimeout(h,MARKDOWN_ENHANCE_DELAY)))]);o.defaults.borderColor=t?"#ccc":"#36A2EB",o.defaults.color=t?"#fff":"#000",o.defaults.maintainAspectRatio=!1;const _=A(f.value,e.type),g=s.value.getContext("2d");c?.destroy(),c=new o(g,_),n.value=!1};return S(()=>{i.value=m(),v(document.documentElement,()=>{i.value=m()},{attributeFilter:["class","data-theme"],attributes:!0}),w(i,t=>p(t),{immediate:!0})}),()=>[e.title?a("div",{class:"chartjs-title"},decodeURIComponent(e.title)):null,n.value?a(b,{class:"chartjs-loading",height:192}):null,a("div",{ref:r,class:"chartjs-wrapper",id:e.id,style:{display:n.value?"none":"block"}},a("canvas",{ref:s,height:400}))]}});export{E as default};
-//# sourceMappingURL=ChartJS.js.map
