@@ -5,7 +5,7 @@ title: Development & Testing InSpec Profile
 author: Aaron Lippold
 ---
 
-# Overview
+## Overview
 
 The development and testing of profiles is accomplished by a  variety of tools including: Ruby, the Test Kitchen suite, InSpec compliance language, Ansible, Docker, and shell scripting (bash/zsh). To contribute with Pull Requests and fixes, you'll need to set up your local test suite following the instructions provided below.
 
