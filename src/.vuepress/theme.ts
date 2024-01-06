@@ -3,32 +3,22 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
+  hostname: "https://mitre.github.io/saf-training/",
 
   author: {
-    name: "Mr.Hope",
-    url: "https://mister-hope.com",
+    name: "The MITRE SAF Team",
+    url: "https://saf.mitre.org/training",
   },
 
   iconAssets: "//at.alicdn.com/t/font_2410206_h4r1xw8ppng.css",
   iconPrefix: "iconfont icon-",
-
   logo: "/logo.svg",
-
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
-
+  repo: "mitre/saf-training",
   docsDir: "src",
-
-  // navbar
   navbar,
-
-  // sidebar
   sidebar,
-
   footer: "Apache-2.0 | Copyright © 2022 - The MITRE Corporation",
-
   displayFooter: true,
-
   encrypt: {
     config: {
       "/demo/encrypt.html": ["1234"],
@@ -93,8 +83,8 @@ export default hopeTheme({
 
       // install reveal.js before enabling it
       revealJs: {
-         plugins: ["highlight", "math", "search", "notes", "zoom"],
-       },
+        plugins: ["highlight", "math", "search", "notes", "zoom"],
+      },
 
       stylize: [
         {
