@@ -3,8 +3,10 @@ name: Deploy Docs
 on:
   push:
     branches:
-      # make sure this is the branch you are using
       - main
+
+permissions:
+  contents: write
 
 jobs:
   deploy-gh-pages:
@@ -14,8 +16,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          # if your docs needs submodules, uncomment the following line
-          # submodules: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -24,11 +24,11 @@ jobs:
           cache: npm
 
       - name: Deploy Docs
-        uses: intergiro/vuepress-deploy@fix_git_repo  # Update back to jenkey2011/vuepress-deploy@master once merged
+        uses: intergiro/vuepress-deploy@fix_git_repo # Update back to jenkey2011/vuepress-deploy@master once merged
         env:
           GITHUB_DEPLOY: true
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_REPO: mitre/saf-training
           TARGET_BRANCH: gh-pages
           BUILD_SCRIPT: npm ci && npm run docs:build
-          BUILD_DIR: .vuepress/dist/
+          BUILD_DIR: src/.vuepress/dist/
