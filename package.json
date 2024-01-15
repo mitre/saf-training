@@ -18,7 +18,7 @@
     "@vuepress/client": "2.0.0-rc.0",
     "cypress": "^13.6.2",
     "cypress-each": "^1.13.3",
-    "mermaid": "^10.6.1",
+    "mermaid": "^10.7.0",
     "reveal.js": "^5.0.4",
     "start-server-and-test": "^2.0.3",
     "vue": "^3.4.10",
