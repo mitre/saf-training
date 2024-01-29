@@ -22,7 +22,7 @@
     "reveal.js": "^5.0.4",
     "start-server-and-test": "^2.0.3",
     "vue": "^3.4.15",
-    "vuepress": "2.0.0-rc.1",
+    "vuepress": "2.0.0-rc.2",
     "vuepress-theme-hope": "2.0.0-rc.13"
   }
 }
