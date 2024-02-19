@@ -19,7 +19,7 @@
     "@vuepress/bundler-webpack": "^2.0.0-rc.6",
     "@vuepress/client": "2.0.0-rc.2",
     "cypress": "^13.6.3",
-    "cypress-each": "^1.13.3",
+    "cypress-each": "^1.14.0",
     "mermaid": "^10.8.0",
     "reveal.js": "^5.0.4",
     "start-server-and-test": "^2.0.3",
