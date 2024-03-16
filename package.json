@@ -24,7 +24,7 @@
     "reveal.js": "^5.0.5",
     "start-server-and-test": "^2.0.3",
     "vue": "^3.4.21",
-    "vuepress": "2.0.0-rc.7",
+    "vuepress": "2.0.0-rc.8",
     "vuepress-theme-hope": "2.0.0-rc.24"
   }
 }
