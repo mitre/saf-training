@@ -20,7 +20,7 @@
     "@vuepress/client": "2.0.0-rc.2",
     "cypress": "^13.9.0",
     "cypress-each": "^1.14.0",
-    "mermaid": "^10.9.0",
+    "mermaid": "^10.9.1",
     "reveal.js": "^5.1.0",
     "start-server-and-test": "^2.0.3",
     "vue": "^3.4.27",
