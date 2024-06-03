@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "^2.0.0-rc.12",
-    "@vuepress/bundler-webpack": "^2.0.0-rc.10",
+    "@vuepress/bundler-webpack": "^2.0.0-rc.13",
     "@vuepress/client": "2.0.0-rc.2",
     "cypress": "^13.10.0",
     "cypress-each": "^1.14.0",
