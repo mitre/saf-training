@@ -16,11 +16,11 @@ actions:
     link: /courses/advanced/
     type: primary
   - text: Guidance Development
-    type: primary
     link: /courses/guidance/
-  - text: InSpec Profile Updating & Development
     type: primary
+  - text: InSpec Profile Updating & Development
     link: /courses/profile-dev-test
+    type: primary
  
 highlights:
   - header: What You Will Learn
