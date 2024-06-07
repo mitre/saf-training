@@ -13,10 +13,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: npm
+          cache: pnpm
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: npm run docs:build
-          start: npm run ci
+          build: pnpm docs:build
+          start: pnpm ci

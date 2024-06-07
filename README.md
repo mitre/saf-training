@@ -37,18 +37,18 @@ We extend our special thanks to the author of this VuePress theme - A New Hope, 
 
 ## Running 
 
-This project uses npm, is a Vuepress v2 and Vue3 project, and employs simple cypress tests for basic smoke testing. For debugging, setup issues, or questions about additional capabilities of the VuePress Theme, please refer to the documentation at the link above.
+This project uses pnpm, is a Vuepress v2 and Vue3 project, and employs simple cypress tests for basic smoke testing. For debugging, setup issues, or questions about additional capabilities of the VuePress Theme, please refer to the documentation at the link above.
 
 ## Running in Dev
 
 ```shell
-npm install
-npm run docs:dev
+pnpm install
+pnpm docs:dev
 ```
 ## Building
 
 ```shell
-npm run docs:build
+pnpm docs:build
 ```
 
 ## Running Cypress Tests
@@ -59,7 +59,7 @@ Additional Cypress commands can be found in the package.json file under the scri
 
 
 ```shell
-npm run ci
+pnpm ci
 ```
 
 This command starts the headless Cypress server, builds the current version of the site, runs the site, and then executes the Cypress tests.
