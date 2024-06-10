@@ -19,6 +19,7 @@
     "@vuepress/bundler-webpack": "2.0.0-rc.13",
     "cypress": "^13.11.0",
     "cypress-each": "^1.14.0",
+    "flowchart.ts": "^3.0.0",
     "mermaid": "^10.9.1",
     "reveal.js": "^5.1.0",
     "start-server-and-test": "^2.0.4",
