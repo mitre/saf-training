@@ -17,7 +17,6 @@ By the end of this class, you should be able to achieve the following objectives
 - Be able to identify and break down key components of any given security data export.
 - Correlate schema fields of your security data export to schema fields in OHDF.
 - Create a *-to-OHDF mapper.
-- Create a OHDF-to-* mapper.
 - Integrate your mapper with the [OHDF Converters](https://github.com/mitre/heimdall2/tree/master/libs/hdf-converters) library.
 
 
