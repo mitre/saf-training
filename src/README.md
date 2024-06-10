@@ -21,6 +21,9 @@ actions:
   - text: InSpec Profile Updating & Development
     type: primary
     link: /courses/profile-dev-test
+  - text: OHDF Mapper Development Class
+    type: primary
+    link: /courses/mapper/
  
 highlights:
   - header: What You Will Learn
