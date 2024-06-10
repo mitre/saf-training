@@ -24,7 +24,7 @@ jobs:
           cache: npm
 
       - name: Deploy Docs
-        uses: intergiro/vuepress-deploy@fix_git_repo # Update back to jenkey2011/vuepress-deploy@master once merged
+        uses: jenkey2011/vuepress-deploy@master
         env:
           GITHUB_DEPLOY: true
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
