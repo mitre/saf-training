@@ -19,7 +19,7 @@ actions:
     link: /courses/guidance/
     type: primary
   - text: InSpec Profile Updating & Development
-    link: /courses/profile-dev-test
+    link: /courses/profile-dev-test/
     type: primary
  
 highlights:
