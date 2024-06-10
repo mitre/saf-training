@@ -11,9 +11,6 @@ importers:
       '@vuepress/bundler-vite':
         specifier: 2.0.0-rc.13
         version: 2.0.0-rc.13(@types/node@20.14.2)(sass@1.77.4)
-      '@vuepress/client':
-        specifier: 2.0.0-rc.13
-        version: 2.0.0-rc.13
       cypress:
         specifier: ^13.11.0
         version: 13.11.0
