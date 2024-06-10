@@ -22,9 +22,9 @@ If you are a new learner and don't know how to write Markdown, please read [Mark
 
 VuePress introduce configuration for each markdown page using Frontmatter.
 
-::: info
+::: important Frontmatter
 
-Frontmatter is a important concept in VuePress. If you don't know it, you need to read [Frontmatter Introduction](https://theme-hope.vuejs.press/cookbook/vuepress/page.html#front-matter).
+Frontmatter is an important concept in VuePress. If you don't know it, you need to read [Frontmatter Introduction](https://theme-hope.vuejs.press/cookbook/vuepress/page.html#front-matter).
 
 :::
 
@@ -41,70 +41,6 @@ For these extensions, please read [Markdown extensions in VuePress](https://them
 ### Theme Enhancement
 
 By using [`vuepress-plugin-md-enhance`][md-enhance], the theme extends more Markdown syntax and provides richer writing functions.
-
-#### Custom Container
-
-::: v-pre
-
-Safely use {{ variable }} in Markdown.
-
-:::
-
-::: info Custom Title
-
-A custom information container with `code`, [link](#custom-container).
-
-```js
-const a = 1;
-```
-
-:::
-
-::: tip Custom Title
-
-A custom tip container
-
-:::
-
-::: warning Custom Title
-
-A custom warning container
-
-:::
-
-::: danger Custom Title
-
-A custom danger container
-
-:::
-
-::: details Custom Title
-
-A custom details container
-
-:::
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/container.html)
-
-#### Tabs
-
-::: tabs#fruit
-
-@tab apple
-
-Apple
-
-@tab banana
-
-Banana
-
-@tab orange
-
-Orange
-
-:::
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/tabs.html)
 
 #### Code Tabs
 
@@ -130,13 +66,126 @@ npm i -D vuepress-theme-hope
 
 :::
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/code-tabs.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/code/code-tabs.html)
+
+#### Tabs
+
+::: tabs#fruit
+
+@tab apple
+
+Apple
+
+@tab banana
+
+Banana
+
+@tab orange
+
+Orange
+
+:::
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/content/tabs.html)
+
+#### Footnote
+
+This text has footnote[^first].
+
+[^first]: This is footnote content
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/content/footnote.html)
+
+#### Include files
+
+<!-- @include: ./README.md{11-17} -->
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/content/include.html)
+
+#### TeX
+
+$$
+\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
+= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}
+$$
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/grammar/tex.html)
+
+#### Tasklist
+
+- [x] Plan A
+- [ ] Plan B
+
+[View Detail](https://theme-hope.vuejs.press/guide/markdown/grammar/tasklist.html)
+
+#### Image Enhancement
+
+Support setting color scheme and size.
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/grammar/image.html)
 
 #### Superscript and Subscript
 
 19^th^ H~2~O
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/sup-sub.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/grammar/sup-sub.html)
+
+#### Component
+
+```component VPCard
+title: Mr.Hope
+desc: Where there is light, there is hope
+logo: https://mister-hope.com/logo.svg
+link: https://mister-hope.com
+background: rgba(253, 230, 138, 0.15)
+```
+
+- [View Detail](https://theme-hope.vuejs.press/guide/component/grammar.html)
+
+#### Hint box and GFM alerts
+
+::: v-pre
+
+Safely use {{ variable }} in Markdown.
+
+:::
+
+::: info Custom Title
+
+A custom information container with `code`, [link](#markdown-extension).
+
+```js
+const a = 1;
+```
+
+:::
+
+::: tip Custom Title
+
+A custom tip container
+
+:::
+
+::: warning Custom Title
+
+A custom warning container
+
+:::
+
+::: caution Custom Title
+
+A custom caution container
+
+:::
+
+::: details Custom Title
+
+A custom details container
+
+:::
+
+- [GitHub Alert](https://theme-hope.vuejs.press/guide/markdown/stylize/alert.html)
+- [Hint boxes](https://theme-hope.vuejs.press/guide/markdown/stylize/hint.html)
 
 #### Align
 
@@ -152,272 +201,125 @@ I am right align
 
 :::
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/align.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/stylize/align.html)
 
 #### Attrs
 
 A **word**{#word} having id.
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/attrs.html)
-
-#### Footnote
-
-This text has footnote[^first].
-
-[^first]: This is footnote content
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/footnote.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/stylize/attrs.html)
 
 #### Mark
 
 You can mark ==important words== .
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/mark.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/stylize/mark.html)
 
-#### Tasklist
+#### Spoiler
 
-- [x] Plan A
-- [ ] Plan B
+VuePress Theme Hope is !!powerful!!.
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/tasklist.html)
-
-#### Image Enhancement
-
-Support setting color scheme and size
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/image.html)
-
-#### Card
-
-```card
-title: Mr.Hope
-desc: Where there is light, there is hope
-logo: https://mister-hope.com/logo.svg
-link: https://mister-hope.com
-color: rgba(253, 230, 138, 0.15)
-```
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/card.html)
-
-#### Include files
-
-<!-- @include: ./README.md{11-17} -->
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/include.html)
-
-#### Code Demo
-
-::: normal-demo A normal demo
-
-```html
-<h1>VuePress Theme Hope</h1>
-<p>Is <span id="very">very</span> powerful!</p>
-```
-
-```js
-document.querySelector("#very").addEventListener("click", () => {
-  alert("Very powerful!");
-});
-```
-
-```css
-span {
-  color: red;
-}
-```
-
-:::
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/demo.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/stylize/spoiler.html)
 
 #### Stylize
 
 Donate Mr.Hope a cup of coffee. _Recommended_
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/stylize.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/stylize/stylize.html)
 
-#### Playground
+#### Reveal.js
 
-::: playground#ts TS demo
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/revealjs.html" width="100%" height="400"/>
 
-@file index.ts
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/content/revealjs.html)
 
-```ts
-const msg = "hello world";
+#### Chart.js
 
-const speak = (msg: string) => console.log(msg);
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/chartjs.html" width="100%" height="450"/>
 
-speak(msg);
-```
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart/chartjs.html)
 
-:::
+#### ECharts
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/playground.html)
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/echarts.html" width="100%" height="800"/>
 
-#### Chart
-
-::: chart A Scatter Chart
-
-```json
-{
-  "type": "scatter",
-  "data": {
-    "datasets": [
-      {
-        "label": "Scatter Dataset",
-        "data": [
-          { "x": -10, "y": 0 },
-          { "x": 0, "y": 10 },
-          { "x": 10, "y": 5 },
-          { "x": 0.5, "y": 5.5 }
-        ],
-        "backgroundColor": "rgb(255, 99, 132)"
-      }
-    ]
-  },
-  "options": {
-    "scales": {
-      "x": {
-        "type": "linear",
-        "position": "bottom"
-      }
-    }
-  }
-}
-```
-
-:::
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart.html)
-
-#### Echarts
-
-::: echarts A line chart
-
-```json
-{
-  "xAxis": {
-    "type": "category",
-    "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-  },
-  "yAxis": {
-    "type": "value"
-  },
-  "series": [
-    {
-      "data": [150, 230, 224, 218, 135, 147, 260],
-      "type": "line"
-    }
-  ]
-}
-```
-
-:::
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/echarts.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart/echarts.html)
 
 #### Flowchart
 
-```flow
-cond=>condition: Process?
-process=>operation: Process
-e=>end: End
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/flowchart.html" width="100%" height="450"/>
 
-cond(yes)->process->e
-cond(no)->e
-```
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart/flowchart.html)
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/flowchart.html)
+#### MarkMap
+
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/markmap.html" width="100%" height="380"/>
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart/markmap.html)
 
 #### Mermaid
 
-```mermaid
----
-title: Flowchart
----
-flowchart TB
-    c1-->a2
-    subgraph one
-    a1-->a2
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/mermaid.html" width="100%" height="620"/>
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart/mermaid.html)
+
+#### PlantUML
+
+@startuml
+Alice -> Bob: Authentication Request
+
+alt successful case
+
+    Bob -> Alice: Authentication Accepted
+
+else some kind of failure
+
+    Bob -> Alice: Authentication Failure
+    group My own label
+    Alice -> Log : Log attack start
+        loop 1000 times
+            Alice -> Bob: DNS Attack
+        end
+    Alice -> Log : Log attack end
     end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end
-    one --> two
-    three --> two
-    two --> c2
-```
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/mermaid.html)
+else Another type of failure
 
-#### Tex
+Bob -> Alice: Please repeat
 
-$$
-\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
-= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}
-$$
+end
+@enduml
 
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/tex.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/chart/plantuml.html)
+
+#### Code Demo
+
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/code-demo.html" width="100%" height="450"/>
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/code/demo.html)
+
+#### Playground
+
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/playground.html" width="100%" height="480"/>
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/code/playground.html)
+
+#### Kotlin Playground
+
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/kotlin-playground.html" width="100%" height="220"/>
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/code/kotlin-playground.html)
+
+#### Sandpack Playground
+
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/sandpack.html" width="100%" height="380"/>
+
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/code/sandpack.html)
 
 #### Vue Playground
 
-::: vue-playground Vue Playground
+<iframe src="https://plugin-md-enhance-demo.vuejs.press/snippet/vue-playground.html" width="100%" height="380"/>
 
-@file App.vue
-
-```vue
-<script setup>
-import { ref } from "vue";
-
-const msg = ref("Hello World!");
-</script>
-
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg" />
-</template>
-```
-
-:::
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/vue-playground.html)
-
-#### Presentation
-
-@slidestart
-
-## Slide 1
-
-A paragraph with some text and a [link](https://mister-hope.com)
-
----
-
-## Slide 2
-
-- Item 1
-- Item 2
-
----
-
-## Slide 3.1
-
-```js
-const a = 1;
-```
-
---
-
-## Slide 3.2
-
-$$
-J(\theta_0,\theta_1) = \sum_{i=0}
-$$
-
-@slideend
-
-- [View Detail](https://theme-hope.vuejs.press/guide/markdown/revealjs.html)
+- [View Detail](https://theme-hope.vuejs.press/guide/markdown/code/vue-playground.html)
 
 [md-enhance]: https://md-enhance.vuejs.press/
