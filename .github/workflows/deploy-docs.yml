@@ -13,22 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
 
+      - name: Build VuePress site
+        run: npm ci && npm run docs:build
+
       - name: Deploy Docs
-        uses: jenkey2011/vuepress-deploy@master
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: src/.vuepress/dist/
         env:
-          GITHUB_DEPLOY: true
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_REPO: mitre/saf-training
-          TARGET_BRANCH: gh-pages
-          BUILD_SCRIPT: npm ci && npm run docs:build
-          BUILD_DIR: src/.vuepress/dist/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
