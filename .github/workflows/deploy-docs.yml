@@ -25,6 +25,8 @@ jobs:
 
       - name: Build VuePress site
         run: npm ci && npm run docs:build
+        env:
+          GITHUB_DEPLOY: true
 
       - name: Deploy Docs
         uses: crazy-max/ghaction-github-pages@v4
