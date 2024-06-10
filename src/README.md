@@ -16,14 +16,14 @@ actions:
     link: /courses/advanced/
     type: primary
   - text: Guidance Development
-    type: primary
     link: /courses/guidance/
+    type: primary
   - text: InSpec Profile Updating & Development
-    type: primary
     link: /courses/profile-dev-test
-  - text: OHDF Mapper Development Class
     type: primary
-    link: /courses/mapper/
+  - text: OHDF Mapper Development Class
+    link: /courses/mappers/
+    type: primary
  
 highlights:
   - header: What You Will Learn

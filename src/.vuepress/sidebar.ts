@@ -42,7 +42,7 @@ export default sidebar({
     {
       icon: "creative",
       text: "OHDF Mapper Development Class",
-      prefix: "courses/mapper/",
+      prefix: "courses/mappers/",
       children: "structure",
       collapsible: true
     },

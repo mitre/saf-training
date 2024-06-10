@@ -1,14 +1,28 @@
 ---
 order: 1
 next: 02.md
-title: Introduction
+title: OHDF Mapper Development Class
 author: Charles Hu
 ---
 
-## Introduction <a name="intro"></a>
+## Overview
 
-HDF Converters is a custom data normalization tool for transforming exported data from various security tool formats into the [Heimdall Data Format (HDF)](https://saf.mitre.org/#/normalize). It is currently integrated into [Heimdall2](https://github.com/mitre/heimdall2) and the [SAF CLI](https://github.com/mitre/saf), which collectively are part of the [Security Automation Framework (SAF)](https://saf.mitre.org/#/), a set of tools and processes which aim to standardize and ease security compliance and testing within an automated build pipeline.
+The purpose of this class is to provide you with the foundational knowledge needed to create data format mappers targeted against the [OASIS Heimdall Data Format (OHDF)](https://saf.mitre.org/framework/normalize). In the following course, you will be taught the art and science of schema translation through a combination of both guided walkthroughs and hands-on demonstrations.
 
-Mappers are frameworks that allow the underlying conversion infrastructure to correlate certain objects or values from one overarching object or file to another overarching object or file. In the case of HDF Converters, these mappers allow for the conversion of some security service formats to HDF (\*-to-HDF) and vice-versa (HDF-to-\*) using the tools provided by the existing conversion infrastructure.
+### Objectives
 
-The process for creating a mapper for HDF Converters is detailed below. In order to ensure that the created mapper produces a HDF file that is both accurate and detailed, <b>it is important that you provide as much information as possible for prototyping and understand the full (or general) schema of your security export for comprehensive information conversion.</b>
+By the end of this class, you should be able to achieve the following objectives:
+
+- Understand the OHDF schema and its components.
+- Be able to identify and break down key components of any given security data export.
+- Correlate schema fields of your security data export to schema fields in OHDF.
+- Create a *-to-OHDF mapper.
+- Create a OHDF-to-* mapper.
+- Integrate your mapper with the [OHDF Converters](https://github.com/mitre/heimdall2/tree/master/libs/hdf-converters) library.
+
+
+## Mapper Examples
+
+This course will use examples and code derived from previously developed OHDF mappers which can be [found here](https://github.com/mitre/heimdall2/tree/master/libs/hdf-converters).
+
+You are encouraged to regularly refer back to this GitHub repository to check your understanding of OHDF mappers and see how mappers are actually developed and implemented in a production environment.

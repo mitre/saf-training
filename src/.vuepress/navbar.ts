@@ -11,7 +11,7 @@ export default navbar([
       { text: "Advanced Security Automation Developer Class", link: "/courses/advanced/", icon: "creative" },
       { text: "Security Guidance Developer Class", link: "/courses/guidance/", icon: "creative" },
       { text: "InSpec Profile Development & Testing", link: "/courses/profile-dev-test", icon: "creative"},
-      { text: "OHDF Mapper Development Class", link: "/courses/mapper/", icon: "creative"}
+      { text: "OHDF Mapper Development Class", link: "/courses/mappers/", icon: "creative"}
     ]},
   { text: "Resources",
     icon: "book",
