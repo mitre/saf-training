@@ -10,7 +10,7 @@ export default navbar([
       { text: "Beginner Security Automation Developer Class", link: "/courses/beginner/", icon: "creative" },
       { text: "Advanced Security Automation Developer Class", link: "/courses/advanced/", icon: "creative" },
       { text: "Security Guidance Developer Class", link: "/courses/guidance/", icon: "creative" },
-      { text: "InSpec Profile Development & Testing", link: "/courses/profile-dev-test", icon: "creative"}
+      { text: "InSpec Profile Development & Testing", link: "/courses/profile-dev-test/", icon: "creative"}
     ]},
   { text: "Resources",
     icon: "book",

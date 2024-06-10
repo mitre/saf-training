@@ -15,9 +15,8 @@
     "cy:run": "cypress run --e2e"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.12",
-    "@vuepress/bundler-webpack": "^2.0.0-rc.13",
-    "@vuepress/client": "2.0.0-rc.2",
+    "@vuepress/bundler-vite": "2.0.0-rc.13",
+    "@vuepress/bundler-webpack": "2.0.0-rc.13",
     "cypress": "^13.11.0",
     "cypress-each": "^1.14.0",
     "mermaid": "^10.9.1",
