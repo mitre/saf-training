@@ -57,7 +57,7 @@ export default hopeTheme({
       // echarts: true,
       figure: true,
       // install flowchart.ts before enabling it
-      // flowchart: true,
+      flowchart: true,
       gfm: true,
       imgLazyload: true,
       imgSize: true,
