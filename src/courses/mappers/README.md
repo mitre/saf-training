@@ -7,14 +7,14 @@ author: Charles Hu
 
 ## Overview
 
-The purpose of this class is to provide you with the foundational knowledge needed to create data format mappers targeted against the [OASIS Heimdall Data Format (OHDF)](https://saf.mitre.org/framework/normalize). In the following course, you will be taught the art and science of schema translation through a combination of both guided walkthroughs and hands-on demonstrations.
+The purpose of this class is to provide you with the foundational knowledge needed to create data format mappers for mapping data to the [OASIS Heimdall Data Format (OHDF)](https://saf.mitre.org/framework/normalize). In the following course, you will be taught the art and science of schema translation through a combination of both guided walkthroughs and hands-on demonstrations.
 
 ### Objectives
 
 By the end of this class, you should be able to achieve the following objectives:
 
 - Understand the OHDF schema and its components.
-- Be able to identify and break down key components of any given security data export.
+- Be able to identify and break down key components of any given security tool export.
 - Correlate schema fields of your security data export to schema fields in OHDF.
 - Create a *-to-OHDF mapper.
 - Integrate your mapper with the [OHDF Converters](https://github.com/mitre/heimdall2/tree/master/libs/hdf-converters) library.
