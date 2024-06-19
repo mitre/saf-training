@@ -9,6 +9,8 @@ author: Charles Hu
 
 The purpose of this class is to provide you with the foundational knowledge needed to create data format mappers for mapping data to the [OASIS Heimdall Data Format (OHDF)](https://saf.mitre.org/framework/normalize). In the following course, you will be taught the art and science of schema translation through a combination of both guided walkthroughs and hands-on demonstrations.
 
+The class is split into 2 sections
+
 ### Objectives
 
 By the end of this class, you should be able to achieve the following objectives:
