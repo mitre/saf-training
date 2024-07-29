@@ -22,7 +22,7 @@
     "flowchart.ts": "^3.0.0",
     "mermaid": "^10.9.1",
     "reveal.js": "^5.1.0",
-    "start-server-and-test": "^2.0.4",
+    "start-server-and-test": "^2.0.5",
     "vue": "^3.4.34",
     "vuepress": "2.0.0-rc.13",
     "vuepress-theme-hope": "2.0.0-rc.49"
