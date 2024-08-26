@@ -20,7 +20,7 @@
     "cypress": "^13.13.3",
     "cypress-each": "^1.14.0",
     "flowchart.ts": "^3.0.0",
-    "mermaid": "^10.9.1",
+    "mermaid": "^11.0.2",
     "reveal.js": "^5.1.0",
     "start-server-and-test": "^2.0.5",
     "vue": "^3.4.38",
