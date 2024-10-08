@@ -31,6 +31,10 @@ By the end of the SAF User Class, you should be able to achieve all of the follo
 -	Visualize InSpec results and third party security tool data.
 -   Automatically export checklist results from a security assessment.
 
+### 1.3.1 The Lab Environment
+
+This class will use GitHub Codespaces for a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/05.md).
+
 ## 1.4 The Road to Security Automation
 
 As you can see from the picture below, the process for developing automated security tests starts with requirements documents like SRGs, STIGs or CIS Benchmark that are written in regular, human language and then implemented as code. We need that code to record test results in a standardized format so that we can easily export our security data somewhere people can use it to make decisions (like the Heimdall visualization app).

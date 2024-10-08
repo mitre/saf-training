@@ -30,6 +30,10 @@ The purpose of this class is to give you the fundamentals of how to develop secu
 - Agnostic to other DevOps tools and techniques
 - Integrates into multiple configuration management tools
 
+### The Lab Environment
+
+This class will use GitHub Codespaces for a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/05.md).
+
 ## The Road to Security Automation
 
 InSpec is one of the primary tools in the Security Automation workflow. It integrates easily with orchestration and configuration management tools found in the DevOps world.
