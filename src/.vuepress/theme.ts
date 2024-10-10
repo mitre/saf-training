@@ -51,7 +51,7 @@ export default hopeTheme({
     },
 
     markdownTab: {
-      codetabs: true,
+      codeTabs: true,
       tabs: true,
     },
 
@@ -104,9 +104,9 @@ export default hopeTheme({
     },
 
     // install reveal.js before enabling it
-    revealjs: {
-      plugins: ["highlight", "math", "search", "notes", "zoom"],
-    },
+    // revealjs: {
+    //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+    // },
 
     // install @vuepress/plugin-pwa and uncomment these if you want a PWA
     // pwa: {
