@@ -28,6 +28,8 @@
     "vuepress-theme-hope": "2.0.0-rc.58"
   },
   "dependencies": {
+    "@vuepress/plugin-markdown-image": "^2.0.0-rc.52",
+    "@vuepress/plugin-markdown-tab": "^2.0.0-rc.52",
     "@vuepress/plugin-revealjs": "^2.0.0-rc.52"
   }
 }
