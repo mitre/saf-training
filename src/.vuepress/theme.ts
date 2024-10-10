@@ -51,7 +51,7 @@ export default hopeTheme({
     },
 
     markdownTab: {
-      codetabs: true,
+      codeTabs: true,
       tabs: true,
     },
 
