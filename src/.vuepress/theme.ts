@@ -44,23 +44,30 @@ export default hopeTheme({
       components: ["Badge", "VPCard"],
     },
 
+    markdownImage: {
+      figure: true,
+      imgLazyload: true,
+      imgSize: true,
+    },
+
+    markdownTab: {
+      codetabs: true,
+      tabs: true,
+    },
+
     // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,
       attrs: true,
       // install chart.js before enabling it
       // chart: true,
-      codetabs: true,
       component: true,
       demo: true,
       // install echarts before enabling it
       // echarts: true,
-      figure: true,
       // install flowchart.ts before enabling it
       flowchart: true,
       gfm: true,
-      imgLazyload: true,
-      imgSize: true,
       include: true,
       // install katex before enabling it
       // katex: true,
@@ -71,10 +78,6 @@ export default hopeTheme({
       // plantuml: true,
       playground: {
         presets: ["ts", "vue"],
-      },
-      // install reveal.js before enabling it
-      revealJs: {
-        plugins: ["highlight", "math", "search", "notes", "zoom"],
       },
       // install sandpack-vue3 before enabling it
       // sandpack: true,
@@ -94,11 +97,15 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      tabs: true,
       // tasklist: true,
       vPre: true,
       // install @vue/repl before enabling it
       // vuePlayground: true,
+    },
+
+    // install reveal.js before enabling it
+    revealjs: {
+      plugins: ["highlight", "math", "search", "notes", "zoom"],
     },
 
     // install @vuepress/plugin-pwa and uncomment these if you want a PWA
