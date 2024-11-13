@@ -2,7 +2,7 @@
 order: 1
 next: 02.md
 title: 1. SAF User Class
-shortTitle: SAF User Class
+shortTitle: 1. SAF User Class
 author: Aaron Lippold
 headerDepth: 3
 ---
