@@ -10,4 +10,10 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
-      
+    groups:
+      vuepress:
+        applies-to: version-updates
+        patterns:
+          - "@vuepress/*"
+          - "vuepress"
+          - "vuepress-theme-hope"
