@@ -33,7 +33,7 @@ We extend our special thanks to the author of this VuePress theme - A New Hope, 
 
 ## Requirements
 
-- Node v18+
+- Node v18.18+
 
 ## Running 
 
