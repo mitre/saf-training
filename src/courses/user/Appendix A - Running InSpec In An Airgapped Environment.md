@@ -1,7 +1,7 @@
 ---
 order: 15
 next: 16.md
-title: 15. Extra Info - Running InSpec with a Local Profile
+title: Appendix A - Running InSpec In An Airgapped Environment
 author: Mo
 headerDepth: 3
 ---
