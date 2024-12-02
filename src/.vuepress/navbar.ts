@@ -16,7 +16,7 @@ export default navbar([
     icon: "book",
     children: [
       { text: "Class Resources", link: "/resources/README.md"},
-      { text: "Codespace Resources", link: "/resources/02.md"},
+      { text: "Training Lab Environments", link: "/resources/02.md"},
       { text: "Training Development Docs", link: "/resources/03.md"},
     ]},
   { text: "Installation", icon: "note", link: "/installation/" }
