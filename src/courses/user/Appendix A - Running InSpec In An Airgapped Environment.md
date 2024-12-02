@@ -1,6 +1,5 @@
 ---
-order: 15
-next: 16.md
+order: 17
 title: Appendix A - Running InSpec In An Airgapped Environment
 author: Mo
 headerDepth: 3
