@@ -5,7 +5,7 @@ author: Aaron Lippold
 headerDepth: 3
 ---
 
-### 11.1. File
+### The File Resource
 ```ruby
 # copyright: 2015, Vulcano Security GmbH
 
@@ -371,7 +371,7 @@ module Inspec::Resources
 end
 ```
 
-### 11.3. etc_hosts
+### The etc_hosts Resource
 ```ruby
 require "inspec/utils/parser"
 require "inspec/utils/file_reader"

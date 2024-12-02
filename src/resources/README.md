@@ -23,7 +23,19 @@ headerDepth: 3
 - [SAF CLI](https://github.com/mitre/saf)  
 - [Heimdall Lite](https://mitre.github.io/heimdall-lite/#)  
 - [Heimdall Lite Github Repo](https://github.com/mitre/heimdall-lite)  
-- [Heimdall Server (with backend database, compare and trending)](https://github.com/mitre/heimdall)  
+- [Heimdall Server (with backend database, compare and trending)](https://github.com/mitre/heimdall)
+
+## Vulcan Resources
+
+### Docs
+1. [Vulcan full documentation](https://saf.mitre.org/docs/vulcan-install)
+2. [Vulcan GitHub](https://github.com/mitre/vulcan) -- Feel free to leave us a feature request!
+3. [Vulcan Project roadmap](https://github.com/orgs/mitre/projects/7)
+
+### STIG resources
+1. [Vendor STIG Process Guide](../assets/downloads/U_Vendor_STIG_Process_Guide_V4R1_20220815.pdf)
+2. DISA's [Vendor STIG Intent Form](https://dl.dod.cyber.mil/wp-content/uploads/stigs/pdf/U_Vendor_STIG_Intent_Form.pdf). Used to formally start the Vendor STIG process.
+3. VMWare's [STIG Program Overview](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/vmware-stig-program-overview.pdf). A good primer on terms and process for STIGs.
 
 ## Code Background & Primers  
 

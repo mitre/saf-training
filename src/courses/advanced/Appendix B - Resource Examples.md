@@ -7,8 +7,9 @@ headerDepth: 3
 
 As an example we will go through a few custom resources that were built and approved.
 
-### 14.1. IPv6 resource
-#### 14.1.1. docs/resources/ip6tables.md.erb
+### The IPv6 resource
+
+#### docs/resources/ip6tables.md.erb
 ```ruby
 ---
 title: About the ip6tables Resource
@@ -86,7 +87,7 @@ The `have_rule` matcher tests the named rule against the information in the `ip6
     it { should have_rule('RULE') }
 ```
 
-#### 14.1.2. lib/inspec/resources.rb
+#### lib/inspec/resources.rb
 ```ruby
 require "inspec/resources/iis_site"
 require "inspec/resources/inetd_conf"
@@ -97,7 +98,7 @@ require "inspec/resources/kernel_module"
 require "inspec/resources/kernel_parameter"
 ```
 
-#### 14.1.3. lib/inspec/resources/ip6tables.rb
+#### lib/inspec/resources/ip6tables.rb
 ```ruby
 require "inspec/resources/command"
 
@@ -184,7 +185,7 @@ end
 While submitting PR it may be possible to extend existing test elements from current resources to perform integration and unit testing such is seen in this example, the ipv6 resource extends the testing for [iptables](https://www.inspec.io/docs/reference/resources/iptables/) resource
 :::
 
-#### 14.1.4. test/integration/default/controls/ip6tables_spec.rb
+#### test/integration/default/controls/ip6tables_spec.rb
 ```ruby
 case os[:family]
 when 'ubuntu', 'fedora', 'debian', 'suse'
@@ -211,7 +212,7 @@ when  'redhat', 'centos'
 end
 ```
 
-#### 14.1.5. test/unit/resources/ip6tables_test.rb
+#### test/unit/resources/ip6tables_test.rb
 ```ruby
 require "helper"
 require "inspec/resource"
@@ -247,8 +248,8 @@ describe "Inspec::Resources::Ip6tables" do
 end
 ```
 
-### 14.2. NGINX resource
-#### 14.2.1. docs/resources/nginx.md.erb
+### The NGINX resource
+#### docs/resources/nginx.md.erb
 ```ruby
 ---
 title: The Nginx Resource
@@ -324,7 +325,7 @@ where
     end
 ```
 
-#### 14.2.2. lib/inspec/resource.rb
+#### lib/inspec/resource.rb
 ```ruby
 require 'resources/mysql'
 require 'resources/mysql_conf'
@@ -335,7 +336,7 @@ require 'resources/npm'
 require 'resources/ntp_conf'
 ```
 
-#### 14.2.3. lib/resources/nginx.rb
+#### lib/resources/nginx.rb
 ```ruby
 # encoding: utf-8
 # author: Aaron Lippold, lippold@gmail.com
@@ -436,7 +437,7 @@ module Inspec::Resources
 end
 ```
 
-#### 14.2.4. test/unit/resources/nginx_test.rb
+#### test/unit/resources/nginx_test.rb
 ```ruby
 # encoding: utf-8
 # author: Aaron Lippold, lippold@gmail.com
@@ -534,10 +535,11 @@ describe 'Inspec::Resources::Nginx' do
 end
 ```
 
-### 14.3. Additional examples
-#### 14.3.1. PAM resource currently open PR
+### Additional examples
+
+#### PAM resource currently open PR
 - [PAM Resource](https://github.com/simp/inspec-profile-disa_stig-el7/blob/master/libraries/pam.rb)
 - [PAM PR](https://github.com/inspec/inspec/pull/3993)
 
-#### 14.3.2. Customizing an already existing resource (windows registry)
+#### Customizing an already existing resource (windows registry)
 - [https://github.com/mitre/microsoft-windows-2012r2-memberserver-stig-baseline/blob/master/libraries/windows_registry.rb](https://github.com/mitre/microsoft-windows-2012r2-memberserver-stig-baseline/blob/master/libraries/windows_registry.rb)
