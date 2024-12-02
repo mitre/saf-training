@@ -35,7 +35,7 @@ By the end of the SAF User Class, you should be able to achieve the following ob
 
 ### 1.3.1 The Lab Environment
 
-This class will use GitHub Codespaces to create a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/05.md).
+This class will use GitHub Codespaces to create a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/02.md).
 
 ## 1.4 The Road to Security Automation
 
