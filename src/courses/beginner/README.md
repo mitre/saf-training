@@ -8,7 +8,7 @@ author: Aaron Lippold
 
 ## Class Objectives
 
-The purpose of this class is to give you the fundamentals of how to develop security validation content, particularly through hands-on examples of developing InSpec profiles. This class will also show participants how to visualize and analyze their security results. By the end, you should be able to achieve all of the following objectives.
+The purpose of this class is to teach the fundamentals of security validation content development via hands-on examples of developing InSpec profiles. This class will also show participants how to visualize and analyze the security data produced by the InSpec tool using the Heimdall application.
 
 ### Objectives:
 
@@ -23,16 +23,23 @@ The purpose of this class is to give you the fundamentals of how to develop secu
 
 ## InSpec 101
 
-- An open-source, community-developed compliance validation framework
-- Provides a mechanism for defining machine-readable compliance and security requirements
+The MITRE SAF team writes quite a bit of InSpec content for real-world use cases. We prefer InSpec for several reasons.
+
+- Open-source (see the source code on GitHub)
+- Strong developer community
+- Allows users to define machine-readable compliance and security requirements
 - Easy to create, validate, and read content
 - Cross-platform (Windows, Linux, Mac)
 - Agnostic to other DevOps tools and techniques
 - Integrates into multiple configuration management tools
 
+::: note Does this mean InSpec is the only validation tool I should ever learn to use?
+No. InSpec is powerful, but it cannot accomplish every type of security testing that we will need to do for a complex system. No single tool can do that.
+:::
+
 ### The Lab Environment
 
-This class will use GitHub Codespaces for a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/05.md).
+This class will use GitHub Codespaces for a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/02.md).
 
 ## The Road to Security Automation
 
@@ -40,7 +47,7 @@ InSpec is one of the primary tools in the Security Automation workflow. It integ
 
 As you can see from the picture below, the process of developing automated security tests is a bit of a journey -- we need to start with human-language requirements documents like SRGs, STIGs, or CIS Benchmark and then implement them as code. We need that code to record test results in a standardized format so that we can easily export our security data somewhere people can use it to make decisions (like the Heimdall visualization app, which we will discuss later).
 
-This challenge is what the [MITRE SAF (Security Automation Framework)](https://saf.mitre.org) was developed to simplify -- to make the journey from a Requirement Document to an automated test profile and back again a little easier to navigate.
+This challenge is what the [MITRE SAF (Security Automation Framework)](https://saf.mitre.org) was developed to simplify -- to make the journey from a security guidance document to an automated test profile to a report on security posture easier to navigate.
 
 ![The SAF Lifecycle](../../assets/img/saf-lifecycle.png)
 
