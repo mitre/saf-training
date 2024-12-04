@@ -8,7 +8,7 @@ author: Aaron Lippold
 
 ## Class Objectives
 
-The purpose of this class is to teach the fundamentals of security validation content development via hands-on examples of developing InSpec profiles. This class will also show participants how to visualize and analyze the security data produced by the InSpec tool using the Heimdall application.
+The purpose of this class is to teach the fundamentals of security validation content development via hands-on examples utilizing InSpec profiles. This class will also show participants how to visualize and analyze the security data produced by the InSpec tool using the Heimdall application.
 
 ### Objectives:
 
