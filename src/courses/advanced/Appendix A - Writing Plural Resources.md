@@ -9,11 +9,11 @@ headerDepth: 3
 
 You  might have noticed that many InSpec resources have a "plural" version. For example, `user` has a `users` counterpart, and `package` has `packages`.
 
-Plural resources examine platform objects in bulk. 
-For example, 
+Plural resources examine platform objects in bulk.
+For example,
 
-- sorting through which packages are installed on a system, or 
-- which virtual machines are on a cloud provider. 
+- sorting through which packages are installed on a system, or
+- which virtual machines are on a cloud provider.
 - all processes running more than an hour, or all VMs on a particular subnet.
 
 Plural resources usually include functions to query the set of objects it represents by an attribute, like so:
@@ -37,7 +37,7 @@ FilterTable is intended to help you author plural resources with **stucture data
 ```ruby
 
 inspec> etc_hosts.entries
-=> 
+=>
 [#<struct  ip_address="127.0.0.1", primary_name="localhost", all_host_names=["localhost", "localhost.localdomain", "localhost4", "localhost4.localdomain4"]>,
  #<struct  ip_address="::1", primary_name="localhost6", all_host_names=["localhost6", "localhost6.localdomain6"]>,
  #<struct  ip_address="127.0.0.1", primary_name="test1.org", all_host_names=["test1.org"]>,
@@ -55,11 +55,14 @@ In theory, yes - that would be used to implement different data fetching / cachi
 
 Let's take a look at the structure of a resource that leverages FilterTable. We will write a dummy resource that models a small group of students. Our resource will describe each student's name, grade, and the toys they have. Usually, a resource will include some methods that reach out the system under test to populate the FilterTable with real system data, but for now we're just going to hard-code in some dummy data.
 
-* Create new profile
+- Create new profile
+
 ```
 inspec init profile filtertable-test
 ```
-* Place following file as custom resource in `libraries` directory as `filter.rb`.
+
+- Place following file as custom resource in `libraries` directory as `filter.rb`.
+
 :::tip
 You can also use `inspec init resource <your-resource-name>` to create the template for your resource. When following the prompts, you can choose "plural" to create the template for a plural resource.
 :::
@@ -97,6 +100,7 @@ class Filtertable < Inspec.resource(1)
     end
 end
 ```
+
 Now we've got a nice blob of code in a resource file. Let's load this resource in the InSpec shell and see what we can do with it.
 
 #### Run the InSpec shell with a custom resource
@@ -120,6 +124,7 @@ As we mentioned earlier, a real InSpec resource will include methods that will p
 After we define our FilterTable's columns, we can also define custom matchers just like we do in singluar resources using `register_custom_matcher`. That function takes a block as an argument that defines a boolean expression that tells InSpec when that matcher should return `true`. Note that the matcher's logic can get pretty complicated -- that's why we're shoving all of it into a resource so we can avoid having to write complicated tests.
 
 - `has_bike?`
+
 ```ruby
 describe filtertable.where( name: "Donny" ) do
   it { should have_bike }
@@ -134,6 +139,7 @@ Version: (not specified)
 
 Test Summary: 0 successful, 1 failure, 0 skipped
 ```
+
 ```ruby
 describe filtertable.where( name: "Sarah" ) do
   it { should have_bike }  
@@ -148,9 +154,11 @@ Version: (not specified)
 Test Summary: 1 successful, 0 failures, 0 skipped
 
 ```
+
 In the simplest examples, we filter the table down to a single student using `where` (more on `where` in a minute) and invoke a matcher that checks if that student has a `bike` in their list of toys. We can write matchers to have whatever logic we like. For example, while `has_bike` checks if _all_ of the students in the table under test have a bike, while `has_middle_schooler` checks if _any_ student in the table under test is in the 7th grade or higher.
 
 - `has_middle_schooler?`
+
 ```ruby
 describe filtertable.where { name =~ /Sarah|John/ } do
   it { should have_middle_schooler }
@@ -169,9 +177,10 @@ Test Summary: 1 successful, 0 failures, 0 skipped
 
 #### Custom Property
 
-We can also declare custom properties for our resource, using whatever logic we like, just like we did for our custom matchers. Properties can be referred to with `its` syntax in an InSpec test. 
+We can also declare custom properties for our resource, using whatever logic we like, just like we did for our custom matchers. Properties can be referred to with `its` syntax in an InSpec test.
 
 - `bike_count`
+
 ```ruby
 describe filtertable do
   its('bike_count') { should eq 3 }  
@@ -186,7 +195,9 @@ Target ID:
 
 Test Summary: 1 successful, 0 failures, 0 skipped
 ```
+
 - `middle_schooler_count`
+
 ```ruby
 describe filtertable do
    its('middle_schooler_count') { should eq 4 }     
@@ -322,6 +333,7 @@ If you call `entries` without chaining it after `where`, calling entries will tr
 #### The `exist?` matcher
 
 This `register_custom_matcher` call:
+
 ```ruby
 filter_table_config.register_custom_matcher(:exist?) { |filter_table| !filter_table.entries.empty? }
 ```
@@ -345,6 +357,7 @@ As when you are implementing matchers on a singular resource, the only thing tha
 #### The `count` property
 
 This `register_custom_property` call:
+
 ```ruby
 filter_table_config.register_custom_property(:count) { |filter_table| filter_table.entries.count }
 ```
@@ -380,6 +393,7 @@ Unlike `entries`, which wraps each row in a Struct and omits undeclared fields, 
 ### FilterTable Examples
 
 FilterTable is a very flexible and powerful class that works well when designing plural resources. As always, if you need to write a plural resource, we encourage you to examine existing resources in the InSpec source code to see how other developers have implemented it. Some good examples include:
- - [FirewallD](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/firewalld.rb)
- - [Users](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/users.rb)
- - [Shadow](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/shadow.rb)
+
+- [FirewallD](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/firewalld.rb)
+- [Users](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/users.rb)
+- [Shadow](https://github.com/inspec/inspec/blob/63a5fd26a6925b1570ee80e2953d259b58c3012e/lib/inspec/resources/shadow.rb)
