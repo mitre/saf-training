@@ -15,8 +15,9 @@ By the end of this class, you should be able to:
 - Understand the purpose of the SAF Delta process tools, `update_controls4delta` and `delta`
 - Use these tools to update inspec profiles
 - Understand how and where to apply these tools in different situations (Use Cases)
+- Use the delta fuzzy matching system to map controls between two profiles
 - Be familiar with the delta process logging capabilities and generated artifacts
-- Using the delta fuzzy matching system to map controls between two profiles by using
+- Know how to format Inspec profile controls before and/or after executing delta commands
 
 ### 1.2 The Road to Conducting the Delta Process
 
