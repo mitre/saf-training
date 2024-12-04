@@ -27,15 +27,15 @@ The purpose of this class is to take you beyond profile development and give you
 - Easy to create, validate, and read content
 - Cross-platform (Windows, Linux, Mac)
 - Agnostic to other DevOps tools and techniques
-- Integrates into multiple configuration managament tools
+- Integrates into multiple configuration management tools
 
 ### 1.2.1 The Lab Environment
 
-This class will use GitHub Codespaces for a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/05.md).
+This class will use GitHub Codespaces for a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/02.md).
 
 ## 1.3 The Road to Security Automation
 
-InSpec is one of the primary tools in the Security Automation workflow. It integrates easily with orchestration and configuration management tools found in the DevOps world.
+InSpec is one of the primary tools MITRE SAF tends to use in our security automation workflows. It integrates easily with orchestration and configuration management tools found in the DevOps world.
 
 As you can see from the picture below, the process for developing automated security tests starts with a human-language requirements documents like SRGs, STIGs or CIS Benchmark and then implements them as code. We need that code to record test results in a standardized format so that we can easily export our security data somewhere people can use it to make decisions (like the Heimdall visualization app).
 
@@ -43,18 +43,9 @@ This challenge is what the [MITRE Security Automation Framework](https://saf.mit
 
 ![The SAF Lifecycle](../../assets/img/saf-lifecycle.png)
 
-<!-- ## About Security Automation
-
-Orchestration, Configuration Management, Validation to Deployment
-InSpec operates with most orchestration and CM tools found in the DevOps pipeline implementations
-
-![Alt text](../../assets/img/InSpec_Orchestration.png) -->
 
 ## 1.4 Where can I start on my own?
 
-You can contribute to existing profiles that can be found here:  
-[https://github.com/mitre](https://github.com/mitre)  
+An excellent way to practice writing InSpec code is to examine the InSpec profiles in the [MITRE SAF Validation Library](https://saf.mitre.org/libs/validate). Feel free to peruse our profiles and even the issues tabs on our GitHub repositories; this is a community-based framework and pull requests are welcome!
 
-Otherwise you can create your own profiles if they don't exist using the following security guidelines:  
-[https://public.cyber.mil/stigs/downloads/](https://public.cyber.mil/stigs/downloads/)  
-[https://www.cisecurity.org/cis-benchmarks/](https://www.cisecurity.org/cis-benchmarks/)  
+If you want to start working on an InSpec profile for a software component aligned to a baseline that you don't see in the Validation Library, you can pull a [STIG](https://public.cyber.mil/stigs/downloads/) or [CIS Benchmark](https://www.cisecurity.org/cis-benchmarks/) and start writing code to implement them. The [SAF CLI's](https://saf-cli.mitre.org/#inspec-metadata) `generate` function can take these documents as inputs and create 'skeleton' InSpec profiles with all the metadata in place so that you can focus on the actual test code.
