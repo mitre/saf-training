@@ -7,9 +7,10 @@ headerDepth: 3
 
 Many of the official InSpec resources were written by community members. If you have created a resource for your project and would like to make it part of the official library, you can open a pull request against the InSpec codebase.
 
-To get started, go to the main [InSpec Github Repo](https://github.com/inspec/inspec) and fork the repository. On your forked repository, make a new branch, and call it something unique pertaining to what resource you are making. For example, if you use the `file` resource, then a useful branch name could be `file_resource`.
+To get started, go to the main [InSpec GitHub Repo](https://github.com/inspec/inspec) and fork the repository. On your forked repository, create a new branch with a unique name related to the resource you are making. For example, if you are creating a `file` resource, a useful branch name could be `file_resource`.
 
-InSpec's source code's top level directory looks like:
+InSpec's source code top-level directory looks like this:
+
 ```bash
 $ tree inspec -L 1 -d
 inspec
@@ -31,6 +32,7 @@ inspec
 ```
 
 The 3 key directories we need to focus on here are the `docs/` directory, the `lib/` directory and finally the `test/` directory. When developing a resource for upstream InSpec, you must:
+
 1) Create the resource itself
 2) Create the documentation for the resource
 3) Create the unit and integration tests for the resource
@@ -38,6 +40,7 @@ The 3 key directories we need to focus on here are the `docs/` directory, the `l
 ::: tip The resource contents
 When creating this resource.rb file or in this scenario the `file.rb`, it would be developed and written the same exact way if you had put it in the libraries directory for a local resource. If you already developed the resource for local use, but want to push it to upstream, you can copy and paste the file directly to the following location:
 :::
+
 ```bash
 $ tree -L 1 lib/inspec/resources/
 lib/inspec/resources/
@@ -49,6 +52,7 @@ lib/inspec/resources/
 ```
 
 This is the helper file you need to adjust for the file resource:
+
 ```bash
 $ tree -L 1 lib/inspec/
 lib/inspec/
@@ -64,6 +68,7 @@ When adding this line of code, be sure to place the resources in alphabetical or
 :::
 
 In the `resources.rb` file you would add the following line:
+
 ```ruby
 require "inspec/resources/etc_hosts"
 require "inspec/resources/file"
@@ -71,6 +76,7 @@ require "inspec/resources/filesystem"
 ```
 
 Next you would need to write out your unit and integration tests:
+
 ```bash
 $ tree test/integration/default/controls/
 test/integration/default/controls/
@@ -92,6 +98,7 @@ test/unit/resources/
 ```
 
 Finally, you would write up documentation on how to use the resource. This file will be published to the [InSpec docs](https://docs.chef.io/inspec/resources/). Take a look at the other docs pages for an idea of what needs to be documented -- each matcher and function on the resource should be listed, and examples of how to use the resource given.
+
 ```bash
 $ tree docs/resources/
 docs/resources/

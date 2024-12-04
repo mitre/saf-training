@@ -37,7 +37,7 @@ FilterTable is intended to help you author plural resources with **stucture data
 ```ruby
 
 inspec> etc_hosts.entries
-=> 
+=>
 [#<struct  ip_address="127.0.0.1", primary_name="localhost", all_host_names=["localhost", "localhost.localdomain", "localhost4", "localhost4.localdomain4"]>,
  #<struct  ip_address="::1", primary_name="localhost6", all_host_names=["localhost6", "localhost6.localdomain6"]>,
  #<struct  ip_address="127.0.0.1", primary_name="test1.org", all_host_names=["test1.org"]>,
@@ -61,7 +61,7 @@ Let's take a look at the structure of a resource that leverages FilterTable. We 
 inspec init profile filtertable-test
 ```
 
-* Place following file as custom resource in `libraries` directory as `filter.rb`.
+- Place following file as custom resource in `libraries` directory as `filter.rb`.
 
 :::tip
 You can also use `inspec init resource <your-resource-name>` to create the template for your resource. When following the prompts, you can choose "plural" to create the template for a plural resource.
