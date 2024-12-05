@@ -1,20 +1,22 @@
-## Automatic Update:  -> 
+## Automatic Update
 
-### New Controls:
-+   SV-268322 - RHEL 8 must not allow blank or null passwords in the system-auth file.
+### New Controls
 
++ SV-268322 - RHEL 8 must not allow blank or null passwords in the system-auth file.
 
-### Updated Check/Fixes:
-#### Checks:
+### Updated Check/Fixes
+
+#### Checks
+
 <details open>
   <summary>Click to expand.</summary>
 SV-230262:
-Old: 
+Old:
 ```
 Verify the system-wide shared library files are group-owned by "root"
 with the following command:
 
-    $ sudo find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {}
+    sudo find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {}
 \;
 
     If any system wide shared library file is returned and is not group-owned
@@ -24,6 +26,7 @@ by a required system account, this is a finding.
 
 Updated:
 ```
+
 Verify the system-wide shared library files are group-owned by "root" with the following command:
 
 $ sudo find /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {} \;
@@ -33,8 +36,9 @@ If any system wide shared library file is returned and is not group-owned by a r
 ```
 ---
 SV-230379:
-Old: 
+Old:
 ```
+
 Verify all accounts on the system are assigned to an active system,
 application, or user account.
 
@@ -65,6 +69,7 @@ a finding.
 
 Updated:
 ```
+
 Verify that there are no unauthorized interactive user accounts with the following command:
 
 $ less /etc/passwd
@@ -86,6 +91,7 @@ If there are unauthorized local user accounts on the system, this is a finding.
 SV-230470:
 Old: 
 ```
+
 Verify RHEL 8 enables Linux audit logging of the USBGuard daemon with the
 following commands:
 
@@ -103,6 +109,7 @@ the line is commented out, this is a finding.
 
 Updated:
 ```
+
 Verify RHEL 8 enables Linux audit logging of the USBGuard daemon with the following commands:
 
 Note: If the USBGuard daemon is not installed and enabled, this requirement is Not Applicable.
@@ -120,6 +127,7 @@ If the system is a virtual machine with no virtual or physical USB peripherals a
 SV-230524:
 Old: 
 ```
+
 Verify the USBGuard has a policy configured with the following command:
 
     $ sudo usbguard list-rules
@@ -134,6 +142,7 @@ before establishing a connection, this is a finding.
 
 Updated:
 ```
+
 Verify the USBGuard has a policy configured with the following command:
 
 $ sudo usbguard list-rules
@@ -151,6 +160,7 @@ If the system is a virtual machine with no virtual or physical USB peripherals a
 SV-230548:
 Old: 
 ```
+
 Verify RHEL 8 disables the use of user namespaces with the following commands:
 
 Note: User namespaces are used primarily for Linux containers. If containers are in use, this requirement is not applicable.
@@ -175,6 +185,7 @@ If conflicting results are returned, this is a finding.
 
 Updated:
 ```
+
 Verify RHEL 8 disables the use of user namespaces with the following commands:
 
 $ sudo sysctl user.max_user_namespaces
@@ -200,6 +211,7 @@ If the use of namespaces is operationally required and documented with the ISSM,
 SV-230559:
 Old: 
 ```
+
 Verify the gssproxy package has not been installed on the system with the
 following commands:
 
@@ -216,6 +228,7 @@ is a finding.
 
 Updated:
 ```
+
 Verify the gssproxy package has not been installed on the system with the following commands:
 
 $ sudo yum list installed gssproxy
@@ -231,6 +244,7 @@ If NFS mounts are being used, this is not a finding.
 SV-244527:
 Old: 
 ```
+
 Check that RHEL 8 has the packages required to enabled the hardware random
 number generator entropy gatherer service with the following command:
 
@@ -245,6 +259,7 @@ number generator entropy gatherer service with the following command:
 
 Updated:
 ```
+
 Note: For RHEL versions 8.4 and above running with kernel FIPS mode enabled as specified by RHEL-08-010020, this requirement is Not Applicable.
 
 Check that RHEL 8 has the packages required to enabled the hardware random number generator entropy gatherer service with the following command:
@@ -260,6 +275,7 @@ If the "rng-tools" package is not installed, this is a finding.
 SV-244547:
 Old: 
 ```
+
 Verify USBGuard is installed on the operating system with the following
 command:
 
@@ -277,6 +293,7 @@ before establishing a connection, this is a finding.
 
 Updated:
 ```
+
 Verify USBGuard is installed on the operating system with the following command:
 
 $ sudo yum list installed usbguard
@@ -294,6 +311,7 @@ If the system is a virtual machine with no virtual or physical USB peripherals a
 SV-244548:
 Old: 
 ```
+
 Verify the operating system has enabled the use of the USBGuard with the
 following command:
 
@@ -313,6 +331,7 @@ before establishing a connection, this is a finding.
 
 Updated:
 ```
+
 Verify the operating system has enabled the use of the USBGuard with the following command:
 
 $ sudo systemctl status usbguard.service
@@ -334,6 +353,7 @@ If the system is a virtual machine with no virtual or physical USB peripherals a
 SV-257258:
 Old: 
 ```
+
 Verify that RHEL 8 logs out sessions that are idle for 15 minutes with the following command:
 
      $ sudo grep -i ^StopIdleSessionSec /etc/systemd/logind.conf
@@ -346,6 +366,7 @@ If "StopIdleSessionSec" is not configured to "900" seconds, this is a finding.
 
 Updated:
 ```
+
 Note: This requirement applies to RHEL versions 8.7 and higher. If the system is not RHEL version 8.7 or newer, this requirement is not applicable.
 
 Verify that RHEL 8 logs out sessions that are idle for 10 minutes with the following command:
@@ -366,6 +387,7 @@ If "StopIdleSessionSec" is not configured to "600" seconds, this is a finding.
 SV-230379:
 Old: 
 ```
+
 Configure the system so all accounts on the system are assigned to an
 active system, application, or user account.
 
@@ -377,6 +399,7 @@ allow for a normal user to perform administrative-level actions.
 ```
 New:
 ```
+
 Remove unauthorized local interactive user accounts with the following command where <unauthorized_user> is the unauthorized account:
 
 $ sudo userdel <unauthorized_user>
@@ -386,6 +409,7 @@ $ sudo userdel <unauthorized_user>
 SV-230548:
 Old: 
 ```
+
 Configure RHEL 8 to disable the use of user namespaces by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 Note: User namespaces are used primarily for Linux containers. If containers are in use, this requirement is not applicable.
@@ -407,11 +431,12 @@ $ sudo sysctl --system
 ```
 New:
 ```
+
 Configure RHEL 8 to disable the use of user namespaces by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 user.max_user_namespaces = 0
 
-Remove any configurations that conflict with the above from the following locations: 
+Remove any configurations that conflict with the above from the following locations:
 /run/sysctl.d/*.conf
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
@@ -428,19 +453,21 @@ $ sudo sysctl --system
 SV-257258:
 Old: 
 ```
+
 Configure RHEL 8 to log out idle sessions by editing the /etc/systemd/logind.conf file with the following line:
 
      StopIdleSessionSec=900
 
 The "logind" service must be restarted for the changes to take effect. To restart the "logind" service, run the following command:
 
-     $ sudo systemctl restart systemd-logind
+     sudo systemctl restart systemd-logind
 
 Note: To preserve running user programs such as tmux, uncomment and/or edit "KillUserProccesses=no" in "/etc/systemd/logind.conf".
 
 ```
 New:
 ```
+
 Configure RHEL 8 to log out idle sessions after 10 minutes by editing the /etc/systemd/logind.conf file with the following line:
 
 StopIdleSessionSec=600
@@ -1823,18 +1850,20 @@ New: RHEL 8.7 and higher must terminate idle user sessions.
 SV-230221:
 Old:
 ```
+
 An operating system release is considered "supported" if the vendor continues to provide security patches for the product. With an unsupported release, it will not be possible to resolve security issues discovered in the system software.
 
-  Red Hat offers the Extended Update Support (EUS) add-on to a Red Hat Enterprise Linux subscription, for a fee, for those customers who wish to standardize on a specific minor release for an extended period. The RHEL 8 minor releases eligible for EUS are 8.1, 8.2, 8.4, 8.6, and 8.8. Each RHEL 8 EUS stream is available for 24 months from the availability of the minor release. RHEL 8.10 will be the final minor release overall. For more details on the Red Hat Enterprise Linux Life Cycle  visit https://access.redhat.com/support/policy/updates/errata/.
+  Red Hat offers the Extended Update Support (EUS) add-on to a Red Hat Enterprise Linux subscription, for a fee, for those customers who wish to standardize on a specific minor release for an extended period. The RHEL 8 minor releases eligible for EUS are 8.1, 8.2, 8.4, 8.6, and 8.8. Each RHEL 8 EUS stream is available for 24 months from the availability of the minor release. RHEL 8.10 will be the final minor release overall. For more details on the Red Hat Enterprise Linux Life Cycle  visit <https://access.redhat.com/support/policy/updates/errata/>.
 
   Note: The life-cycle time spans and dates are subject to adjustment.
 
 ```
 New:
 ```
+
 An operating system release is considered "supported" if the vendor continues to provide security patches for the product. With an unsupported release, it will not be possible to resolve security issues discovered in the system software.
 
-Red Hat offers the Extended Update Support (EUS) add-on to a Red Hat Enterprise Linux subscription, for a fee, for those customers who wish to standardize on a specific minor release for an extended period. The RHEL 8 minor releases eligible for EUS are 8.1, 8.2, 8.4, 8.6, and 8.8. Each RHEL 8 EUS stream is available for 24 months from the availability of the minor release. RHEL 8.10 will be the final minor release overall. For more details on the Red Hat Enterprise Linux Life Cycle  visit https://access.redhat.com/support/policy/updates/errata/.
+Red Hat offers the Extended Update Support (EUS) add-on to a Red Hat Enterprise Linux subscription, for a fee, for those customers who wish to standardize on a specific minor release for an extended period. The RHEL 8 minor releases eligible for EUS are 8.1, 8.2, 8.4, 8.6, and 8.8. Each RHEL 8 EUS stream is available for 24 months from the availability of the minor release. RHEL 8.10 will be the final minor release overall. For more details on the Red Hat Enterprise Linux Life Cycle  visit <https://access.redhat.com/support/policy/updates/errata/>.
 Note: The life-cycle time spans and dates are subject to adjustment.
 
 ```
@@ -1842,6 +1871,7 @@ Note: The life-cycle time spans and dates are subject to adjustment.
 SV-230222:
 Old:
 ```
+
 Timely patching is critical for maintaining the operational
     availability, confidentiality, and integrity of information technology (IT)
     systems. However, failure to keep operating system and application software
@@ -1856,6 +1886,7 @@ Timely patching is critical for maintaining the operational
 ```
 New:
 ```
+
 Timely patching is critical for maintaining the operational availability, confidentiality, and integrity of information technology (IT) systems. However, failure to keep operating system and application software patched is a common mistake made by IT professionals. New patches are released daily, and it is often difficult for even experienced System Administrators to keep abreast of all the new patches. When new weaknesses in an operating system exist, patches are usually made available by the vendor to resolve the problems. If the most recent security patches and updates are not installed, unauthorized users may take advantage of weaknesses in the unpatched software. The lack of prompt attention to patching could result in a system compromise.
 
 ```
@@ -1863,6 +1894,7 @@ Timely patching is critical for maintaining the operational availability, confid
 SV-230223:
 Old:
 ```
+
 Use of weak or untested encryption algorithms undermines the purposes of using encryption to protect data. The operating system must implement cryptographic modules adhering to the higher standards approved by the federal government since this provides assurance they have been tested and validated.
 
 RHEL 8 utilizes GRUB 2 as the default bootloader. Note that GRUB 2 command-line parameters are defined in the "kernelopts" variable of the /boot/grub2/grubenv file for all kernel boot entries. The command "fips-mode-setup" modifies the "kernelopts" variable, which in turn updates all kernel boot entries.
@@ -1872,19 +1904,19 @@ The fips=1 kernel option needs to be added to the kernel command line during sys
 ```
 New:
 ```
+
 Use of weak or untested encryption algorithms undermines the purposes of using encryption to protect data. The operating system must implement cryptographic modules adhering to the higher standards approved by the federal government since this provides assurance they have been tested and validated.
 
-RHEL 8 utilizes GRUB 2 as the default bootloader. Note that GRUB 2 command-line parameters are defined in the "kernelopts" variable of the /boot/grub2/grubenv file for all kernel boot entries. The command "fips-mode-setup" modifies the "kernelopts" variable, which in turn updates all kernel boot entries. 
+RHEL 8 utilizes GRUB 2 as the default bootloader. Note that GRUB 2 command-line parameters are defined in the "kernelopts" variable of the /boot/grub2/grubenv file for all kernel boot entries. The command "fips-mode-setup" modifies the "kernelopts" variable, which in turn updates all kernel boot entries.
 
 The fips=1 kernel option needs to be added to the kernel command line during system installation so that key generation is done with FIPS-approved algorithms and continuous monitoring tests in place. Users must also ensure the system has plenty of entropy during the installation process by moving the mouse around, or if no mouse is available, ensuring that many keystrokes are typed. The recommended amount of keystrokes is 256 and more. Less than 256 keystrokes may generate a nonunique key.
-
-
 
 ```
 ---
 SV-230224:
 Old:
 ```
+
 RHEL 8 systems handling data requiring "data at rest" protections
     must employ cryptographic mechanisms to prevent unauthorized disclosure and
     modification of the information at rest.
@@ -1899,17 +1931,17 @@ data structures (e.g., files, records, or fields).
 ```
 New:
 ```
+
 RHEL 8 systems handling data requiring "data at rest" protections must employ cryptographic mechanisms to prevent unauthorized disclosure and modification of the information at rest.
 
 Selection of a cryptographic mechanism is based on the need to protect the integrity of organizational information. The strength of the mechanism is commensurate with the security category and/or classification of the information. Organizations have the flexibility to either encrypt all information on storage devices (i.e., full disk encryption) or encrypt specific data structures (e.g., files, records, or fields).
-
-
 
 ```
 ---
 SV-230225:
 Old:
 ```
+
 Display of a standardized and approved use notification before granting access to the operating system ensures privacy and security notification verbiage used is consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.
 
 System use notifications are required only for access via logon interfaces with human users and are not required when such human interfaces do not exist.
@@ -1937,6 +1969,7 @@ Use the following verbiage for operating systems that have severe limitations on
 ```
 New:
 ```
+
 Display of a standardized and approved use notification before granting access to the operating system ensures privacy and security notification verbiage used is consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.
 
 System use notifications are required only for access via logon interfaces with human users and are not required when such human interfaces do not exist.
@@ -1960,14 +1993,13 @@ By using this IS (which includes any device attached to this IS), you consent to
 Use the following verbiage for operating systems that have severe limitations on the number of characters that can be displayed in the banner:
 
 "I've read & consent to terms in IS user agreem't."
-
-
 
 ```
 ---
 SV-230226:
 Old:
 ```
+
 Display of a standardized and approved use notification before
 granting access to the operating system ensures privacy and security
 notification verbiage used is consistent with applicable federal laws,
@@ -2010,6 +2042,7 @@ Agreement for details."
 ```
 New:
 ```
+
 Display of a standardized and approved use notification before granting access to the operating system ensures privacy and security notification verbiage used is consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.
 
 System use notifications are required only for access via logon interfaces with human users and are not required when such human interfaces do not exist.
@@ -2029,14 +2062,13 @@ By using this IS (which includes any device attached to this IS), you consent to
 -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
 
 -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details."
-
-
 
 ```
 ---
 SV-230227:
 Old:
 ```
+
 Display of a standardized and approved use notification before
 granting access to the operating system ensures privacy and security
 notification verbiage used is consistent with applicable federal laws,
@@ -2079,6 +2111,7 @@ Agreement for details."
 ```
 New:
 ```
+
 Display of a standardized and approved use notification before granting access to the operating system ensures privacy and security notification verbiage used is consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.
 
 System use notifications are required only for access via logon interfaces with human users and are not required when such human interfaces do not exist.
@@ -2099,13 +2132,12 @@ By using this IS (which includes any device attached to this IS), you consent to
 
 -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details."
 
-
-
 ```
 ---
 SV-230229:
 Old:
 ```
+
 Without path validation, an informed trust decision by the relying
 party cannot be made when presented with any certificate not already explicitly
 trusted.
@@ -2132,6 +2164,7 @@ requirement.
 ```
 New:
 ```
+
 Without path validation, an informed trust decision by the relying party cannot be made when presented with any certificate not already explicitly trusted.
 
 A trust anchor is an authoritative entity represented via a public key and associated data. It is used in the context of public key infrastructures, X.509 digital certificates, and DNSSEC.
@@ -2140,13 +2173,12 @@ When there is a chain of trust, usually the top entity to be trusted becomes the
 
 This requirement verifies that a certification path to an accepted trust anchor is used for certificate validation and that the path includes status information. Path validation is necessary for a relying party to make an informed trust decision when presented with any certificate not already explicitly trusted. Status information for certification paths includes certificate revocation lists or online certificate status protocol responses. Validation of the certificate status information is out of scope for this requirement.
 
-
-
 ```
 ---
 SV-230230:
 Old:
 ```
+
 If an unauthorized user obtains access to a private key without a
 passcode, that user would have unauthorized access to any system where the
 associated public key has been installed.
@@ -2154,6 +2186,7 @@ associated public key has been installed.
 ```
 New:
 ```
+
 If an unauthorized user obtains access to a private key without a passcode, that user would have unauthorized access to any system where the associated public key has been installed.
 
 ```
@@ -2161,6 +2194,7 @@ If an unauthorized user obtains access to a private key without a passcode, that
 SV-230231:
 Old:
 ```
+
 Passwords need to be protected at all times, and encryption is the
 standard method for protecting passwords. If passwords are not encrypted, they
 can be plainly read (i.e., clear text) and easily compromised.
@@ -2175,6 +2209,7 @@ access cryptographic modules utilize authentication that meets DoD requirements.
 ```
 New:
 ```
+
 Passwords need to be protected at all times, and encryption is the standard method for protecting passwords. If passwords are not encrypted, they can be plainly read (i.e., clear text) and easily compromised.
 
 Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.
@@ -2186,6 +2221,7 @@ FIPS 140-2 is the current standard for validating that mechanisms used to access
 SV-230232:
 Old:
 ```
+
 The system must use a strong hashing algorithm to store the password.
 
     Passwords need to be protected at all times, and encryption is the standard
@@ -2195,6 +2231,7 @@ plainly read (i.e., clear text) and easily compromised.
 ```
 New:
 ```
+
 The system must use a strong hashing algorithm to store the password.
 
 Passwords need to be protected at all times, and encryption is the standard method for protecting passwords. If passwords are not encrypted, they can be plainly read (i.e., clear text) and easily compromised.
@@ -2204,6 +2241,7 @@ Passwords need to be protected at all times, and encryption is the standard meth
 SV-230233:
 Old:
 ```
+
 The system must use a strong hashing algorithm to store the password.
 The system must use a sufficient number of hashing rounds to ensure the
 required level of entropy.
@@ -2215,6 +2253,7 @@ plainly read (i.e., clear text) and easily compromised.
 ```
 New:
 ```
+
 The system must use a strong hashing algorithm to store the password. The system must use a sufficient number of hashing rounds to ensure the required level of entropy.
 
 Passwords need to be protected at all times, and encryption is the standard method for protecting passwords. If passwords are not encrypted, they can be plainly read (i.e., clear text) and easily compromised.
@@ -2224,6 +2263,7 @@ Passwords need to be protected at all times, and encryption is the standard meth
 SV-230234:
 Old:
 ```
+
 If the system does not require valid authentication before it boots
 into single-user or maintenance mode, anyone who invokes single-user or
 maintenance mode is granted privileged access to all files on the system. GRUB
@@ -2233,6 +2273,7 @@ to boot into single-user mode or make modifications to the boot menu.
 ```
 New:
 ```
+
 If the system does not require valid authentication before it boots into single-user or maintenance mode, anyone who invokes single-user or maintenance mode is granted privileged access to all files on the system. GRUB 2 is the default boot loader for RHEL 8 and is designed to require a password to boot into single-user mode or make modifications to the boot menu.
 
 ```
@@ -2240,6 +2281,7 @@ If the system does not require valid authentication before it boots into single-
 SV-230235:
 Old:
 ```
+
 If the system does not require valid authentication before it boots
 into single-user or maintenance mode, anyone who invokes single-user or
 maintenance mode is granted privileged access to all files on the system. GRUB
@@ -2249,6 +2291,7 @@ to boot into single-user mode or make modifications to the boot menu.
 ```
 New:
 ```
+
 If the system does not require valid authentication before it boots into single-user or maintenance mode, anyone who invokes single-user or maintenance mode is granted privileged access to all files on the system. GRUB 2 is the default boot loader for RHEL 8 and is designed to require a password to boot into single-user mode or make modifications to the boot menu.
 
 ```
@@ -2256,6 +2299,7 @@ If the system does not require valid authentication before it boots into single-
 SV-230236:
 Old:
 ```
+
 If the system does not require valid root authentication before it
 boots into emergency or rescue mode, anyone who invokes emergency or rescue
 mode is granted privileged access to all files on the system.
@@ -2263,6 +2307,7 @@ mode is granted privileged access to all files on the system.
 ```
 New:
 ```
+
 If the system does not require valid root authentication before it boots into emergency or rescue mode, anyone who invokes emergency or rescue mode is granted privileged access to all files on the system.
 
 ```
@@ -2270,6 +2315,7 @@ If the system does not require valid root authentication before it boots into em
 SV-230237:
 Old:
 ```
+
 Unapproved mechanisms that are used for authentication to the
 cryptographic module are not verified and therefore cannot be relied upon to
 provide confidentiality or integrity, and DoD data may be compromised.
@@ -2285,9 +2331,10 @@ general-purpose computing system.
 ```
 New:
 ```
+
 Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.
 
-RHEL 8 systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules. 
+RHEL 8 systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules.
 
 FIPS 140-2 is the current standard for validating that mechanisms used to access cryptographic modules utilize authentication that meets DoD requirements. This allows for Security Levels 1, 2, 3, or 4 for use on a general-purpose computing system.
 
@@ -2296,6 +2343,7 @@ FIPS 140-2 is the current standard for validating that mechanisms used to access
 SV-230238:
 Old:
 ```
+
 Unapproved mechanisms that are used for authentication to the
 cryptographic module are not verified and therefore cannot be relied upon to
 provide confidentiality or integrity, and DoD data may be compromised.
@@ -2316,6 +2364,7 @@ general-purpose computing system.
 ```
 New:
 ```
+
 Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.
 
 RHEL 8 systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules.
@@ -2329,6 +2378,7 @@ FIPS 140-2 is the current standard for validating that mechanisms used to access
 SV-230239:
 Old:
 ```
+
 Unapproved mechanisms that are used for authentication to the
 cryptographic module are not verified and therefore cannot be relied upon to
 provide confidentiality or integrity, and DoD data may be compromised.
@@ -2346,6 +2396,7 @@ general-purpose computing system.
 ```
 New:
 ```
+
 Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.
 
 RHEL 8 systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules.
@@ -2359,6 +2410,7 @@ FIPS 140-2 is the current standard for validating that mechanisms used to access
 SV-230240:
 Old:
 ```
+
 Without verification of the security functions, security functions may
 not operate correctly and the failure may go unnoticed. Security function is
 defined as the hardware, software, and/or firmware of the information system
@@ -2375,6 +2427,7 @@ functionality.
 ```
 New:
 ```
+
 Without verification of the security functions, security functions may not operate correctly and the failure may go unnoticed. Security function is defined as the hardware, software, and/or firmware of the information system responsible for enforcing the system security policy and supporting the isolation of code and data on which the protection is based. Security functionality includes, but is not limited to, establishing system accounts, configuring access authorizations (i.e., permissions, privileges), setting events to be audited, and setting intrusion detection parameters.
 
 This requirement applies to operating systems performing security function verification/testing and/or systems and environments that require this functionality.
@@ -2384,6 +2437,7 @@ This requirement applies to operating systems performing security function verif
 SV-230241:
 Old:
 ```
+
 Without verification of the security functions, security functions may
 not operate correctly and the failure may go unnoticed. Security function is
 defined as the hardware, software, and/or firmware of the information system
@@ -2401,6 +2455,7 @@ switch roles, and run_init to run /etc/init.d scripts in the proper context.
 ```
 New:
 ```
+
 Without verification of the security functions, security functions may not operate correctly and the failure may go unnoticed. Security function is defined as the hardware, software, and/or firmware of the information system responsible for enforcing the system security policy and supporting the isolation of code and data on which the protection is based. Security functionality includes, but is not limited to, establishing system accounts, configuring access authorizations (i.e., permissions, privileges), setting events to be audited, and setting intrusion detection parameters.
 
 Policycoreutils contains the policy core utilities that are required for basic operation of an SELinux-enabled system. These utilities include load_policy to load SELinux policies, setfile to label filesystems, newrole to switch roles, and run_init to run /etc/init.d scripts in the proper context.
@@ -2410,6 +2465,7 @@ Policycoreutils contains the policy core utilities that are required for basic o
 SV-230243:
 Old:
 ```
+
 Preventing unauthorized information transfers mitigates the risk of
 information, including encrypted representations of information, produced by
 the actions of prior users/roles (or the actions of processes acting on behalf
@@ -2430,6 +2486,7 @@ storage) that may be assessed on specific information system components.
 ```
 New:
 ```
+
 Preventing unauthorized information transfers mitigates the risk of information, including encrypted representations of information, produced by the actions of prior users/roles (or the actions of processes acting on behalf of prior users/roles) from being available to any current users/roles (or current processes) that obtain access to shared system resources (e.g., registers, main memory, hard disks) after those resources have been released back to information systems. The control of information in shared resources is also commonly referred to as object reuse and residual information protection.
 
 This requirement generally applies to the design of an information technology product, but it can also apply to the configuration of particular information system components that are, or use, such products. This can be verified by acceptance/validation processes in DoD or other government agencies.
@@ -2441,6 +2498,7 @@ There may be shared resources with configurable protections (e.g., files in stor
 SV-230244:
 Old:
 ```
+
 Terminating an unresponsive SSH session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle SSH session will also free up resources committed by the managed network element.
 
         Terminating network connections associated with communications sessions includes, for example, deallocating associated TCP/IP address/port pairs at the operating system level and deallocating networking assignments at the application level if multiple application sessions are using a single operating system-level network connection. This does not mean the operating system terminates all sessions or network access; it only ends the unresponsive session and releases the resources associated with that session.
@@ -2450,19 +2508,19 @@ Terminating an unresponsive SSH session within a short time period reduces the w
 ```
 New:
 ```
+
 Terminating an unresponsive SSH session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle SSH session will also free up resources committed by the managed network element.
 
 Terminating network connections associated with communications sessions includes, for example, deallocating associated TCP/IP address/port pairs at the operating system level and deallocating networking assignments at the application level if multiple application sessions are using a single operating system-level network connection. This does not mean the operating system terminates all sessions or network access; it only ends the unresponsive session and releases the resources associated with that session.
 
 RHEL 8 uses /etc/ssh/sshd_config for configurations of OpenSSH. Within the sshd_config, the product of the values of "ClientAliveInterval" and "ClientAliveCountMax" is used to establish the inactivity threshold. The "ClientAliveInterval" is a timeout interval in seconds after which if no data has been received from the client, sshd will send a message through the encrypted channel to request a response from the client. The "ClientAliveCountMax" is the number of client alive messages that may be sent without sshd receiving any messages back from the client. If this threshold is met, sshd will disconnect the client. For more information on these settings and others, refer to the sshd_config man pages.
 
-
-
 ```
 ---
 SV-230245:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -2478,6 +2536,7 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
@@ -2487,6 +2546,7 @@ The structure and content of error messages must be carefully considered by the 
 SV-230246:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -2502,6 +2562,7 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
@@ -2511,6 +2572,7 @@ The structure and content of error messages must be carefully considered by the 
 SV-230247:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -2526,6 +2588,7 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
@@ -2535,6 +2598,7 @@ The structure and content of error messages must be carefully considered by the 
 SV-230248:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -2550,6 +2614,7 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
@@ -2559,6 +2624,7 @@ The structure and content of error messages must be carefully considered by the 
 SV-230249:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -2574,6 +2640,7 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
@@ -2583,6 +2650,7 @@ The structure and content of error messages must be carefully considered by the 
 SV-230250:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -2598,6 +2666,7 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
@@ -2607,11 +2676,13 @@ The structure and content of error messages must be carefully considered by the 
 SV-230251:
 Old:
 ```
+
 Without cryptographic integrity protections, information can be altered by unauthorized users without detection. Remote access (e.g., RDP) is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless. Cryptographic mechanisms used for protecting the integrity of information include, for example, signed hash functions using asymmetric cryptography enabling distribution of the public key to verify the hash information while maintaining the confidentiality of the secret key used to generate the hash. RHEL 8 incorporates system-wide crypto policies by default. The SSH configuration file has no effect on the ciphers, MACs, or algorithms unless specifically defined in the /etc/sysconfig/sshd file. The employed algorithms can be viewed in the /etc/crypto-policies/back-ends/opensshserver.config file. The system will attempt to use the first hash presented by the client that matches the server list. Listing the values "strongest to weakest" is a method to ensure the use of the strongest hash available to secure the SSH connection.
 
 ```
 New:
 ```
+
 Without cryptographic integrity protections, information can be altered by unauthorized users without detection.
 
 Remote access (e.g., RDP) is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.
@@ -2622,13 +2693,12 @@ RHEL 8 incorporates system-wide crypto policies by default. The SSH configuratio
 
 The system will attempt to use the first hash presented by the client that matches the server list. Listing the values "strongest to weakest" is a method to ensure the use of the strongest hash available to secure the SSH connection.
 
-
-
 ```
 ---
 SV-230252:
 Old:
 ```
+
 Without cryptographic integrity protections, information can be
 altered by unauthorized users without detection.
 
@@ -2655,6 +2725,7 @@ connection.
 ```
 New:
 ```
+
 Without cryptographic integrity protections, information can be altered by unauthorized users without detection.
 
 Remote access (e.g., RDP) is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.
@@ -2665,13 +2736,12 @@ RHEL 8 incorporates system-wide crypto policies by default. The SSH configuratio
 
 The system will attempt to use the first hash presented by the client that matches the server list. Listing the values "strongest to weakest" is a method to ensure the use of the strongest hash available to secure the SSH connection.
 
-
-
 ```
 ---
 SV-230253:
 Old:
 ```
+
 The most important characteristic of a random number generator is its
 randomness, namely its ability to deliver random numbers that are impossible to
 predict.  Entropy in computer security is associated with the unpredictability
@@ -2689,6 +2759,7 @@ until enough entropy is available.
 ```
 New:
 ```
+
 The most important characteristic of a random number generator is its randomness, namely its ability to deliver random numbers that are impossible to predict.  Entropy in computer security is associated with the unpredictability of a source of randomness.  The random source with high entropy tends to achieve a uniform distribution of random values.  Random number generators are one of the most important building blocks of cryptosystems.
 
 The SSH implementation in RHEL8 uses the OPENSSL library, which does not use high-entropy sources by default.  By using the SSH_USE_STRONG_RNG environment variable the OPENSSL random generator is reseeded from /dev/random.  This setting is not recommended on computers without the hardware random generator because insufficient entropy causes the connection to be blocked until enough entropy is available.
@@ -2698,6 +2769,7 @@ The SSH implementation in RHEL8 uses the OPENSSL library, which does not use hig
 SV-230254:
 Old:
 ```
+
 Without cryptographic integrity protections, information can be
 altered by unauthorized users without detection.
 
@@ -2718,6 +2790,7 @@ file.
 ```
 New:
 ```
+
 Without cryptographic integrity protections, information can be altered by unauthorized users without detection.
 
 Remote access (e.g., RDP) is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.
@@ -2725,14 +2798,13 @@ Remote access (e.g., RDP) is access to DoD nonpublic information systems by an a
 Cryptographic mechanisms used for protecting the integrity of information include, for example, signed hash functions using asymmetric cryptography enabling distribution of the public key to verify the hash information while maintaining the confidentiality of the secret key used to generate the hash.
 
 RHEL 8 incorporates system-wide crypto policies by default.  The employed algorithms can be viewed in the /etc/crypto-policies/back-ends/openssl.config file.
-
-
 
 ```
 ---
 SV-230255:
 Old:
 ```
+
 Without cryptographic integrity protections, information can be
 altered by unauthorized users without detection.
 
@@ -2753,6 +2825,7 @@ file.
 ```
 New:
 ```
+
 Without cryptographic integrity protections, information can be altered by unauthorized users without detection.
 
 Remote access (e.g., RDP) is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.
@@ -2761,13 +2834,12 @@ Cryptographic mechanisms used for protecting the integrity of information includ
 
 RHEL 8 incorporates system-wide crypto policies by default.  The employed algorithms can be viewed in the /etc/crypto-policies/back-ends/openssl.config file.
 
-
-
 ```
 ---
 SV-230256:
 Old:
 ```
+
 Without cryptographic integrity protections, information can be
 altered by unauthorized users without detection.
 
@@ -2793,6 +2865,7 @@ policy defines employed algorithms in the
 ```
 New:
 ```
+
 Without cryptographic integrity protections, information can be altered by unauthorized users without detection.
 
 Transport Layer Security (TLS) encryption is a required security setting as a number of known vulnerabilities have been reported against Secure Sockets Layer (SSL) and earlier versions of TLS. Encryption of private information is essential to ensuring data confidentiality. If private information is not encrypted, it can be intercepted and easily read by an unauthorized party. SQL Server must use a minimum of FIPS 140-2-approved TLS version 1.2, and all non-FIPS-approved SSL and TLS versions must be disabled. NIST SP 800-52 specifies the preferred configurations for government systems.
@@ -2801,13 +2874,12 @@ Cryptographic mechanisms used for protecting the integrity of information includ
 
 The GnuTLS library offers an API to access secure communications protocols.  SSLv2 is not available in the GnuTLS library.  The RHEL 8 system-wide crypto policy defines employed algorithms in the /etc/crypto-policies/back-ends/gnutls.config file.
 
-
-
 ```
 ---
 SV-230257:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software
 libraries, then those changes might be implemented without undergoing the
 appropriate testing and approvals that are part of a robust change management
@@ -2823,6 +2895,7 @@ including upgrades and modifications.
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -2832,6 +2905,7 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-230258:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software
 libraries, then those changes might be implemented without undergoing the
 appropriate testing and approvals that are part of a robust change management
@@ -2847,6 +2921,7 @@ including upgrades and modifications.
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -2856,6 +2931,7 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-230259:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software
 libraries, then those changes might be implemented without undergoing the
 appropriate testing and approvals that are part of a robust change management
@@ -2871,6 +2947,7 @@ including upgrades and modifications.
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -2880,6 +2957,7 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-230260:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software
 libraries, then those changes might be implemented without undergoing the
 appropriate testing and approvals that are part of a robust change management
@@ -2895,6 +2973,7 @@ including upgrades and modifications.
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -2904,6 +2983,7 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-230261:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software
 libraries, then those changes might be implemented without undergoing the
 appropriate testing and approvals that are part of a robust change management
@@ -2919,6 +2999,7 @@ including upgrades and modifications.
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -2928,6 +3009,7 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-230262:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software
 libraries, then those changes might be implemented without undergoing the
 appropriate testing and approvals that are part of a robust change management
@@ -2943,6 +3025,7 @@ including upgrades and modifications.
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -2952,6 +3035,7 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-230263:
 Old:
 ```
+
 Unauthorized changes to the baseline configuration could make the system vulnerable to various attacks or allow unauthorized access to the operating system. Changes to operating system configurations can have unintended side effects, some of which may be relevant to security.
 
 Detecting such changes and providing an automated response can help avoid unintended, negative consequences that could ultimately affect the security state of the operating system. The operating system's Information System Security Manager (ISSM)/Information System Security Officer (ISSO) and System Administrators (SAs) must be notified via email and/or monitoring system trap when there is an unauthorized modification of a configuration item.
@@ -2965,6 +3049,7 @@ RHEL 8 comes with many optional software packages. A file integrity tool called 
 ```
 New:
 ```
+
 Unauthorized changes to the baseline configuration could make the system vulnerable to various attacks or allow unauthorized access to the operating system. Changes to operating system configurations can have unintended side effects, some of which may be relevant to security.
 
 Detecting such changes and providing an automated response can help avoid unintended, negative consequences that could ultimately affect the security state of the operating system. The operating system's Information System Security Manager (ISSM)/Information System Security Officer (ISSO) and System Administrators (SAs) must be notified via email and/or monitoring system trap when there is an unauthorized modification of a configuration item.
@@ -2975,13 +3060,12 @@ This capability must take into account operational requirements for availability
 
 RHEL 8 comes with many optional software packages. A file integrity tool called Advanced Intrusion Detection Environment (AIDE) is one of those optional packages. This requirement assumes the use of AIDE; however, a different tool may be used if the requirements are met. Note that AIDE does not have a configuration that will send a notification, so a cron job is recommended that uses the mail application on the system to email the results of the file integrity check.
 
-
-
 ```
 ---
 SV-230264:
 Old:
 ```
+
 Changes to any software components can have significant effects on the
 overall security of the operating system. This requirement ensures the software
 has not been tampered with and that it has been provided by a trusted vendor.
@@ -3001,6 +3085,7 @@ used to verify the software must be from an approved CA.
 ```
 New:
 ```
+
 Changes to any software components can have significant effects on the overall security of the operating system. This requirement ensures the software has not been tampered with and that it has been provided by a trusted vendor.
 
 Accordingly, patches, service packs, device drivers, or operating system components must be signed with a certificate recognized and approved by the organization.
@@ -3012,6 +3097,7 @@ Verifying the authenticity of the software prior to installation validates the i
 SV-230265:
 Old:
 ```
+
 Changes to any software components can have significant effects on the
 overall security of the operating system. This requirement ensures the software
 has not been tampered with and that it has been provided by a trusted vendor.
@@ -3031,6 +3117,7 @@ used to verify the software must be from an approved CA.
 ```
 New:
 ```
+
 Changes to any software components can have significant effects on the overall security of the operating system. This requirement ensures the software has not been tampered with and that it has been provided by a trusted vendor.
 
 Accordingly, patches, service packs, device drivers, or operating system components must be signed with a certificate recognized and approved by the organization.
@@ -3042,6 +3129,7 @@ Verifying the authenticity of the software prior to installation validates the i
 SV-230267:
 Old:
 ```
+
 Discretionary Access Control (DAC) is based on the notion that individual users are "owners" of objects and therefore have discretion over who should be authorized to access the object and in which mode (e.g., read or write). Ownership is usually acquired as a consequence of creating the object or via specified ownership assignment. DAC allows the owner to determine who will have access to objects they control. An example of DAC includes user-controlled file permissions.
 
 When discretionary access control policies are implemented, subjects are not constrained with regard to what actions they can take with information for which they have already been granted access. Thus, subjects that have been granted access to information are not prevented from passing (i.e., the subjects have the discretion to pass) the information to other subjects or objects. A subject that is constrained in its operation by Mandatory Access Control policies is still able to operate under the less rigorous constraints of this requirement. Thus, while Mandatory Access Control imposes constraints preventing a subject from passing information to another subject operating at a different sensitivity level, this requirement permits the subject to pass the information to any subject at the same sensitivity level. The policy is bounded by the information system boundary. Once the information is passed outside the control of the information system, additional means may be required to ensure the constraints remain in effect. While the older, more traditional definitions of discretionary access control require identity-based access control, that limitation is not required for this use of discretionary access control.
@@ -3059,6 +3147,7 @@ The sysctl --system command will load settings from all system configuration fil
 ```
 New:
 ```
+
 Discretionary Access Control (DAC) is based on the notion that individual users are "owners" of objects and therefore have discretion over who should be authorized to access the object and in which mode (e.g., read or write). Ownership is usually acquired as a consequence of creating the object or via specified ownership assignment. DAC allows the owner to determine who will have access to objects they control. An example of DAC includes user-controlled file permissions.
 
 When discretionary access control policies are implemented, subjects are not constrained with regard to what actions they can take with information for which they have already been granted access. Thus, subjects that have been granted access to information are not prevented from passing (i.e., the subjects have the discretion to pass) the information to other subjects or objects. A subject that is constrained in its operation by Mandatory Access Control policies is still able to operate under the less rigorous constraints of this requirement. Thus, while Mandatory Access Control imposes constraints preventing a subject from passing information to another subject operating at a different sensitivity level, this requirement permits the subject to pass the information to any subject at the same sensitivity level. The policy is bounded by the information system boundary. Once the information is passed outside the control of the information system, additional means may be required to ensure the constraints remain in effect. While the older, more traditional definitions of discretionary access control require identity-based access control, that limitation is not required for this use of discretionary access control.
@@ -3073,13 +3162,12 @@ The sysctl --system command will load settings from all system configuration fil
 /lib/sysctl.d/*.conf
 /etc/sysctl.conf
 
-
-
 ```
 ---
 SV-230268:
 Old:
 ```
+
 Discretionary Access Control (DAC) is based on the notion that individual users are "owners" of objects and therefore have discretion over who should be authorized to access the object and in which mode (e.g., read or write). Ownership is usually acquired as a consequence of creating the object or via specified ownership assignment. DAC allows the owner to determine who will have access to objects they control. An example of DAC includes user-controlled file permissions.
 
     When discretionary access control policies are implemented, subjects are not constrained with regard to what actions they can take with information for which they have already been granted access. Thus, subjects that have been granted access to information are not prevented from passing (i.e., the subjects have the discretion to pass) the information to other subjects or objects. A subject that is constrained in its operation by Mandatory Access Control policies is still able to operate under the less rigorous constraints of this requirement. Thus, while Mandatory Access Control imposes constraints preventing a subject from passing information to another subject operating at a different sensitivity level, this requirement permits the subject to pass the information to any subject at the same sensitivity level. The policy is bounded by the information system boundary. Once the information is passed outside the control of the information system, additional means may be required to ensure the constraints remain in effect. While the older, more traditional definitions of discretionary access control require identity-based access control, that limitation is not required for this use of discretionary access control.
@@ -3098,6 +3186,7 @@ Discretionary Access Control (DAC) is based on the notion that individual users 
 ```
 New:
 ```
+
 Discretionary Access Control (DAC) is based on the notion that individual users are "owners" of objects and therefore have discretion over who should be authorized to access the object and in which mode (e.g., read or write). Ownership is usually acquired as a consequence of creating the object or via specified ownership assignment. DAC allows the owner to determine who will have access to objects they control. An example of DAC includes user-controlled file permissions.
 
 When discretionary access control policies are implemented, subjects are not constrained with regard to what actions they can take with information for which they have already been granted access. Thus, subjects that have been granted access to information are not prevented from passing (i.e., the subjects have the discretion to pass) the information to other subjects or objects. A subject that is constrained in its operation by Mandatory Access Control policies is still able to operate under the less rigorous constraints of this requirement. Thus, while Mandatory Access Control imposes constraints preventing a subject from passing information to another subject operating at a different sensitivity level, this requirement permits the subject to pass the information to any subject at the same sensitivity level. The policy is bounded by the information system boundary. Once the information is passed outside the control of the information system, additional means may be required to ensure the constraints remain in effect. While the older, more traditional definitions of discretionary access control require identity-based access control, that limitation is not required for this use of discretionary access control.
@@ -3112,13 +3201,12 @@ The sysctl --system command will load settings from all system configuration fil
 /lib/sysctl.d/*.conf
 /etc/sysctl.conf
 
-
-
 ```
 ---
 SV-230271:
 Old:
 ```
+
 Without reauthentication, users may access resources or perform tasks
 for which they do not have authorization.
 
@@ -3128,17 +3216,17 @@ capability, it is critical the user reauthenticate.
 ```
 New:
 ```
+
 Without reauthentication, users may access resources or perform tasks for which they do not have authorization.
 
 When operating systems provide the capability to escalate a functional capability, it is critical the user reauthenticate.
-
-
 
 ```
 ---
 SV-230272:
 Old:
 ```
+
 Without reauthentication, users may access resources or perform tasks
 for which they do not have authorization.
 
@@ -3148,17 +3236,17 @@ capability, it is critical the user reauthenticate.
 ```
 New:
 ```
+
 Without reauthentication, users may access resources or perform tasks for which they do not have authorization.
 
 When operating systems provide the capability to escalate a functional capability, it is critical the user reauthenticate.
-
-
 
 ```
 ---
 SV-230273:
 Old:
 ```
+
 Using an authentication device, such as a DoD Common Access Card (CAC)
     or token that is separate from the information system, ensures that even if the
     information system is compromised, credentials stored on the authentication
@@ -3185,6 +3273,7 @@ Using an authentication device, such as a DoD Common Access Card (CAC)
 ```
 New:
 ```
+
 Using an authentication device, such as a DoD Common Access Card (CAC) or token that is separate from the information system, ensures that even if the information system is compromised, credentials stored on the authentication device will not be affected.
 
 Multifactor solutions that require devices separate from information systems gaining access include, for example, hardware tokens providing time-based or challenge-response authenticators and smart cards such as the U.S. Government Personal Identity Verification (PIV) card and the DoD CAC.
@@ -3200,6 +3289,7 @@ This requirement only applies to components where this is specific to the functi
 SV-230274:
 Old:
 ```
+
 Using an authentication device, such as a DoD Common Access Card (CAC)
     or token that is separate from the information system, ensures that even if the
     information system is compromised, credentials stored on the authentication
@@ -3218,19 +3308,19 @@ Daemon (SSSD). By default, sssd performs Online Certificate Status Protocol
 ```
 New:
 ```
+
 Using an authentication device, such as a DoD Common Access Card (CAC) or token that is separate from the information system, ensures that even if the information system is compromised, credentials stored on the authentication device will not be affected.
 
 Multifactor solutions that require devices separate from information systems gaining access include, for example, hardware tokens providing time-based or challenge-response authenticators and smart cards such as the U.S. Government Personal Identity Verification (PIV) card and the DoD CAC.
 
 RHEL 8 includes multiple options for configuring certificate status checking, but for this requirement focuses on the System Security Services Daemon (SSSD). By default, sssd performs Online Certificate Status Protocol (OCSP) checking and certificate verification using a sha256 digest function.
 
-
-
 ```
 ---
 SV-230275:
 Old:
 ```
+
 The use of PIV credentials facilitates standardization and reduces the
     risk of unauthorized access.
 
@@ -3242,6 +3332,7 @@ The use of PIV credentials facilitates standardization and reduces the
 ```
 New:
 ```
+
 The use of PIV credentials facilitates standardization and reduces the risk of unauthorized access.
 
 The DoD has mandated the use of the Common Access Card (CAC) to support identity management and personal authentication for systems covered under Homeland Security Presidential Directive (HSPD) 12, as well as making the CAC a primary component of layered protection for national security systems.
@@ -3251,6 +3342,7 @@ The DoD has mandated the use of the Common Access Card (CAC) to support identity
 SV-230276:
 Old:
 ```
+
 Some adversaries launch attacks with the intent of executing code in
 non-executable regions of memory or in memory locations that are prohibited.
 Security safeguards employed to protect memory include, for example, data
@@ -3263,6 +3355,7 @@ hardware providing the greater strength of mechanism.
 ```
 New:
 ```
+
 Some adversaries launch attacks with the intent of executing code in non-executable regions of memory or in memory locations that are prohibited. Security safeguards employed to protect memory include, for example, data execution prevention and address space layout randomization. Data execution prevention safeguards can be either hardware-enforced or software-enforced with hardware providing the greater strength of mechanism.
 
 Examples of attacks are buffer overflow attacks.
@@ -3272,6 +3365,7 @@ Examples of attacks are buffer overflow attacks.
 SV-230277:
 Old:
 ```
+
 Some adversaries launch attacks with the intent of executing code in
 non-executable regions of memory or in memory locations that are prohibited.
 Security safeguards employed to protect memory include, for example, data
@@ -3288,17 +3382,17 @@ detection of corrupted memory.
 ```
 New:
 ```
+
 Some adversaries launch attacks with the intent of executing code in non-executable regions of memory or in memory locations that are prohibited. Security safeguards employed to protect memory include, for example, data execution prevention and address space layout randomization. Data execution prevention safeguards can be either hardware-enforced or software-enforced with hardware providing the greater strength of mechanism.
 
 Poisoning writes an arbitrary value to freed pages, so any modification or reference to that page after being freed or before being initialized will be detected and prevented. This prevents many types of use-after-free vulnerabilities at little performance cost. Also prevents leak of data and detection of corrupted memory.
-
-
 
 ```
 ---
 SV-230278:
 Old:
 ```
+
 Syscalls are special routines in the Linux kernel, which userspace
 applications ask to do privileged tasks.  Invoking a system call is an
 expensive operation because the processor must interrupt the currently
@@ -3317,17 +3411,17 @@ syscalls will need enabled so the components function properly.
 ```
 New:
 ```
+
 Syscalls are special routines in the Linux kernel, which userspace applications ask to do privileged tasks.  Invoking a system call is an expensive operation because the processor must interrupt the currently executing task and switch context to kernel mode and then back to userspace after the system call completes.  Virtual Syscalls map into user space a page that contains some variables and the implementation of some system calls.  This allows the system calls to be executed in userspace to alleviate the context switching expense.
 
 Virtual Syscalls provide an opportunity of attack for a user who has control of the return instruction pointer.  Disabling vsyscalls help to prevent return oriented programming (ROP) attacks via buffer overflows and overruns. If the system intends to run containers based on RHEL 6 components, then virtual syscalls will need enabled so the components function properly.
-
-
 
 ```
 ---
 SV-230279:
 Old:
 ```
+
 Some adversaries launch attacks with the intent of executing code in nonexecutable regions of memory or in memory locations that are prohibited. Security safeguards employed to protect memory include, for example, data execution prevention and address space layout randomization. Data execution prevention safeguards can be either hardware-enforced or software-enforced with hardware providing the greater strength of mechanism.
 
 Poisoning writes an arbitrary value to freed pages, so any modification or reference to that page after being freed or before being initialized will be detected and prevented. This prevents many types of use-after-free vulnerabilities at little performance cost. Also prevents leak of data and detection of corrupted memory.
@@ -3337,19 +3431,19 @@ SLAB objects are blocks of physically-contiguous memory.  SLUB is the unqueued S
 ```
 New:
 ```
+
 Some adversaries launch attacks with the intent of executing code in nonexecutable regions of memory or in memory locations that are prohibited. Security safeguards employed to protect memory include, for example, data execution prevention and address space layout randomization. Data execution prevention safeguards can be either hardware-enforced or software-enforced with hardware providing the greater strength of mechanism.
 
 Poisoning writes an arbitrary value to freed pages, so any modification or reference to that page after being freed or before being initialized will be detected and prevented. This prevents many types of use-after-free vulnerabilities at little performance cost. Also prevents leak of data and detection of corrupted memory.
 
 SLAB objects are blocks of physically-contiguous memory.  SLUB is the unqueued SLAB allocator.
 
-
-
 ```
 ---
 SV-230281:
 Old:
 ```
+
 Previous versions of software components that are not removed from the
 information system after updates have been installed may be exploited by
 adversaries. Some information technology products may remove older versions of
@@ -3358,6 +3452,7 @@ software automatically from the information system.
 ```
 New:
 ```
+
 Previous versions of software components that are not removed from the information system after updates have been installed may be exploited by adversaries. Some information technology products may remove older versions of software automatically from the information system.
 
 ```
@@ -3365,6 +3460,7 @@ Previous versions of software components that are not removed from the informati
 SV-230282:
 Old:
 ```
+
 Without verification of the security functions, security functions may
 not operate correctly and the failure may go unnoticed. Security function is
 defined as the hardware, software, and/or firmware of the information system
@@ -3381,6 +3477,7 @@ functionality.
 ```
 New:
 ```
+
 Without verification of the security functions, security functions may not operate correctly and the failure may go unnoticed. Security function is defined as the hardware, software, and/or firmware of the information system responsible for enforcing the system security policy and supporting the isolation of code and data on which the protection is based. Security functionality includes, but is not limited to, establishing system accounts, configuring access authorizations (i.e., permissions, privileges), setting events to be audited, and setting intrusion detection parameters.
 
 This requirement applies to operating systems performing security function verification/testing and/or systems and environments that require this functionality.
@@ -3390,6 +3487,7 @@ This requirement applies to operating systems performing security function verif
 SV-230283:
 Old:
 ```
+
 The "shosts.equiv" files are used to configure host-based
 authentication for the system via SSH. Host-based authentication is not
 sufficient for preventing unauthorized access to the system, as it does not
@@ -3399,6 +3497,7 @@ or for the use of two-factor authentication.
 ```
 New:
 ```
+
 The "shosts.equiv" files are used to configure host-based authentication for the system via SSH. Host-based authentication is not sufficient for preventing unauthorized access to the system, as it does not require interactive identification and authentication of a connection request, or for the use of two-factor authentication.
 
 ```
@@ -3406,6 +3505,7 @@ The "shosts.equiv" files are used to configure host-based authentication for the
 SV-230284:
 Old:
 ```
+
 The ".shosts" files are used to configure host-based authentication
 for individual users or the system via SSH. Host-based authentication is not
 sufficient for preventing unauthorized access to the system, as it does not
@@ -3415,6 +3515,7 @@ or for the use of two-factor authentication.
 ```
 New:
 ```
+
 The ".shosts" files are used to configure host-based authentication for individual users or the system via SSH. Host-based authentication is not sufficient for preventing unauthorized access to the system, as it does not require interactive identification and authentication of a connection request, or for the use of two-factor authentication.
 
 ```
@@ -3422,6 +3523,7 @@ The ".shosts" files are used to configure host-based authentication for individu
 SV-230285:
 Old:
 ```
+
 The most important characteristic of a random number generator is its randomness, namely its ability to deliver random numbers that are impossible to predict. Entropy in computer security is associated with the unpredictability of a source of randomness.  The random source with high entropy tends to achieve a uniform distribution of random values. Random number generators are one of the most important building blocks of cryptosystems.
 
 The rngd service feeds random data from hardware device to kernel random device. Quality (nonpredictable) random number generation is important for several security functions (i.e., ciphers).
@@ -3429,6 +3531,7 @@ The rngd service feeds random data from hardware device to kernel random device.
 ```
 New:
 ```
+
 The most important characteristic of a random number generator is its randomness, namely its ability to deliver random numbers that are impossible to predict. Entropy in computer security is associated with the unpredictability of a source of randomness.  The random source with high entropy tends to achieve a uniform distribution of random values. Random number generators are one of the most important building blocks of cryptosystems.  
 
 The rngd service feeds random data from hardware device to kernel random device. Quality (nonpredictable) random number generation is important for several security functions (i.e., ciphers).
@@ -3438,12 +3541,14 @@ The rngd service feeds random data from hardware device to kernel random device.
 SV-230286:
 Old:
 ```
+
 If a public host key file is modified by an unauthorized user, the SSH
 service may be compromised.
 
 ```
 New:
 ```
+
 If a public host key file is modified by an unauthorized user, the SSH service may be compromised.
 
 ```
@@ -3451,12 +3556,14 @@ If a public host key file is modified by an unauthorized user, the SSH service m
 SV-230287:
 Old:
 ```
+
 If an unauthorized user obtains the private SSH host key file, the
 host could be impersonated.
 
 ```
 New:
 ```
+
 If an unauthorized user obtains the private SSH host key file, the host could be impersonated.
 
 ```
@@ -3464,12 +3571,14 @@ If an unauthorized user obtains the private SSH host key file, the host could be
 SV-230288:
 Old:
 ```
+
 If other users have access to modify user-specific SSH configuration
 files, they may be able to log on to the system as another user.
 
 ```
 New:
 ```
+
 If other users have access to modify user-specific SSH configuration files, they may be able to log on to the system as another user.
 
 ```
@@ -3477,6 +3586,7 @@ If other users have access to modify user-specific SSH configuration files, they
 SV-230290:
 Old:
 ```
+
 Configuring this setting for the SSH daemon provides additional
 assurance that remote logon via SSH will require a password, even in the event
 of misconfiguration elsewhere.
@@ -3484,6 +3594,7 @@ of misconfiguration elsewhere.
 ```
 New:
 ```
+
 Configuring this setting for the SSH daemon provides additional assurance that remote logon via SSH will require a password, even in the event of misconfiguration elsewhere.
 
 ```
@@ -3491,6 +3602,7 @@ Configuring this setting for the SSH daemon provides additional assurance that r
 SV-230291:
 Old:
 ```
+
 Configuring these settings for the SSH daemon provides additional
 assurance that remote logon via SSH will not use unused methods of
 authentication, even in the event of misconfiguration elsewhere.
@@ -3498,6 +3610,7 @@ authentication, even in the event of misconfiguration elsewhere.
 ```
 New:
 ```
+
 Configuring these settings for the SSH daemon provides additional assurance that remote logon via SSH will not use unused methods of authentication, even in the event of misconfiguration elsewhere.
 
 ```
@@ -3505,12 +3618,14 @@ Configuring these settings for the SSH daemon provides additional assurance that
 SV-230292:
 Old:
 ```
+
 The use of separate file systems for different paths can protect the
 system from failures resulting from a file system becoming full or failing.
 
 ```
 New:
 ```
+
 The use of separate file systems for different paths can protect the system from failures resulting from a file system becoming full or failing.
 
 ```
@@ -3518,12 +3633,14 @@ The use of separate file systems for different paths can protect the system from
 SV-230293:
 Old:
 ```
+
 The use of separate file systems for different paths can protect the
 system from failures resulting from a file system becoming full or failing.
 
 ```
 New:
 ```
+
 The use of separate file systems for different paths can protect the system from failures resulting from a file system becoming full or failing.
 
 ```
@@ -3531,12 +3648,14 @@ The use of separate file systems for different paths can protect the system from
 SV-230294:
 Old:
 ```
+
 The use of separate file systems for different paths can protect the
 system from failures resulting from a file system becoming full or failing.
 
 ```
 New:
 ```
+
 The use of separate file systems for different paths can protect the system from failures resulting from a file system becoming full or failing.
 
 ```
@@ -3544,12 +3663,14 @@ The use of separate file systems for different paths can protect the system from
 SV-230295:
 Old:
 ```
+
 The use of separate file systems for different paths can protect the
 system from failures resulting from a file system becoming full or failing.
 
 ```
 New:
 ```
+
 The use of separate file systems for different paths can protect the system from failures resulting from a file system becoming full or failing.
 
 ```
@@ -3557,6 +3678,7 @@ The use of separate file systems for different paths can protect the system from
 SV-230296:
 Old:
 ```
+
 Even though the communications channel may be encrypted, an additional
 layer of security is gained by extending the policy of not logging on directly
 as root. In addition, logging on with a user-specific account provides
@@ -3565,6 +3687,7 @@ individual accountability of actions performed on the system.
 ```
 New:
 ```
+
 Even though the communications channel may be encrypted, an additional layer of security is gained by extending the policy of not logging on directly as root. In addition, logging on with a user-specific account provides individual accountability of actions performed on the system.
 
 ```
@@ -3572,6 +3695,7 @@ Even though the communications channel may be encrypted, an additional layer of 
 SV-230298:
 Old:
 ```
+
 Configuring RHEL 8 to implement organization-wide security
 implementation guides and security checklists ensures compliance with federal
 standards and establishes a common security baseline across the DoD that
@@ -3590,6 +3714,7 @@ functions, ports, protocols, services, and remote connections.
 ```
 New:
 ```
+
 Configuring RHEL 8 to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across the DoD that reflects the most restrictive security posture consistent with operational requirements.
 
 Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.
@@ -3599,6 +3724,7 @@ Configuration settings are the set of parameters that can be changed in hardware
 SV-230299:
 Old:
 ```
+
 The "nosuid" mount option causes the system not to execute
 "setuid" and "setgid" files with owner privileges. This option must be used
 for mounting any file system not containing approved "setuid" and "setguid"
@@ -3608,6 +3734,7 @@ for unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "nosuid" mount option causes the system not to execute "setuid" and "setgid" files with owner privileges. This option must be used for mounting any file system not containing approved "setuid" and "setguid" files. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3615,6 +3742,7 @@ The "nosuid" mount option causes the system not to execute "setuid" and "setgid"
 SV-230300:
 Old:
 ```
+
 The "nosuid" mount option causes the system not to execute
 "setuid" and "setgid" files with owner privileges. This option must be used
 for mounting any file system not containing approved "setuid" and "setguid"
@@ -3624,6 +3752,7 @@ for unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "nosuid" mount option causes the system not to execute "setuid" and "setgid" files with owner privileges. This option must be used for mounting any file system not containing approved "setuid" and "setguid" files. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3631,6 +3760,7 @@ The "nosuid" mount option causes the system not to execute "setuid" and "setgid"
 SV-230301:
 Old:
 ```
+
 The "nodev" mount option causes the system to not interpret
 character or block special devices. Executing character or block special
 devices from untrusted file systems increases the opportunity for unprivileged
@@ -3640,6 +3770,7 @@ location for device files is the /dev directory located on the root partition.
 ```
 New:
 ```
+
 The "nodev" mount option causes the system to not interpret character or block special devices. Executing character or block special devices from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.  The only legitimate location for device files is the /dev directory located on the root partition.
 
 ```
@@ -3647,6 +3778,7 @@ The "nodev" mount option causes the system to not interpret character or block s
 SV-230302:
 Old:
 ```
+
 The "noexec" mount option causes the system not to execute binary
 files. This option must be used for mounting any file system not containing
 approved binary files, as they may be incompatible. Executing files from
@@ -3656,6 +3788,7 @@ attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "noexec" mount option causes the system not to execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3663,6 +3796,7 @@ The "noexec" mount option causes the system not to execute binary files. This op
 SV-230303:
 Old:
 ```
+
 The "nodev" mount option causes the system not to interpret
 character or block special devices. Executing character or block special
 devices from untrusted file systems increases the opportunity for unprivileged
@@ -3671,6 +3805,7 @@ users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "nodev" mount option causes the system not to interpret character or block special devices. Executing character or block special devices from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3678,6 +3813,7 @@ The "nodev" mount option causes the system not to interpret character or block s
 SV-230304:
 Old:
 ```
+
 The "noexec" mount option causes the system not to execute binary
 files. This option must be used for mounting any file system not containing
 approved binary files, as they may be incompatible. Executing files from
@@ -3687,6 +3823,7 @@ attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "noexec" mount option causes the system not to execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3694,6 +3831,7 @@ The "noexec" mount option causes the system not to execute binary files. This op
 SV-230305:
 Old:
 ```
+
 The "nosuid" mount option causes the system not to execute
 "setuid" and "setgid" files with owner privileges. This option must be used
 for mounting any file system not containing approved "setuid" and "setguid"
@@ -3703,6 +3841,7 @@ for unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "nosuid" mount option causes the system not to execute "setuid" and "setgid" files with owner privileges. This option must be used for mounting any file system not containing approved "setuid" and "setguid" files. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3710,6 +3849,7 @@ The "nosuid" mount option causes the system not to execute "setuid" and "setgid"
 SV-230306:
 Old:
 ```
+
 The "noexec" mount option causes the system not to execute binary
 files. This option must be used for mounting any file system not containing
 approved binary as they may be incompatible. Executing files from untrusted
@@ -3719,6 +3859,7 @@ unauthorized administrative access.
 ```
 New:
 ```
+
 The "noexec" mount option causes the system not to execute binary files. This option must be used for mounting any file system not containing approved binary as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3726,6 +3867,7 @@ The "noexec" mount option causes the system not to execute binary files. This op
 SV-230307:
 Old:
 ```
+
 The "nodev" mount option causes the system to not interpret
 character or block special devices. Executing character or block special
 devices from untrusted file systems increases the opportunity for unprivileged
@@ -3734,6 +3876,7 @@ users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "nodev" mount option causes the system to not interpret character or block special devices. Executing character or block special devices from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3741,6 +3884,7 @@ The "nodev" mount option causes the system to not interpret character or block s
 SV-230308:
 Old:
 ```
+
 The "nosuid" mount option causes the system not to execute
 "setuid" and "setgid" files with owner privileges. This option must be used
 for mounting any file system not containing approved "setuid" and "setguid"
@@ -3750,6 +3894,7 @@ for unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "nosuid" mount option causes the system not to execute "setuid" and "setgid" files with owner privileges. This option must be used for mounting any file system not containing approved "setuid" and "setguid" files. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -3757,6 +3902,7 @@ The "nosuid" mount option causes the system not to execute "setuid" and "setgid"
 SV-230309:
 Old:
 ```
+
 If user start-up files execute world-writable programs, especially in
 unprotected directories, they could be maliciously modified to destroy user
 files or otherwise compromise the system at the user level. If the system is
@@ -3766,6 +3912,7 @@ compromise the system at the root and network level.
 ```
 New:
 ```
+
 If user start-up files execute world-writable programs, especially in unprotected directories, they could be maliciously modified to destroy user files or otherwise compromise the system at the user level. If the system is compromised at the user level, it is easier to elevate privileges to eventually compromise the system at the root and network level.
 
 ```
@@ -3773,6 +3920,7 @@ If user start-up files execute world-writable programs, especially in unprotecte
 SV-230310:
 Old:
 ```
+
 Kernel core dumps may contain the full contents of system memory at
 the time of the crash. Kernel core dumps may consume a considerable amount of
 disk space and may result in denial of service by exhausting the available
@@ -3784,6 +3932,7 @@ kdump service at the time of system installation.
 ```
 New:
 ```
+
 Kernel core dumps may contain the full contents of system memory at the time of the crash. Kernel core dumps may consume a considerable amount of disk space and may result in denial of service by exhausting the available space on the target file system partition.
 
 RHEL 8 installation media presents the option to enable or disable the kdump service at the time of system installation.
@@ -3793,6 +3942,7 @@ RHEL 8 installation media presents the option to enable or disable the kdump ser
 SV-230312:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -3806,22 +3956,24 @@ generally useful only for developers trying to debug problems.
     When the kernel invokes systemd-coredumpt to handle a core dump, it runs in
 privileged mode, and will connect to the socket created by the
 systemd-coredump.socket unit. This, in turn,  will spawn an unprivileged
-systemd-coredump@.service instance to process the core dump.
+<systemd-coredump@.service> instance to process the core dump.
 
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 A core dump includes a memory image taken at the time the operating system terminates an application. The memory image could contain sensitive data and is generally useful only for developers trying to debug problems.
 
-When the kernel invokes systemd-coredumpt to handle a core dump, it runs in privileged mode, and will connect to the socket created by the systemd-coredump.socket unit. This, in turn,  will spawn an unprivileged systemd-coredump@.service instance to process the core dump.
+When the kernel invokes systemd-coredumpt to handle a core dump, it runs in privileged mode, and will connect to the socket created by the systemd-coredump.socket unit. This, in turn,  will spawn an unprivileged <systemd-coredump@.service> instance to process the core dump.
 
 ```
 ---
 SV-230313:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -3835,6 +3987,7 @@ generally useful only for developers trying to debug problems.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 A core dump includes a memory image taken at the time the operating system terminates an application. The memory image could contain sensitive data and is generally useful only for developers trying to debug problems.
@@ -3844,6 +3997,7 @@ A core dump includes a memory image taken at the time the operating system termi
 SV-230314:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -3857,6 +4011,7 @@ generally useful only for developers trying to debug problems.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 A core dump includes a memory image taken at the time the operating system terminates an application. The memory image could contain sensitive data and is generally useful only for developers trying to debug problems.
@@ -3866,6 +4021,7 @@ A core dump includes a memory image taken at the time the operating system termi
 SV-230315:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -3879,6 +4035,7 @@ generally useful only for developers trying to debug problems.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 A core dump includes a memory image taken at the time the operating system terminates an application. The memory image could contain sensitive data and is generally useful only for developers trying to debug problems.
@@ -3888,6 +4045,7 @@ A core dump includes a memory image taken at the time the operating system termi
 SV-230316:
 Old:
 ```
+
 To provide availability for name resolution services, multiple
 redundant name servers are mandated. A failure in name resolution could lead to
 the failure of security functions requiring name resolution, which may include
@@ -3896,6 +4054,7 @@ time synchronization, centralized authentication, and remote system logging.
 ```
 New:
 ```
+
 To provide availability for name resolution services, multiple redundant name servers are mandated. A failure in name resolution could lead to the failure of security functions requiring name resolution, which may include time synchronization, centralized authentication, and remote system logging.
 
 ```
@@ -3903,6 +4062,7 @@ To provide availability for name resolution services, multiple redundant name se
 SV-230317:
 Old:
 ```
+
 The executable search path (typically the PATH environment variable)
 contains a list of directories for the shell to search to find executables. If
 this path includes the current working directory (other than the user's home
@@ -3917,6 +4077,7 @@ Officer (ISSO).
 ```
 New:
 ```
+
 The executable search path (typically the PATH environment variable) contains a list of directories for the shell to search to find executables. If this path includes the current working directory (other than the user's home directory), executables in these directories may be executed instead of system commands. This variable is formatted as a colon-separated list of directories. If there is an empty entry, such as a leading or trailing colon or two consecutive colons, this is interpreted as the current working directory. If deviations from the default system search path for the local interactive user are required, they must be documented with the Information System Security Officer (ISSO).
 
 ```
@@ -3924,6 +4085,7 @@ The executable search path (typically the PATH environment variable) contains a 
 SV-230318:
 Old:
 ```
+
 If a world-writable directory is not owned by root, sys, bin, or an
 application User Identifier (UID), unauthorized users may be able to modify
 files created by others.
@@ -3937,6 +4099,7 @@ global read/write access.
 ```
 New:
 ```
+
 If a world-writable directory is not owned by root, sys, bin, or an application User Identifier (UID), unauthorized users may be able to modify files created by others.
 
 The only authorized public directories are those temporary directories supplied with the system or those designed to be temporary file repositories. The setting is normally reserved for directories used by the system and by users for temporary file storage, (e.g., /tmp), and for directories requiring global read/write access.
@@ -3946,6 +4109,7 @@ The only authorized public directories are those temporary directories supplied 
 SV-230319:
 Old:
 ```
+
 If a world-writable directory is not group-owned by root, sys, bin, or
 an application Group Identifier (GID), unauthorized users may be able to modify
 files created by others.
@@ -3959,6 +4123,7 @@ global read/write access.
 ```
 New:
 ```
+
 If a world-writable directory is not group-owned by root, sys, bin, or an application Group Identifier (GID), unauthorized users may be able to modify files created by others.
 
 The only authorized public directories are those temporary directories supplied with the system or those designed to be temporary file repositories. The setting is normally reserved for directories used by the system and by users for temporary file storage, (e.g., /tmp), and for directories requiring global read/write access.
@@ -3968,12 +4133,14 @@ The only authorized public directories are those temporary directories supplied 
 SV-230320:
 Old:
 ```
+
 If local interactive users are not assigned a valid home directory,
 there is no place for the storage and control of files they should own.
 
 ```
 New:
 ```
+
 If local interactive users are not assigned a valid home directory, there is no place for the storage and control of files they should own.
 
 ```
@@ -3981,12 +4148,14 @@ If local interactive users are not assigned a valid home directory, there is no 
 SV-230321:
 Old:
 ```
+
 Excessive permissions on local interactive user home directories may
 allow unauthorized access to user files by other users.
 
 ```
 New:
 ```
+
 Excessive permissions on local interactive user home directories may allow unauthorized access to user files by other users.
 
 ```
@@ -3994,6 +4163,7 @@ Excessive permissions on local interactive user home directories may allow unaut
 SV-230322:
 Old:
 ```
+
 If the Group Identifier (GID) of a local interactive user’s home
 directory is not the same as the primary GID of the user, this would allow
 unauthorized access to the user’s files, and users that share the same group
@@ -4002,6 +4172,7 @@ may not be able to access files that they legitimately should.
 ```
 New:
 ```
+
 If the Group Identifier (GID) of a local interactive user’s home directory is not the same as the primary GID of the user, this would allow unauthorized access to the user’s files, and users that share the same group may not be able to access files that they legitimately should.
 
 ```
@@ -4009,6 +4180,7 @@ If the Group Identifier (GID) of a local interactive user’s home directory is 
 SV-230323:
 Old:
 ```
+
 If a local interactive user has a home directory defined that does not
 exist, the user may be given access to the "/" directory as the current
 working directory upon logon. This could create a denial of service because the
@@ -4018,6 +4190,7 @@ give them visibility to system files they normally would not be able to access.
 ```
 New:
 ```
+
 If a local interactive user has a home directory defined that does not exist, the user may be given access to the "/" directory as the current working directory upon logon. This could create a denial of service because the user would not be able to access their logon configuration files, and it may give them visibility to system files they normally would not be able to access.
 
 ```
@@ -4025,12 +4198,14 @@ If a local interactive user has a home directory defined that does not exist, th
 SV-230324:
 Old:
 ```
+
 If local interactive users are not assigned a valid home directory,
 there is no place for the storage and control of files they should own.
 
 ```
 New:
 ```
+
 If local interactive users are not assigned a valid home directory, there is no place for the storage and control of files they should own.
 
 ```
@@ -4038,6 +4213,7 @@ If local interactive users are not assigned a valid home directory, there is no 
 SV-230325:
 Old:
 ```
+
 Local initialization files are used to configure the user's shell
 environment upon logon. Malicious modification of these files could compromise
 accounts upon logon.
@@ -4045,6 +4221,7 @@ accounts upon logon.
 ```
 New:
 ```
+
 Local initialization files are used to configure the user's shell environment upon logon. Malicious modification of these files could compromise accounts upon logon.
 
 ```
@@ -4052,6 +4229,7 @@ Local initialization files are used to configure the user's shell environment up
 SV-230326:
 Old:
 ```
+
 Unowned files and directories may be unintentionally inherited if a
 user is assigned the same User Identifier "UID" as the UID of the un-owned
 files.
@@ -4059,6 +4237,7 @@ files.
 ```
 New:
 ```
+
 Unowned files and directories may be unintentionally inherited if a user is assigned the same User Identifier "UID" as the UID of the un-owned files.
 
 ```
@@ -4066,6 +4245,7 @@ Unowned files and directories may be unintentionally inherited if a user is assi
 SV-230327:
 Old:
 ```
+
 Files without a valid group owner may be unintentionally inherited if
 a group is assigned the same Group Identifier (GID) as the GID of the files
 without a valid group owner.
@@ -4073,6 +4253,7 @@ without a valid group owner.
 ```
 New:
 ```
+
 Files without a valid group owner may be unintentionally inherited if a group is assigned the same Group Identifier (GID) as the GID of the files without a valid group owner.
 
 ```
@@ -4080,12 +4261,14 @@ Files without a valid group owner may be unintentionally inherited if a group is
 SV-230328:
 Old:
 ```
+
 The use of separate file systems for different paths can protect the
 system from failures resulting from a file system becoming full or failing.
 
 ```
 New:
 ```
+
 The use of separate file systems for different paths can protect the system from failures resulting from a file system becoming full or failing.
 
 ```
@@ -4093,12 +4276,14 @@ The use of separate file systems for different paths can protect the system from
 SV-230329:
 Old:
 ```
+
 Failure to restrict system access to authenticated users negatively
 impacts operating system security.
 
 ```
 New:
 ```
+
 Failure to restrict system access to authenticated users negatively impacts operating system security.
 
 ```
@@ -4106,12 +4291,14 @@ Failure to restrict system access to authenticated users negatively impacts oper
 SV-230330:
 Old:
 ```
+
 SSH environment options potentially allow users to bypass access
 restriction in some configurations.
 
 ```
 New:
 ```
+
 SSH environment options potentially allow users to bypass access restriction in some configurations.
 
 ```
@@ -4119,6 +4306,7 @@ SSH environment options potentially allow users to bypass access restriction in 
 SV-230331:
 Old:
 ```
+
 If temporary user accounts remain active when no longer needed or for
 an excessive period, these accounts may be used to gain unauthorized access. To
 mitigate this risk, automated termination of all temporary accounts must be set
@@ -4138,6 +4326,7 @@ exceed access control policy requirements.
 ```
 New:
 ```
+
 If temporary user accounts remain active when no longer needed or for an excessive period, these accounts may be used to gain unauthorized access. To mitigate this risk, automated termination of all temporary accounts must be set upon account creation.
 
 Temporary accounts are established as part of normal account activation procedures when there is a need for short-term accounts without the demand for immediacy in account activation.
@@ -4151,6 +4340,7 @@ To address access requirements, many RHEL 8 operating systems may be integrated 
 SV-230332:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4167,19 +4357,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual changes to the listed files may be overwritten by the "authselect" program.
 
 From "Pam_Faillock" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230333:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4198,19 +4388,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230334:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4227,19 +4417,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual changes to the listed files may be overwritten by the "authselect" program.
 
 From "Pam_Faillock" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230335:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4258,19 +4448,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230336:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4287,19 +4477,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual changes to the listed files may be overwritten by the "authselect" program.
 
 From "Pam_Faillock" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230337:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4318,19 +4508,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230338:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4347,19 +4537,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual changes to the listed files may be overwritten by the "authselect" program.
 
 From "Pam_Faillock" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230339:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4378,19 +4568,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230340:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4407,19 +4597,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual changes to the listed files may be overwritten by the "authselect" program.
 
 From "Pam_Faillock" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230341:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4438,19 +4628,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
-
-
 
 ```
 ---
 SV-230342:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4473,6 +4663,7 @@ etc.) users to allow the centralized platform to solely manage user lockout.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual changes to the listed files may be overwritten by the "authselect" program.
@@ -4480,14 +4671,13 @@ RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual chan
 From "Pam_Faillock" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module. Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
-
-
 
 ```
 ---
 SV-230343:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4506,19 +4696,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
 
-
-
 ```
 ---
 SV-230344:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4541,6 +4731,7 @@ etc.) users to allow the centralized platform to solely manage user lockout.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 RHEL 8 can utilize the "pam_faillock.so" for this purpose. Note that manual changes to the listed files may be overwritten by the "authselect" program.
@@ -4549,13 +4740,12 @@ From "Pam_Faillock" man pages: Note that the default directory that "pam_failloc
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module. Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
-
-
 ```
 ---
 SV-230345:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -4574,19 +4764,19 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
 
-
-
 ```
 ---
 SV-230346:
 Old:
 ```
+
 Operating system management includes the ability to control the number
 of users and user sessions that utilize an operating system. Limiting the
 number of allowed users and sessions per user is helpful in reducing the risks
@@ -4600,6 +4790,7 @@ based on mission needs and the operational environment for each system.
 ```
 New:
 ```
+
 Operating system management includes the ability to control the number of users and user sessions that utilize an operating system. Limiting the number of allowed users and sessions per user is helpful in reducing the risks related to DoS attacks.
 
 This requirement addresses concurrent sessions for information system accounts and does not address concurrent sessions by single users via multiple system accounts. The maximum number of concurrent sessions should be defined based on mission needs and the operational environment for each system.
@@ -4609,6 +4800,7 @@ This requirement addresses concurrent sessions for information system accounts a
 SV-230347:
 Old:
 ```
+
 A session lock is a temporary action taken when a user stops work and
 moves away from the immediate physical vicinity of the information system but
 does not want to log out because of the temporary nature of the absence.
@@ -4623,19 +4815,19 @@ No other activity aside from reauthentication must unlock the system.
 ```
 New:
 ```
+
 A session lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not want to log out because of the temporary nature of the absence.
 
 The session lock is implemented at the point where session activity can be determined.
 
 Regardless of where the session lock is determined and implemented, once invoked, the session lock must remain in place until the user reauthenticates. No other activity aside from reauthentication must unlock the system.
 
-
-
 ```
 ---
 SV-230351:
 Old:
 ```
+
 A session lock is a temporary action taken when a user stops work and
     moves away from the immediate physical vicinity of the information system but
     does not want to log out because of the temporary nature of the absence.
@@ -4649,17 +4841,17 @@ A session lock is a temporary action taken when a user stops work and
 ```
 New:
 ```
+
 A session lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not want to log out because of the temporary nature of the absence.
 
 The session lock is implemented at the point where session activity can be determined. Rather than be forced to wait for a period of time to expire before the user session can be locked, RHEL 8 needs to provide users with the ability to manually invoke a session lock so users can secure their session if it is necessary to temporarily vacate the immediate physical vicinity.
-
-
 
 ```
 ---
 SV-230352:
 Old:
 ```
+
 A session lock is a temporary action taken when a user stops work and
 moves away from the immediate physical vicinity of the information system but
 does not want to log out because of the temporary nature of the absence.
@@ -4673,17 +4865,17 @@ necessary to temporarily vacate the immediate physical vicinity.
 ```
 New:
 ```
+
 A session lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not want to log out because of the temporary nature of the absence.
 
 The session lock is implemented at the point where session activity can be determined. Rather than be forced to wait for a period of time to expire before the user session can be locked, RHEL 8 needs to provide users with the ability to manually invoke a session lock so users can secure their session if it is necessary to temporarily vacate the immediate physical vicinity.
-
-
 
 ```
 ---
 SV-230354:
 Old:
 ```
+
 A session time-out lock is a temporary action taken when a user stops
 work and moves away from the immediate physical vicinity of the information
 system but does not log out because of the temporary nature of the absence.
@@ -4704,6 +4896,7 @@ a protected baseline.
 ```
 New:
 ```
+
 A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not log out because of the temporary nature of the absence. Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity, operating systems need to be able to identify when a user's session has idled and take action to initiate the session lock.
 
 The session lock is implemented at the point where session activity can be determined and/or controlled.
@@ -4712,13 +4905,12 @@ Implementing session settings will have little value if a user is able to manipu
 
 Locking these settings from non-privileged users is crucial to maintaining a protected baseline.
 
-
-
 ```
 ---
 SV-230355:
 Old:
 ```
+
 Without mapping the certificate used to authenticate to the user
 account, the ability to determine the identity of the individual user or group
 will not be available for forensic analysis.
@@ -4732,6 +4924,7 @@ local system mapping, where the system is not part of a domain.
 ```
 New:
 ```
+
 Without mapping the certificate used to authenticate to the user account, the ability to determine the identity of the individual user or group will not be available for forensic analysis.
 
 There are various methods of mapping certificates to user/group accounts for RHEL 8. For the purposes of this requirement, the check and fix will account for Active Directory mapping. Some of the other possible methods include joining the system to a domain and utilizing a Red Hat idM server, or a local system mapping, where the system is not part of a domain.
@@ -4741,6 +4934,7 @@ There are various methods of mapping certificates to user/group accounts for RHE
 SV-230357:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -4759,6 +4953,7 @@ Note that in order to require uppercase characters, without degrading the
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -4770,6 +4965,7 @@ RHEL 8 utilizes pwquality as a mechanism to enforce password complexity. Note th
 SV-230358:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -4788,6 +4984,7 @@ Note that in order to require lower-case characters without degrading the
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -4799,6 +4996,7 @@ RHEL 8 utilizes pwquality as a mechanism to enforce password complexity. Note th
 SV-230359:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -4817,6 +5015,7 @@ the minlen value, the credit value must be expressed as a negative number in
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -4828,6 +5027,7 @@ RHEL 8 utilizes "pwquality" as a mechanism to enforce password complexity. Note 
 SV-230360:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -4845,6 +5045,7 @@ same consecutive characters in the same class in the new password.
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -4856,6 +5057,7 @@ RHEL 8 utilizes "pwquality" as a mechanism to enforce password complexity. The "
 SV-230361:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -4873,6 +5075,7 @@ consecutive characters in a new password.
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -4884,6 +5087,7 @@ RHEL 8 utilizes "pwquality" as a mechanism to enforce password complexity. The "
 SV-230362:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -4901,6 +5105,7 @@ of characters for the new password (digits, uppercase, lowercase, others).
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -4912,6 +5117,7 @@ RHEL 8 utilizes "pwquality" as a mechanism to enforce password complexity. The "
 SV-230363:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -4929,6 +5135,7 @@ that must not be present in the old password.
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -4940,6 +5147,7 @@ RHEL 8 utilizes "pwquality" as a mechanism to enforce password complexity. The "
 SV-230364:
 Old:
 ```
+
 Enforcing a minimum password lifetime helps to prevent repeated
 password changes to defeat the password reuse or history enforcement
 requirement. If users are allowed to immediately and continually change their
@@ -4949,6 +5157,7 @@ defeat the organization's policy regarding password reuse.
 ```
 New:
 ```
+
 Enforcing a minimum password lifetime helps to prevent repeated password changes to defeat the password reuse or history enforcement requirement. If users are allowed to immediately and continually change their password, the password could be repeatedly changed in a short period of time to defeat the organization's policy regarding password reuse.
 
 ```
@@ -4956,6 +5165,7 @@ Enforcing a minimum password lifetime helps to prevent repeated password changes
 SV-230365:
 Old:
 ```
+
 Enforcing a minimum password lifetime helps to prevent repeated
 password changes to defeat the password reuse or history enforcement
 requirement. If users are allowed to immediately and continually change their
@@ -4965,6 +5175,7 @@ defeat the organization's policy regarding password reuse.
 ```
 New:
 ```
+
 Enforcing a minimum password lifetime helps to prevent repeated password changes to defeat the password reuse or history enforcement requirement. If users are allowed to immediately and continually change their password, the password could be repeatedly changed in a short period of time to defeat the organization's policy regarding password reuse.
 
 ```
@@ -4972,6 +5183,7 @@ Enforcing a minimum password lifetime helps to prevent repeated password changes
 SV-230366:
 Old:
 ```
+
 Any password, no matter how complex, can eventually be cracked.
 Therefore, passwords need to be changed periodically. If RHEL 8 does not limit
 the lifetime of passwords and force users to change their passwords, there is
@@ -4980,6 +5192,7 @@ the risk that RHEL 8 passwords could be compromised.
 ```
 New:
 ```
+
 Any password, no matter how complex, can eventually be cracked. Therefore, passwords need to be changed periodically. If RHEL 8 does not limit the lifetime of passwords and force users to change their passwords, there is the risk that RHEL 8 passwords could be compromised.
 
 ```
@@ -4987,6 +5200,7 @@ Any password, no matter how complex, can eventually be cracked. Therefore, passw
 SV-230367:
 Old:
 ```
+
 Any password, no matter how complex, can eventually be cracked.
 Therefore, passwords need to be changed periodically. If RHEL 8 does not limit
 the lifetime of passwords and force users to change their passwords, there is
@@ -4995,6 +5209,7 @@ the risk that RHEL 8 passwords could be compromised.
 ```
 New:
 ```
+
 Any password, no matter how complex, can eventually be cracked. Therefore, passwords need to be changed periodically. If RHEL 8 does not limit the lifetime of passwords and force users to change their passwords, there is the risk that RHEL 8 passwords could be compromised.
 
 ```
@@ -5002,6 +5217,7 @@ Any password, no matter how complex, can eventually be cracked. Therefore, passw
 SV-230369:
 Old:
 ```
+
 The shorter the password, the lower the number of possible
 combinations that need to be tested before the password is compromised.
 
@@ -5026,6 +5242,7 @@ components be required, they will not count towards the total "score" of
 ```
 New:
 ```
+
 The shorter the password, the lower the number of possible combinations that need to be tested before the password is compromised.
 
 Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks. Password length is one factor of several that helps to determine strength and how long it takes to crack a password. Use of more characters in a password helps to increase exponentially the time and/or resources required to compromise the password.
@@ -5041,6 +5258,7 @@ The DoD minimum password requirement is 15 characters.
 SV-230370:
 Old:
 ```
+
 The shorter the password, the lower the number of possible
 combinations that need to be tested before the password is compromised.
 
@@ -5056,6 +5274,7 @@ password.
 ```
 New:
 ```
+
 The shorter the password, the lower the number of possible combinations that need to be tested before the password is compromised.
 
 Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks. Password length is one factor of several that helps to determine strength and how long it takes to crack a password. Use of more characters in a password helps to increase exponentially the time and/or resources required to compromise the password.
@@ -5067,6 +5286,7 @@ The DoD minimum password requirement is 15 characters.
 SV-230371:
 Old:
 ```
+
 To ensure accountability and prevent unauthenticated access,
 interactive users must be identified and authenticated to prevent potential
 misuse and compromise of the system.
@@ -5088,6 +5308,7 @@ accounts) or for detailed accountability of individual activity.
 ```
 New:
 ```
+
 To ensure accountability and prevent unauthenticated access, interactive users must be identified and authenticated to prevent potential misuse and compromise of the system.
 
 Interactive users include organizational employees or individuals the organization deems to have equivalent status of employees (e.g., contractors). Interactive users (and processes acting on behalf of users) must be uniquely identified and authenticated to all accesses, except for the following:
@@ -5096,13 +5317,12 @@ Interactive users include organizational employees or individuals the organizati
 
 2) Accesses that occur through authorized use of group authenticators without individual authentication. Organizations may require unique identification of individuals in group accounts (e.g., shared privilege accounts) or for detailed accountability of individual activity.
 
-
-
 ```
 ---
 SV-230372:
 Old:
 ```
+
 Using an authentication device, such as a Common Access Card (CAC) or
 token that is separate from the information system, ensures that even if the
 information system is compromised, that compromise will not affect credentials
@@ -5122,19 +5342,19 @@ client operating system handle the multifactor authentication correctly.
 ```
 New:
 ```
+
 Using an authentication device, such as a Common Access Card (CAC) or token that is separate from the information system, ensures that even if the information system is compromised, that compromise will not affect credentials stored on the authentication device.
 
 Multifactor solutions that require devices separate from information systems gaining access include, for example, hardware tokens providing time-based or challenge-response authenticators and smart cards such as the U.S. Government Personal Identity Verification card and the DoD CAC.
 
 There are various methods of implementing multifactor authentication for RHEL 8. Some methods include a local system multifactor account mapping or joining the system to a domain and utilizing a Red Hat idM server or Microsoft Windows Active Directory server. Any of these methods will require that the client operating system handle the multifactor authentication correctly.
 
-
-
 ```
 ---
 SV-230373:
 Old:
 ```
+
 Inactive identifiers pose a risk to systems and applications because
     attackers may exploit an inactive identifier and potentially obtain undetected
     access to the system. Owners of inactive accounts will not notice if
@@ -5146,6 +5366,7 @@ Inactive identifiers pose a risk to systems and applications because
 ```
 New:
 ```
+
 Inactive identifiers pose a risk to systems and applications because attackers may exploit an inactive identifier and potentially obtain undetected access to the system. Owners of inactive accounts will not notice if unauthorized access to their user account has been obtained.
 
 RHEL 8 needs to track periods of inactivity and disable application identifiers after 35 days of inactivity.
@@ -5155,6 +5376,7 @@ RHEL 8 needs to track periods of inactivity and disable application identifiers 
 SV-230374:
 Old:
 ```
+
 Temporary accounts are privileged or nonprivileged accounts that are
     established during pressing circumstances, such as new software or hardware
     configuration or an incident response, where the need for prompt account
@@ -5181,6 +5403,7 @@ Temporary accounts are privileged or nonprivileged accounts that are
 ```
 New:
 ```
+
 Temporary accounts are privileged or nonprivileged accounts that are established during pressing circumstances, such as new software or hardware configuration or an incident response, where the need for prompt account activation requires bypassing normal account authorization procedures. If any inactive temporary accounts are left enabled on the system and are not either manually removed or automatically expired within 72 hours, the security posture of the system will be degraded and exposed to exploitation by unauthorized users or insider threat actors.
 
 Temporary accounts are different from emergency accounts. Emergency accounts, also known as "last resort" or "break glass" accounts, are local logon accounts enabled on the system for emergency use by authorized system administrators to manage a system when standard logon methods are failing or not available. Emergency accounts are not subject to manual removal or scheduled expiration requirements.
@@ -5192,6 +5415,7 @@ The automatic expiration of temporary accounts may be extended as needed by the 
 SV-230375:
 Old:
 ```
+
 Use of a complex password helps to increase the time and resources
 required to compromise the password. Password complexity, or strength, is a
 measure of the effectiveness of a password in resisting attempts at guessing
@@ -5210,6 +5434,7 @@ complexity. Note that to require special characters without degrading the
 ```
 New:
 ```
+
 Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
@@ -5221,6 +5446,7 @@ RHEL 8 utilizes "pwquality" as a mechanism to enforce password complexity. Note 
 SV-230376:
 Old:
 ```
+
 If cached authentication information is out-of-date, the validity of
 the authentication information may be questionable.
 
@@ -5231,6 +5457,7 @@ default sssd does not cache credentials.
 ```
 New:
 ```
+
 If cached authentication information is out-of-date, the validity of the authentication information may be questionable.
 
 RHEL 8 includes multiple options for configuring authentication, but this requirement will be focus on the System Security Services Daemon (SSSD). By default sssd does not cache credentials.
@@ -5240,6 +5467,7 @@ RHEL 8 includes multiple options for configuring authentication, but this requir
 SV-230377:
 Old:
 ```
+
 If RHEL 8 allows the user to select passwords based on dictionary
 words, this increases the chances of password compromise by increasing the
 opportunity for successful guesses, and brute-force attacks.
@@ -5247,6 +5475,7 @@ opportunity for successful guesses, and brute-force attacks.
 ```
 New:
 ```
+
 If RHEL 8 allows the user to select passwords based on dictionary words, this increases the chances of password compromise by increasing the opportunity for successful guesses, and brute-force attacks.
 
 ```
@@ -5254,6 +5483,7 @@ If RHEL 8 allows the user to select passwords based on dictionary words, this in
 SV-230378:
 Old:
 ```
+
 Configuring the operating system to implement organization-wide
 security implementation guides and security checklists verifies compliance with
 federal standards and establishes a common security baseline across the DoD
@@ -5272,6 +5502,7 @@ functions, ports, protocols, services, and remote connections.
 ```
 New:
 ```
+
 Configuring the operating system to implement organization-wide security implementation guides and security checklists verifies compliance with federal standards and establishes a common security baseline across the DoD that reflects the most restrictive security posture consistent with operational requirements.
 
 Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example, registry settings; account, file, and directory permission settings; and settings for functions, ports, protocols, services, and remote connections.
@@ -5281,6 +5512,7 @@ Configuration settings are the set of parameters that can be changed in hardware
 SV-230379:
 Old:
 ```
+
 Accounts providing no operational purpose provide additional
 opportunities for system compromise. Unnecessary accounts include user accounts
 for individuals not requiring access to the system and application accounts for
@@ -5289,6 +5521,7 @@ applications not installed on the system.
 ```
 New:
 ```
+
 Accounts providing no operational purpose provide additional opportunities for system compromise. Unnecessary accounts include user accounts for individuals not requiring access to the system and application accounts for applications not installed on the system.
 
 ```
@@ -5296,6 +5529,7 @@ Accounts providing no operational purpose provide additional opportunities for s
 SV-230380:
 Old:
 ```
+
 If an account has an empty password, anyone could log on and run
 commands with the privileges of that account. Accounts with empty passwords
 should never be used in operational environments.
@@ -5303,6 +5537,7 @@ should never be used in operational environments.
 ```
 New:
 ```
+
 If an account has an empty password, anyone could log on and run commands with the privileges of that account. Accounts with empty passwords should never be used in operational environments.
 
 ```
@@ -5310,12 +5545,14 @@ If an account has an empty password, anyone could log on and run commands with t
 SV-230381:
 Old:
 ```
+
 Providing users with feedback on when account accesses last occurred
 facilitates user recognition and reporting of unauthorized account use.
 
 ```
 New:
 ```
+
 Providing users with feedback on when account accesses last occurred facilitates user recognition and reporting of unauthorized account use.
 
 ```
@@ -5323,6 +5560,7 @@ Providing users with feedback on when account accesses last occurred facilitates
 SV-230382:
 Old:
 ```
+
 Providing users with feedback on when account accesses via SSH last
 occurred facilitates user recognition and reporting of unauthorized account
 use.
@@ -5330,6 +5568,7 @@ use.
 ```
 New:
 ```
+
 Providing users with feedback on when account accesses via SSH last occurred facilitates user recognition and reporting of unauthorized account use.
 
 ```
@@ -5337,12 +5576,14 @@ Providing users with feedback on when account accesses via SSH last occurred fac
 SV-230383:
 Old:
 ```
+
 Setting the most restrictive default permissions ensures that when new
 accounts are created, they do not have unnecessary access.
 
 ```
 New:
 ```
+
 Setting the most restrictive default permissions ensures that when new accounts are created, they do not have unnecessary access.
 
 ```
@@ -5350,6 +5591,7 @@ Setting the most restrictive default permissions ensures that when new accounts 
 SV-230384:
 Old:
 ```
+
 The umask controls the default access mode assigned to newly created
 files. A umask of 077 limits new files to mode 600 or less permissive. Although
 umask can be represented as a four-digit number, the first digit representing
@@ -5360,6 +5602,7 @@ interactive user defaults for each account on the system.
 ```
 New:
 ```
+
 The umask controls the default access mode assigned to newly created files. A umask of 077 limits new files to mode 600 or less permissive. Although umask can be represented as a four-digit number, the first digit representing special access modes is typically ignored or required to be "0". This requirement applies to the globally configured system defaults and the local interactive user defaults for each account on the system.
 
 ```
@@ -5367,6 +5610,7 @@ The umask controls the default access mode assigned to newly created files. A um
 SV-230385:
 Old:
 ```
+
 The umask controls the default access mode assigned to newly created
 files. A umask of 077 limits new files to mode 600 or less permissive. Although
 umask can be represented as a four-digit number, the first digit representing
@@ -5377,6 +5621,7 @@ interactive user defaults for each account on the system.
 ```
 New:
 ```
+
 The umask controls the default access mode assigned to newly created files. A umask of 077 limits new files to mode 600 or less permissive. Although umask can be represented as a four-digit number, the first digit representing special access modes is typically ignored or required to be "0". This requirement applies to the globally configured system defaults and the local interactive user defaults for each account on the system.
 
 ```
@@ -5384,6 +5629,7 @@ The umask controls the default access mode assigned to newly created files. A um
 SV-230386:
 Old:
 ```
+
 Misuse of privileged functions, either intentionally or
 unintentionally by authorized users, or by unauthorized external entities that
 have compromised information system accounts, is a serious and ongoing concern
@@ -5394,15 +5640,15 @@ from insider threats and the advanced persistent threat.
 ```
 New:
 ```
+
 Misuse of privileged functions, either intentionally or unintentionally by authorized users, or by unauthorized external entities that have compromised information system accounts, is a serious and ongoing concern and can have significant adverse impacts on organizations. Auditing the use of privileged functions is one way to detect such misuse and identify the risk from insider threats and the advanced persistent threat.
-
-
 
 ```
 ---
 SV-230387:
 Old:
 ```
+
 Cron logging can be used to trace the successful or unsuccessful
 execution of cron jobs. It can also be used to spot intrusions into the use of
 the cron facility by unauthorized and malicious users.
@@ -5410,6 +5656,7 @@ the cron facility by unauthorized and malicious users.
 ```
 New:
 ```
+
 Cron logging can be used to trace the successful or unsuccessful execution of cron jobs. It can also be used to spot intrusions into the use of the cron facility by unauthorized and malicious users.
 
 ```
@@ -5417,6 +5664,7 @@ Cron logging can be used to trace the successful or unsuccessful execution of cr
 SV-230388:
 Old:
 ```
+
 It is critical for the appropriate personnel to be aware if a system
 is at risk of failing to process audit logs as required. Without this
 notification, the security personnel may be unaware of an impending failure of
@@ -5434,6 +5682,7 @@ storage repositories combined), or both.
 ```
 New:
 ```
+
 It is critical for the appropriate personnel to be aware if a system is at risk of failing to process audit logs as required. Without this notification, the security personnel may be unaware of an impending failure of the audit capability, and system operation may be adversely affected.
 
 Audit processing failures include software/hardware errors, failures in the audit capturing mechanisms, and audit storage capacity being reached or exceeded.
@@ -5445,6 +5694,7 @@ This requirement applies to each audit data storage repository (i.e., distinct i
 SV-230389:
 Old:
 ```
+
 It is critical for the appropriate personnel to be aware if a system
 is at risk of failing to process audit logs as required. Without this
 notification, the security personnel may be unaware of an impending failure of
@@ -5462,6 +5712,7 @@ storage repositories combined), or both.
 ```
 New:
 ```
+
 It is critical for the appropriate personnel to be aware if a system is at risk of failing to process audit logs as required. Without this notification, the security personnel may be unaware of an impending failure of the audit capability, and system operation may be adversely affected.
 
 Audit processing failures include software/hardware errors, failures in the audit capturing mechanisms, and audit storage capacity being reached or exceeded.
@@ -5473,6 +5724,7 @@ This requirement applies to each audit data storage repository (i.e., distinct i
 SV-230390:
 Old:
 ```
+
 It is critical for the appropriate personnel to be aware if a system
 is at risk of failing to process audit logs as required. Without this
 notification, the security personnel may be unaware of an impending failure of
@@ -5490,6 +5742,7 @@ storage repositories combined), or both.
 ```
 New:
 ```
+
 It is critical for the appropriate personnel to be aware if a system is at risk of failing to process audit logs as required. Without this notification, the security personnel may be unaware of an impending failure of the audit capability, and system operation may be adversely affected.
 
 Audit processing failures include software/hardware errors, failures in the audit capturing mechanisms, and audit storage capacity being reached or exceeded.
@@ -5501,6 +5754,7 @@ This requirement applies to each audit data storage repository (i.e., distinct i
 SV-230392:
 Old:
 ```
+
 It is critical that when RHEL 8 is at risk of failing to process audit
 logs as required, it takes action to mitigate the failure. Audit processing
 failures include software/hardware errors; failures in the audit capturing
@@ -5525,9 +5779,10 @@ audit data with the collection server.
 ```
 New:
 ```
+
 It is critical that when RHEL 8 is at risk of failing to process audit logs as required, it takes action to mitigate the failure. Audit processing failures include software/hardware errors; failures in the audit capturing mechanisms; and audit storage capacity being reached or exceeded. Responses to audit failure depend upon the nature of the failure mode.
 
-When availability is an overriding concern, other approved actions in response to an audit failure are as follows: 
+When availability is an overriding concern, other approved actions in response to an audit failure are as follows:
 
 1) If the failure was caused by the lack of audit record storage capacity, RHEL 8 must continue generating audit records if possible (automatically restarting the audit service if necessary) and overwriting the oldest audit records in a first-in-first-out manner.
 
@@ -5538,6 +5793,7 @@ When availability is an overriding concern, other approved actions in response t
 SV-230393:
 Old:
 ```
+
 Without establishing what type of events occurred, the source of
 events, where events occurred, and the outcome of events, it would be difficult
 to establish, correlate, and investigate the events leading up to an outage or
@@ -5551,6 +5807,7 @@ filenames involved, and access control or flow control rules invoked.
 ```
 New:
 ```
+
 Without establishing what type of events occurred, the source of events, where events occurred, and the outcome of events, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.
 
 Audit record content that may be necessary to satisfy this requirement includes, for example, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.
@@ -5560,6 +5817,7 @@ Audit record content that may be necessary to satisfy this requirement includes,
 SV-230394:
 Old:
 ```
+
 Without establishing what type of events occurred, the source of
 events, where events occurred, and the outcome of events, it would be difficult
 to establish, correlate, and investigate the events leading up to an outage or
@@ -5581,6 +5839,7 @@ correct system.
 ```
 New:
 ```
+
 Without establishing what type of events occurred, the source of events, where events occurred, and the outcome of events, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.
 
 Audit record content that may be necessary to satisfy this requirement includes, for example, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.
@@ -5594,6 +5853,7 @@ When audit logs are not labeled before they are sent to a central log server, th
 SV-230395:
 Old:
 ```
+
 Without establishing what type of events occurred, the source of
 events, where events occurred, and the outcome of events, it would be difficult
 to establish, correlate, and investigate the events leading up to an outage or
@@ -5611,6 +5871,7 @@ more difficult.
 ```
 New:
 ```
+
 Without establishing what type of events occurred, the source of events, where events occurred, and the outcome of events, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.
 
 Audit record content that may be necessary to satisfy this requirement includes, for example, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.
@@ -5622,6 +5883,7 @@ Enriched logging aids in making sense of who, what, and when events occur on a s
 SV-230396:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -5637,17 +5899,17 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
-
-
 
 ```
 ---
 SV-230397:
 Old:
 ```
+
 Only authorized personnel should be aware of errors and the details of
 the errors. Error messages are an indicator of an organization's operational
 state or can identify the RHEL 8 system or platform. Additionally, Personally
@@ -5663,17 +5925,17 @@ organizational policy and operational requirements.
 ```
 New:
 ```
+
 Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the RHEL 8 system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.
-
-
 
 ```
 ---
 SV-230398:
 Old:
 ```
+
 Unauthorized disclosure of audit records can reveal system and
 configuration data to attackers, thus compromising its confidentiality.
 
@@ -5683,17 +5945,17 @@ settings, audit reports) needed to successfully audit RHEL 8 activity.
 ```
 New:
 ```
+
 Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.
 
 Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit RHEL 8 activity.
-
-
 
 ```
 ---
 SV-230399:
 Old:
 ```
+
 Unauthorized disclosure of audit records can reveal system and
 configuration data to attackers, thus compromising its confidentiality.
 
@@ -5703,17 +5965,17 @@ settings, audit reports) needed to successfully audit RHEL 8 activity.
 ```
 New:
 ```
+
 Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.
 
 Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit RHEL 8 activity.
-
-
 
 ```
 ---
 SV-230400:
 Old:
 ```
+
 Unauthorized disclosure of audit records can reveal system and
 configuration data to attackers, thus compromising its confidentiality.
 
@@ -5723,17 +5985,17 @@ settings, audit reports) needed to successfully audit RHEL 8 activity.
 ```
 New:
 ```
+
 Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.
 
 Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit RHEL 8 activity.
-
-
 
 ```
 ---
 SV-230401:
 Old:
 ```
+
 Unauthorized disclosure of audit records can reveal system and
 configuration data to attackers, thus compromising its confidentiality.
 
@@ -5743,17 +6005,17 @@ settings, audit reports) needed to successfully audit RHEL 8 system activity.
 ```
 New:
 ```
+
 Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.
 
 Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit RHEL 8 system activity.
-
-
 
 ```
 ---
 SV-230402:
 Old:
 ```
+
 Unauthorized disclosure of audit records can reveal system and
 configuration data to attackers, thus compromising its confidentiality.
 
@@ -5768,19 +6030,19 @@ then investigate the unauthorized changes.
 ```
 New:
 ```
+
 Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.
 
 Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit RHEL 8 system activity.
 
 In immutable mode, unauthorized users cannot execute changes to the audit system to potentially hide malicious activity and then put the audit rules back.  A system reboot would be noticeable and a system administrator could then investigate the unauthorized changes.
-
-
 
 ```
 ---
 SV-230403:
 Old:
 ```
+
 Unauthorized disclosure of audit records can reveal system and
 configuration data to attackers, thus compromising its confidentiality.
 
@@ -5795,19 +6057,19 @@ then investigate the unauthorized changes.
 ```
 New:
 ```
+
 Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.
 
 Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit RHEL 8 system activity.
 
 In immutable mode, unauthorized users cannot execute changes to the audit system to potentially hide malicious activity and then put the audit rules back.  A system reboot would be noticeable and a system administrator could then investigate the unauthorized changes.
 
-
-
 ```
 ---
 SV-230404:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -5819,17 +6081,17 @@ information system (e.g., module or policy filter).
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-
-
 
 ```
 ---
 SV-230405:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -5841,17 +6103,17 @@ information system (e.g., module or policy filter).
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-
-
 
 ```
 ---
 SV-230406:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -5863,17 +6125,17 @@ information system (e.g., module or policy filter).
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-
-
 
 ```
 ---
 SV-230407:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -5885,17 +6147,17 @@ information system (e.g., module or policy filter).
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-
-
 
 ```
 ---
 SV-230408:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -5907,17 +6169,17 @@ information system (e.g., module or policy filter).
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-
-
 
 ```
 ---
 SV-230409:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -5929,17 +6191,17 @@ information system (e.g., module or policy filter).
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-
-
 
 ```
 ---
 SV-230410:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -5951,17 +6213,17 @@ information system (e.g., module or policy filter).
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-
-
 
 ```
 ---
 SV-230411:
 Old:
 ```
+
 Without establishing what type of events occurred, the source of
 events, where events occurred, and the outcome of events, it would be difficult
 to establish, correlate, and investigate the events leading up to an outage or
@@ -5979,19 +6241,19 @@ capacity thresholds, or identifying an improperly configured RHEL 8 system.
 ```
 New:
 ```
+
 Without establishing what type of events occurred, the source of events, where events occurred, and the outcome of events, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.
 
 Audit record content that may be necessary to satisfy this requirement includes, for example, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.
 
 Associating event types with detected events in RHEL 8 audit logs provides a means of investigating an attack, recognizing resource utilization or capacity thresholds, or identifying an improperly configured RHEL 8 system.
 
-
-
 ```
 ---
 SV-230412:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6010,19 +6272,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "su" command allows a user to run commands with a substitute user and group ID.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230413:
 Old:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
@@ -6041,9 +6303,10 @@ The system call rules are loaded into a matching engine that intercepts each sys
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
-Audit records can be generated from various components within the information system (e.g., module or policy filter). 
+Audit records can be generated from various components within the information system (e.g., module or policy filter).
 
 "Setxattr" is a system call used to set an extended attribute value.
 "Fsetxattr" is a system call used to set an extended attribute value. This is used to set extended attributes on a file.
@@ -6056,13 +6319,12 @@ When a user logs on, the AUID is set to the UID of the account that is being aut
 
 The system call rules are loaded into a matching engine that intercepts each syscall made by all programs on the system. Therefore, it is very important to use syscall rules only when absolutely necessary since these affect performance. The more rules, the bigger the performance hit. The performance can be helped, however, by combining syscalls into one rule whenever possible.
 
-
-
 ```
 ---
 SV-230418:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6081,19 +6343,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chage" command is used to change or view user password expiry information.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230419:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6112,19 +6374,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chcon" command is used to change file SELinux security context.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230421:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6143,19 +6405,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "ssh-agent" is a program to hold private keys used for public key authentication.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230422:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6174,19 +6436,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "passwd" command is used to change passwords for user accounts.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230423:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6205,19 +6467,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "mount" command is used to mount a filesystem.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230424:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6236,19 +6498,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "umount" command is used to unmount a filesystem.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230425:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6267,19 +6529,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "mount" syscall is used to mount a filesystem.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230426:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6299,19 +6561,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. "Unix_update" is a helper program for the "pam_unix" module that updates the password for a given user. It is not intended to be run directly from the command line and logs a security violation if done so.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230427:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6330,19 +6592,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. The "postdrop" command creates a file in the maildrop directory and copies its standard input to the file.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230428:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6361,19 +6623,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. The "postqueue" command implements the Postfix user interface for queue management.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230429:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6392,19 +6654,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. The "semanage" command is used to configure certain elements of SELinux policy without requiring modification to or recompilation from policy sources.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230430:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6425,19 +6687,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. The "setfiles" command is primarily used to initialize the security context fields (extended attributes) on one or more filesystems (or parts of them).  Usually it is initially run as part of the SELinux installation process (a step commonly known as labeling).
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230431:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6460,19 +6722,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. The "userhelper" command is not intended to be run interactively.  "Userhelper" provides a basic interface to change a user's password, gecos information, and shell.  The main difference between this program and its traditional equivalents (passwd, chfn, chsh) is that prompts are written to standard out to make it easy for a graphical user interface wrapper to interface to it as a child process.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230432:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6491,19 +6753,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. The "setsebool" command sets the current state of a particular SELinux boolean or a list of booleans to a given value.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230433:
 Old:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible
 if audit records do not contain enough information.
 
@@ -6524,19 +6786,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise. The "unix_chkpwd" command is a helper program for the pam_unix module that verifies the password of the current user.  It also checks password and account expiration dates in shadow.  It is not intended to be run directly from the command line and logs a security violation if done so.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230434:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6555,19 +6817,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "ssh-keysign" program is an SSH helper program for host-based authentication.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230435:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6586,19 +6848,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "setfacl" command is used to set file access control lists.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230436:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6617,19 +6879,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "pam_timestamp_check" command is used to check if the default timestamp is valid.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230437:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6648,19 +6910,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "newgrp" command is used to change the current group ID during a login session.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230438:
 Old:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "init_module" and "finit_module" system calls are used to load a kernel module.
@@ -6672,6 +6934,7 @@ The system call rules are loaded into a matching engine that intercepts each sys
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "init_module" and "finit_module" system calls are used to load a kernel module.
@@ -6679,14 +6942,13 @@ Audit records can be generated from various components within the information sy
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
 The system call rules are loaded into a matching engine that intercepts each syscall made by all programs on the system. Therefore, it is very important to use syscall rules only when absolutely necessary since these affect performance. The more rules, the bigger the performance hit. The performance can be helped, however, by combining syscalls into one rule whenever possible.
-
-
 
 ```
 ---
 SV-230439:
 Old:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "rename" system call will rename the specified files by replacing the first occurrence of expression in their name by replacement.
@@ -6703,6 +6965,7 @@ The system call rules are loaded into a matching engine that intercepts each sys
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "rename" system call will rename the specified files by replacing the first occurrence of expression in their name by replacement.
@@ -6716,13 +6979,12 @@ When a user logs on, the AUID is set to the UID of the account that is being aut
 
 The system call rules are loaded into a matching engine that intercepts each syscall made by all programs on the system. Therefore, it is very important to use syscall rules only when absolutely necessary since these affect performance. The more rules, the bigger the performance hit. Performance can be helped, however, by combining syscalls into one rule whenever possible.
 
-
-
 ```
 ---
 SV-230444:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6742,19 +7004,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "gpasswd" command is used to administer /etc/group and /etc/gshadow. Every group can have administrators, members and a password.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230446:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6773,19 +7035,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "delete_module" command is used to unload a kernel module.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230447:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6806,19 +7068,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "crontab" command is used to maintain crontab files for individual users. Crontab is the program used to install, remove, or list the tables used to drive the cron daemon. This is similar to the task scheduler used in other operating systems.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230448:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6837,19 +7099,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chsh" command is used to change the login shell.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230449:
 Old:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "truncate" and "ftruncate" functions are used to truncate a file to a specified length.
@@ -6866,9 +7128,10 @@ The system call rules are loaded into a matching engine that intercepts each sys
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
-Audit records can be generated from various components within the information system (e.g., module or policy filter). The "truncate" and "ftruncate" functions are used to truncate a file to a specified length. 
+Audit records can be generated from various components within the information system (e.g., module or policy filter). The "truncate" and "ftruncate" functions are used to truncate a file to a specified length.
 
 The "creat" system call is used to open and possibly create a file or device.
 The "open" system call opens a file specified by a pathname. If the specified file does not exist, it may optionally be created by "open".
@@ -6879,13 +7142,12 @@ When a user logs on, the AUID is set to the UID of the account that is being aut
 
 The system call rules are loaded into a matching engine that intercepts each syscall made by all programs on the system. Therefore, it is very important to use syscall rules only when absolutely necessary since these affect performance. The more rules, the bigger the performance hit. The performance can be helped, however, by combining syscalls into one rule whenever possible.
 
-
-
 ```
 ---
 SV-230455:
 Old:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chown" command is used to change file owner and group.
@@ -6901,6 +7163,7 @@ The system call rules are loaded into a matching engine that intercepts each sys
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chown" command is used to change file owner and group.
@@ -6912,14 +7175,13 @@ The "lchown" system call is used to change the ownership of the file specified b
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
 The system call rules are loaded into a matching engine that intercepts each syscall made by all programs on the system. Therefore, it is very important to use syscall rules only when absolutely necessary since these affect performance. The more rules, the bigger the performance hit. The performance can be helped, however, by combining syscalls into one rule whenever possible.
-
-
 
 ```
 ---
 SV-230456:
 Old:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chmod" system call changes the file mode bits of each given file according to mode, which can be either a symbolic representation of changes to make, or an octal number representing the bit pattern for the new mode bits.
@@ -6934,6 +7196,7 @@ The system call rules are loaded into a matching engine that intercepts each sys
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chmod" system call changes the file mode bits of each given file according to mode, which can be either a symbolic representation of changes to make, or an octal number representing the bit pattern for the new mode bits.
@@ -6945,13 +7208,12 @@ When a user logs on, the AUID is set to the UID of the account that is being aut
 
 The system call rules are loaded into a matching engine that intercepts each syscall made by all programs on the system. Therefore, it is very important to use syscall rules only when absolutely necessary since these affect performance. The more rules, the bigger the performance hit. Performance can be helped, however, by combining syscalls into one rule whenever possible.
 
-
-
 ```
 ---
 SV-230462:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -6971,19 +7233,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "sudo" command allows a permitted user to execute a command as the superuser or another user, as specified by the security policy.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230463:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -7003,19 +7265,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "usermod" command modifies the system account files to reflect the changes that are specified on the command line.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230464:
 Old:
 ```
+
 Without generating audit records that are specific to the security and
 mission needs of the organization, it would be difficult to establish,
 correlate, and investigate the events relating to an incident or identify those
@@ -7034,19 +7296,19 @@ being authenticated. Daemons are not user sessions and have the loginuid set to
 ```
 New:
 ```
+
 Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "chacl" command is used to change the access control list of a file or directory.
 
 When a user logs on, the AUID is set to the UID of the account that is being authenticated. Daemons are not user sessions and have the loginuid set to "-1". The AUID representation is an unsigned 32-bit integer, which equals "4294967295". The audit system interprets "-1", "4294967295", and "unset" in the same way.
 
-
-
 ```
 ---
 SV-230465:
 Old:
 ```
+
 Without the capability to generate audit records, it would be
 difficult to establish, correlate, and investigate the events relating to an
 incident or identify those responsible for one.
@@ -7079,6 +7341,7 @@ all direct access to the information system;
 ```
 New:
 ```
+
 Without the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter). The "kmod" command is used to control Linux Kernel modules.
@@ -7091,17 +7354,16 @@ DoD has defined the list of events for which RHEL 8 will provide an audit record
 
 2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;
 
-3) All account creations, modifications, disabling, and terminations; and 
+3) All account creations, modifications, disabling, and terminations; and
 
 4) All kernel module load, unload, and restart actions.
-
-
 
 ```
 ---
 SV-230466:
 Old:
 ```
+
 Without the capability to generate audit records, it would be
 difficult to establish, correlate, and investigate the events relating to an
 incident or identify those responsible for one.
@@ -7138,6 +7400,7 @@ directory must be set with the "dir" option.
 ```
 New:
 ```
+
 Without the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
@@ -7156,13 +7419,12 @@ DoD has defined the list of events for which RHEL 8 will provide an audit record
 
 From "Pam_Faillock man" pages: Note the default directory that pam_faillock uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
 
-
-
 ```
 ---
 SV-230467:
 Old:
 ```
+
 Without the capability to generate audit records, it would be
 difficult to establish, correlate, and investigate the events relating to an
 incident or identify those responsible for one.
@@ -7194,6 +7456,7 @@ all direct access to the information system;
 ```
 New:
 ```
+
 Without the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
@@ -7206,17 +7469,16 @@ DoD has defined the list of events for which RHEL 8 will provide an audit record
 
 2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;
 
-3) All account creations, modifications, disabling, and terminations; and 
+3) All account creations, modifications, disabling, and terminations; and
 
 4) All kernel module load, unload, and restart actions.
-
-
 
 ```
 ---
 SV-230468:
 Old:
 ```
+
 Without the capability to generate audit records, it would be
 difficult to establish, correlate, and investigate the events relating to an
 incident or identify those responsible for one.
@@ -7253,6 +7515,7 @@ all direct access to the information system;
 ```
 New:
 ```
+
 Without the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 If auditing is enabled late in the startup process, the actions of some startup processes may not be audited. Some audit systems also maintain state information only available if auditing is enabled before a given process is created.
@@ -7267,17 +7530,16 @@ DoD has defined the list of events for which RHEL 8 will provide an audit record
 
 2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;
 
-3) All account creations, modifications, disabling, and terminations; and 
+3) All account creations, modifications, disabling, and terminations; and
 
 4) All kernel module load, unload, and restart actions.
-
-
 
 ```
 ---
 SV-230469:
 Old:
 ```
+
 Without the capability to generate audit records, it would be
 difficult to establish, correlate, and investigate the events relating to an
 incident or identify those responsible for one.
@@ -7297,6 +7559,7 @@ system is susceptible to boot failures and crashes.
 ```
 New:
 ```
+
 Without the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 If auditing is enabled late in the startup process, the actions of some startup processes may not be audited. Some audit systems also maintain state information only available if auditing is enabled before a given process is created.
@@ -7310,6 +7573,7 @@ Allocating an audit_backlog_limit of sufficient size is critical in maintaining 
 SV-230470:
 Old:
 ```
+
 Without the capability to generate audit records, it would be
 difficult to establish, correlate, and investigate the events relating to an
 incident or identify those responsible for one.
@@ -7346,6 +7610,7 @@ all direct access to the information system;
 ```
 New:
 ```
+
 Without the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 If auditing is enabled late in the startup process, the actions of some startup processes may not be audited. Some audit systems also maintain state information only available if auditing is enabled before a given process is created.
@@ -7360,17 +7625,16 @@ DoD has defined the list of events for which RHEL 8 will provide an audit record
 
 2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;
 
-3) All account creations, modifications, disabling, and terminations; and 
+3) All account creations, modifications, disabling, and terminations; and
 
 4) All kernel module load, unload, and restart actions.
-
-
 
 ```
 ---
 SV-230471:
 Old:
 ```
+
 Without the capability to restrict the roles and individuals that can
 select which events are audited, unauthorized personnel may be able to prevent
 the auditing of critical events. Misconfigured audits may degrade the system's
@@ -7381,6 +7645,7 @@ to an incident or identify those responsible for one.
 ```
 New:
 ```
+
 Without the capability to restrict the roles and individuals that can select which events are audited, unauthorized personnel may be able to prevent the auditing of critical events. Misconfigured audits may degrade the system's performance by overwhelming the audit log. Misconfigured audits may also make it more difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 
 ```
@@ -7388,6 +7653,7 @@ Without the capability to restrict the roles and individuals that can select whi
 SV-230472:
 Old:
 ```
+
 Protecting audit information also includes identifying and protecting
 the tools used to view and manipulate log data. Therefore, protecting audit
 tools is necessary to prevent unauthorized operation on audit information.
@@ -7405,6 +7671,7 @@ generators.
 ```
 New:
 ```
+
 Protecting audit information also includes identifying and protecting the tools used to view and manipulate log data. Therefore, protecting audit tools is necessary to prevent unauthorized operation on audit information.
 
 RHEL 8 systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools, and the corresponding rights the user enjoys, to make access decisions regarding the access to audit tools.
@@ -7416,6 +7683,7 @@ Audit tools include, but are not limited to, vendor-provided and open source aud
 SV-230473:
 Old:
 ```
+
 Protecting audit information also includes identifying and protecting
 the tools used to view and manipulate log data. Therefore, protecting audit
 tools is necessary to prevent unauthorized operation on audit information.
@@ -7433,19 +7701,19 @@ generators.
 ```
 New:
 ```
+
 Protecting audit information also includes identifying and protecting the tools used to view and manipulate log data. Therefore, protecting audit tools is necessary to prevent unauthorized operation on audit information.
 
 RHEL 8 systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools, and the corresponding rights the user enjoys, to make access decisions regarding the access to audit tools.
 
 Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.
-
-
 
 ```
 ---
 SV-230474:
 Old:
 ```
+
 Protecting audit information also includes identifying and protecting
 the tools used to view and manipulate log data. Therefore, protecting audit
 tools is necessary to prevent unauthorized operation on audit information.
@@ -7463,19 +7731,19 @@ generators.
 ```
 New:
 ```
+
 Protecting audit information also includes identifying and protecting the tools used to view and manipulate log data. Therefore, protecting audit tools is necessary to prevent unauthorized operation on audit information.
 
 RHEL 8 systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools, and the corresponding rights the user enjoys, to make access decisions regarding the access to audit tools.
 
 Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.
 
-
-
 ```
 ---
 SV-230475:
 Old:
 ```
+
 Protecting the integrity of the tools used for auditing purposes is a
 critical step toward ensuring the integrity of audit information. Audit
 information includes all information (e.g., audit records, audit settings, and
@@ -7497,6 +7765,7 @@ manipulated, or replaced. An example is a checksum hash of the file or files.
 ```
 New:
 ```
+
 Protecting the integrity of the tools used for auditing purposes is a critical step toward ensuring the integrity of audit information. Audit information includes all information (e.g., audit records, audit settings, and audit reports) needed to successfully audit information system activity.
 
 Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.
@@ -7510,6 +7779,7 @@ To address this risk, audit tools must be cryptographically signed to provide th
 SV-230476:
 Old:
 ```
+
 To ensure RHEL 8 systems have a sufficient storage capacity in which
 to write the audit logs, RHEL 8 needs to be able to allocate audit record
 storage capacity.
@@ -7520,6 +7790,7 @@ during initial installation of RHEL 8.
 ```
 New:
 ```
+
 To ensure RHEL 8 systems have a sufficient storage capacity in which to write the audit logs, RHEL 8 needs to be able to allocate audit record storage capacity.
 
 The task of allocating audit record storage capacity is usually performed during initial installation of RHEL 8.
@@ -7529,6 +7800,7 @@ The task of allocating audit record storage capacity is usually performed during
 SV-230477:
 Old:
 ```
+
 Information stored in one location is vulnerable to accidental or
 incidental deletion or alteration.
 
@@ -7556,6 +7828,7 @@ currently available only as part of the rsyslogd 3.15.0 and above.
 ```
 New:
 ```
+
 Information stored in one location is vulnerable to accidental or incidental deletion or alteration.
 
 Off-loading is a common process in information systems with limited audit storage capacity.
@@ -7574,6 +7847,7 @@ Note that a port number was given as there is no standard port for RELP.
 SV-230478:
 Old:
 ```
+
 Information stored in one location is vulnerable to accidental or
 incidental deletion or alteration.
 
@@ -7601,6 +7875,7 @@ currently available only as part of the rsyslogd 3.15.0 and above.
 ```
 New:
 ```
+
 Information stored in one location is vulnerable to accidental or incidental deletion or alteration.
 
 Off-loading is a common process in information systems with limited audit storage capacity.
@@ -7619,6 +7894,7 @@ Note that a port number was given as there is no standard port for RELP.
 SV-230479:
 Old:
 ```
+
 Information stored in one location is vulnerable to accidental or
 incidental deletion or alteration.
 
@@ -7646,6 +7922,7 @@ currently available only as part of the rsyslogd 3.15.0 and above.
 ```
 New:
 ```
+
 Information stored in one location is vulnerable to accidental or incidental deletion or alteration.
 
 Off-loading is a common process in information systems with limited audit storage capacity.
@@ -7659,13 +7936,12 @@ TCP *.* @@remotesystemname
 RELP *.* :omrelp:remotesystemname:2514
 Note that a port number was given as there is no standard port for RELP.
 
-
-
 ```
 ---
 SV-230480:
 Old:
 ```
+
 Information stored in one location is vulnerable to accidental or
 incidental deletion or alteration.
 
@@ -7682,19 +7958,19 @@ securely encrypt and off-load auditing.
 ```
 New:
 ```
+
 Information stored in one location is vulnerable to accidental or incidental deletion or alteration.
 
 Off-loading is a common process in information systems with limited audit storage capacity.
 
 RHEL 8 installation media provides "rsyslogd".  "rsyslogd" is a system utility providing support for message logging.  Support for both internet and UNIX domain sockets enables this utility to support both local and remote logging.  Couple this utility with "gnutls" (which is a secure communications library implementing the SSL, TLS and DTLS protocols), and you have a method to securely encrypt and off-load auditing.
-
-
 
 ```
 ---
 SV-230481:
 Old:
 ```
+
 Information stored in one location is vulnerable to accidental or
 incidental deletion or alteration.
 
@@ -7711,19 +7987,19 @@ securely encrypt and off-load auditing.
 ```
 New:
 ```
+
 Information stored in one location is vulnerable to accidental or incidental deletion or alteration.
 
 Off-loading is a common process in information systems with limited audit storage capacity.
 
 RHEL 8 installation media provides "rsyslogd".  "rsyslogd" is a system utility providing support for message logging.  Support for both internet and UNIX domain sockets enables this utility to support both local and remote logging.  Couple this utility with "gnutls" (which is a secure communications library implementing the SSL, TLS and DTLS protocols), and you have a method to securely encrypt and off-load auditing.
 
-
-
 ```
 ---
 SV-230482:
 Old:
 ```
+
 Information stored in one location is vulnerable to accidental or
 incidental deletion or alteration.
 
@@ -7746,6 +8022,7 @@ securely encrypt and off-load auditing.
 ```
 New:
 ```
+
 Information stored in one location is vulnerable to accidental or incidental deletion or alteration.
 
 Off-loading is a common process in information systems with limited audit storage capacity.
@@ -7758,13 +8035,12 @@ x509/fingerprint - certificate fingerprint authentication
 x509/certvalid - certificate validation only
 x509/name - certificate validation and subject name authentication.
 
-
-
 ```
 ---
 SV-230483:
 Old:
 ```
+
 If security personnel are not notified immediately when storage volume
     reaches 75 percent utilization, they are unable to plan for audit record
     storage capacity expansion.
@@ -7772,6 +8048,7 @@ If security personnel are not notified immediately when storage volume
 ```
 New:
 ```
+
 If security personnel are not notified immediately when storage volume reaches 75 percent utilization, they are unable to plan for audit record storage capacity expansion.
 
 ```
@@ -7779,6 +8056,7 @@ If security personnel are not notified immediately when storage volume reaches 7
 SV-230484:
 Old:
 ```
+
 Inaccurate time stamps make it more difficult to correlate events and
 can lead to an inaccurate analysis. Determining the correct time a particular
 event occurred on a system is critical when conducting forensic analysis and
@@ -7807,11 +8085,12 @@ local time, UTC, and the offset from UTC.
 
     Note that USNO offers authenticated NTP service to DoD and U.S. Government
 agencies operating on the NIPR and SIPR networks. Visit
-https://www.usno.navy.mil/USNO/time/ntp/dod-customers for more information.
+<https://www.usno.navy.mil/USNO/time/ntp/dod-customers> for more information.
 
 ```
 New:
 ```
+
 Inaccurate time stamps make it more difficult to correlate events and can lead to an inaccurate analysis. Determining the correct time a particular event occurred on a system is critical when conducting forensic analysis and investigating system events. Sources outside the configured acceptable allowance (drift) may be inaccurate.
 
 Synchronizing internal information system clocks provides uniformity of time stamps for information systems with multiple system clocks and systems connected over a network.
@@ -7824,15 +8103,14 @@ Time stamps generated by the operating system include date and time. Time is com
 
 RHEL 8 utilizes the "timedatectl" command to view the status of the "systemd-timesyncd.service". The "timedatectl" status will display the local time, UTC, and the offset from UTC.
 
-Note that USNO offers authenticated NTP service to DoD and U.S. Government agencies operating on the NIPR and SIPR networks. Visit https://www.usno.navy.mil/USNO/time/ntp/dod-customers for more information.
-
-
+Note that USNO offers authenticated NTP service to DoD and U.S. Government agencies operating on the NIPR and SIPR networks. Visit <https://www.usno.navy.mil/USNO/time/ntp/dod-customers> for more information.
 
 ```
 ---
 SV-230487:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -7863,6 +8141,7 @@ password could be compromised.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -7880,6 +8159,7 @@ If a privileged user were to log on using this service, the privileged user pass
 SV-230488:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -7903,6 +8183,7 @@ disabled is to not have the capability installed.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -7916,6 +8197,7 @@ Verify the operating system is configured to disable non-essential capabilities.
 SV-230489:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -7939,6 +8221,7 @@ disabled is to not have the capability installed.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -7952,6 +8235,7 @@ Verify the operating system is configured to disable non-essential capabilities.
 SV-230491:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -7979,6 +8263,7 @@ address space layout randomization (KASLR).
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -7994,6 +8279,7 @@ Kernel page-table isolation is a kernel feature that mitigates the Meltdown secu
 SV-230492:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8015,6 +8301,7 @@ password could be compromised.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -8023,13 +8310,12 @@ The rsh-server service provides an unencrypted remote access service that does n
 
 If a privileged user were to log on using this service, the privileged user password could be compromised.
 
-
-
 ```
 ---
 SV-230493:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8045,17 +8331,17 @@ disconnect activity without having to go through complex and tedious procedures.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Failing to disconnect from collaborative computing devices (i.e., cameras) can result in subsequent compromises of organizational information. Providing easy methods to physically disconnect from such devices after a collaborative computing session helps to ensure participants actually carry out the disconnect activity without having to go through complex and tedious procedures.
-
-
 
 ```
 ---
 SV-230494:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8072,6 +8358,7 @@ implementation.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Failing to disconnect unused protocols can result in a system compromise.
@@ -8083,6 +8370,7 @@ The Asynchronous Transfer Mode (ATM) is a protocol operating on network, data li
 SV-230495:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8099,6 +8387,7 @@ exploitation of any flaws in its implementation.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Failing to disconnect unused protocols can result in a system compromise.
@@ -8110,6 +8399,7 @@ The Controller Area Network (CAN) is a serial communications protocol, which was
 SV-230496:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8126,6 +8416,7 @@ system against exploitation of any flaws in its implementation.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Failing to disconnect unused protocols can result in a system compromise.
@@ -8137,6 +8428,7 @@ The Stream Control Transmission Protocol (SCTP) is a transport layer protocol, d
 SV-230497:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8152,6 +8444,7 @@ system against exploitation of any flaws in its implementation.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Failing to disconnect unused protocols can result in a system compromise.
@@ -8163,6 +8456,7 @@ The Transparent Inter-Process Communication (TIPC) protocol is designed to provi
 SV-230498:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8179,6 +8473,7 @@ and small-footprint systems.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Removing support for unneeded filesystem types reduces the local attack surface of the server.
@@ -8190,6 +8485,7 @@ Compressed ROM/RAM file system (or cramfs) is a read-only file system designed f
 SV-230499:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -8203,6 +8499,7 @@ any flaws in its implementation.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 The IEEE 1394 (FireWire) is a serial bus standard for high-speed real-time communication. Disabling FireWire protects the system against exploitation of any flaws in its implementation.
@@ -8212,6 +8509,7 @@ The IEEE 1394 (FireWire) is a serial bus standard for high-speed real-time commu
 SV-230500:
 Old:
 ```
+
 To prevent unauthorized connection of devices, unauthorized transfer
 of information, or unauthorized tunneling (i.e., embedding of data types within
 data types), organizations must disable or restrict unused or unnecessary
@@ -8233,6 +8531,7 @@ business or to address authorized quality-of-life issues.
 ```
 New:
 ```
+
 To prevent unauthorized connection of devices, unauthorized transfer of information, or unauthorized tunneling (i.e., embedding of data types within data types), organizations must disable or restrict unused or unnecessary physical and logical ports/protocols on information systems.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services provided by default may not be necessary to support essential organizational operations. Additionally, it is sometimes convenient to provide multiple services from a single component (e.g., VPN and IPS); however, doing so increases risk over limiting the services provided by any one component.
@@ -8244,12 +8543,14 @@ To support the requirements and principles of least functionality, the operating
 SV-230502:
 Old:
 ```
+
 Automatically mounting file systems permits easy introduction of
 unknown devices, thereby facilitating malicious activity.
 
 ```
 New:
 ```
+
 Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
 
 ```
@@ -8257,21 +8558,22 @@ Automatically mounting file systems permits easy introduction of unknown devices
 SV-230503:
 Old:
 ```
+
 USB mass storage permits easy introduction of unknown devices, thereby
 facilitating malicious activity.
 
 ```
 New:
 ```
+
 USB mass storage permits easy introduction of unknown devices, thereby facilitating malicious activity.
-
-
 
 ```
 ---
 SV-230504:
 Old:
 ```
+
 Failure to restrict network connectivity only to authorized systems
 permits inbound connections from malicious systems. It also permits outbound
 connections that may facilitate exfiltration of DoD data.
@@ -8285,6 +8587,7 @@ configuration file or is related to an outgoing network connection.
 ```
 New:
 ```
+
 Failure to restrict network connectivity only to authorized systems permits inbound connections from malicious systems. It also permits outbound connections that may facilitate exfiltration of DoD data.
 
 RHEL 8 incorporates the "firewalld" daemon, which allows for many different configurations. One of these configurations is zones. Zones can be utilized to a deny-all, allow-by-exception approach. The default "drop" zone will drop all incoming network packets unless it is explicitly allowed by the configuration file or is related to an outgoing network connection.
@@ -8294,6 +8597,7 @@ RHEL 8 incorporates the "firewalld" daemon, which allows for many different conf
 SV-230505:
 Old:
 ```
+
 "Firewalld" provides an easy and effective way to block/limit remote
 access to the system via ports, services, and protocols.
 
@@ -8316,6 +8620,7 @@ notebook computers, smartphones, and tablets).
 ```
 New:
 ```
+
 "Firewalld" provides an easy and effective way to block/limit remote access to the system via ports, services, and protocols.
 
 Remote access services, such as those providing remote access to network devices and information systems, which lack automated control capabilities, increase risk and make remote user access management difficult at best.
@@ -8329,6 +8634,7 @@ RHEL 8 functionality (e.g., RDP) must be capable of taking enforcement action if
 SV-230506:
 Old:
 ```
+
 Without protection of communications with wireless peripherals,
 confidentiality and integrity may be compromised because unprotected
 communications can be intercepted and either read, altered, or used to
@@ -8358,19 +8664,19 @@ encryption of the data may not be required.
 ```
 New:
 ```
+
 Without protection of communications with wireless peripherals, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read, altered, or used to compromise the RHEL 8 operating system.
 
 This requirement applies to wireless peripheral technologies (e.g., wireless mice, keyboards, displays, etc.) used with RHEL 8 systems. Wireless peripherals (e.g., Wi-Fi/Bluetooth/IR Keyboards, Mice, and Pointing Devices and Near Field Communications [NFC]) present a unique challenge by creating an open, unsecured port on a computer. Wireless peripherals must meet DoD requirements for wireless data transmission and be approved for use by the Authorizing Official (AO). Even though some wireless peripherals, such as mice and pointing devices, do not ordinarily carry information that need to be protected, modification of communications with these wireless peripherals may be used to compromise the RHEL 8 operating system. Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification.
 
 Protecting the confidentiality and integrity of communications with wireless peripherals can be accomplished by physical means (e.g., employing physical barriers to wireless radio frequencies) or by logical means (e.g., employing cryptographic techniques). If physical means of protection are employed, then logical means (cryptography) do not have to be employed, and vice versa. If the wireless peripheral is only passing telemetry data, encryption of the data may not be required.
 
-
-
 ```
 ---
 SV-230507:
 Old:
 ```
+
 Without protection of communications with wireless peripherals,
 confidentiality and integrity may be compromised because unprotected
 communications can be intercepted and either read, altered, or used to
@@ -8400,6 +8706,7 @@ encryption of the data may not be required.
 ```
 New:
 ```
+
 Without protection of communications with wireless peripherals, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read, altered, or used to compromise the RHEL 8 operating system.
 
 This requirement applies to wireless peripheral technologies (e.g., wireless mice, keyboards, displays, etc.) used with RHEL 8 systems. Wireless peripherals (e.g., Wi-Fi/Bluetooth/IR Keyboards, Mice, and Pointing Devices and Near Field Communications [NFC]) present a unique challenge by creating an open, unsecured port on a computer. Wireless peripherals must meet DoD requirements for wireless data transmission and be approved for use by the Authorizing Official (AO). Even though some wireless peripherals, such as mice and pointing devices, do not ordinarily carry information that need to be protected, modification of communications with these wireless peripherals may be used to compromise the RHEL 8 operating system. Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification.
@@ -8411,6 +8718,7 @@ Protecting the confidentiality and integrity of communications with wireless per
 SV-230508:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8436,6 +8744,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8449,6 +8758,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230509:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8472,6 +8782,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8483,6 +8794,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230510:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8508,6 +8820,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8521,6 +8834,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230511:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8546,6 +8860,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8559,6 +8874,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230512:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8582,6 +8898,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8593,6 +8910,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230513:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8618,6 +8936,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8631,6 +8950,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230514:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8656,6 +8976,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8669,6 +8990,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230515:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8694,6 +9016,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8707,6 +9030,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230516:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8732,6 +9056,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8745,6 +9070,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230517:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8770,6 +9096,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8783,6 +9110,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230518:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8808,6 +9136,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8821,6 +9150,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230519:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8846,6 +9176,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8859,6 +9190,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230520:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8884,6 +9216,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8897,6 +9230,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230521:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8922,6 +9256,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8935,6 +9270,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230522:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -8960,6 +9296,7 @@ unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 The "noexec" mount option causes the system to not execute binary files. This option must be used for mounting any file system not containing approved binary files, as they may be incompatible. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
@@ -8973,6 +9310,7 @@ The "nosuid" mount option causes the system to not execute "setuid" and "setgid"
 SV-230523:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -9000,6 +9338,7 @@ not namespace aware and can cause issues when launching or running containers.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 Utilizing a whitelist provides a configuration management method for allowing the execution of only authorized software. Using only authorized software decreases risk by limiting the number of potential vulnerabilities. Verification of whitelisted software occurs prior to execution or at system startup.
@@ -9010,13 +9349,12 @@ RHEL 8 ships with many optional packages. One such package is a file access poli
 
 Proceed with caution with enforcing the use of this daemon. Improper configuration may render the system non-functional. The "fapolicyd" API is not namespace aware and can cause issues when launching or running containers.
 
-
-
 ```
 ---
 SV-230524:
 Old:
 ```
+
 Without authenticating devices, unidentified or unknown devices may be
 introduced, thereby facilitating malicious activity.
 
@@ -9039,6 +9377,7 @@ devices.
 ```
 New:
 ```
+
 Without authenticating devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.
 
 Peripherals include, but are not limited to, such devices as flash drives, external storage, and printers.
@@ -9052,6 +9391,7 @@ The System Administrator (SA) must work with the site Information System Securit
 SV-230525:
 Old:
 ```
+
 DoS is a condition when a resource is not available for legitimate
 users. When this occurs, the organization either cannot accomplish its mission
 or must operate at degraded capacity.
@@ -9072,6 +9412,7 @@ mitigate DoS attacks.
 ```
 New:
 ```
+
 DoS is a condition when a resource is not available for legitimate users. When this occurs, the organization either cannot accomplish its mission or must operate at degraded capacity.
 
 This requirement addresses the configuration of RHEL 8 to mitigate the impact of DoS attacks that have occurred or are ongoing on system availability. For each system, known and potential DoS attacks must be identified and solutions for each type implemented. A variety of technologies exists to limit or, in some cases, eliminate the effects of DoS attacks (e.g., limiting processes or establishing memory partitions). Employing increased capacity and bandwidth, combined with service redundancy, may reduce the susceptibility to some DoS attacks.
@@ -9083,6 +9424,7 @@ Since version 0.6.0, "firewalld" has incorporated "nftables" as its backend supp
 SV-230526:
 Old:
 ```
+
 Without protection of the transmitted information, confidentiality and
 integrity may be compromised because unprotected communications can be
 intercepted and either read or altered.
@@ -9103,19 +9445,19 @@ not have to be employed, and vice versa.
 ```
 New:
 ```
-Without protection of the transmitted information, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read or altered. 
 
-This requirement applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, and facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification. 
+Without protection of the transmitted information, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read or altered.
+
+This requirement applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, and facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification.
 
 Protecting the confidentiality and integrity of organizational information can be accomplished by physical means (e.g., employing physical distribution systems) or by logical means (e.g., employing cryptographic techniques). If physical means of protection are employed, then logical means (cryptography) do not have to be employed, and vice versa.
-
-
 
 ```
 ---
 SV-230527:
 Old:
 ```
+
 Without protection of the transmitted information, confidentiality and
 integrity may be compromised because unprotected communications can be
 intercepted and either read or altered.
@@ -9139,21 +9481,21 @@ compromised.
 ```
 New:
 ```
-Without protection of the transmitted information, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read or altered. 
 
-This requirement applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, and facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification. 
+Without protection of the transmitted information, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read or altered.
+
+This requirement applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, and facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification.
 
 Protecting the confidentiality and integrity of organizational information can be accomplished by physical means (e.g., employing physical distribution systems) or by logical means (e.g., employing cryptographic techniques). If physical means of protection are employed, then logical means (cryptography) do not have to be employed, and vice versa.
 
 Session key regeneration limits the chances of a session key becoming compromised.
-
-
 
 ```
 ---
 SV-230529:
 Old:
 ```
+
 A locally logged-on user, who presses Ctrl-Alt-Delete when at the
 console, can reboot the system. If accidentally pressed, as could happen in the
 case of a mixed OS environment, this can create the risk of short-term loss of
@@ -9164,6 +9506,7 @@ reduced because the user will be prompted before any action is taken.
 ```
 New:
 ```
+
 A locally logged-on user, who presses Ctrl-Alt-Delete when at the console, can reboot the system. If accidentally pressed, as could happen in the case of a mixed OS environment, this can create the risk of short-term loss of availability of systems due to unintentional reboot. In a graphical user environment, risk of unintentional reboot from the Ctrl-Alt-Delete sequence is reduced because the user will be prompted before any action is taken.
 
 ```
@@ -9171,6 +9514,7 @@ A locally logged-on user, who presses Ctrl-Alt-Delete when at the console, can r
 SV-230530:
 Old:
 ```
+
 A locally logged-on user, who presses Ctrl-Alt-Delete, when at the
 console, can reboot the system. If accidentally pressed, as could happen in the
 case of a mixed OS environment, this can create the risk of short-term loss of
@@ -9181,6 +9525,7 @@ reduced because the user will be prompted before any action is taken.
 ```
 New:
 ```
+
 A locally logged-on user, who presses Ctrl-Alt-Delete, when at the console, can reboot the system. If accidentally pressed, as could happen in the case of a mixed OS environment, this can create the risk of short-term loss of availability of systems due to unintentional reboot. In a graphical user environment, risk of unintentional reboot from the Ctrl-Alt-Delete sequence is reduced because the user will be prompted before any action is taken.
 
 ```
@@ -9188,6 +9533,7 @@ A locally logged-on user, who presses Ctrl-Alt-Delete, when at the console, can 
 SV-230531:
 Old:
 ```
+
 A locally logged-on user who presses Ctrl-Alt-Delete when at the
 console can reboot the system. If accidentally pressed, as could happen in the
 case of a mixed OS environment, this can create the risk of short-term loss of
@@ -9198,6 +9544,7 @@ reduced because the user will be prompted before any action is taken.
 ```
 New:
 ```
+
 A locally logged-on user who presses Ctrl-Alt-Delete when at the console can reboot the system. If accidentally pressed, as could happen in the case of a mixed OS environment, this can create the risk of short-term loss of availability of systems due to unintentional reboot. In a graphical user environment, risk of unintentional reboot from the Ctrl-Alt-Delete sequence is reduced because the user will be prompted before any action is taken.
 
 ```
@@ -9205,6 +9552,7 @@ A locally logged-on user who presses Ctrl-Alt-Delete when at the console can reb
 SV-230532:
 Old:
 ```
+
 The debug-shell requires no authentication and provides root
 privileges to anyone who has physical access to the machine.  While this
 feature is disabled by default, masking it adds an additional layer of
@@ -9216,6 +9564,7 @@ access when the system is rebooted.
 ```
 New:
 ```
+
 The debug-shell requires no authentication and provides root privileges to anyone who has physical access to the machine.  While this feature is disabled by default, masking it adds an additional layer of assurance that it will not be enabled via a dependency in systemd.  This also prevents attackers with physical access from trivially bypassing security on the machine through valid troubleshooting configurations and gaining root access when the system is rebooted.
 
 ```
@@ -9223,6 +9572,7 @@ The debug-shell requires no authentication and provides root privileges to anyon
 SV-230533:
 Old:
 ```
+
 If TFTP is required for operational support (such as the transmission
 of router configurations) its use must be documented with the Information
 System Security Officer (ISSO), restricted to only authorized personnel, and
@@ -9231,6 +9581,7 @@ have access control rules established.
 ```
 New:
 ```
+
 If TFTP is required for operational support (such as the transmission of router configurations) its use must be documented with the Information System Security Officer (ISSO), restricted to only authorized personnel, and have access control rules established.
 
 ```
@@ -9238,6 +9589,7 @@ If TFTP is required for operational support (such as the transmission of router 
 SV-230534:
 Old:
 ```
+
 If an account other than root also has a User Identifier (UID) of
 "0", it has root authority, giving that account unrestricted access to the
 entire operating system. Multiple accounts with a UID of "0" afford an
@@ -9247,6 +9599,7 @@ account.
 ```
 New:
 ```
+
 If an account other than root also has a User Identifier (UID) of "0", it has root authority, giving that account unrestricted access to the entire operating system. Multiple accounts with a UID of "0" afford an opportunity for potential intruders to guess a password for a privileged account.
 
 ```
@@ -9254,6 +9607,7 @@ If an account other than root also has a User Identifier (UID) of "0", it has ro
 SV-230550:
 Old:
 ```
+
 If unrestricted mail relaying is permitted, unauthorized senders could
 use this host as a mail relay for the purpose of sending spam or other
 unauthorized activity.
@@ -9261,6 +9615,7 @@ unauthorized activity.
 ```
 New:
 ```
+
 If unrestricted mail relaying is permitted, unauthorized senders could use this host as a mail relay for the purpose of sending spam or other unauthorized activity.
 
 ```
@@ -9268,6 +9623,7 @@ If unrestricted mail relaying is permitted, unauthorized senders could use this 
 SV-230551:
 Old:
 ```
+
 Extended attributes in file systems are used to contain arbitrary data
 and file metadata with security implications.
 
@@ -9277,6 +9633,7 @@ Intrusion Detection Environment (AIDE).
 ```
 New:
 ```
+
 Extended attributes in file systems are used to contain arbitrary data and file metadata with security implications.
 
 RHEL 8 installation media come with a file integrity tool, Advanced Intrusion Detection Environment (AIDE).
@@ -9286,6 +9643,7 @@ RHEL 8 installation media come with a file integrity tool, Advanced Intrusion De
 SV-230552:
 Old:
 ```
+
 ACLs can provide permissions beyond those permitted through the file
 mode and must be verified by file integrity tools.
 
@@ -9295,6 +9653,7 @@ Intrusion Detection Environment (AIDE).
 ```
 New:
 ```
+
 ACLs can provide permissions beyond those permitted through the file mode and must be verified by file integrity tools.
 
 RHEL 8 installation media come with a file integrity tool, Advanced Intrusion Detection Environment (AIDE).
@@ -9304,6 +9663,7 @@ RHEL 8 installation media come with a file integrity tool, Advanced Intrusion De
 SV-230553:
 Old:
 ```
+
 Internet services that are not required for system or application
 processes must not be active to decrease the attack surface of the system.
 Graphical display managers have a long history of security vulnerabilities and
@@ -9312,6 +9672,7 @@ must not be used, unless approved and documented.
 ```
 New:
 ```
+
 Internet services that are not required for system or application processes must not be active to decrease the attack surface of the system. Graphical display managers have a long history of security vulnerabilities and must not be used, unless approved and documented.
 
 ```
@@ -9319,6 +9680,7 @@ Internet services that are not required for system or application processes must
 SV-230554:
 Old:
 ```
+
 Network interfaces in promiscuous mode allow for the capture of all
 network traffic visible to the system. If unauthorized individuals can access
 these applications, it may allow them to collect information such as logon IDs,
@@ -9331,6 +9693,7 @@ Officer (ISSO) and restricted to only authorized personnel.
 ```
 New:
 ```
+
 Network interfaces in promiscuous mode allow for the capture of all network traffic visible to the system. If unauthorized individuals can access these applications, it may allow them to collect information such as logon IDs, passwords, and key exchanges between systems.
 
 If the system is being used to perform a network troubleshooting function, the use of these tools must be documented with the Information System Security Officer (ISSO) and restricted to only authorized personnel.
@@ -9340,6 +9703,7 @@ If the system is being used to perform a network troubleshooting function, the u
 SV-230555:
 Old:
 ```
+
 The security risk of using X11 forwarding is that the client's X11
 display server may be exposed to attack when the SSH client requests
 forwarding.  A system administrator may have a stance in which they want to
@@ -9358,6 +9722,7 @@ should be disabled or restricted as appropriate to the system’s needs.
 ```
 New:
 ```
+
 The security risk of using X11 forwarding is that the client's X11 display server may be exposed to attack when the SSH client requests forwarding.  A system administrator may have a stance in which they want to protect clients that may expose themselves to attack by unwittingly requesting X11 forwarding, which can warrant a "no" setting.
 
 X11 forwarding should be enabled with caution. Users with the ability to bypass file permissions on the remote host (for the user's X11 authorization database) can access the local X11 display through the forwarded connection. An attacker may then be able to perform activities such as keystroke monitoring if the ForwardX11Trusted option is also enabled.
@@ -9369,6 +9734,7 @@ If X11 services are not required for the system's intended function, they should
 SV-230556:
 Old:
 ```
+
 When X11 forwarding is enabled, there may be additional exposure to
 the server and client displays if the sshd proxy display is configured to
 listen on the wildcard address.  By default, sshd binds the forwarding server
@@ -9379,6 +9745,7 @@ display.
 ```
 New:
 ```
+
 When X11 forwarding is enabled, there may be additional exposure to the server and client displays if the sshd proxy display is configured to listen on the wildcard address.  By default, sshd binds the forwarding server to the loopback address and sets the hostname part of the DIPSLAY environment variable to localhost.  This prevents remote hosts from connecting to the proxy display.
 
 ```
@@ -9386,12 +9753,14 @@ When X11 forwarding is enabled, there may be additional exposure to the server a
 SV-230557:
 Old:
 ```
+
 Restricting TFTP to a specific directory prevents remote users from
 copying, transferring, or overwriting system files.
 
 ```
 New:
 ```
+
 Restricting TFTP to a specific directory prevents remote users from copying, transferring, or overwriting system files.
 
 ```
@@ -9399,6 +9768,7 @@ Restricting TFTP to a specific directory prevents remote users from copying, tra
 SV-230558:
 Old:
 ```
+
 The FTP service provides an unencrypted remote access that does not
 provide for the confidentiality and integrity of user passwords or the remote
 session. If a privileged user were to log on using this service, the privileged
@@ -9408,6 +9778,7 @@ methods must be used in place of this service.
 ```
 New:
 ```
+
 The FTP service provides an unencrypted remote access that does not provide for the confidentiality and integrity of user passwords or the remote session. If a privileged user were to log on using this service, the privileged user password could be compromised. SSH or other encrypted file transfer methods must be used in place of this service.
 
 ```
@@ -9415,6 +9786,7 @@ The FTP service provides an unencrypted remote access that does not provide for 
 SV-230559:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -9432,6 +9804,7 @@ expose secrets on some networks. It is not needed for normal function of the OS.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -9443,6 +9816,7 @@ The gssproxy package is a proxy for GSS API credential handling and could expose
 SV-230560:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -9460,6 +9834,7 @@ SCSI devices supported by the ipr SCSI storage device driver.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -9471,6 +9846,7 @@ The iprutils package provides a suite of utilities to manage and configure SCSI 
 SV-230561:
 Old:
 ```
+
 It is detrimental for operating systems to provide, or install by
 default, functionality exceeding requirements or mission objectives. These
 unnecessary capabilities or services are often overlooked and therefore may
@@ -9491,6 +9867,7 @@ is not needed for normal OS operations.
 ```
 New:
 ```
+
 It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
@@ -9502,6 +9879,7 @@ The tuned package contains a daemon that tunes the system settings dynamically. 
 SV-237640:
 Old:
 ```
+
 Unapproved mechanisms that are used for authentication to the
 cryptographic module are not verified and therefore cannot be relied upon to
 provide confidentiality or integrity, and DoD data may be compromised.
@@ -9519,6 +9897,7 @@ general-purpose computing system.
 ```
 New:
 ```
+
 Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.
 
 RHEL 8 systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules.
@@ -9532,6 +9911,7 @@ FIPS 140-2 is the current standard for validating that mechanisms used to access
 SV-237641:
 Old:
 ```
+
 The sudo command allows a user to execute programs with elevated
 (administrator) privileges. It prompts the user for their password and confirms
 your request to execute a command by checking a file, called sudoers. If the
@@ -9541,6 +9921,7 @@ can initiate privileged actions on the target system.
 ```
 New:
 ```
+
 The sudo command allows a user to execute programs with elevated (administrator) privileges. It prompts the user for their password and confirms your request to execute a command by checking a file, called sudoers. If the "sudoers" file is not configured correctly, any user defined on the system can initiate privileged actions on the target system.
 
 ```
@@ -9548,6 +9929,7 @@ The sudo command allows a user to execute programs with elevated (administrator)
 SV-237642:
 Old:
 ```
+
 The sudoers security policy requires that users authenticate
 themselves before they can use sudo. When sudoers requires authentication, it
 validates the invoking user's credentials. If the rootpw, targetpw, or runaspw
@@ -9559,7 +9941,8 @@ sudoers(5) manual page.
 ```
 New:
 ```
-The sudoers security policy requires that users authenticate themselves before they can use sudo. When sudoers requires authentication, it validates the invoking user's credentials. If the rootpw, targetpw, or runaspw flags are defined and not disabled, by default the operating system will prompt the invoking user for the "root" user password. 
+
+The sudoers security policy requires that users authenticate themselves before they can use sudo. When sudoers requires authentication, it validates the invoking user's credentials. If the rootpw, targetpw, or runaspw flags are defined and not disabled, by default the operating system will prompt the invoking user for the "root" user password.
 For more information on each of the listed configurations, reference the sudoers(5) manual page.
 
 ```
@@ -9567,6 +9950,7 @@ For more information on each of the listed configurations, reference the sudoers
 SV-237643:
 Old:
 ```
+
 Without re-authentication, users may access resources or perform tasks
 for which they do not have authorization.
 
@@ -9581,7 +9965,8 @@ until the user's session is terminated.
 ```
 New:
 ```
-Without re-authentication, users may access resources or perform tasks for which they do not have authorization. 
+
+Without re-authentication, users may access resources or perform tasks for which they do not have authorization.
 
 When operating systems provide the capability to escalate a functional capability, it is critical the organization requires the user to re-authenticate when using the "sudo" command.
 
@@ -9592,6 +9977,7 @@ If the value is set to an integer less than 0, the user's time stamp will not ex
 SV-244519:
 Old:
 ```
+
 Display of a standardized and approved use notification before
 granting access to the operating system ensures privacy and security
 notification verbiage used is consistent with applicable federal laws,
@@ -9603,17 +9989,17 @@ with human users and are not required when such human interfaces do not exist.
 ```
 New:
 ```
+
 Display of a standardized and approved use notification before granting access to the operating system ensures privacy and security notification verbiage used is consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.
 
 System use notifications are required only for access via logon interfaces with human users and are not required when such human interfaces do not exist.
-
-
 
 ```
 ---
 SV-244523:
 Old:
 ```
+
 If the system does not require valid root authentication before it
 boots into emergency or rescue mode, anyone who invokes emergency or rescue
 mode is granted privileged access to all files on the system.
@@ -9621,6 +10007,7 @@ mode is granted privileged access to all files on the system.
 ```
 New:
 ```
+
 If the system does not require valid root authentication before it boots into emergency or rescue mode, anyone who invokes emergency or rescue mode is granted privileged access to all files on the system.
 
 ```
@@ -9628,6 +10015,7 @@ If the system does not require valid root authentication before it boots into em
 SV-244524:
 Old:
 ```
+
 Unapproved mechanisms that are used for authentication to the
 cryptographic module are not verified and therefore cannot be relied upon to
 provide confidentiality or integrity, and DoD data may be compromised.
@@ -9643,9 +10031,10 @@ general-purpose computing system.
 ```
 New:
 ```
+
 Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.
 
-RHEL 8 systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules. 
+RHEL 8 systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules.
 
 FIPS 140-2 is the current standard for validating that mechanisms used to access cryptographic modules utilize authentication that meets DoD requirements. This allows for Security Levels 1, 2, 3, or 4 for use on a general-purpose computing system.
 
@@ -9654,6 +10043,7 @@ FIPS 140-2 is the current standard for validating that mechanisms used to access
 SV-244525:
 Old:
 ```
+
 Terminating an unresponsive SSH session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle SSH session will also free up resources committed by the managed network element.
 
 Terminating network connections associated with communications sessions includes, for example, deallocating associated TCP/IP address/port pairs at the operating system level and deallocating networking assignments at the application level if multiple application sessions are using a single operating system-level network connection. This does not mean that the operating system terminates all sessions or network access; it only ends the unresponsive session and releases the resources associated with that session.
@@ -9663,19 +10053,19 @@ RHEL 8 uses /etc/ssh/sshd_config for configurations of OpenSSH. Within the sshd_
 ```
 New:
 ```
+
 Terminating an unresponsive SSH session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle SSH session will also free up resources committed by the managed network element.
 
 Terminating network connections associated with communications sessions includes, for example, deallocating associated TCP/IP address/port pairs at the operating system level and deallocating networking assignments at the application level if multiple application sessions are using a single operating system-level network connection. This does not mean that the operating system terminates all sessions or network access; it only ends the unresponsive session and releases the resources associated with that session.
 
 RHEL 8 uses /etc/ssh/sshd_config for configurations of OpenSSH. Within the sshd_config, the product of the values of "ClientAliveInterval" and "ClientAliveCountMax" is used to establish the inactivity threshold. The "ClientAliveInterval" is a timeout interval in seconds after which if no data has been received from the client, sshd will send a message through the encrypted channel to request a response from the client. The "ClientAliveCountMax" is the number of client alive messages that may be sent without sshd receiving any messages back from the client. If this threshold is met, sshd will disconnect the client. For more information on these settings and others, refer to the sshd_config man pages.
 
-
-
 ```
 ---
 SV-244526:
 Old:
 ```
+
 Without cryptographic integrity protections, information can be
 altered by unauthorized users without detection.
 
@@ -9697,6 +10087,7 @@ can be viewed in the /etc/crypto-policies/back-ends/ directory.
 ```
 New:
 ```
+
 Without cryptographic integrity protections, information can be altered by unauthorized users without detection.
 
 Remote access (e.g., RDP) is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.
@@ -9705,13 +10096,12 @@ Cryptographic mechanisms used for protecting the integrity of information includ
 
 RHEL 8 incorporates system-wide crypto policies by default. The SSH configuration file has no effect on the ciphers, MACs, or algorithms unless specifically defined in the /etc/sysconfig/sshd file. The employed algorithms can be viewed in the /etc/crypto-policies/back-ends/ directory.
 
-
-
 ```
 ---
 SV-244527:
 Old:
 ```
+
 The most important characteristic of a random number generator is its
 randomness, namely its ability to deliver random numbers that are impossible to
 predict.  Entropy in computer security is associated with the unpredictability
@@ -9726,6 +10116,7 @@ several security functions (i.e., ciphers).
 ```
 New:
 ```
+
 The most important characteristic of a random number generator is its randomness, namely its ability to deliver random numbers that are impossible to predict.  Entropy in computer security is associated with the unpredictability of a source of randomness.  The random source with high entropy tends to achieve a uniform distribution of random values.  Random number generators are one of the most important building blocks of cryptosystems.  
 
 The rngd service feeds random data from hardware device to kernel random device. Quality (non-predictable) random number generation is important for several security functions (i.e., ciphers).
@@ -9735,6 +10126,7 @@ The rngd service feeds random data from hardware device to kernel random device.
 SV-244528:
 Old:
 ```
+
 Configuring this setting for the SSH daemon provides additional
 assurance that remote logon via SSH will require a password, even in the event
 of misconfiguration elsewhere.
@@ -9742,6 +10134,7 @@ of misconfiguration elsewhere.
 ```
 New:
 ```
+
 Configuring this setting for the SSH daemon provides additional assurance that remote logon via SSH will require a password, even in the event of misconfiguration elsewhere.
 
 ```
@@ -9749,12 +10142,14 @@ Configuring this setting for the SSH daemon provides additional assurance that r
 SV-244529:
 Old:
 ```
+
 The use of separate file systems for different paths can protect the
 system from failures resulting from a file system becoming full or failing.
 
 ```
 New:
 ```
+
 The use of separate file systems for different paths can protect the system from failures resulting from a file system becoming full or failing.
 
 ```
@@ -9762,6 +10157,7 @@ The use of separate file systems for different paths can protect the system from
 SV-244530:
 Old:
 ```
+
 The "nosuid" mount option causes the system not to execute
 "setuid" and "setgid" files with owner privileges. This option must be used
 for mounting any file system not containing approved "setuid" and "setguid"
@@ -9771,6 +10167,7 @@ for unprivileged users to attain unauthorized administrative access.
 ```
 New:
 ```
+
 The "nosuid" mount option causes the system not to execute "setuid" and "setgid" files with owner privileges. This option must be used for mounting any file system not containing approved "setuid" and "setguid" files. Executing files from untrusted file systems increases the opportunity for unprivileged users to attain unauthorized administrative access.
 
 ```
@@ -9778,12 +10175,14 @@ The "nosuid" mount option causes the system not to execute "setuid" and "setgid"
 SV-244531:
 Old:
 ```
+
 Excessive permissions on local interactive user home directories may
 allow unauthorized access to user files by other users.
 
 ```
 New:
 ```
+
 Excessive permissions on local interactive user home directories may allow unauthorized access to user files by other users.
 
 ```
@@ -9791,12 +10190,14 @@ Excessive permissions on local interactive user home directories may allow unaut
 SV-244532:
 Old:
 ```
+
 If a local interactive user's files are group-owned by a group of
 which the user is not a member, unintended users may be able to access them.
 
 ```
 New:
 ```
+
 If a local interactive user's files are group-owned by a group of which the user is not a member, unintended users may be able to access them.
 
 ```
@@ -9804,6 +10205,7 @@ If a local interactive user's files are group-owned by a group of which the user
 SV-244533:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -9824,6 +10226,7 @@ modules which ask for the user credentials such as the password.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module. Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
@@ -9831,13 +10234,12 @@ In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centraliz
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
 The preauth argument must be used when the module is called before the modules which ask for the user credentials such as the password.
 
-
-
 ```
 ---
 SV-244534:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
 unauthorized system access via user password guessing, otherwise known as
 brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -9858,6 +10260,7 @@ modules which ask for the user credentials such as the password.
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centralize the configuration of the pam_faillock.so module.  Also introduced is a "local_users_only" option that will only track failed user authentication attempts for local users in /etc/passwd and ignore centralized (AD, IdM, LDAP, etc.) users to allow the centralized platform to solely manage user lockout.
@@ -9865,13 +10268,12 @@ In RHEL 8.2 the "/etc/security/faillock.conf" file was incorporated to centraliz
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable a different tally directory must be set with the "dir" option.
 The preauth argument must be used when the module is called before the modules which ask for the user credentials such as the password.
 
-
-
 ```
 ---
 SV-244535:
 Old:
 ```
+
 A session time-out lock is a temporary action taken when a user stops
 work and moves away from the immediate physical vicinity of the information
 system but does not log out because of the temporary nature of the absence.
@@ -9885,17 +10287,17 @@ determined and/or controlled.
 ```
 New:
 ```
+
 A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not log out because of the temporary nature of the absence. Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity, operating systems need to be able to identify when a user's session has idled and take action to initiate the session lock.
 
 The session lock is implemented at the point where session activity can be determined and/or controlled.
-
-
 
 ```
 ---
 SV-244536:
 Old:
 ```
+
 Leaving the user list enabled is a security risk since it allows
 anyone with physical access to the system to enumerate known user accounts
 without authenticated access to the system.
@@ -9903,6 +10305,7 @@ without authenticated access to the system.
 ```
 New:
 ```
+
 Leaving the user list enabled is a security risk since it allows anyone with physical access to the system to enumerate known user accounts without authenticated access to the system.
 
 ```
@@ -9910,6 +10313,7 @@ Leaving the user list enabled is a security risk since it allows anyone with phy
 SV-244538:
 Old:
 ```
+
 A session time-out lock is a temporary action taken when a user stops
 work and moves away from the immediate physical vicinity of the information
 system but does not log out because of the temporary nature of the absence.
@@ -9930,6 +10334,7 @@ a protected baseline.
 ```
 New:
 ```
+
 A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not log out because of the temporary nature of the absence. Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity, operating systems need to be able to identify when a user's session has idled and take action to initiate the session lock.
 
 The session lock is implemented at the point where session activity can be determined and/or controlled.
@@ -9937,14 +10342,13 @@ The session lock is implemented at the point where session activity can be deter
 Implementing session settings will have little value if a user is able to manipulate these settings from the defaults prescribed in the other requirements of this implementation guide.
 
 Locking these settings from non-privileged users is crucial to maintaining a protected baseline.
-
-
 
 ```
 ---
 SV-244539:
 Old:
 ```
+
 A session time-out lock is a temporary action taken when a user stops
 work and moves away from the immediate physical vicinity of the information
 system but does not log out because of the temporary nature of the absence.
@@ -9965,6 +10369,7 @@ a protected baseline.
 ```
 New:
 ```
+
 A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not log out because of the temporary nature of the absence. Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity, operating systems need to be able to identify when a user's session has idled and take action to initiate the session lock.
 
 The session lock is implemented at the point where session activity can be determined and/or controlled.
@@ -9973,13 +10378,12 @@ Implementing session settings will have little value if a user is able to manipu
 
 Locking these settings from non-privileged users is crucial to maintaining a protected baseline.
 
-
-
 ```
 ---
 SV-244541:
 Old:
 ```
+
 If an account has an empty password, anyone could log on and run
 commands with the privileges of that account. Accounts with empty passwords
 should never be used in operational environments.
@@ -9987,6 +10391,7 @@ should never be used in operational environments.
 ```
 New:
 ```
+
 If an account has an empty password, anyone could log on and run commands with the privileges of that account. Accounts with empty passwords should never be used in operational environments.
 
 ```
@@ -9994,6 +10399,7 @@ If an account has an empty password, anyone could log on and run commands with t
 SV-244542:
 Old:
 ```
+
 Without establishing what type of events occurred, the source of
 events, where events occurred, and the outcome of events, it would be difficult
 to establish, correlate, and investigate the events leading up to an outage or
@@ -10011,19 +10417,19 @@ capacity thresholds, or identifying an improperly configured RHEL 8 system.
 ```
 New:
 ```
+
 Without establishing what type of events occurred, the source of events, where events occurred, and the outcome of events, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.
 
 Audit record content that may be necessary to satisfy this requirement includes, for example, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.
 
 Associating event types with detected events in RHEL 8 audit logs provides a means of investigating an attack, recognizing resource utilization or capacity thresholds, or identifying an improperly configured RHEL 8 system.
 
-
-
 ```
 ---
 SV-244543:
 Old:
 ```
+
 If security personnel are not notified immediately when storage volume
 reaches 75 percent utilization, they are unable to plan for audit record
 storage capacity expansion.
@@ -10031,6 +10437,7 @@ storage capacity expansion.
 ```
 New:
 ```
+
 If security personnel are not notified immediately when storage volume reaches 75 percent utilization, they are unable to plan for audit record storage capacity expansion.
 
 ```
@@ -10038,6 +10445,7 @@ If security personnel are not notified immediately when storage volume reaches 7
 SV-244544:
 Old:
 ```
+
 "Firewalld" provides an easy and effective way to block/limit remote
 access to the system via ports, services, and protocols.
 
@@ -10059,6 +10467,7 @@ notebook computers, smartphones, and tablets).
 ```
 New:
 ```
+
 "Firewalld" provides an easy and effective way to block/limit remote access to the system via ports, services, and protocols.
 
 Remote access services, such as those providing remote access to network devices and information systems, which lack automated control capabilities, increase risk and make remote user access management difficult at best.
@@ -10071,6 +10480,7 @@ RHEL 8 functionality (e.g., RDP) must be capable of taking enforcement action if
 SV-244545:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -10098,6 +10508,7 @@ not namespace aware and can cause issues when launching or running containers.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 Utilizing a whitelist provides a configuration management method for allowing the execution of only authorized software. Using only authorized software decreases risk by limiting the number of potential vulnerabilities. Verification of whitelisted software occurs prior to execution or at system startup.
@@ -10107,14 +10518,13 @@ User home directories/folders may contain information of a sensitive nature. Non
 RHEL 8 ships with many optional packages. One such package is a file access policy daemon called "fapolicyd". "fapolicyd" is a userspace daemon that determines access rights to files based on attributes of the process and file. It can be used to either blacklist or whitelist processes or file access.
 
 Proceed with caution with enforcing the use of this daemon. Improper configuration may render the system non-functional. The "fapolicyd" API is not namespace aware and can cause issues when launching or running containers.
-
-
 
 ```
 ---
 SV-244546:
 Old:
 ```
+
 The organization must identify authorized software programs and permit
 execution of authorized software. The process used to identify software
 programs that are authorized to execute on organizational information systems
@@ -10142,6 +10552,7 @@ not namespace aware and can cause issues when launching or running containers.
 ```
 New:
 ```
+
 The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.
 
 Utilizing a whitelist provides a configuration management method for allowing the execution of only authorized software. Using only authorized software decreases risk by limiting the number of potential vulnerabilities. Verification of whitelisted software occurs prior to execution or at system startup.
@@ -10152,13 +10563,12 @@ RHEL 8 ships with many optional packages. One such package is a file access poli
 
 Proceed with caution with enforcing the use of this daemon. Improper configuration may render the system non-functional. The "fapolicyd" API is not namespace aware and can cause issues when launching or running containers.
 
-
-
 ```
 ---
 SV-244547:
 Old:
 ```
+
 Without authenticating devices, unidentified or unknown devices may be
 introduced, thereby facilitating malicious activity.
     Peripherals include, but are not limited to, such devices as flash drives,
@@ -10179,6 +10589,7 @@ devices.
 ```
 New:
 ```
+
 Without authenticating devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.
 Peripherals include, but are not limited to, such devices as flash drives, external storage, and printers.
 A new feature that RHEL 8 provides is the USBGuard software framework. The USBguard-daemon is the main component of the USBGuard software framework. It runs as a service in the background and enforces the USB device authorization policy for all USB devices. The policy is defined by a set of rules using a rule language described in the usbguard-rules.conf file. The policy and the authorization state of USB devices can be modified during runtime using the usbguard tool.
@@ -10190,6 +10601,7 @@ The System Administrator (SA) must work with the site Information System Securit
 SV-244548:
 Old:
 ```
+
 Without authenticating devices, unidentified or unknown devices may be
 introduced, thereby facilitating malicious activity.
 
@@ -10212,6 +10624,7 @@ devices.
 ```
 New:
 ```
+
 Without authenticating devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.
 
 Peripherals include, but are not limited to, such devices as flash drives, external storage, and printers.
@@ -10225,6 +10638,7 @@ The System Administrator (SA) must work with the site Information System Securit
 SV-244549:
 Old:
 ```
+
 Without protection of the transmitted information, confidentiality and
 integrity may be compromised because unprotected communications can be
 intercepted and either read or altered.
@@ -10245,19 +10659,19 @@ not have to be employed, and vice versa.
 ```
 New:
 ```
-Without protection of the transmitted information, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read or altered. 
 
-This requirement applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, and facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification. 
+Without protection of the transmitted information, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read or altered.
+
+This requirement applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, and facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification.
 
 Protecting the confidentiality and integrity of organizational information can be accomplished by physical means (e.g., employing physical distribution systems) or by logical means (e.g., employing cryptographic techniques). If physical means of protection are employed, then logical means (cryptography) do not have to be employed, and vice versa.
-
-
 
 ```
 ---
 SV-250315:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
   unauthorized system access via user password guessing, otherwise known as
   brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -10275,6 +10689,7 @@ By limiting the number of failed logon attempts, the risk of
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 From "faillock.conf" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be re-enabled after system reboot. If that is undesirable, a different tally directory must be set with the "dir" option.
@@ -10286,6 +10701,7 @@ SELinux, enforcing a targeted policy, will require any non-default tally directo
 SV-250316:
 Old:
 ```
+
 By limiting the number of failed logon attempts, the risk of
   unauthorized system access via user password guessing, otherwise known as
   brute-force attacks, is reduced. Limits are imposed by locking the account.
@@ -10303,6 +10719,7 @@ By limiting the number of failed logon attempts, the risk of
 ```
 New:
 ```
+
 By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-force attacks, is reduced. Limits are imposed by locking the account.
 
 From "Pam_Faillock" man pages: Note that the default directory that "pam_faillock" uses is usually cleared on system boot so the access will be reenabled after system reboot. If that is undesirable, a different tally directory must be set with the "dir" option.
@@ -10314,6 +10731,7 @@ SELinux, enforcing a targeted policy, will require any non-default tally directo
 SV-250317:
 Old:
 ```
+
 Routing protocol daemons are typically used on routers to exchange network
     topology information with other routers. If this software is used when not required,
     system network information may be unnecessarily transmitted across the network.
@@ -10337,6 +10755,7 @@ Routing protocol daemons are typically used on routers to exchange network
 ```
 New:
 ```
+
 Routing protocol daemons are typically used on routers to exchange network topology information with other routers. If this software is used when not required, system network information may be unnecessarily transmitted across the network.
 
 The sysctl --system command will load settings from all system configuration files. All configuration files are sorted by their filename in lexicographic order, regardless of which of the directories they reside in. If multiple files specify the same option, the entry in the file with the lexicographically latest name will take precedence. Files are read from directories in the following list from top to bottom. Once a file of a given filename is loaded, any file of the same name in subsequent directories is ignored.
@@ -10352,6 +10771,7 @@ The sysctl --system command will load settings from all system configuration fil
 SV-251707:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries,
   then those changes might be implemented without undergoing the appropriate
   testing and approvals that are part of a robust change management process.
@@ -10366,6 +10786,7 @@ If RHEL 8 were to allow any user to make changes to software libraries,
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -10375,11 +10796,13 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-251708:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process. This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
 
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -10389,11 +10812,13 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-251709:
 Old:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process. This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
 
 ```
 New:
 ```
+
 If RHEL 8 were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
 
 This requirement applies to RHEL 8 with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs that execute with escalated privileges. Only qualified and authorized individuals will be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.
@@ -10403,6 +10828,7 @@ This requirement applies to RHEL 8 with software libraries that are accessible a
 SV-251710:
 Old:
 ```
+
 Without verification of the security functions, security functions may not operate correctly, and the failure may go unnoticed.
         Security function is defined as the hardware, software, and/or firmware of the information system responsible for enforcing the
         system security policy and supporting the isolation of code and data on which the protection is based. Security functionality
@@ -10415,6 +10841,7 @@ Without verification of the security functions, security functions may not opera
 ```
 New:
 ```
+
 Without verification of the security functions, security functions may not operate correctly, and the failure may go unnoticed. Security function is defined as the hardware, software, and/or firmware of the information system responsible for enforcing the system security policy and supporting the isolation of code and data on which the protection is based. Security functionality includes, but is not limited to, establishing system accounts, configuring access authorizations (i.e., permissions, privileges), setting events to be audited, and setting intrusion detection parameters.
 
 This requirement applies to the RHEL 8 operating system performing security function verification/testing and/or systems and environments that require this functionality.
@@ -10424,6 +10851,7 @@ This requirement applies to the RHEL 8 operating system performing security func
 SV-251711:
 Old:
 ```
+
 The "sudo" command allows authorized users to run programs (including shells) as other users,
         system users, and root. The "/etc/sudoers" file is used to configure authorized "sudo" users as
         well as the programs they are allowed to run. Some configuration options in the "/etc/sudoers"
@@ -10440,6 +10868,7 @@ The "sudo" command allows authorized users to run programs (including shells) as
 ```
 New:
 ```
+
 The "sudo" command allows authorized users to run programs (including shells) as other users, system users, and root. The "/etc/sudoers" file is used to configure authorized "sudo" users as well as the programs they are allowed to run. Some configuration options in the "/etc/sudoers" file allow configured users to run programs without re-authenticating. Use of these configuration options makes it easier for one compromised account to be used to compromise other accounts.
 
 It is possible to include other sudoers files from within the sudoers file currently being parsed using the #include and #includedir directives. When sudo reaches this line it will suspend processing of the current file (/etc/sudoers) and switch to the specified file/directory. Once the end of the included file(s) is reached, the rest of /etc/sudoers will be processed. Files that are included may themselves include other files. A hard limit of 128 nested include files is enforced to prevent include file loops.
@@ -10449,6 +10878,7 @@ It is possible to include other sudoers files from within the sudoers file curre
 SV-251712:
 Old:
 ```
+
 Without re-authentication, users may access resources or perform tasks for which they do not have authorization.
 
 When operating systems provide the capability to escalate a functional capability, it is critical the user re-authenticate.
@@ -10456,17 +10886,17 @@ When operating systems provide the capability to escalate a functional capabilit
 ```
 New:
 ```
-Without re-authentication, users may access resources or perform tasks for which they do not have authorization. 
+
+Without re-authentication, users may access resources or perform tasks for which they do not have authorization.
 
 When operating systems provide the capability to escalate a functional capability, it is critical the user re-authenticate.
-
-
 
 ```
 ---
 SV-254520:
 Old:
 ```
+
 Preventing nonprivileged users from executing privileged functions mitigates the risk that unauthorized individuals or processes may gain unnecessary access to information or privileges.
 
 Privileged functions include, for example, establishing accounts, performing system integrity checks, or administering cryptographic key management activities. Nonprivileged users are individuals who do not possess appropriate authorizations. Circumventing intrusion detection and prevention mechanisms or malicious code protection mechanisms are examples of privileged functions that require protection from nonprivileged users.
@@ -10474,8 +10904,9 @@ Privileged functions include, for example, establishing accounts, performing sys
 ```
 New:
 ```
-Preventing nonprivileged users from executing privileged functions mitigates the risk that unauthorized individuals or processes may gain unnecessary access to information or privileges. 
- 
+
+Preventing nonprivileged users from executing privileged functions mitigates the risk that unauthorized individuals or processes may gain unnecessary access to information or privileges.
+
 Privileged functions include, for example, establishing accounts, performing system integrity checks, or administering cryptographic key management activities. Nonprivileged users are individuals who do not possess appropriate authorizations. Circumventing intrusion detection and prevention mechanisms or malicious code protection mechanisms are examples of privileged functions that require protection from nonprivileged users.
 
 ```
