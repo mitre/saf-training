@@ -1,11 +1,12 @@
 ---
 order: 18
-title: Appendix B - More Resource Examples
+title: Appendix E - More Resource Examples
 author: Aaron Lippold
 headerDepth: 3
 ---
 
 ### The File Resource
+
 ```ruby
 # copyright: 2015, Vulcano Security GmbH
 
@@ -345,6 +346,7 @@ end
 ```
 
 ### 11.2. Directory
+
 ```ruby
 require "inspec/resources/file"
 
@@ -372,6 +374,7 @@ end
 ```
 
 ### The etc_hosts Resource
+
 ```ruby
 require "inspec/utils/parser"
 require "inspec/utils/file_reader"

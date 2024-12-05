@@ -10,6 +10,7 @@ As an example we will go through a few custom resources that were built and appr
 ### The IPv6 resource
 
 #### docs/resources/ip6tables.md.erb
+
 ```ruby
 ---
 title: About the ip6tables Resource
@@ -88,6 +89,7 @@ The `have_rule` matcher tests the named rule against the information in the `ip6
 ```
 
 #### lib/inspec/resources.rb
+
 ```ruby
 require "inspec/resources/iis_site"
 require "inspec/resources/inetd_conf"
@@ -99,6 +101,7 @@ require "inspec/resources/kernel_parameter"
 ```
 
 #### lib/inspec/resources/ip6tables.rb
+
 ```ruby
 require "inspec/resources/command"
 
@@ -186,6 +189,7 @@ While submitting PR it may be possible to extend existing test elements from cur
 :::
 
 #### test/integration/default/controls/ip6tables_spec.rb
+
 ```ruby
 case os[:family]
 when 'ubuntu', 'fedora', 'debian', 'suse'
@@ -213,6 +217,7 @@ end
 ```
 
 #### test/unit/resources/ip6tables_test.rb
+
 ```ruby
 require "helper"
 require "inspec/resource"
@@ -249,7 +254,9 @@ end
 ```
 
 ### The NGINX resource
+
 #### docs/resources/nginx.md.erb
+
 ```ruby
 ---
 title: The Nginx Resource
@@ -326,6 +333,7 @@ where
 ```
 
 #### lib/inspec/resource.rb
+
 ```ruby
 require 'resources/mysql'
 require 'resources/mysql_conf'
@@ -337,6 +345,7 @@ require 'resources/ntp_conf'
 ```
 
 #### lib/resources/nginx.rb
+
 ```ruby
 # encoding: utf-8
 # author: Aaron Lippold, lippold@gmail.com
@@ -438,6 +447,7 @@ end
 ```
 
 #### test/unit/resources/nginx_test.rb
+
 ```ruby
 # encoding: utf-8
 # author: Aaron Lippold, lippold@gmail.com
@@ -538,8 +548,10 @@ end
 ### Additional examples
 
 #### PAM resource currently open PR
+
 - [PAM Resource](https://github.com/simp/inspec-profile-disa_stig-el7/blob/master/libraries/pam.rb)
 - [PAM PR](https://github.com/inspec/inspec/pull/3993)
 
 #### Customizing an already existing resource (windows registry)
+
 - [https://github.com/mitre/microsoft-windows-2012r2-memberserver-stig-baseline/blob/master/libraries/windows_registry.rb](https://github.com/mitre/microsoft-windows-2012r2-memberserver-stig-baseline/blob/master/libraries/windows_registry.rb)
