@@ -14,7 +14,7 @@ The purpose of this class is to advance your skills in profile development and e
 ### 1.1.2 Advanced Class Objectives
 
 - Apply the Security Automation Framework (SAF) to your organization’s mission and understand the overall mission of SAF and its tools/techniques.
-- Automate security testing and make go/no-go decisions by integrating InSpec scans and the SAF CLI into workflows, such as CI/CD pipelines.
+- Automate security testing and make go/no-go decisions by integrating InSpec scans and the SAF CLI into your workflows, CI/CD pipelines, and other security processes.
 - Understand the inner workings of an existing InSpec profile.
 - Improve existing InSpec resources to better query their intended targets/components.
 - Develop new InSpec resources to query new types of targets or components.
