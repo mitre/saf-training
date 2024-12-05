@@ -1,0 +1,1069 @@
+==================== Delta Process =====================
+Date: 2024-11-26T18:06:16.889Z
+Process Flags ===========================================
+logLevel=info
+inspecJsonFile=d:\2-SourceCode\InSpec\InSpec_Profiles\Profiles_Code\SQL\microsoft-sql-server-2014-database-stig-baseline\profile_update4delta.json
+xccdfXmlFile=d:\2-SourceCode\InSpec\InSpec_Profiles\Profiles_Code\SQL\xccdf\SQL_Server_16\U_MS_SQL_Server_2016_Database_V2R8_Manual_STIG\U_MS_SQL_Server_2016_Database_STIG_V2R8_Manual-xccdf.xml
+deltaOutputDir=D:\2-SourceCode\InSpec\InSpec_Profiles\Profiles_Code\SQL\microsoft-sql-server-2014-database-stig-baseline\delta_controls
+idType=rule
+runMapControls=true
+controlsDir=D:\2-SourceCode\InSpec\InSpec_Profiles\Profiles_Code\SQL\microsoft-sql-server-2014-database-stig-baseline\controls
+
+
+Mapping controls (using fuzzy logic - lower value = best match) from the old profile to the new profile
+
+Mapping Process ===========================================================================
+     New XCCDF Control:  SV-213900
+* No Mapping Provided *
+
+Processing New Control:  SV-213901
+     New Control Title:  SQL Server must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.
+     Old Control Title:  SQL Server must enforce approved authorizations for logical access to information and database-level system resources in accordance with applicable access control policies.
+  Best Match Candidate:  SV-213764 --> SV-213901
+        Matching Score:  0.0508
+
+Processing New Control:  SV-213902
+     New Control Title:  SQL Server must protect against a user falsely repudiating by ensuring only clearly unique Active Directory user accounts can connect to the database.
+     Old Control Title:  SQL Server must protect data at rest and ensure confidentiality and integrity of data.
+    No Match Found for:  SV-213774 --> SV-213902
+        Matching Score:  0.83125 
+
+Processing New Control:  SV-213903
+     New Control Title:  SQL Server must protect against a user falsely repudiating by use of system-versioned tables (Temporal Tables).
+     Old Control Title:  SQL Server must protect data at rest and ensure confidentiality and integrity of data.
+    No Match Found for:  SV-213774 --> SV-213903
+        Matching Score:  0.7890625 
+
+Processing New Control:  SV-213904
+     New Control Title:  SQL Server must protect against a user falsely repudiating by ensuring databases are not in a trust relationship.
+     Old Control Title:  SQL Server must protect data at rest and ensure confidentiality and integrity of data.
+    No Match Found for:  SV-213774 --> SV-213904
+        Matching Score:  0.7890625 
+
+Processing New Control:  SV-213905
+     New Control Title:  SQL Server must allow only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited.
+     Old Control Title:  Where SQL Server Audit is in use at the database level, SQL Server must allow only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited at the database level.
+  Best Match Candidate:  SV-213766 --> SV-213905
+        Matching Score:  0.0131
+
+Processing New Control:  SV-213906
+     New Control Title:  SQL Server must limit privileges to change software modules, to include stored procedures, functions, and triggers.
+     Old Control Title:  Database objects (including but not limited to tables, indexes, storage, stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be owned by database/DBMS principals authorized for ownership.
+    No Match Found for:  SV-213770 --> SV-213906
+        Matching Score:  0.59375 
+
+Processing New Control:  SV-213907
+     New Control Title:  SQL Server must limit privileges to change software modules, to include stored procedures, functions, and triggers, and links to software external to SQL Server.
+     Old Control Title:  Database objects (including but not limited to tables, indexes, storage, stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be owned by database/DBMS principals authorized for ownership.
+    No Match Found for:  SV-213770 --> SV-213907
+        Matching Score:  0.49395 
+
+Processing New Control:  SV-213908
+     New Control Title:  Database objects (including but not limited to tables, indexes, storage, stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be owned by database/DBMS principals authorized for ownership.
+     Old Control Title:  Database objects (including but not limited to tables, indexes, storage, stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be owned by database/DBMS principals authorized for ownership.
+  Best Match Candidate:  SV-213770 --> SV-213908
+        Matching Score:  0.04478571428571428
+
+Processing New Control:  SV-213909
+     New Control Title:  The role(s)/group(s) used to modify database structure (including but not necessarily limited to tables, indexes, storage, etc.) and logic modules (stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be restricted to authorized users.
+     Old Control Title:  Database objects (including but not limited to tables, indexes, storage, stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be owned by database/DBMS principals authorized for ownership.
+    No Match Found for:  SV-213770 --> SV-213909
+        Matching Score:  0.49609375 
+
+Processing New Control:  SV-213910
+     New Control Title:  In the event of a system failure, hardware loss or disk failure, SQL Server must be able to restore necessary databases with least disruption to mission processes.
+     Old Control Title:  In the event of a system failure, SQL Server must preserve any information necessary to return to operations with least disruption to mission processes.
+    No Match Found for:  SV-213773 --> SV-213910
+        Matching Score:  0.6003999999999999 
+
+Processing New Control:  SV-213911
+     New Control Title:  The Database Master Key encryption password must meet DOD password complexity requirements.
+     Old Control Title:  The Database Master Key must be encrypted by the Service Master Key, where a Database Master Key is required and another encryption method has not been specified.
+    No Match Found for:  SV-213779 --> SV-213911
+        Matching Score:  0.7395833333333334 
+
+Processing New Control:  SV-213912
+     New Control Title:  The Database Master Key must be encrypted by the Service Master Key, where a Database Master Key is required and another encryption method has not been specified.
+     Old Control Title:  The Database Master Key must be encrypted by the Service Master Key, where a Database Master Key is required and another encryption method has not been specified.
+  Best Match Candidate:  SV-213779 --> SV-213912
+        Matching Score:  0.007050000000000001
+
+Processing New Control:  SV-213913
+     New Control Title:  The Certificate used for encryption must be backed up, stored offline and off-site.
+     Old Control Title:  Symmetric keys (other than the database master key) must use a DoD certificate to encrypt the key.
+    No Match Found for:  SV-213781 --> SV-213913
+        Matching Score:  0.7708333333333334 
+
+Processing New Control:  SV-213914
+     New Control Title:  SQL Server must isolate security functions from non-security functions.
+     Old Control Title:  SQL Server must protect data at rest and ensure confidentiality and integrity of data.
+    No Match Found for:  SV-213774 --> SV-213914
+        Matching Score:  0.78125 
+
+Processing New Control:  SV-213915
+     New Control Title:  Database contents must be protected from unauthorized and unintended information transfer by enforcement of a data-transfer policy.
+     Old Control Title:  Database contents must be protected from unauthorized and unintended information transfer by enforcement of a data-transfer policy.
+  Best Match Candidate:  SV-213775 --> SV-213915
+        Matching Score:  0.0131
+
+Processing New Control:  SV-213916
+     New Control Title:  SQL Server must check the validity of all data inputs except those specifically identified by the organization.
+     Old Control Title:  SQL Server must check the validity of all data inputs except those specifically identified by the organization.
+  Best Match Candidate:  SV-213776 --> SV-213916
+        Matching Score:  0.001
+
+Processing New Control:  SV-213917
+     New Control Title:  SQL Server must provide non-privileged users with error messages that provide information necessary for corrective actions without revealing information that could be exploited by adversaries.
+     Old Control Title:  The DBMS and associated applications must provide non-privileged users with error messages that provide information necessary for corrective actions without revealing information that could be exploited by adversaries.
+  Best Match Candidate:  SV-213777 --> SV-213917
+        Matching Score:  0.05291666666666667
+
+Processing New Control:  SV-213918
+     New Control Title:  SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in storage.
+     Old Control Title:  When supporting applications that require security labeling of data, SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in storage.
+  Best Match Candidate:  SV-213784 --> SV-213918
+        Matching Score:  0.0131
+
+Processing New Control:  SV-213919
+     New Control Title:  SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in process.
+     Old Control Title:  When supporting applications that require security labeling of data, SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in process.
+  Best Match Candidate:  SV-213785 --> SV-213919
+        Matching Score:  0.0131
+
+Processing New Control:  SV-213920
+     New Control Title:  SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in transmission.
+     Old Control Title:  When supporting applications that require security labeling of data, SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in transmission.
+  Best Match Candidate:  SV-213786 --> SV-213920
+        Matching Score:  0.0131
+
+Processing New Control:  SV-213921
+     New Control Title:  SQL Server must enforce discretionary access control policies, as defined by the data owner, over defined subjects and objects.
+     Old Control Title:  SQL Server must enforce approved authorizations for logical access to information and database-level system resources in accordance with applicable access control policies.
+    No Match Found for:  SV-213764 --> SV-213921
+        Matching Score:  0.6171875 
+
+Processing New Control:  SV-213922
+     New Control Title:  Execution of stored procedures and functions that utilize execute as must be restricted to necessary cases only.
+     Old Control Title:  SQL Server must be monitored to discover unauthorized changes to stored procedures.
+    No Match Found for:  SV-213769 --> SV-213922
+        Matching Score:  0.8359375 
+
+Processing New Control:  SV-213923
+     New Control Title:  SQL Server must prohibit user installation of logic modules (stored procedures, functions, triggers, views, etc.) without explicit privileged status.
+     Old Control Title:  Database objects (including but not limited to tables, indexes, storage, stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be owned by database/DBMS principals authorized for ownership.
+    No Match Found for:  SV-213770 --> SV-213923
+        Matching Score:  0.8125 
+
+Processing New Control:  SV-213924
+     New Control Title:  SQL Server must enforce access restrictions associated with changes to the configuration of the database(s).
+     Old Control Title:  SQL Server must enforce approved authorizations for logical access to information and database-level system resources in accordance with applicable access control policies.
+    No Match Found for:  SV-213764 --> SV-213924
+        Matching Score:  0.796875 
+
+Processing New Control:  SV-213926
+     New Control Title:  SQL Server must implement cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest (to include, at a minimum, PII and classified information) on organization-defined information system components.
+     Old Control Title:  SQL Server must implement and/or support cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest (to include, at a minimum, PII and classified information) on organization-defined information system components.
+  Best Match Candidate:  SV-213788 --> SV-213926
+        Matching Score:  0.04334375
+
+Processing New Control:  SV-213927
+     New Control Title:  SQL Server must implement cryptographic mechanisms preventing the unauthorized disclosure of organization-defined information at rest on organization-defined information system components.
+     Old Control Title:  SQL Server must implement and/or support cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest (to include, at a minimum, PII and classified information) on organization-defined information system components.
+       Duplicate Match:  SV-213788 --> SV-213927
+        Matching Score:  0.15120833333333333
+
+Processing New Control:  SV-251040
+     New Control Title:  SQL Server must use NSA-approved cryptography to protect classified information in accordance with the data owners requirements.
+     Old Control Title:  SQL Server must enforce approved authorizations for logical access to information and database-level system resources in accordance with applicable access control policies.
+    No Match Found for:  SV-213764 --> SV-251040
+        Matching Score:  0.6484375 
+
+Mapping Results ===========================================================================
+	Old Control -> New Control
+	   SV-213764 -> SV-213901
+	   SV-213766 -> SV-213905
+	   SV-213770 -> SV-213908
+	   SV-213779 -> SV-213912
+	   SV-213775 -> SV-213915
+	   SV-213776 -> SV-213916
+	   SV-213777 -> SV-213917
+	   SV-213784 -> SV-213918
+	   SV-213785 -> SV-213919
+	   SV-213786 -> SV-213920
+	   SV-213788 -> SV-213926
+Total Mapped Controls:  11
+
+Control Counts ===========================
+Total Controls Available for Delta:  43
+     Total Controls Found on XCCDF:  28
+
+Match Statistics =========================
+                    Match Controls:  11
+        Possible Mismatch Controls:  0
+          Duplicate Match Controls:  1
+                 No Match Controls:  15
+                New XCDDF Controls:  1
+
+Statistics Validation =============================================
+Match + Mismatch = Total Mapped Controls:  (11+0=11) true
+  Total Processed = Total XCCDF Controls:  (11+0+1+15+1=28) true
+
+
+Updating Controls ===========================================================================
+Mapping (From --> To):  SV-213764 --> SV-213901
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213764.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213764.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213764.rb to reference ID SV-213901
+     New control name:  SV-213901.rb
+
+Mapping (From --> To):  SV-213766 --> SV-213905
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213766.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213766.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213766.rb to reference ID SV-213905
+     New control name:  SV-213905.rb
+
+Mapping (From --> To):  SV-213770 --> SV-213908
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213770.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213770.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213770.rb to reference ID SV-213908
+     New control name:  SV-213908.rb
+
+Mapping (From --> To):  SV-213779 --> SV-213912
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213779.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213779.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213779.rb to reference ID SV-213912
+     New control name:  SV-213912.rb
+
+Mapping (From --> To):  SV-213775 --> SV-213915
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213775.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213775.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213775.rb to reference ID SV-213915
+     New control name:  SV-213915.rb
+
+Mapping (From --> To):  SV-213776 --> SV-213916
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213776.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213776.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213776.rb to reference ID SV-213916
+     New control name:  SV-213916.rb
+
+Mapping (From --> To):  SV-213777 --> SV-213917
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213777.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213777.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213777.rb to reference ID SV-213917
+     New control name:  SV-213917.rb
+
+Mapping (From --> To):  SV-213784 --> SV-213918
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213784.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213784.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213784.rb to reference ID SV-213918
+     New control name:  SV-213918.rb
+
+Mapping (From --> To):  SV-213785 --> SV-213919
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213785.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213785.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213785.rb to reference ID SV-213919
+     New control name:  SV-213919.rb
+
+Mapping (From --> To):  SV-213786 --> SV-213920
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213786.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213786.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213786.rb to reference ID SV-213920
+     New control name:  SV-213920.rb
+
+Mapping (From --> To):  SV-213788 --> SV-213926
+   Processing control:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213788.rb
+    Processed control:  \microsoft-sql-server-2014-database-stig-baseline\mapped_controls\SV-213788.rb
+  Mapped control file:  \microsoft-sql-server-2014-database-stig-baseline\controls\SV-213788.rb to reference ID SV-213926
+     New control name:  SV-213926.rb
+
+Update Results ===========================================================================
+
+## Automatic Update:  -> 
+
+### New Controls:
++   SV-213900 - SQL Server databases must integrate with an organization-level authentication&#x2F;access mechanism providing account management and automation for all users, groups, roles, and any other principals.
++   SV-213902 - SQL Server must protect against a user falsely repudiating by ensuring only clearly unique Active Directory user accounts can connect to the database.
++   SV-213903 - SQL Server must protect against a user falsely repudiating by use of system-versioned tables (Temporal Tables).
++   SV-213904 - SQL Server must protect against a user falsely repudiating by ensuring databases are not in a trust relationship.
++   SV-213906 - SQL Server must limit privileges to change software modules, to include stored procedures, functions, and triggers.
++   SV-213907 - SQL Server must limit privileges to change software modules, to include stored procedures, functions, and triggers, and links to software external to SQL Server.
++   SV-213909 - The role(s)&#x2F;group(s) used to modify database structure (including but not necessarily limited to tables, indexes, storage, etc.) and logic modules (stored procedures, functions, triggers, links to software external to SQL Server, etc.) must be restricted to authorized users.
++   SV-213910 - In the event of a system failure, hardware loss or disk failure, SQL Server must be able to restore necessary databases with least disruption to mission processes.
++   SV-213911 - The Database Master Key encryption password must meet DOD password complexity requirements.
++   SV-213913 - The Certificate used for encryption must be backed up, stored offline and off-site.
++   SV-213914 - SQL Server must isolate security functions from non-security functions.
++   SV-213921 - SQL Server must enforce discretionary access control policies, as defined by the data owner, over defined subjects and objects.
++   SV-213922 - Execution of stored procedures and functions that utilize execute as must be restricted to necessary cases only.
++   SV-213923 - SQL Server must prohibit user installation of logic modules (stored procedures, functions, triggers, views, etc.) without explicit privileged status.
++   SV-213924 - SQL Server must enforce access restrictions associated with changes to the configuration of the database(s).
++   SV-213927 - SQL Server must implement cryptographic mechanisms preventing the unauthorized disclosure of organization-defined information at rest on organization-defined information system components.
++   SV-251040 - SQL Server must use NSA-approved cryptography to protect classified information in accordance with the data owners requirements.
+
+
+### Updated Check/Fixes:
+#### Checks:
+<details open>
+  <summary>Click to expand.</summary>
+SV-213901:
+Old: 
+```
+Review the system documentation to determine the required levels of protection for securables in the database, by type of user.
+
+Review the permissions actually in place in the database.
+
+The database permission functions and views provided in the supplemental file Permissions.sql can help with this.
+
+If the actual permissions do not match the documented requirements, this is a finding.
+
+```
+
+Updated:
+```
+Review the system documentation to determine the required levels of protection for securables in the database, by type of user. 
+
+If the database is tempdb, this is NA.
+
+Review the permissions actually in place in the database. 
+
+If the actual permissions do not match the documented requirements, this is a finding.
+
+Use the supplemental file "Database permission assignments to users and roles.sql".
+
+```
+---
+SV-213905:
+Old: 
+```
+If SQL Server Audit is not in use at the database level, this is not applicable (NA).
+
+Obtain the list of approved audit maintainers from the system documentation.
+
+Review the database roles and individual users that have the following permissions, both of which enable the ability to maintain audit definitions:
+ALTER ANY DATABASE AUDIT
+CONTROL ON DATABASE
+
+The functions and views provided in the supplemental file Permissions.sql can assist in this review.  In the following, "STIG" stands for the schema where you have deployed these views and functions.  To see which logins and server roles have been granted these permissions:
+    SELECT
+        *
+    FROM
+        STIG.database_permissions P
+    WHERE
+        (P.[Permission] = 'ALTER ANY DATABASE AUDIT')
+        OR
+        (P.[Permission] = 'CONTROL' AND P.[Securable Type or Class] = 'DATABASE')
+        ;
+
+To see what users and database roles inherit these permissions from the database roles reported by the previous query, repeat the following for each one:
+    SELECT * FROM STIG.members_of_database_role(<database role name>);
+
+To see all the permissions in effect for a database principal (server role or login):
+    SELECT * FROM STIG.server_effective_permissions(<principal name>);
+
+If designated personnel are not able to configure auditable events, this is a finding.
+
+If unapproved personnel are able to configure auditable events, this is a finding.
+
+```
+
+Updated:
+```
+Obtain the list of approved audit maintainers from the system documentation.
+
+Use the following query to review database roles and their membership, all of which enable the ability to create and maintain audit specifications.
+
+SELECT
+    R.name AS role_name,
+    RM.name AS role_member_name,
+    RM.type_desc
+FROM sys.database_principals R
+JOIN sys.database_role_members DRM ON 
+    R.principal_id = DRM.role_principal_id
+JOIN sys.database_principals RM ON 
+    DRM.member_principal_id = RM.principal_id
+WHERE R.type = 'R'
+    AND R.name = 'db_owner'
+ORDER BY 
+    role_member_name
+
+If any role memberships are not documented and authorized, this is a finding.	
+
+
+Review the database roles and individual users that have the following permissions, all of which enable the ability to create and maintain audit definitions.
+
+ALTER ANY DATABASE AUDIT
+CONTROL
+
+Use the following query to determine the roles and users that have the listed permissions:
+
+SELECT
+	PERM.permission_name,
+	DP.name AS principal_name,
+	DP.type_desc AS principal_type,
+	DBRM.role_member_name
+FROM sys.database_permissions PERM
+JOIN sys.database_principals DP ON PERM.grantee_principal_id = DP.principal_id
+LEFT OUTER JOIN (
+	SELECT
+		R.principal_id AS role_principal_id,
+		R.name AS role_name,
+		RM.name AS role_member_name
+	FROM sys.database_principals R
+	JOIN sys.database_role_members DRM ON R.principal_id = DRM.role_principal_id
+	JOIN sys.database_principals RM ON DRM.member_principal_id = RM.principal_id
+	WHERE R.type = 'R'
+) DBRM ON DP.principal_id = DBRM.role_principal_id
+WHERE PERM.permission_name IN ('CONTROL','ALTER ANY DATABASE AUDIT')
+ORDER BY
+	permission_name, 
+	principal_name, 
+	role_member_name
+
+
+If any of the roles or users returned have permissions that are not documented, or the documented audit maintainers do not have permissions, this is a finding.
+
+```
+---
+SV-213908:
+Old: 
+```
+Review system documentation to identify SQL Server accounts authorized to own database objects.
+
+If the SQL Server database ownership list does not exist or needs to be updated, this is a finding.
+
+The view STIG.database_permissions, included in the supplemental file, Permissions.sql, can be of use in making this determination:
+USE <database name>;
+GO
+SELECT DISTINCT
+        S.[Schema/Owner] AS  [Owner],
+        O.[Schema/Owner] AS [Schema],
+        O.[Securable]
+FROM
+        STIG.database_permissions O
+        INNER JOIN STIG.database_permissions S
+                ON S.[Securable] = O.[Schema/Owner]
+                AND O.[Securable Type or Class] = 'OBJECT_OR_COLUMN'
+                AND S.[Securable Type or Class] = 'SCHEMA'
+WHERE
+        S.[Schema/Owner] NOT IN ('dbo', 'sys', 'INFORMATION_SCHEMA' ... )
+        --  Complete the "NOT IN" list with the names of user accounts authorized for ownership.
+;
+If any of the listed owners is not authorized, this is a finding.
+
+```
+
+Updated:
+```
+Review system documentation to identify SQL Server accounts authorized to own database objects. 
+
+If the SQL Server database ownership list does not exist or needs to be updated, this is a finding. 
+
+The following query can be of use in making this determination: 
+
+;with objects_cte as
+(SELECT o.name, o.type_desc,
+   CASE
+    WHEN o.principal_id is null then s.principal_id
+     ELSE o.principal_id
+    END as principal_id
+ FROM sys.objects o
+ INNER JOIN sys.schemas s
+ ON o.schema_id = s.schema_id
+ WHERE o.is_ms_shipped = 0
+)
+SELECT cte.name, cte.type_desc, dp.name as ObjectOwner 
+FROM objects_cte cte
+INNER JOIN sys.database_principals dp
+ON cte.principal_id = dp.principal_id
+ORDER BY dp.name, cte.name
+
+If any of the listed owners is not authorized, this is a finding.
+
+```
+---
+SV-213915:
+Old: 
+```
+Verify there are proper procedures in place for the transfer of development/test data from production. Review any scripts or code that exists for the movement of production data to development/test and verify copies of production data are not left in unprotected locations.
+
+If there is no documented procedure for data movement from production to development/test, this is a finding.
+
+If data movement code that copies from production to development/test does exist and leaves any copies of production data in unprotected locations, this is a finding.
+
+```
+
+Updated:
+```
+Review the procedures for the refreshing of development/test data from production. Review any scripts or code that exists for the movement of production data to development/test systems, or to any other location or for any other purpose. Verify that copies of production data are not left in unprotected locations. If the code that exists for data movement does not comply with the organization-defined data transfer policy and/or fails to remove any copies of production data from unprotected locations, this is a finding.
+
+```
+---
+SV-213918:
+Old: 
+```
+If security labeling is not required, this is not a finding.
+
+If security labeling requirements have been specified, but the security labeling is not implemented or does not reliably maintain labels on information in storage, this is a finding.
+
+```
+
+Updated:
+```
+If security labeling is not required, this is not a finding.
+
+If security labeling requirements have been specified, but neither a third-party solution nor a SQL Server Row-Level security solution is implemented that reliably maintains labels on information in storage, this is a finding.
+
+```
+---
+SV-213919:
+Old: 
+```
+If security labeling is not required, this is not a finding.
+
+If security labeling requirements have been specified, but the security labeling is not implemented or does not reliably maintain labels on information in process, this is a finding.
+
+```
+
+Updated:
+```
+If security labeling is not required, this is not a finding.
+
+If security labeling requirements have been specified, but neither a third-party solution nor a SQL Server Row-Level security solution is implemented that reliably maintains labels on information in process, this is a finding.
+
+```
+---
+SV-213920:
+Old: 
+```
+If security labeling is not required, this is not a finding.
+
+If security labeling requirements have been specified, but the security labeling is not implemented or does not reliably maintain labels on information in transmission, this is a finding.
+
+```
+
+Updated:
+```
+If security labeling is not required, this is not a finding.
+
+If security labeling requirements have been specified, but neither a third-party solution nor a SQL Server Row-Level security solution is implemented that reliably maintains labels on information in transmission, this is a finding.
+
+```
+---
+SV-213926:
+Old: 
+```
+Review the system documentation to determine whether the organization has defined the information at rest that is to be protected from modification, which must include, at a minimum, PII and classified information.
+
+If no information is identified as requiring such protection, this is not a finding.
+
+Review the configuration of SQL Server, Windows, and additional software as relevant.
+
+If full-disk encryption is required, and Windows or the storage system is not configured for this, this is a finding.
+
+If database transparent data encryption (TDE) is called for, check whether it is enabled:
+In SQL Server Management Studio, Object Explorer, expand the instance and right-click on the database name; select properties.  Select the Options page, State section, Encryption Enabled parameter.
+
+If the value displayed is False, this is a finding.
+
+If column encryption, done via SQL Server features, is required, review the definitions and contents of the relevant tables and columns.
+
+If any of the information defined as requiring cryptographic protection is not encrypted in a manner that provides the required level of protection, this is a finding.
+
+```
+
+Updated:
+```
+Review the system documentation to determine whether the organization has defined the information at rest that is to be protected from modification, which must include, at a minimum, PII and classified information. 
+
+If no information is identified as requiring such protection, this is not a finding. 
+
+Review the configuration of SQL Server, Windows, and additional software as relevant. 
+
+If full-disk encryption is required, and Windows or the storage system is not configured for this, this is a finding. 
+
+If database transparent data encryption (TDE) is called for, check whether it is enabled: 
+
+SELECT
+DB_NAME(database_id) AS [Database Name], CASE encryption_state WHEN 0 THEN 'No database encryption key present, no encryption' 
+WHEN 1 THEN 'Unencrypted' 
+WHEN 2 THEN 'Encryption in progress' 
+WHEN 3 THEN 'Encrypted' 
+WHEN 4 THEN 'Key change in progress' 
+WHEN 5 THEN 'Decryption in progress' 
+WHEN 6 THEN 'Protection change in progress' 
+END AS [Encryption State]
+FROM sys.dm_database_encryption_keys
+
+For each user database for which encryption is called for and it is marked Unencrypted, this is a finding. 
+
+If table/column encryption and/or a separation between those who own the data (and can view it) and those who manage the data (but should have no access) is required for PII or similar types of data, use Always Encrypted.  The details for configuring Always Encrypted are located here: https://msdn.microsoft.com/en-us/library/mt163865.aspx.
+
+Review the definitions and contents of the relevant tables/columns for the Always Encryption settings, if any of the information defined as requiring cryptographic protection is not encrypted this is a finding.
+
+```
+---
+</details>
+
+#### Fixes:
+<details open>
+  <summary>Click to expand.</summary>
+SV-213905:
+Old: 
+```
+Create a database role specifically for audit maintainers, and give it permission to maintain audits, without granting it unnecessary permissions:
+USE <database name>;
+GO
+CREATE ROLE DATABASE_AUDIT_MAINTAINERS;
+GO
+GRANT ALTER ANY DATABASE AUDIT TO DATABASE_AUDIT_MAINTAINERS;
+GO
+(The role name used here is an example; other names may be used.)
+
+Use REVOKE and/or DENY and/or ALTER ROLE ... DROP MEMBER ... statements to remove the ALTER ANY DATABASE AUDIT permission from all users.
+
+Then, for each authorized database user, run the statement:
+ALTER ROLE DATABASE_AUDIT_MAINTAINERS ADD MEMBER <user name> ;
+GO
+
+Use REVOKE and/or DENY and/or ALTER SERVER ROLE ... DROP MEMBER ... statements to remove CONTROL DATABASE permission from logins that do not need it.
+
+```
+New:
+```
+Create a database role specifically for audit maintainers, and give it permission to maintain audits, without granting it unnecessary permissions (The role name used here is an example; other names may be used.):
+
+CREATE ROLE DATABASE_AUDIT_MAINTAINERS;
+GO
+
+GRANT ALTER ANY DATABASE AUDIT TO DATABASE_AUDIT_MAINTAINERS;
+GO
+
+Use REVOKE and/or DENY and/or ALTER ROLE ... DROP MEMBER ... statements to remove the ALTER ANY DATABASE AUDIT permission from all users.  Then, for each authorized database user, run the statement:  
+
+ALTER ROLE DATABASE_AUDIT_MAINTAINERS ADD MEMBER;
+GO
+
+Use REVOKE and/or DENY and/or ALTER SERVER ROLE ... DROP MEMBER ... statements to remove CONTROL DATABASE permission from logins that do not need it.
+
+```
+---
+SV-213908:
+Old: 
+```
+Add and/or update system documentation to include any accounts authorized for object ownership and remove any account not authorized.
+
+To change the schema owning a database object in SQL Server, use this code:
+USE <database name>;
+GO
+ALTER SCHEMA <name of new schema> TRANSFER <name of old schema>.<object name>;
+GO
+
+Caution:  this can break code.  This Fix should be implemented in conjunction with corrections to such code.  Test before deploying in production.  Deploy during a scheduled maintenance window.
+
+```
+New:
+```
+Add and/or update system documentation to include any accounts authorized for object ownership and remove any account not authorized. 
+
+To change the schema owning a database object in SQL Server, use this code as an example: 
+
+USE AdventureWorks2012;  
+GO  
+ALTER SCHEMA HumanResources TRANSFER Person.Address;  
+GO  
+
+Caution: This can break code. This Fix should be implemented in conjunction with corrections to such code. Test before deploying in production. Deploy during a scheduled maintenance window.
+
+```
+---
+SV-213915:
+Old: 
+```
+Create and document a process for moving data from production to development/test systems and follow the process.
+
+Modify any code used for moving data from production to development/test systems to ensure copies of production data are not left in unsecured locations.
+
+```
+New:
+```
+Modify any code used for moving data from production to development/test systems to comply with the organization-defined data transfer policy, and to ensure copies of production data are not left in unsecured locations.
+
+```
+---
+SV-213916:
+Old: 
+```
+Use triggers, constraints, foreign keys, etc. to validate data input.
+
+Modify SQL Server to properly use the correct column data types as required in the database.
+
+```
+New:
+```
+Use parameterized queries, constraints, foreign keys, etc. to validate data input. 
+
+Modify SQL Server to properly use the correct column data types as required in the database.
+
+```
+---
+SV-213917:
+Old: 
+```
+Configure DBMS settings, custom database code, and associated application code not to divulge sensitive information or information useful for system identification in error messages that are displayed to general users.
+
+```
+New:
+```
+Adjust database code to remove any information not required for explaining the error to an end user.
+
+Consider enabling trace flag 3625 to mask certain system-level error information returned to non-administrative users.
+
+Launch SQL Server Configuration Manager >> Click SQL Services >> Open the instance properties >> Click the Service Parameters tab >> Enter "-T3625" >> Click Add >> Click OK >> Restart SQL instance.
+
+```
+---
+SV-213918:
+Old: 
+```
+Develop SQL or application code or acquire a third party tool to perform data labeling.
+
+```
+New:
+```
+Deploy SQL Server Row-Level Security (see link below) or a third-party software, or add custom data structures, data elements and application code, to provide reliable security labeling of information in storage.
+
+https://msdn.microsoft.com/en-us/library/dn765131.aspx
+
+```
+---
+SV-213919:
+Old: 
+```
+Develop SQL or application code or acquire a third party tool to perform data labeling.
+
+```
+New:
+```
+Deploy SQL Server Row-Level Security (see link below) or a third-party software, or add custom data structures, data elements and application code, to provide reliable security labeling of information in process.
+
+https://msdn.microsoft.com/en-us/library/dn765131.aspx
+
+```
+---
+SV-213920:
+Old: 
+```
+Develop SQL or application code or acquire a third party tool to perform data labeling.
+
+```
+New:
+```
+Deploy SQL Server Row-Level Security (see link below) or a third-party software, or add custom data structures, data elements and application code, to provide reliable security labeling of information in transmission.
+
+https://msdn.microsoft.com/en-us/library/dn765131.aspx
+
+```
+---
+SV-213926:
+Old: 
+```
+Where full-disk encryption is required, configure Windows and/or the storage system to provide this.
+
+Where transparent data encryption (TDE) is required, deploy the necessary stack of certificates and keys, and set the Encryption Enabled to True.  For guidance from the Microsoft Developer Network on how to do this, perform a web search for "SQL Server 2014 TDE".
+
+Where column encryption is required, deploy the necessary stack of certificates and keys, and enable encryption on the columns in question.  For guidance from the Microsoft Developer Network on how to do this, perform a web search for "SQL Server 2014 Encrypt a Column of Data".
+
+```
+New:
+```
+Where full-disk encryption is required, configure Windows and/or the storage system to provide this. 
+
+Where transparent data encryption (TDE) is required, create a master key, obtain a certificate protected by the master key, create a database encryption key and protect it by the certificate, and then set the database to use encryption. For guidance from MSDN on how to do this: https://msdn.microsoft.com/en-us/library/bb934049.aspx. 
+
+Where table/column encryption is required, enable encryption on the tables/columns in question. For guidance from the Microsoft Developer Network on how to do this with Always Encrypted: https://msdn.microsoft.com/en-us/library/mt163865.aspx.
+
+```
+---
+</details>
+
+### Updated Impacts
+<details open>
+  <summary>Click to expand.</summary>
+SV-213901:
+Old: 0.5
+New: 0.7
+---
+SV-213905:
+Old: 0
+New: 0.5
+---
+SV-213912:
+Old: 0
+New: 0.5
+---
+SV-213918:
+Old: 0
+New: 0.5
+---
+SV-213919:
+Old: 0
+New: 0.5
+---
+SV-213920:
+Old: 0
+New: 0.5
+---
+SV-213926:
+Old: 0
+New: 0.5
+---
+</details>
+
+### Updated Titles
+<details>
+  <summary>Click to expand.</summary>
+SV-213901:
+Old: SQL Server must enforce approved authorizations for logical access to information and database-level system resources in accordance with applicable access control policies.
+New: SQL Server must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.
+---
+SV-213905:
+Old: Where SQL Server Audit is in use at the database level, SQL Server must allow only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited at the database level.
+New: SQL Server must allow only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited.
+---
+SV-213917:
+Old: The DBMS and associated applications must provide non-privileged users with error messages that provide information necessary for corrective actions without revealing information that could be exploited by adversaries.
+New: SQL Server must provide non-privileged users with error messages that provide information necessary for corrective actions without revealing information that could be exploited by adversaries.
+---
+SV-213918:
+Old: When supporting applications that require security labeling of data, SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in storage.
+New: SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in storage.
+---
+SV-213919:
+Old: When supporting applications that require security labeling of data, SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in process.
+New: SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in process.
+---
+SV-213920:
+Old: When supporting applications that require security labeling of data, SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in transmission.
+New: SQL Server must associate organization-defined types of security labels having organization-defined security label values with information in transmission.
+---
+SV-213926:
+Old: SQL Server must implement and&#x2F;or support cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest (to include, at a minimum, PII and classified information) on organization-defined information system components.
+New: SQL Server must implement cryptographic mechanisms to prevent unauthorized modification of organization-defined information at rest (to include, at a minimum, PII and classified information) on organization-defined information system components.
+---
+</details>
+
+### Updated Descriptions
+<details>
+  <summary>Click to expand.</summary>
+SV-213901:
+Old:
+```
+Authentication with a DoD-approved PKI certificate does not necessarily imply authorization to access the database and all its contents.  To mitigate the risk of unauthorized access to sensitive information by entities that have been issued certificates by DoD-approved PKIs, all DoD systems, including SQL Server databases, must be properly configured to implement access control policies.
+
+Successful authentication must not automatically give an entity access to an asset or security boundary. Authorization procedures and controls must be implemented to ensure each authenticated entity also has a validated and current authorization. Authorization is the process of determining whether an entity, once authenticated, is permitted to access a specific asset. Information systems use access control policies and enforcement mechanisms to implement this requirement.
+
+Access control policies include identity-based policies, role-based policies, and attribute-based policies. Access enforcement mechanisms include access control lists, access control matrices, and cryptography. These policies and mechanisms must be employed by the application to control access between users (or processes acting on behalf of users) and objects (e.g., devices, files, records, processes, programs, and domains) in the information system.
+
+This requirement is applicable to access control enforcement applications, a category that includes SQL Server.  If SQL Server is not configured to follow applicable policy when approving access, it may be in conflict with networks or other applications in the information system. This may result in users either gaining or being denied access inappropriately and in conflict with applicable policy.
+
+```
+New:
+```
+Authentication with a DoD-approved PKI certificate does not necessarily imply authorization to access SQL Server. To mitigate the risk of unauthorized access to sensitive information by entities that have been issued certificates by DoD-approved PKIs, all DoD systems, including databases, must be properly configured to implement access control policies. 
+
+Successful authentication must not automatically give an entity access to an asset or security boundary. Authorization procedures and controls must be implemented to ensure each authenticated entity also has a validated and current authorization. Authorization is the process of determining whether an entity, once authenticated, is permitted to access a specific asset. Information systems use access control policies and enforcement mechanisms to implement this requirement. 
+
+Access control policies include identity-based policies, role-based policies, and attribute-based policies. Access enforcement mechanisms include access control lists, access control matrices, and cryptography. These policies and mechanisms must be employed by the application to control access between users (or processes acting on behalf of users) and objects (e.g., devices, files, records, processes, programs, and domains) in the information system. 
+
+This requirement is applicable to access control enforcement applications, a category that includes database management systems.  If SQL Server does not follow applicable policy when approving access, it may be in conflict with networks or other applications in the information system. This may result in users either gaining or being denied access inappropriately and in conflict with applicable policy.
+
+```
+---
+SV-213905:
+Old:
+```
+Inspec attributes has specified that SQL Server Audit is not in use at
+    the database level, this is not applicable (NA)
+
+```
+New:
+```
+Without the capability to restrict which roles and individuals can select which events are audited, unauthorized personnel may be able to prevent or interfere with the auditing of critical events.
+
+Suppression of auditing could permit an adversary to evade detection.
+
+Misconfigured audits can degrade the system's performance by overwhelming the audit log. Misconfigured audits may also make it more difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+
+```
+---
+SV-213908:
+Old:
+```
+Within the database, object ownership implies full privileges to the owned object, including the privilege to assign access to the owned objects to other subjects. Database functions and procedures can be coded using definer's rights. This allows anyone who utilizes the object to perform the actions if they were the owner. If not properly managed, this can lead to privileged actions being taken by unauthorized individuals.
+
+Conversely, if critical tables or other objects rely on unauthorized owner accounts, these objects may be lost when an account is removed.
+
+```
+New:
+```
+Within the database, object ownership implies full privileges to the owned object, including the privilege to assign access to the owned objects to other subjects. Database functions and procedures can be coded using definer's rights. This allows anyone who utilizes the object to perform the actions if they were the owner. If not properly managed, this can lead to privileged actions being taken by unauthorized individuals.
+
+Conversely, if critical tables or other objects in SQL Server rely on unauthorized owner accounts, these objects may be lost when an account is removed.
+
+```
+---
+SV-213912:
+Old:
+```
+No databases require encryption hence this is not a finding
+
+```
+New:
+```
+When not encrypted by the Service Master Key, system administrators or application administrators may access and use the Database Master Key to view sensitive data that they are not authorized to view. Where alternate encryption means are not feasible, encryption by the Service Master Key may be necessary. To help protect sensitive data from unauthorized access by DBAs, mitigations may be in order. Mitigations may include automatic alerts or other audit events when the Database Master Key is accessed outside of the application or by a DBA account.
+
+```
+---
+SV-213915:
+Old:
+```
+The purpose of this control is to prevent information, including encrypted representations of information, produced by the actions of a prior user/role (or the actions of a process acting on behalf of a prior user/role) from being available to any current user/role (or current process) that obtains access to a shared system resource (e.g., registers, main memory, secondary storage) after the resource has been released back to the information system. Control of information in shared resources is also referred to as object reuse.
+
+Data used for the development and testing of applications often involves copying data from production. It is important that specific procedures exist for this process, so copies of sensitive data are not misplaced or left in a temporary location without the proper controls.
+
+```
+New:
+```
+Applications, including DBMSs, must prevent unauthorized and unintended information transfer via shared system resources. 
+
+Data used for the development and testing of applications often involves copying data from production. It is important that specific procedures exist for this process, to include the conditions under which such transfer may take place, where the copies may reside, and the rules for ensuring sensitive data are not exposed.
+
+Copies of sensitive data must not be misplaced or left in a temporary location without the proper controls.
+
+```
+---
+SV-213916:
+Old:
+```
+Invalid user input occurs when a user inserts data or characters into an application’s data entry fields and the application is unprepared to process that data. This results in unanticipated application behavior potentially leading to an application or information system compromise. Invalid user input is one of the primary methods employed when attempting to compromise an application.
+
+SQL Server needs to validate the data user’s attempt to input to the application for processing. Rules for checking the valid syntax and semantics of information system inputs (e.g., character set, length, numerical range, acceptable values) are in place to verify inputs match specified definitions for format and content. Inputs passed to interpreters are prescreened to prevent the content from being unintentionally interpreted as commands.
+
+A poorly designed database system can have many problems. A common issue with these types of systems is the missed opportunity to use constraints.
+
+This calls for inspection of application source code, which will require collaboration with the application developers. It is recognized that in many cases, the database administrator (DBA) is organizationally separate from the application developers and may have limited, if any, access to source code. Nevertheless, protections of this type are so important to the secure operation of databases that they must not be ignored. At a minimum, the DBA must attempt to obtain assurances from the development organization that this issue has been addressed and must document what has been discovered.
+
+```
+New:
+```
+Invalid user input occurs when a user inserts data or characters into an application's data entry fields and the application is unprepared to process that data. This results in unanticipated application behavior, potentially leading to an application or information system compromise. Invalid user input is one of the primary methods employed when attempting to compromise an application.
+
+With respect to database management systems, one class of threat is known as SQL Injection, or more generally, code injection. It takes advantage of the dynamic execution capabilities of various programming languages, including dialects of SQL. Potentially, the attacker can gain unauthorized access to data, including security settings, and severely corrupt or destroy the database.
+
+Even when no such hijacking takes place, invalid input that gets recorded in the database, whether accidental or malicious, reduces the reliability and usability of the system. Available protections include data types, referential constraints, uniqueness constraints, range checking, and application-specific logic. Application-specific logic can be implemented within the database in stored procedures and triggers, where appropriate.
+
+This calls for inspection of application source code, which will require collaboration with the application developers. It is recognized that in many cases, the database administrator (DBA) is organizationally separate from the application developers, and may have limited, if any, access to source code. Nevertheless, protections of this type are so important to the secure operation of databases that they must not be ignored. At a minimum, the DBA must attempt to obtain assurances from the development organization that this issue has been addressed, and must document what has been discovered.
+
+```
+---
+SV-213917:
+Old:
+```
+Any DBMS or associated application providing too much information in error messages on the screen or printout risks compromising the data and security of the system. The structure and content of error messages need to be carefully considered by the organization and development team.
+
+Databases can inadvertently provide a wealth of information to an attacker through improperly handled error messages. In addition to sensitive business or personal information, database errors can provide host names, IP addresses, user names, and other system information not required for end-user troubleshooting but very useful to someone targeting the system.
+
+Carefully consider the structure/content of error messages. The extent to which information systems are able to identify and handle error conditions is guided by organizational policy and operational requirements. Information that could be exploited by adversaries includes, for example, logon attempts with passwords entered by mistake as the username, mission/business information that can be derived from (if not stated explicitly by) information recorded, and personal information, such as account numbers, social security numbers, and credit card numbers.
+
+It is important that detailed error messages be visible only to those who are authorized to view them; that general users receive only generalized acknowledgment that errors have occurred; and that these generalized messages appear only when relevant to the user's task. For example, a message along the lines of, "An error has occurred. Unable to save your changes. If this problem persists, please contact your help desk" would be relevant. A message such as "Warning: your transaction generated a large number of page splits" would likely not be relevant. "ABGQ is not a valid widget code" would be appropriate; but "The INSERT statement conflicted with the FOREIGN KEY constraint "WidgetTransactionFK". The conflict occurred in database "DB7", table "dbo.WidgetMaster", column 'WidgetCode'" would not, as it reveals too much about the database structure.
+
+This calls for inspection of application source code, which will require collaboration with the application developers. It is recognized that in many cases, the database administrator (DBA) is organizationally separate from the application developers and may have limited, if any, access to source code. Nevertheless, protections of this type are so important to the secure operation of databases that they must not be ignored. At a minimum, the DBA must attempt to obtain assurances from the development organization that this issue has been addressed and must document what has been discovered.
+
+```
+New:
+```
+Any DBMS or associated application providing too much information in error messages on the screen or printout risks compromising the data and security of the system. The structure and content of error messages need to be carefully considered by the organization and development team.
+
+Databases can inadvertently provide a wealth of information to an attacker through improperly handled error messages. In addition to sensitive business or personal information, database errors can provide host names, IP addresses, user names, and other system information not required for troubleshooting but very useful to someone targeting the system.
+
+Carefully consider the structure/content of error messages. The extent to which information systems are able to identify and handle error conditions is guided by organizational policy and operational requirements. Information that could be exploited by adversaries includes, for example, logon attempts with passwords entered by mistake as the username, mission/business information that can be derived from (if not stated explicitly by) information recorded, and personal information, such as account numbers, social security numbers, and credit card numbers.
+
+```
+---
+SV-213918:
+Old:
+```
+Security labeling is stated as `not required` in the attributes file,
+    this control is not applicable
+
+```
+New:
+```
+Without the association of security labels to information, there is no basis for SQL Server to make security-related access-control decisions.
+
+Security labels are abstractions representing the basic properties or characteristics of an entity (e.g., subjects and objects) with respect to safeguarding information.
+
+These labels are typically associated with internal data structures (e.g., tables, rows) within the database and are used to enable the implementation of access control and flow control policies; reflect special dissemination, handling, or distribution instructions; or support other aspects of the information security policy.
+
+One example includes marking data as classified or FOUO. These security labels may be assigned manually or during data processing, but, either way, it is imperative these assignments are maintained while the data is in storage. If the security labels are lost when the data is stored, there is the risk of a data compromise.
+
+The mechanism used to support security labeling may be a feature of SQL Server, a third-party product, or custom application code.
+
+```
+---
+SV-213919:
+Old:
+```
+Security labeling is stated as `not required` in the attributes file,
+    this control is not applicable
+
+```
+New:
+```
+Without the association of security labels to information, there is no basis for SQL Server to make security-related access-control decisions.
+
+Security labels are abstractions representing the basic properties or characteristics of an entity (e.g., subjects and objects) with respect to safeguarding information.
+
+These labels are typically associated with internal data structures (e.g., tables, rows) within the database and are used to enable the implementation of access control and flow control policies; reflect special dissemination, handling, or distribution instructions; or support other aspects of the information security policy.
+
+One example includes marking data as classified or FOUO. These security labels may be assigned manually or during data processing, but, either way, it is imperative these assignments are maintained while the data is in storage. If the security labels are lost when the data is stored, there is the risk of a data compromise.
+
+The mechanism used to support security labeling may be a feature of SQL Server, a third-party product, or custom application code.
+
+```
+---
+SV-213920:
+Old:
+```
+Security labeling is stated as `not required` in the attributes file,
+    this control is not applicable
+
+```
+New:
+```
+Without the association of security labels to information, there is no basis for SQL Server to make security-related access-control decisions.
+
+Security labels are abstractions representing the basic properties or characteristics of an entity (e.g., subjects and objects) with respect to safeguarding information. These labels are typically associated with internal data structures (e.g., tables, rows) within the database and are used to enable the implementation of access control and flow control policies; reflect special dissemination, handling, or distribution instructions; or support other aspects of the information security policy. One example includes marking data as classified or FOUO. These security labels may be assigned manually or during data processing, but, either way, it is imperative these assignments are maintained while the data is in storage. If the security labels are lost when the data is stored, there is the risk of a data compromise.
+
+The mechanism used to support security labeling may be a feature of SQL Server, a third-party product, or custom application code.
+
+```
+---
+SV-213926:
+Old:
+```
+If the application owner and Authorizing Official have
+    determined that encryption of data at rest is NOT required, this is not a
+    finding.
+
+```
+New:
+```
+DBMSs handling data requiring "data at rest" protections must employ cryptographic mechanisms to prevent unauthorized disclosure and modification of the information at rest. These cryptographic mechanisms may be native to SQL Server or implemented via additional software or operating system/file system settings, as appropriate to the situation.
+
+Selection of a cryptographic mechanism is based on the need to protect the integrity of organizational information. The strength of the mechanism is commensurate with the security category and/or classification of the information. Organizations have the flexibility to either encrypt all information on storage devices (i.e., full disk encryption) or encrypt specific data structures (e.g., files, records, or fields). 
+
+The decision whether and what to encrypt rests with the data owner and is also influenced by the physical measures taken to secure the equipment and media on which the information resides.
+
+```
+---
+</details>
