@@ -1,8 +1,8 @@
 ---
 order: 1
 next: 02.md
-title: InSpec Advanced Profile Development
-shortTitle: Advanced Profile Development
+title: 1. InSpec Advanced Profile Development
+shortTitle: 1. Advanced Profile Development
 author: Aaron Lippold
 headerDepth: 3
 ---
