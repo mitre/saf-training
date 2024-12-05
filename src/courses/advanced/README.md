@@ -31,7 +31,7 @@ The purpose of this class is to advance your skills in profile development and e
 
 ### 1.2.1 The Lab Environment
 
-This class will use GitHub Codespaces to provide a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/05.md).
+This class will use GitHub Codespaces to provide a consistent environment for all students. See instructions for setting up your own lab environment [here](../../resources/02.md).
 
 ## 1.3 The Road to Security Automation
 

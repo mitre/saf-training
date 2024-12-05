@@ -103,10 +103,6 @@ end
 
 Now we've got a nice blob of code in a resource file. Let's load this resource in the InSpec shell and see what we can do with it.
 
-#### Run the InSpec shell with a custom resource
-
-Invoking the InSpec shell with `inspec shell` will give you access to all the core InSpec resources by default, but InSpec does not automatically know about your locally defined resources unless you point them out. If you're testing a local resource, use the `--depends` flag and pass in the profile directory that your resource lives in.
-
 ```
 inspec shell --depends /path/to/profile/root/
 ```
