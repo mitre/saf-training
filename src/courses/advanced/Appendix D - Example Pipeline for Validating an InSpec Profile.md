@@ -5,11 +5,11 @@ author: Aaron Lippold
 headerDepth: 3
 ---
 
-### RHEL7 Pipeline example 
+### RHEL7 Pipeline Example
 
-Below is a [RedHat 7 example](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/blob/master/.github/workflows/verify-ec2.yml) of an automated pipeline that creates and configures two machines with the RedHat 7 operating system - one of which is set up as a vanilla configuration, and one of which is hardened using hardening scripts run by the Chef configuration management tool called kitchen.
+Below is a [RedHat 7 example](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/blob/master/.github/workflows/verify-ec2.yml) of an automated pipeline that creates and configures two machines with the RedHat 7 operating system. One machine is set up with a vanilla configuration, and the other is hardened using hardening scripts run by the Chef configuration management tool called Kitchen.
 
-This pipeline is intended to validate that the RHEL7 InSpec profile itself functions correctly. We're not too concerned with whether out "hardened" box is actually hardened; we just want to know if InSpec is assessing it correctly.
+This pipeline is intended to validate that the RHEL7 InSpec profile functions correctly. We're not too concerned with whether our "hardened" box is actually hardened; we just want to know if InSpec is assessing it correctly.
 
 ::: note Why Vanilla and Hardened?
 Having two test suites, where one is hardened and one is not, can be useful for seeing the differences between how a profile behaves on different types of systems.
@@ -17,8 +17,8 @@ Having two test suites, where one is hardened and one is not, can be useful for 
 It also has the added bonus of simultaneously validating that whatever tool we use for hardening is working correctly.
 :::
 
-:::info Modularity in Automation
-We will demonstrate the automation process through this example, but note that the different orchestration tools, configuration mangement tools, and targets can be traded out for different uses while following the same automation flow and security automation framework.
+::: info Modularity in Automation
+We will demonstrate the automation process through this example, but note that the different orchestration tools, configuration management tools, and targets can be swapped out for different uses while following the same automation flow and security automation framework.
 :::
 
 ![The CI Pipeline](../../assets/img/CI_Pipeline_Flow_EC2_Example.png)
@@ -103,4 +103,3 @@ In a general sense we can use the SAF CLI to manage security data in the pipelin
 To practice doing manual attestations, take a look at the [User Class](../user/12.md).
 
 ![The CI Pipeline - Attestation](../../assets/img/CI_Pipeline_Flow_EC2_Example_With_Attestation.png)
-
