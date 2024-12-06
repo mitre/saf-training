@@ -13,6 +13,7 @@
 SV-230262:
 Old:
 ```
+
 Verify the system-wide shared library files are group-owned by "root"
 with the following command:
 
@@ -10912,3 +10913,4 @@ Privileged functions include, for example, establishing accounts, performing sys
 ```
 ---
 </details>
+```
