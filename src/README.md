@@ -21,6 +21,9 @@ actions:
   - text: InSpec Profile Updating & Development
     link: /courses/profile-dev-test/
     type: primary
+  - text: SAF Delta
+    link: /courses/delta/
+    type: primary
  
 highlights:
   - header: What You Will Learn
