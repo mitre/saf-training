@@ -39,5 +39,13 @@ export default sidebar({
       children: "structure",
       collapsible: true
     },
+    {
+      icon: "creative",
+      text: "SAF Delta",
+      prefix: "courses/delta/",
+      children: "structure",
+      collapsible: true
+    },
+
   ],
 });
