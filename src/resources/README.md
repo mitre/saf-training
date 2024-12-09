@@ -89,19 +89,6 @@ headerDepth: 3
 - [CINC](https://cinc.sh)
 - [VSCode](https://code.visualstudio.com/download)
 
-## RHEL8 Baseline 'Stubs'
-
-The RHEL8 Baseline Stubs were `saf-cli generate` command as documented in the [Beginner Class](../courses/beginner/11.md) . You can use this as a reference while you develop your controls.
-### Generating the Stubs
-
-To create the RedHat Enterprise Linux 8 STIG Profile stubs, we used the `saf-cli generate` command:
-```sh
-saf generate:xccdf2inspec_stub -i U_RHEL_8_STIG_V1R6_Manual-xccdf.xml -r -o rhel8-baseline-stubs
-```
-This created a starter profile based of the RHEL8 STIG XCCDF Bechmark
-
-- [rhel8-baseline-stubs.tar.gz](https://github.com/mitre/saf-training-lab-environment/raw/main/resources/rhel8-baseline-stubs.tar.gz)
-
 ## Chef Community Slack
 
 - <http://community-slack.chef.io/>
