@@ -1,7 +1,7 @@
 ---
 order: 1
 next: 02.md
-title: Development & Testing InSpec Profile
+title: 1. Developing & Testing InSpec Profiles
 author: Aaron Lippold
 ---
 
@@ -46,7 +46,7 @@ The development and testing of profiles are accomplished using a variety of tool
 - **Test Kitchen**: Integration testing framework
   - Example: `kitchen test` validates your InSpec profiles
   - Use case: Automated compliance testing
-- **Docker/Podman**: Container platforms
+- **Docker/Podman**: Container runtime platforms
   - Example: `docker run` creates isolated test environments
   - Use case: Consistent testing across platforms
 - **InSpec**: Compliance testing framework
@@ -60,7 +60,9 @@ The development and testing of profiles are accomplished using a variety of tool
 
 Our development and testing workflow is managed by Test Kitchen. This tool is integral to our GitHub Actions CI/CD Pipelines and is also used for local development, testing, and releasing updates, patches, and full releases of the profile.
 
-> 💡 **Pro Tip**: When starting out, focus on Docker-based testing before moving to AWS environments.
+::: tip Walk before you run!
+When starting out, focus on Docker-based testing before moving to AWS environments.
+:::
 
 ### Testing Environments
 
@@ -68,15 +70,19 @@ Test Kitchen uses Docker (or Podman, if preferred) and AWS (using free-tier reso
 
 ### Platform One Integration
 
-Additionally, Test Kitchen uses the Red Hat hardened `ubi8 base container` from Platform One for testing. To test the hardened container portion of the testing suite, you'll need to set up and log in to your P1 Free account, then obtain a CLI token to pull the Platform One Iron Bank Red Hat Enterprise Linux 8 Universal Base Image (P1 IB UBI8) image into the test suite.
+Additionally, Test Kitchen uses images from Platform One during the hardened container test of the testing suite.  In order for you to use them as well, you'll need to set up and log in to your P1 account (free but requires registration), then obtain a CLI token to pull the Platform One Iron Bank images into the test suite.
 
-> ⚠️ **Important**: Ensure you keep your P1 CLI token secure and never commit it to version control.
+::: important Secrets should be secret!
+Ensure you keep your P1 CLI token secure and never commit it to version control.
+:::
 
 ## Getting Started with Examples
 
 This guide refers to the [MITRE RedHat Enterprise Linux 8 STIG](https://github.com/mitre/redhat-enterprise-linux-8-stig-baseline/tree/metzger_dynamic_inputs) profile, which provides a working example of the workflow described here.
 
-> 🔍 **Note**: Development happens in the `main` branch, with stable versions available as tagged releases.
+::: note Development vs Releases
+Development happens in the `main` branch, with stable versions available as tagged releases.
+:::
 
 ### Hands-on Practice
 
