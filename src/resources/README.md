@@ -13,9 +13,9 @@ headerDepth: 3
 - [DISA Cyber.mil STIG Downlaods](https://public.cyber.mil/stigs/downloads/)
 - [Center for Internet Security Benchmarks](https://www.cisecurity.org/cis-benchmarks/)
 
-## MITRE SAF InSpec Profiles
+## MITRE SAF Inspec Profiles
 
-- [All MITRE InSpec Profile Repositories](https://github.com/mitre?q=inspec+baseline+profile)
+- [All MITRE Inspec Profile Repositories](https://github.com/mitre?q=inspec+baseline+profile)
 - [RedHat 8 Profile](https://github.com/CMSgov/redhat-enterprise-linux-8-stig-baseline)
 - [NGINX Profile](https://github.com/mitre/nginx-srg-baseline)
 
@@ -23,19 +23,19 @@ headerDepth: 3
 - [SAF CLI](https://github.com/mitre/saf)  
 - [Heimdall Lite](https://mitre.github.io/heimdall-lite/#)  
 - [Heimdall Lite Github Repo](https://github.com/mitre/heimdall-lite)  
-- [Heimdall Server (with backend database, compare and trending)](https://github.com/mitre/heimdall)
+- [Heimdall Server (with backend database, compare and trending)](https://github.com/mitre/heimdall2)
 
 ## Vulcan Resources
 
 ### Docs
-1. [Vulcan full documentation](https://saf.mitre.org/docs/vulcan-install)
+1. [Vulcan full documentation](https://vulcan.mitre.org/docs/)
 2. [Vulcan GitHub](https://github.com/mitre/vulcan) -- Feel free to leave us a feature request!
 3. [Vulcan Project roadmap](https://github.com/orgs/mitre/projects/7)
 
 ### STIG resources
 1. [Vendor STIG Process Guide](../assets/downloads/U_Vendor_STIG_Process_Guide_V4R1_20220815.pdf)
 2. DISA's [Vendor STIG Intent Form](https://dl.dod.cyber.mil/wp-content/uploads/stigs/pdf/U_Vendor_STIG_Intent_Form.pdf). Used to formally start the Vendor STIG process.
-3. VMWare's [STIG Program Overview](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/vmware-stig-program-overview.pdf). A good primer on terms and process for STIGs.
+3. VMWare's [STIG Program Overview](https://www.vmware.com/docs/vmw-stig-program-overview). A good primer on terms and process for STIGs.
 
 ## Code Background & Primers  
 
@@ -44,24 +44,24 @@ headerDepth: 3
 - <https://ruby-for-beginners.rubymonstas.org/>
 - [Ruby Video Tutorial](https://www.youtube.com/watch?v=t_ispmWmdjY&vl=en")
 
-### InSpec Documentation
+### Inspec Documentation
 
-- [InSpec Docs](https://www.inspec.io/docs/)
-- [InSpec Profiles](https://www.inspec.io/docs/reference/profiles/)
-- [InSpec Resources](https://www.inspec.io/docs/reference/resources/)
-- [InSpec Matchers](https://www.inspec.io/docs/reference/matchers/)
-- [InSpec Shell](https://www.inspec.io/docs/reference/shell/)
-- [InSpec Reporters](https://www.inspec.io/docs/reference/reporters/)
-- [InSpec Profile Inheritance](https://blog.chef.io/2017/07/06/understanding-inspec-profile-inheritance/)
+- [Inspec Docs](https://www.inspec.io/docs/)
+- [Inspec Profiles](https://www.inspec.io/docs/reference/profiles/)
+- [Inspec Resources](https://www.inspec.io/docs/reference/resources/)
+- [Inspec Matchers](https://www.inspec.io/docs/reference/matchers/)
+- [Inspec Shell](https://www.inspec.io/docs/reference/shell/)
+- [Inspec Reporters](https://www.inspec.io/docs/reference/reporters/)
+- [Inspec Profile Inheritance](https://blog.chef.io/2017/07/06/understanding-inspec-profile-inheritance/)
 
-### InSpec Tutorials and Videos
+### Inspec Tutorials and Videos
 
-- [Introduction to InSpec Playlist](https://www.youtube.com/playlist?list=PLSZbtIlMt5rcbXOpMRucKzRMXR7HX7awy)
+- [Introduction to Inspec Playlist](https://www.youtube.com/playlist?list=PLSZbtIlMt5rcbXOpMRucKzRMXR7HX7awy)
 - [What to Expect When You’re InSpec’ing](https://blog.chef.io/2018/04/03/what-to-expect-when-youre-inspecing/)  
-- [Getting started with InSpec - The InSpec basics series](http://www.anniehedgie.com/inspec/)
-- [Windows infrastructure testing using InSpec – Part I](http://datatomix.com/?p=236)
-- [Windows infrastructure testing using InSpec and Profiles – Part II](http://datatomix.com/?p=238)
-- [InSpec Cheat Sheet](https://megamorf.gitlab.io/cheat-sheets/inspec/)
+- [Getting started with Inspec - The Inspec basics series](http://www.anniehedgie.com/inspec/)
+- [Windows infrastructure testing using Inspec – Part I](http://datatomix.com/?p=236)
+- [Windows infrastructure testing using Inspec and Profiles – Part II](http://datatomix.com/?p=238)
+- [Inspec Cheat Sheet](https://megamorf.gitlab.io/cheat-sheets/inspec/)
 
 ### rspec documentation
 
@@ -84,7 +84,7 @@ headerDepth: 3
 
 ## Tools and Applications
 
-- [InSpec](https://www.inspec.io)
+- [Inspec](https://www.inspec.io)
 - [SAF CLI](https://saf-cli.mitre.org)
 - [CINC](https://cinc.sh)
 - [VSCode](https://code.visualstudio.com/download)
@@ -106,7 +106,7 @@ This created a starter profile based of the RHEL8 STIG XCCDF Bechmark
 
 - <http://community-slack.chef.io/>
 
-## InSpec Community Partners  
+## Inspec Community Partners  
 
 Many vendors and communities of interest have partnered with MITRE to develop security testing content. They have released this content on Github following in MITRE's footsteps. 
 
