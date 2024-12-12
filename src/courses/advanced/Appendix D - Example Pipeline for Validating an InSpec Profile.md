@@ -57,7 +57,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.SAF_AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Clone full repository so we can push
         run: git fetch --prune --unshallow
       - name: Setup Ruby
@@ -83,7 +83,7 @@ jobs:
         with:
           command_string: 'validate threshold -i spec/results/ec2_rhel-7_${{ matrix.suite }}.json -F ${{ matrix.suite }}.threshold.yml'
       - name: Save Test Result JSON
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           path: spec/results/
 ```
