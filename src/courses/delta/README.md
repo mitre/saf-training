@@ -1,22 +1,21 @@
 ---
 order: 01
 next: 02.md
-title: Delta Process Developer Class
+title: 1. Delta Process Developer Class
 author: Daniel Medina, George Dias
 ---
 
 ## 1.1 Class Overview
 
-The purpose of this class is to demonstrate how the MITRE SAF Delta tool can be used to facilitate changes to InSpec profile baselines. This process is often utilized to create a new baseline profile from older revisions of the same baseline.
+The purpose of this class is to demonstrate how the MITRE SAF Delta tool can be used to update or generate InSpec profiles. This includes updating an InSpec profile from an old guidance document to a newer guidance document and creating a new baseline profile from older revisions of the same baseline.
 
-### 1.1.1 Class Objectives
+### 1.2 Class Objectives
 
 By the end of this class, you should be able to:
 
-- Identify the requirements for conducting the delta process
-- Understand the purpose and functionality of the SAF Delta process tools: `update_controls4delta` and `delta`
-- Utilize these tools to update InSpec profiles
+- Understand the requirements, purpose, and functionality of the SAF Delta process tools: `update_controls4delta` and `delta`
+- Update existing InSpec profiles to newer guidance documentation using `update_controls4delta` and `delta`
 - Determine how and where to apply these tools in various scenarios (Use Cases)
 - Use the delta fuzzy matching system to map controls between two profiles
-- Become familiar with the delta process logging capabilities and the artifacts it generates
+- Identify and review delta process history with generated logs and artifacts
 - Format InSpec profile controls appropriately before and/or after executing delta commands
