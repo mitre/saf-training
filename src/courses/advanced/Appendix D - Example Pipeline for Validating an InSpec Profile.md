@@ -57,7 +57,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.SAF_AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
       - name: Clone full repository so we can push
         run: git fetch --prune --unshallow
       - name: Setup Ruby
