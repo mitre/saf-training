@@ -10,7 +10,7 @@ author: Aaron Lippold
 
 ## Learning Objectives
 
-By completing this module, you will be able to:
+By the end of this class, you will be able to:
 
 - Build and validate InSpec profiles using Test Kitchen
 - Configure local testing environments for security compliance
@@ -20,7 +20,7 @@ By completing this module, you will be able to:
 
 ## Prerequisites
 
-Before starting this module, ensure you have:
+Before starting this class, ensure you have:
 
 - Basic knowledge of Ruby ([Learn Ruby Basics](https://ruby-lang.org/en/documentation/quickstart/))
 - Docker or Podman installed ([Docker Installation Guide](https://docs.docker.com/get-docker/))
@@ -39,7 +39,7 @@ Before proceeding, verify you can:
 
 ## Overview
 
-The development and testing of profiles are accomplished using a variety of tools, including Ruby, the Test Kitchen suite, InSpec compliance language, Ansible, Docker, and shell scripting (bash/zsh). To contribute with Pull Requests and fixes, you'll need to set up your local test suite by following the instructions provided below.
+The development and testing of InSpec validation profiles can be accomplished using a variety of tools working in concert, including Ruby, the Test Kitchen suite, the InSpec compliance language itself, Ansible, Docker, and shell scripting (bash/zsh). To contribute with Pull Requests and fixes, you'll need to set up your local test suite by following the instructions provided below.
 
 ### Key Tools Explained
 
