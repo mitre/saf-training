@@ -27,4 +27,4 @@ that demands importance vigilance of continuous monitoring and notification of v
 To effectively established an ongoing monitoring process, we need to know what to check for, and
 update the content being checked as vulnerabilities are identified. The MITRE training class [Beginner Security Automation Developer Class](https://deploy-preview-256--mitre-saf-training.netlify.app/courses/beginner/) provides an insight on how to use InSpec Profiles (a collection of automated tests) to conduct testes based on some security guidances.
 
-As long as the testes are based on valid security guidances all is well, but the moment the security guidances change, the tests become obsolete and require new tests or existing tests to be updated, that is where the `delta` process comes in to the rescue.
+As long as the testes are based on valid security guidances all is well, but the moment the security guidances change, the tests become obsolete and require new tests or existing tests to be updated, that is where the `delta` process comes into the rescue.
