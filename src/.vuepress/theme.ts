@@ -25,6 +25,42 @@ export default hopeTheme({
     },
   },
 
+  markdown: {
+    align: true,
+    attrs: true,
+    codeTabs: true,
+    component: true,
+    demo: true,
+    figure: true,
+    flowchart: true,
+    gfm: true,
+    imgLazyload: true,
+    imgSize: true,
+    include: true,
+    mark: true,
+    mermaid: true,
+    playground: {
+      presets: ["ts", "vue"],
+    },
+    stylize: [
+      {
+        matcher: "Recommended",
+        replacer: ({ tag }) => {
+          if (tag === "em")
+            return {
+              tag: "Badge",
+              attrs: { type: "tip" },
+              content: "Recommended",
+            };
+        },
+      },
+    ],
+    sub: true,
+    sup: true,
+    tabs: true,
+    vPre: true,
+  },
+
   metaLocales: {
     editLink: "Edit this page on GitHub",
   },
@@ -42,65 +78,6 @@ export default hopeTheme({
 
     components: {
       components: ["Badge", "VPCard"],
-    },
-
-    markdownImage: {
-      figure: true,
-      imgLazyload: true,
-      imgSize: true,
-    },
-
-    markdownTab: {
-      codeTabs: true,
-      tabs: true,
-    },
-
-    // All features are enabled for demo, only preserve features you need here
-    mdEnhance: {
-      align: true,
-      attrs: true,
-      // install chart.js before enabling it
-      // chart: true,
-      component: true,
-      demo: true,
-      // install echarts before enabling it
-      // echarts: true,
-      // install flowchart.ts before enabling it
-      flowchart: true,
-      gfm: true,
-      include: true,
-      // install katex before enabling it
-      // katex: true,
-      // install mathjax-full before enabling it
-      // mathjax: true,
-      mark: true,
-      mermaid: true,
-      // plantuml: true,
-      playground: {
-        presets: ["ts", "vue"],
-      },
-      // install sandpack-vue3 before enabling it
-      // sandpack: true,
-      // spoiler: true,
-      stylize: [
-        {
-          matcher: "Recommended",
-          replacer: ({ tag }) => {
-            if (tag === "em")
-              return {
-                tag: "Badge",
-                attrs: { type: "tip" },
-                content: "Recommended",
-              };
-          },
-        },
-      ],
-      sub: true,
-      sup: true,
-      // tasklist: true,
-      vPre: true,
-      // install @vue/repl before enabling it
-      // vuePlayground: true,
     },
 
     // install reveal.js before enabling it
