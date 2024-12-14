@@ -44,10 +44,13 @@ export default hopeTheme({
       components: ["Badge", "VPCard"],
     },
 
+    // Use "mark: true" to allow pictures to be marked by #light or #dark
+    // suffix, letting them be displayed under the appropriate color mode
     markdownImage: {
       figure: true,
-      imgLazyload: true,
-      imgSize: true,
+      lazyload: true,
+      mark: true,
+      size: true,
     },
 
     markdownTab: {

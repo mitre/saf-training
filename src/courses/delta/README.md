@@ -22,7 +22,7 @@ By the end of this class, you should be able to:
 
 ### 1.3 Delta Demystify
 Cyber security, the practice of protecting computer systems, networks, and data is an ongoing effort
-that demands importance vigilance of continuous monitoring and notification of vulnerabilities.
+that demands vulnerability vigilance (current and future) trough continuous monitoring and notification.
 
 To effectively established an ongoing monitoring process, we need to know what to check for, and
 update the content being checked as vulnerabilities are identified. The MITRE training class [Beginner Security Automation Developer Class](https://deploy-preview-256--mitre-saf-training.netlify.app/courses/beginner/) provides an insight on how to use InSpec Profiles (a collection of automated tests) to conduct testes based on some security guidances.
