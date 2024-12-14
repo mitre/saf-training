@@ -16,8 +16,6 @@
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.19",
-    "@vuepress/plugin-markdown-image": "2.0.0-rc.66",
-    "@vuepress/plugin-markdown-tab": "2.0.0-rc.66",
     "cypress": "^13.16.1",
     "cypress-each": "^1.14.0",
     "flowchart.ts": "^3.0.1",
