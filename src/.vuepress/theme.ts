@@ -37,7 +37,13 @@ export default hopeTheme({
     imgLazyload: true,
     imgSize: true,
     include: true,
-    mark: true,
+    // imgMark: true,
+    imgMark: {
+      /** lightmode only IDs */
+      light: ["light"],
+      /** darkmode only IDs */
+      dark: ["dark"],
+    },
     mermaid: true,
     playground: {
       presets: ["ts", "vue"],
