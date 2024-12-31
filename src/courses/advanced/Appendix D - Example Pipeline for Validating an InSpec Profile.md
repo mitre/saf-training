@@ -86,7 +86,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: spec/results/
-          overwrite: true
 ```
 
 The two machines are then tested by running an InSpec profile. The results are viewed and validated against a threshold to allow the pipeline to automatically pass or fail based on whether the results meet those thresholds. The SAF CLI is used to view and validate.
