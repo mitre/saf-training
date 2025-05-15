@@ -15,14 +15,14 @@
     "cy:run": "cypress run --e2e"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.22",
+    "@vuepress/bundler-vite": "2.0.0-rc.23",
     "cypress": "^14.3.3",
     "cypress-each": "^1.14.0",
     "flowchart.ts": "^3.0.1",
     "mermaid": "^11.6.0",
     "start-server-and-test": "^2.0.12",
     "vue": "^3.5.14",
-    "vuepress": "2.0.0-rc.22",
-    "vuepress-theme-hope": "2.0.0-rc.86"
+    "vuepress": "2.0.0-rc.23",
+    "vuepress-theme-hope": "2.0.0-rc.88"
   }
 }
