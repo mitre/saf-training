@@ -8,28 +8,34 @@
 # ├── ./src/courses
 # │   ├── ./courses/advanced
 # │   ├── ./courses/beginner
+# │   ├── ./courses/delta
 # │   ├── ./courses/guidance
+# │   └── ./courses/profile-dev-test
 # │   └── ./courses/user
-
-docs: docs/*
-example: examples/**/*
-repository: packages/repository/*
-
-'user':
-- changed-files:
-  - any-glob-to-any-file: ['src/courses/user/**/*']
-
-'beginner':
-  - changed-files:
-    - any-glob-to-any-file: ['src/courses/beginner/**/*']
 
 'advanced':
   - changed-files:
     - any-glob-to-any-file: ['src/courses/advanced/**/*']
 
+'beginner':
+  - changed-files:
+    - any-glob-to-any-file: ['src/courses/beginner/**/*']
+
+'delta':
+  - changed-files:
+    - any-glob-to-any-file: ['src/courses/delta/**/*']
+
 'guidance':
   - changed-files:
     - any-glob-to-any-file: ['src/courses/guidance/**/*']
+
+'profile-dev-test':
+- changed-files:
+  - any-glob-to-any-file: ['src/courses/profile-dev-test/**/*']
+
+'user':
+- changed-files:
+  - any-glob-to-any-file: ['src/courses/user/**/*']
 
 'courses':
   - changed-files:
