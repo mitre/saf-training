@@ -19,8 +19,13 @@ export default withMermaid(
     vite: {
       resolve: {
         alias: {
-          '@': fileURLToPath(new URL('../', import.meta.url))
+          '@': fileURLToPath(new URL('../', import.meta.url)),
+          // Fix pnpm + mermaid dayjs issue
+          'dayjs': 'dayjs/'
         }
+      },
+      optimizeDeps: {
+        include: ['mermaid']
       }
     },
 
@@ -65,6 +70,7 @@ export default withMermaid(
         {
           text: 'Resources',
           items: [
+            { text: 'Download PDFs', link: '/downloads' },
             { text: 'Lab Environments', link: '/resources/02' },
             { text: 'Training Development', link: '/resources/03' },
             { text: 'Installation', link: '/installation/' },
