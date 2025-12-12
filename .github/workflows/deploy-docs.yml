@@ -23,7 +23,7 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Build VuePress site
+      - name: Build VitePress site
         run: npm ci && npm run docs:build
         env:
           GITHUB_DEPLOY: "true"
@@ -32,7 +32,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
-          build_dir: src/.vuepress/dist/
+          build_dir: src/.vitepress/dist/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_DEPLOY: "true"
