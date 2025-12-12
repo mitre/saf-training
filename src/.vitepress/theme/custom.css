@@ -1,0 +1,37 @@
+/**
+ * Custom styles for VitePress theme
+ */
+
+/* Enhanced medium-zoom modal with blurred background */
+.medium-zoom-overlay {
+  z-index: 9999 !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.medium-zoom-image--opened {
+  z-index: 10000 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+/* Smooth transition for zoom */
+.medium-zoom-image {
+  cursor: zoom-in;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.medium-zoom-image--opened {
+  cursor: zoom-out;
+}
+
+/* Light theme overlay */
+html:not(.dark) .medium-zoom-overlay {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Dark theme overlay */
+html.dark .medium-zoom-overlay {
+  background: rgba(0, 0, 0, 0.9) !important;
+}

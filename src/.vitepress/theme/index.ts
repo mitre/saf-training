@@ -3,6 +3,7 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import { useData, useRoute } from 'vitepress'
 import { toRefs, onMounted, watch, nextTick } from 'vue'
 import mediumZoom from 'medium-zoom'
+import './custom.css'
 
 export default {
   extends: DefaultTheme,
