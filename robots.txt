@@ -1,0 +1,4 @@
+User-agent:*
+Disallow:
+
+Sitemap: https://mitre.github.io/saf-training/saf-training/sitemap.xml
