@@ -10,21 +10,29 @@ permissions:
 
 jobs:
   deploy-gh-pages:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
 
-      - name: Build VuePress site
-        run: npm ci && npm run docs:build
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build VitePress site
+        run: pnpm run docs:build
         env:
           GITHUB_DEPLOY: "true"
 
@@ -32,7 +40,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
-          build_dir: src/.vuepress/dist/
+          build_dir: src/.vitepress/dist/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_DEPLOY: "true"
