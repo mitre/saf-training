@@ -2,7 +2,8 @@
 order: 18
 title: Appendix E - More Resource Examples
 author: Aaron Lippold
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 ### The File Resource

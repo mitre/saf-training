@@ -2,7 +2,8 @@
 order: 15
 title: Appendix B - Custom Resource Examples from InSpec
 author: Aaron Lippold
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 As an example we will go through a few custom resources that were built and approved.

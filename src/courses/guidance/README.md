@@ -4,7 +4,8 @@ next: 02.md
 title: 1. Security Guidance Developer Class
 shortTitle: 1. Security Guidance Development
 author: Emily Rodriguez
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 ## 1.1 Class Overview
