@@ -195,10 +195,7 @@ export default withMermaid(
       // math: true,
     },
 
-    // Mermaid configuration
-    mermaid: {
-      // Mermaid config options
-    },
+    // Mermaid uses default theme - automatically adapts to light/dark mode
 
     // Sitemap generation
     sitemap: {
