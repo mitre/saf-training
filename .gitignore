@@ -1,6 +1,58 @@
+# Dependencies
 node_modules/
-src/.vuepress/.cache/**
-src/.vuepress/dist/**
-src/.vuepress/.temp/**
+
+# VitePress build output and cache
+src/.vitepress/cache/
+src/.vitepress/dist/
+.temp/
+
+# Old VuePress (can remove after migration complete)
+src/.vuepress/.cache/
+src/.vuepress/dist/
+src/.vuepress/.temp/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Playwright
+playwright-report/
+playwright/.cache/
+test-results/
+
+# macOS
 .DS_Store
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Claude Code (internal project management)
 .claude/
+
+# Session files (internal documentation - not committed)
+SESSION*.md
+recovery-prompt.md
+NEXT-ENHANCEMENTS.md
+*-STRATEGY.md
+*-AUDIT.md
+*-ANALYSIS.md
+
+# PDF exports (generated files)
+*.pdf
+pdfs/
