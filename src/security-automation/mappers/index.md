@@ -3,9 +3,13 @@ title: 1. OHDF Mapper Development Class
 shortTitle: OHDF Mapper Development
 author: Charles Hu
 description: Learn to build OHDF mappers to convert security tool outputs into the standardized Heimdall Data Format
+courseVersion: "1.0"
+lastUpdated: 2024-12-12
 ---
 
 # OHDF Mapper Development Class
+
+<CourseVersion />
 
 > Transform any security tool output into the standardized OASIS Heimdall Data Format (OHDF)
 

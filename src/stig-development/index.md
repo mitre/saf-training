@@ -3,10 +3,15 @@ title: 1. Security Guidance Developer Class
 shortTitle: STIG Development
 author: Aaron Lippold
 description: Create STIG-ready security guidance with Vulcan
+courseVersion: "1.0"
+lastUpdated: 2024-12-12
 outline: [2, 5]
 ---
 
 # STIG Development
+
+<CourseVersion />
+
 
 > Create STIG-ready security guidance with Vulcan
 

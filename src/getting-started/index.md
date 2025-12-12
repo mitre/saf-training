@@ -3,10 +3,15 @@ title: 1. SAF User Class
 shortTitle: SAF User Class
 author: Aaron Lippold
 description: Learn to use the MITRE Security Automation Framework for automated security validation and visualization
+courseVersion: "1.0"
+lastUpdated: 2024-12-12
 outline: [2, 5]
 ---
 
 # SAF User Class
+
+<CourseVersion />
+
 
 > Learn to automate security validation and visualization with the MITRE Security Automation Framework
 

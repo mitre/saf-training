@@ -3,10 +3,15 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 import { useData, useRoute } from 'vitepress'
 import { toRefs, onMounted, watch, nextTick } from 'vue'
 import mediumZoom from 'medium-zoom'
+import CourseVersion from './components/CourseVersion.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
+
+  enhanceApp({ app }) {
+    app.component('CourseVersion', CourseVersion)
+  },
 
   setup() {
     // Get frontmatter and route

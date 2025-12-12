@@ -12,26 +12,26 @@ hero:
     alt: MITRE SAF Logo
   actions:
     - theme: brand
-      text: User Class
-      link: /courses/user/
+      text: Getting Started
+      link: /getting-started/
     - theme: brand
-      text: Beginner Security Automation
-      link: /courses/beginner/
+      text: InSpec Beginner
+      link: /inspec-training/beginner/
     - theme: brand
-      text: Advanced Security Automation
-      link: /courses/advanced/
+      text: InSpec Advanced
+      link: /inspec-training/advanced/
     - theme: alt
-      text: Guidance Development
-      link: /courses/guidance/
+      text: Profile Development
+      link: /inspec-training/profile-development/
     - theme: alt
-      text: InSpec Profile Updating & Development
-      link: /courses/profile-dev-test/
+      text: STIG Development
+      link: /stig-development/
     - theme: alt
       text: SAF Delta
-      link: /courses/delta/
+      link: /security-automation/delta/
     - theme: alt
-      text: OHDF Mapper Development Class
-      link: /courses/mappers/
+      text: OHDF Mappers
+      link: /security-automation/mappers/
 
 features:
   - icon: 🎯
@@ -55,15 +55,15 @@ features:
   - icon: ⚙️
     title: Automate security testing
     details: Integrate InSpec into a CI/CD pipeline
-    link: /courses/advanced/04
+    link: /inspec-training/advanced/04
   - icon: 🛠️
     title: Extend InSpec to meet new use cases
     details: Develop resources to aid in creating controls
-    link: /courses/advanced/06
+    link: /inspec-training/advanced/06
   - icon: 🤝
     title: Contribute to the open-source security community
     details: Add the resources you develop to the InSpec framework
-    link: /courses/advanced/14
+    link: /inspec-training/advanced/12
 ---
 
 ## Useful Resources

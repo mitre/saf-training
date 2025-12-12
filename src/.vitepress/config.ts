@@ -7,10 +7,16 @@ import { fileURLToPath, URL } from 'node:url'
 // https://vitepress.dev/reference/site-config
 export default withMermaid(
   defineConfig({
-    title: 'MITRE SAF Training - InSpec, STIG Development & Security Automation',
+    title: 'MITRE SAF Training',
+    titleTemplate: ':title - InSpec, STIG Development & Security Automation',
     description: 'Free comprehensive training for InSpec profile development, STIG creation, and security automation. Learn compliance as code, security testing, and infrastructure validation.',
 
     base: process.env.GITHUB_DEPLOY === 'true' ? '/saf-training/' : '/',
+
+    // Site-level versioning
+    site: {
+      version: '2.0.0'
+    },
 
     // Ignore dead links for now (can enable later)
     ignoreDeadLinks: true,

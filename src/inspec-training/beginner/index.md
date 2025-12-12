@@ -3,10 +3,15 @@ title: 1. Beginner Security Automation Developer Class
 shortTitle: InSpec Beginner
 author: Aaron Lippold
 description: Learn InSpec fundamentals and start writing security tests
+courseVersion: "1.0"
+lastUpdated: 2024-12-12
 outline: [2, 5]
 ---
 
 # InSpec Beginner
+
+<CourseVersion />
+
 
 > Learn InSpec fundamentals and start writing security tests
 
