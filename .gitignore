@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# pnpm store (local cache)
+.pnpm-store/
+
 # VitePress build output and cache
 src/.vitepress/cache/
 src/.vitepress/dist/
