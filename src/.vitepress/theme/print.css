@@ -1,0 +1,76 @@
+/**
+ * Print styles for PDF export
+ * Hides navigation and UI elements that shouldn't appear in PDFs
+ */
+
+/* Page margins for PDF export */
+@page {
+  margin: 20mm 15mm 20mm 15mm;
+}
+
+@media print {
+  /* Hide navigation elements */
+  .VPNav,
+  .VPLocalNav,
+  .VPSidebar,
+  .VPDocFooter,
+  .VPFooter {
+    display: none !important;
+  }
+
+  /* Hide "On this page" outline sidebar */
+  .VPDocAsideOutline {
+    display: none !important;
+  }
+
+  /* Hide search */
+  .VPNavBarSearch {
+    display: none !important;
+  }
+
+  /* Full width content for print */
+  .VPDoc {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .vp-doc {
+    max-width: 100% !important;
+  }
+
+  /* Remove Giscus comments from PDF - try all possible selectors */
+  iframe.giscus-frame,
+  iframe[src*="giscus"],
+  .giscus,
+  .giscus-frame,
+  [class*="giscus"],
+  [id*="giscus"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide any comment sections */
+  [data-giscus],
+  .comments,
+  .comment-section,
+  #giscus-comments {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Hide everything after the main doc content */
+  .VPDoc .container ~ * {
+    display: none !important;
+  }
+
+  /* Clean page breaks */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  pre, img, table {
+    page-break-inside: avoid;
+  }
+}

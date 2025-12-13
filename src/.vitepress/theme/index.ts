@@ -1,15 +1,18 @@
 import DefaultTheme from 'vitepress/theme'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus'
+import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 import { useData, useRoute } from 'vitepress'
 import { toRefs, onMounted, watch, nextTick } from 'vue'
 import mediumZoom from 'medium-zoom'
 import CourseVersion from './components/CourseVersion.vue'
 import './custom.css'
+import './print.css'
 
 export default {
   extends: DefaultTheme,
 
   enhanceApp({ app }) {
+    enhanceAppWithTabs(app)
     app.component('CourseVersion', CourseVersion)
   },
 
