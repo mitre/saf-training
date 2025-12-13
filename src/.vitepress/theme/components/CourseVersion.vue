@@ -1,7 +1,11 @@
 <template>
-  <div v-if="lastUpdated" class="course-version">
-    <span class="version-badge site-version">Site v{{ siteVersion }}</span>
-    <span class="version-badge updated-badge">Updated: {{ formattedDate }}</span>
+  <div class="course-version">
+    <span class="version-badge release-badge">
+      Release v{{ siteVersion }}
+    </span>
+    <span class="version-badge date-badge" v-if="releaseDate">
+      Released {{ formattedDate }}
+    </span>
   </div>
 </template>
 
@@ -9,17 +13,17 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 
-const { site, frontmatter } = useData()
+const { site } = useData()
 
-// Site version from config
+// Site version from config (package.json)
 const siteVersion = computed(() => site.value.version || '2.0.0')
 
-// Last updated from frontmatter
-const lastUpdated = computed(() => frontmatter.value.lastUpdated)
+// Release date from config
+const releaseDate = computed(() => site.value.releaseDate || '2025-12-13')
 
 const formattedDate = computed(() => {
-  if (!lastUpdated.value) return ''
-  const date = new Date(lastUpdated.value)
+  if (!releaseDate.value) return ''
+  const date = new Date(releaseDate.value)
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -45,18 +49,18 @@ const formattedDate = computed(() => {
   transition: all 0.2s ease;
 }
 
-/* Site version - Orange/Warning theme */
-.site-version {
-  background-color: var(--vp-c-warning-soft);
-  color: var(--vp-c-warning-1);
-  border: 1px solid var(--vp-c-warning-2);
+/* Release version - Orange/Warning theme */
+.release-badge {
+  background-color: #f59e0b26;
+  color: #d97706;
+  border: 1px solid #f59e0b80;
 }
 
-/* Updated date - Green/Tip theme */
-.updated-badge {
-  background-color: var(--vp-c-tip-soft);
-  color: var(--vp-c-tip-1);
-  border: 1px solid var(--vp-c-tip-2);
+/* Release date - Green theme */
+.date-badge {
+  background-color: #10b98126;
+  color: #059669;
+  border: 1px solid #10b98180;
 }
 
 /* Dark mode automatically handled by VitePress CSS variables */

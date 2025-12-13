@@ -41,7 +41,8 @@ export default withMermaid(
 
     // Site-level versioning
     site: {
-      version: '2.0.0'
+      version: '2.0.0',
+      releaseDate: '2025-12-13'
     },
 
     // Ignore dead links for now (can enable later)
