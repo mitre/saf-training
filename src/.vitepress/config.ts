@@ -3,6 +3,32 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { generateSidebar } from 'vitepress-sidebar'
 import { fileURLToPath, URL } from 'node:url'
+import type MarkdownIt from 'markdown-it'
+
+// PDF build mode - forces all <details> elements to be open for printing
+const isPdfBuild = process.env.PDF_BUILD === 'true'
+
+/**
+ * Markdown-it plugin to force all details containers open for PDF export
+ * When PDF_BUILD=true, this adds the 'open' attribute to all <details> elements
+ */
+function detailsOpenPlugin(md: MarkdownIt) {
+  // Store the original renderer
+  const defaultDetailsOpen = md.renderer.rules.container_details_open
+
+  md.renderer.rules.container_details_open = (tokens, idx, options, env, self) => {
+    // Add open attribute when in PDF build mode
+    if (isPdfBuild) {
+      tokens[idx].attrSet('open', '')
+    }
+
+    // Call original renderer or default
+    if (defaultDetailsOpen) {
+      return defaultDetailsOpen(tokens, idx, options, env, self)
+    }
+    return self.renderToken(tokens, idx, options)
+  }
+}
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(
@@ -186,9 +212,11 @@ export default withMermaid(
       // Enable line numbers in code blocks
       lineNumbers: true,
 
-      // Enable tabs plugin
+      // Markdown-it plugins
       config: (md) => {
         md.use(tabsMarkdownPlugin)
+        // Force details open for PDF export (when PDF_BUILD=true)
+        md.use(detailsOpenPlugin)
       },
 
       // Math support (if needed)

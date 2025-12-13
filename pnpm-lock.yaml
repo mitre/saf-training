@@ -23,6 +23,9 @@ importers:
       mermaid:
         specifier: ^11.12.2
         version: 11.12.2
+      pdf-lib:
+        specifier: ^1.17.1
+        version: 1.17.1
       vitepress:
         specifier: ^1.6.4
         version: 1.6.4(@algolia/client-search@5.46.0)(@types/node@24.10.1)(postcss@8.5.6)(search-insights@2.17.3)

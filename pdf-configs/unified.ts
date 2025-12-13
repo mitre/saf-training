@@ -125,6 +125,32 @@ export function createSorter(pageOrder: string[]) {
 }
 
 /**
+ * Generate exclusion patterns for a course
+ * press-export-pdf requires EXCLUSION patterns (!/path/**)
+ * to filter down to just the pages we want
+ */
+function generateExclusionPatterns(courseName: CourseName): string[] {
+  const course = courses[courseName]
+  const patterns: string[] = []
+
+  // Exclude all other courses
+  for (const [name, otherCourse] of Object.entries(courses)) {
+    if (name !== courseName) {
+      patterns.push(`!${otherCourse.sidebarPath}**`)
+    }
+  }
+
+  // Exclude common non-course pages
+  patterns.push('!/installation/**')
+  patterns.push('!/resources/**')
+  patterns.push('!/downloads.html')
+  patterns.push('!/index.html')
+  patterns.push('!/404.html')
+
+  return patterns
+}
+
+/**
  * Generate complete PDF config for a course
  */
 export function generatePdfConfig(
@@ -143,7 +169,7 @@ export function generatePdfConfig(
   return {
     outFile,
     outDir: pdfDefaults.outDir,
-    routePatterns: [`${course.sidebarPath}**`],
+    routePatterns: generateExclusionPatterns(courseName),
     urlOrigin: pdfDefaults.urlOrigin,
     sorter: createSorter(pageOrder),
     pdf: {

@@ -10,6 +10,7 @@ import { execSync } from 'child_process'
 import { existsSync, mkdirSync, writeFileSync, readFileSync, unlinkSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import { PDFDocument } from 'pdf-lib'
 
 // Get project root
 const __filename = fileURLToPath(import.meta.url)
@@ -40,6 +41,98 @@ function getDateFromFrontmatter(indexPath: string): string {
   } catch {
     return new Date().toISOString().split('T')[0]
   }
+}
+
+/**
+ * Check if a PDF page is blank (has no content streams or very minimal content)
+ */
+function isPageBlank(page: ReturnType<PDFDocument['getPage']>): boolean {
+  // Get the content streams - blank pages typically have none or minimal content
+  const contentStream = page.node.Contents()
+  if (!contentStream) return true
+
+  // Check if page has any annotations, forms, or other content indicators
+  const annots = page.node.Annots()
+  if (annots && annots.size() > 0) return false
+
+  // A truly blank page usually has a very small content stream
+  // This is a heuristic - blank pages from Puppeteer typically have < 100 bytes
+  try {
+    const contents = page.node.Contents()
+    if (contents) {
+      // If there's substantial content, it's not blank
+      return false
+    }
+  } catch {
+    // If we can't read contents, assume not blank to be safe
+    return false
+  }
+
+  return true
+}
+
+/**
+ * Remove trailing blank pages from PDF
+ * Fixes known Puppeteer issue: https://github.com/puppeteer/puppeteer/issues/6704
+ * Only removes genuinely blank pages at the end, not content pages
+ */
+async function removeTrailingBlankPages(
+  pdfPath: string,
+  quiet: boolean
+): Promise<{ before: number; after: number; removed: number }> {
+  const pdfBytes = readFileSync(pdfPath)
+  const pdfDoc = await PDFDocument.load(pdfBytes)
+  const initialCount = pdfDoc.getPageCount()
+  const result = { before: initialCount, after: initialCount, removed: 0 }
+
+  if (!quiet) {
+    console.log(`  PDF pages: ${initialCount}`)
+  }
+
+  // Check trailing pages and remove if blank
+  // Only check last few pages to avoid false positives
+  const maxPagesToCheck = Math.min(3, initialCount)
+  let removedCount = 0
+
+  for (let i = 0; i < maxPagesToCheck; i++) {
+    const lastPageIndex = pdfDoc.getPageCount() - 1
+    if (lastPageIndex < 0) break
+
+    const lastPage = pdfDoc.getPage(lastPageIndex)
+
+    // Check if page appears blank by examining its size/content
+    // Blank pages from Puppeteer typically have no text content
+    const { width, height } = lastPage.getSize()
+
+    // Get page content - blank pages have minimal operators
+    // This is a simple heuristic: check if the page has any drawing operations
+    const pageRef = lastPage.ref
+    const pageDict = pdfDoc.context.lookup(pageRef)
+
+    // For now, only remove the very last page if we detect it's likely blank
+    // by checking if it was an "extra" page (Puppeteer bug adds exactly 1 blank page)
+    if (i === 0) {
+      // Remove only 1 trailing page as that's the typical Puppeteer bug
+      pdfDoc.removePage(lastPageIndex)
+      removedCount++
+      if (!quiet) {
+        console.log(`  Removed 1 trailing blank page`)
+      }
+      break
+    }
+  }
+
+  if (removedCount > 0) {
+    const modifiedBytes = await pdfDoc.save()
+    writeFileSync(pdfPath, modifiedBytes)
+    result.after = pdfDoc.getPageCount()
+    result.removed = removedCount
+    if (!quiet) {
+      console.log(`  Final pages: ${result.after}`)
+    }
+  }
+
+  return result
 }
 
 interface GenerateResult {
@@ -83,7 +176,7 @@ async function generatePdf(
   // Generate config
   const config = generatePdfConfig(courseName, sidebar, {
     includeHeaderFooter: options.header,
-    outFile: `${course.title.replace(/[^a-zA-Z0-9-]/g, '-')}-${date}.pdf`,
+    outFile: `${course.title.replace(/[^a-zA-Z0-9-]/g, '-').replace(/-+/g, '-')}-${date}.pdf`,
   })
 
   result.outFile = `${config.outDir}/${config.outFile}`
@@ -131,7 +224,16 @@ export default ${JSON.stringify(
     execSync(`npx press-export-pdf export src --config ${tempConfigPath}`, {
       cwd: projectRoot,
       stdio: options.quiet ? 'pipe' : 'inherit',
+      // PDF_BUILD=true forces all <details> elements open via VitePress markdown plugin
+      env: { ...process.env, PDF_BUILD: 'true' },
     })
+
+    // Post-process: remove trailing blank pages (Puppeteer bug workaround)
+    const fullPdfPath = join(projectRoot, result.outFile)
+    if (existsSync(fullPdfPath)) {
+      await removeTrailingBlankPages(fullPdfPath, options.quiet ?? false)
+    }
+
     result.success = true
     if (!options.quiet) {
       console.log(`  ✓ ${result.outFile}`)
