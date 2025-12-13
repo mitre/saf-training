@@ -63,7 +63,7 @@ inspec init profile filtertable-test
 
 - Place following file as custom resource in `libraries` directory as `filter.rb`.
 
-:::tip
+::: tip
 You can also use `inspec init resource <your-resource-name>` to create the template for your resource. When following the prompts, you can choose "plural" to create the template for a plural resource.
 :::
 

@@ -11,7 +11,7 @@ Below is a [RedHat 7 example](https://github.com/mitre/redhat-enterprise-linux-7
 
 This pipeline is intended to validate that the RHEL7 InSpec profile functions correctly. We're not too concerned with whether our "hardened" box is actually hardened; we just want to know if InSpec is assessing it correctly.
 
-::: note Why Vanilla and Hardened?
+::: info Why Vanilla and Hardened?
 Having two test suites, where one is hardened and one is not, can be useful for seeing the differences between how a profile behaves on different types of systems.
 
 It also has the added bonus of simultaneously validating that whatever tool we use for hardening is working correctly.
@@ -90,7 +90,7 @@ jobs:
 
 The two machines are then tested by running an InSpec profile. The results are viewed and validated against a threshold to allow the pipeline to automatically pass or fail based on whether the results meet those thresholds. The SAF CLI is used to view and validate.
 
-:::tip Use Examples to Help Automate
+::: tip Use Examples to Help Automate
 To get more information on setting up the whole automation pipeline for your use case, use examples, such as the [RedHat 7 repository](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/). You can view results of the workflows in the [Actions tab](https://github.com/mitre/redhat-enterprise-linux-7-stig-baseline/actions).
 :::
 
