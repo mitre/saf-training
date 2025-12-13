@@ -59,3 +59,6 @@ NEXT-ENHANCEMENTS.md
 # PDF exports (generated files)
 *.pdf
 pdfs/
+
+# Chromium for PDF generation
+chrome/

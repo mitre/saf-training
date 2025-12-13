@@ -1,7 +1,6 @@
 <template>
-  <div v-if="courseVersion" class="course-version">
+  <div v-if="lastUpdated" class="course-version">
     <span class="version-badge site-version">Site v{{ siteVersion }}</span>
-    <span class="version-badge course-version-badge">Course v{{ courseVersion }}</span>
     <span class="version-badge updated-badge">Updated: {{ formattedDate }}</span>
   </div>
 </template>
@@ -15,8 +14,7 @@ const { site, frontmatter } = useData()
 // Site version from config
 const siteVersion = computed(() => site.value.version || '2.0.0')
 
-// Course metadata from frontmatter
-const courseVersion = computed(() => frontmatter.value.courseVersion)
+// Last updated from frontmatter
 const lastUpdated = computed(() => frontmatter.value.lastUpdated)
 
 const formattedDate = computed(() => {
@@ -54,13 +52,6 @@ const formattedDate = computed(() => {
   border: 1px solid var(--vp-c-warning-2);
 }
 
-/* Course version - Blue/Info theme */
-.course-version-badge {
-  background-color: var(--vp-c-info-soft);
-  color: var(--vp-c-info-1);
-  border: 1px solid var(--vp-c-info-2);
-}
-
 /* Updated date - Green/Tip theme */
 .updated-badge {
   background-color: var(--vp-c-tip-soft);
@@ -68,19 +59,5 @@ const formattedDate = computed(() => {
   border: 1px solid var(--vp-c-tip-2);
 }
 
-/* Dark mode adjustments */
-.dark .site-version {
-  background-color: var(--vp-c-warning-soft);
-  color: var(--vp-c-warning-1);
-}
-
-.dark .course-version-badge {
-  background-color: var(--vp-c-info-soft);
-  color: var(--vp-c-info-1);
-}
-
-.dark .updated-badge {
-  background-color: var(--vp-c-tip-soft);
-  color: var(--vp-c-tip-1);
-}
+/* Dark mode automatically handled by VitePress CSS variables */
 </style>
