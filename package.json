@@ -12,17 +12,11 @@
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
-    "pdf:all": "npx press-export-pdf export src --config vitepress-pdf.config.ts",
-    "pdf:getting-started": "npx press-export-pdf export src --config pdf-configs/Getting-Started-SAF-User-Class.config.ts",
-    "pdf:beginner": "npx press-export-pdf export src --config pdf-configs/InSpec-Training-Beginner.config.ts",
-    "pdf:advanced": "npx press-export-pdf export src --config pdf-configs/InSpec-Training-Advanced.config.ts",
-    "pdf:profile-dev": "npx press-export-pdf export src --config pdf-configs/InSpec-Profile-Development.config.ts",
-    "pdf:stig": "npx press-export-pdf export src --config pdf-configs/STIG-Development.config.ts",
-    "pdf:delta": "npx press-export-pdf export src --config pdf-configs/SAF-Delta.config.ts",
-    "pdf:mappers": "npx press-export-pdf export src --config pdf-configs/OHDF-Mapper-Development.config.ts"
+    "pdf": "node --experimental-strip-types scripts/generate-pdf.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "cac": "^6.7.14",
     "flowchart.ts": "^3.0.1",
     "medium-zoom": "^1.1.0",
     "mermaid": "^11.12.2",
