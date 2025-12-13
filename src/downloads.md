@@ -75,12 +75,14 @@ All PDFs below are from this release. Filenames include the release date for ver
 
 ## PDF Features
 
-✅ **Offline access** - Learn without internet connection
-✅ **Complete content** - All lessons, code examples, and images
-✅ **Searchable** - PDF text search works
-✅ **Bookmarks** - Navigate with PDF table of contents
-✅ **Print-friendly** - Formatted for printing
-✅ **Page numbers** - Easy reference
+::: tip What's Included
+- **Offline access** - Learn without internet connection
+- **Complete content** - All lessons, code examples, and images
+- **Searchable** - PDF text search works
+- **Bookmarks** - Navigate with PDF table of contents
+- **Print-friendly** - Formatted for printing
+- **Page numbers** - Easy reference
+:::
 
 ## System Requirements
 
