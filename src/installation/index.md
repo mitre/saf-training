@@ -1,9 +1,6 @@
 ---
-index: true
-icon: page
 title: Installing InSpec On Your Machine
 author: Aaron Lippold
-prev: /
 ---
 
 # Installing InSpec 

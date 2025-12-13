@@ -3,8 +3,6 @@ title: 1. InSpec Advanced Profile Development
 shortTitle: InSpec Advanced
 author: Aaron Lippold
 description: Build custom InSpec resources and integrate into CI/CD pipelines
-courseVersion: "1.0"
-lastUpdated: 2024-12-12
 outline: [2, 5]
 ---
 

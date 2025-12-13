@@ -1,10 +1,6 @@
 ---
-next: 02.md
-icon: page
 title: Class Resources
 author: Mo
-toc:
-  levels: [2, 5]
 ---
 
 # Class Resources

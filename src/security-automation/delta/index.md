@@ -3,8 +3,6 @@ title: 1. Delta Process Developer Class
 shortTitle: SAF Delta
 author: Aaron Lippold
 description: Compare and analyze changes between InSpec profiles
-courseVersion: "1.0"
-lastUpdated: 2024-12-12
 outline: [2, 5]
 ---
 

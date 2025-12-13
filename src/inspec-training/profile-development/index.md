@@ -3,8 +3,6 @@ title: 1. Developing & Testing InSpec Profiles
 shortTitle: Profile Development
 author: Aaron Lippold
 description: Master the complete InSpec profile development lifecycle
-courseVersion: "1.0"
-lastUpdated: 2024-12-12
 outline: [2, 5]
 ---
 
