@@ -12,7 +12,7 @@
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
-    "pdf": "node --experimental-strip-types scripts/generate-pdf.ts"
+    "pdf": "tsx scripts/generate-pdf.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
@@ -21,6 +21,7 @@
     "medium-zoom": "^1.1.0",
     "mermaid": "^11.12.2",
     "pdf-lib": "^1.17.1",
+    "tsx": "^4.21.0",
     "vitepress": "^1.6.4",
     "vitepress-export-pdf": "^1.0.0",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",

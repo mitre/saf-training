@@ -38,6 +38,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Update downloads page with release version
+        run: pnpm tsx scripts/update-downloads.ts
+        # Uses current git tag and today's date to update download links
+
       - name: Build VitePress site
         run: pnpm run docs:build
         env:
@@ -57,6 +61,13 @@ jobs:
             echo "ERROR: Expected 7 PDFs, but only found $PDF_COUNT"
             exit 1
           fi
+
+      - name: Upload PDFs as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: course-pdfs
+          path: pdfs/*.pdf
+          retention-days: 90
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
