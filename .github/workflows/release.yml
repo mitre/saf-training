@@ -34,14 +34,9 @@ jobs:
         env:
           GITHUB_DEPLOY: "true"
 
-      - name: Start preview server for PDF generation
-        run: pnpm run docs:preview &
-
-      - name: Wait for preview server
-        run: sleep 10
-
       - name: Generate PDFs for all courses
         run: pnpm pdf all
+        # press-export-pdf starts its own dev server internally
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
