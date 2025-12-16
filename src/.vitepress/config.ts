@@ -1,0 +1,234 @@
+import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import { generateSidebar } from 'vitepress-sidebar'
+import { fileURLToPath, URL } from 'node:url'
+import type MarkdownIt from 'markdown-it'
+
+// PDF build mode - forces all <details> elements to be open for printing
+const isPdfBuild = process.env.PDF_BUILD === 'true'
+
+/**
+ * Markdown-it plugin to force all details containers open for PDF export
+ * When PDF_BUILD=true, this adds the 'open' attribute to all <details> elements
+ */
+function detailsOpenPlugin(md: MarkdownIt) {
+  // Store the original renderer
+  const defaultDetailsOpen = md.renderer.rules.container_details_open
+
+  md.renderer.rules.container_details_open = (tokens, idx, options, env, self) => {
+    // Add open attribute when in PDF build mode
+    if (isPdfBuild) {
+      tokens[idx].attrSet('open', '')
+    }
+
+    // Call original renderer or default
+    if (defaultDetailsOpen) {
+      return defaultDetailsOpen(tokens, idx, options, env, self)
+    }
+    return self.renderToken(tokens, idx, options)
+  }
+}
+
+// https://vitepress.dev/reference/site-config
+export default withMermaid(
+  defineConfig({
+    title: 'MITRE SAF Training',
+    titleTemplate: ':title - InSpec, STIG Development & Security Automation',
+    description: 'Free comprehensive training for InSpec profile development, STIG creation, and security automation. Learn compliance as code, security testing, and infrastructure validation.',
+
+    base: process.env.GITHUB_DEPLOY === 'true' ? '/saf-training/' : '/',
+
+    // Site-level versioning
+    site: {
+      version: '2.0.0',
+      releaseDate: '2025-12-13'
+    },
+
+    // Ignore dead links for now (can enable later)
+    ignoreDeadLinks: true,
+
+    // Vite configuration for proper asset handling
+    vite: {
+      resolve: {
+        alias: {
+          '@': fileURLToPath(new URL('../', import.meta.url)),
+          // Fix pnpm + mermaid dayjs issue
+          'dayjs': 'dayjs/'
+        }
+      },
+      optimizeDeps: {
+        include: ['mermaid']
+      }
+    },
+
+    // SEO: Meta tags
+    head: [
+      ['meta', { name: 'keywords', content: 'InSpec training, STIG development, security automation, compliance as code, InSpec tutorial, STIG automation, security testing, infrastructure testing, DoD compliance, FedRAMP' }],
+      ['meta', { property: 'og:title', content: 'MITRE SAF Training - Free InSpec & Security Automation Courses' }],
+      ['meta', { property: 'og:description', content: 'Master InSpec, STIG development, and security automation with hands-on training from MITRE.' }],
+      ['meta', { property: 'og:type', content: 'website' }],
+      ['meta', { property: 'og:url', content: 'https://mitre.github.io/saf-training/' }],
+      ['meta', { property: 'og:image', content: 'https://mitre.github.io/saf-training/logo.svg' }],
+      ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+      ['link', { rel: 'canonical', href: 'https://mitre.github.io/saf-training/' }]
+    ],
+
+    themeConfig: {
+      logo: '/logo.svg',
+
+      // SEO-Optimized Navigation
+      nav: [
+        { text: 'Home', link: '/' },
+        { text: 'Getting Started', link: '/getting-started/' },
+        {
+          text: 'InSpec Training',
+          items: [
+            { text: 'Beginner Tutorial', link: '/inspec-training/beginner/' },
+            { text: 'Advanced Development', link: '/inspec-training/advanced/' },
+            { text: 'Profile Development & Testing', link: '/inspec-training/profile-development/' },
+          ]
+        },
+        {
+          text: 'STIG Development',
+          link: '/stig-development/'
+        },
+        {
+          text: 'Security Automation',
+          items: [
+            { text: 'SAF Delta Tool', link: '/security-automation/delta/' },
+            { text: 'OHDF Mapper Development', link: '/security-automation/mappers/' },
+          ]
+        },
+        {
+          text: 'Resources',
+          items: [
+            { text: 'Download PDFs', link: '/downloads' },
+            { text: 'Lab Environments', link: '/resources/02' },
+            { text: 'Training Development', link: '/resources/03' },
+            { text: 'Installation', link: '/installation/' },
+          ]
+        }
+      ],
+
+      // Auto-generated sidebars with proper titles
+      sidebar: generateSidebar([
+        {
+          documentRootPath: 'src',
+          scanStartPath: 'getting-started',
+          resolvePath: '/getting-started/',
+          useTitleFromFrontmatter: true,
+          useFolderTitleFromIndexFile: true,
+          sortMenusByFrontmatterOrder: false,
+          sortMenusOrderByDescending: false,
+          collapsed: false,
+          hyphenToSpace: true,
+          excludeFiles: ['06-vitepress.md', 'index-vuepress.md'],
+        },
+        {
+          documentRootPath: 'src',
+          scanStartPath: 'inspec-training/beginner',
+          resolvePath: '/inspec-training/beginner/',
+          useTitleFromFrontmatter: true,
+          useFolderTitleFromIndexFile: true,
+          sortMenusByFrontmatterOrder: false,
+          sortMenusOrderByDescending: false,
+          collapsed: false,
+          hyphenToSpace: true,
+          excludeFiles: ['06-vitepress.md'],
+        },
+        {
+          documentRootPath: 'src',
+          scanStartPath: 'inspec-training/advanced',
+          resolvePath: '/inspec-training/advanced/',
+          useTitleFromFrontmatter: true,
+          useFolderTitleFromIndexFile: true,
+          sortMenusByFrontmatterOrder: false,
+          sortMenusOrderByDescending: false,
+          collapsed: false,
+          hyphenToSpace: true,
+        },
+        {
+          documentRootPath: 'src',
+          scanStartPath: 'inspec-training/profile-development',
+          resolvePath: '/inspec-training/profile-development/',
+          useTitleFromFrontmatter: true,
+          useFolderTitleFromIndexFile: true,
+          sortMenusByFrontmatterOrder: false,
+          sortMenusOrderByDescending: false,
+          collapsed: false,
+          hyphenToSpace: true,
+        },
+        {
+          documentRootPath: 'src',
+          scanStartPath: 'stig-development',
+          resolvePath: '/stig-development/',
+          useTitleFromFrontmatter: true,
+          useFolderTitleFromIndexFile: true,
+          sortMenusByFrontmatterOrder: false,
+          sortMenusOrderByDescending: false,
+          collapsed: false,
+          hyphenToSpace: true,
+        },
+        {
+          documentRootPath: 'src',
+          scanStartPath: 'security-automation/delta',
+          resolvePath: '/security-automation/delta/',
+          useTitleFromFrontmatter: true,
+          useFolderTitleFromIndexFile: true,
+          sortMenusByFrontmatterOrder: false,
+          sortMenusOrderByDescending: false,
+          collapsed: false,
+          hyphenToSpace: true,
+        },
+        {
+          documentRootPath: 'src',
+          scanStartPath: 'security-automation/mappers',
+          resolvePath: '/security-automation/mappers/',
+          useTitleFromFrontmatter: true,
+          useFolderTitleFromIndexFile: true,
+          sortMenusByFrontmatterOrder: false,
+          sortMenusOrderByDescending: false,
+          collapsed: false,
+          hyphenToSpace: true,
+        }
+      ]),
+
+      socialLinks: [
+        { icon: 'github', link: 'https://github.com/mitre/saf-training' }
+      ],
+
+      footer: {
+        message: 'Apache-2.0 | Copyright © 2023 | The MITRE Corporation',
+      },
+
+      // Search
+      search: {
+        provider: 'local'
+      }
+    },
+
+    // Markdown configuration
+    markdown: {
+      // Enable line numbers in code blocks
+      lineNumbers: true,
+
+      // Markdown-it plugins
+      config: (md) => {
+        md.use(tabsMarkdownPlugin)
+        // Force details open for PDF export (when PDF_BUILD=true)
+        md.use(detailsOpenPlugin)
+      },
+
+      // Math support (if needed)
+      // math: true,
+    },
+
+    // Mermaid uses default theme - automatically adapts to light/dark mode
+
+    // Sitemap generation
+    sitemap: {
+      hostname: 'https://mitre.github.io/saf-training/'
+    }
+  })
+)

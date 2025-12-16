@@ -1,0 +1,81 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  # Allow manual workflow dispatch for testing
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release (e.g., v2.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for release notes
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Update downloads page with release version
+        run: pnpm tsx scripts/update-downloads.ts
+        # Uses current git tag and today's date to update download links
+
+      - name: Build VitePress site
+        run: pnpm run docs:build
+        env:
+          GITHUB_DEPLOY: "true"
+
+      - name: Generate PDFs for all courses
+        run: pnpm pdf all
+        # press-export-pdf starts its own dev server internally
+
+      - name: Verify PDF generation
+        run: |
+          echo "Generated PDFs:"
+          ls -lh pdfs/*.pdf
+          PDF_COUNT=$(ls -1 pdfs/*.pdf 2>/dev/null | wc -l)
+          echo "Total PDFs: $PDF_COUNT"
+          if [ "$PDF_COUNT" -lt 7 ]; then
+            echo "ERROR: Expected 7 PDFs, but only found $PDF_COUNT"
+            exit 1
+          fi
+
+      - name: Upload PDFs as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: course-pdfs
+          path: pdfs/*.pdf
+          retention-days: 90
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: pdfs/*.pdf
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
