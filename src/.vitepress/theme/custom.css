@@ -35,3 +35,14 @@ html:not(.dark) .medium-zoom-overlay {
 html.dark .medium-zoom-overlay {
   background: rgba(0, 0, 0, 0.9) !important;
 }
+
+/* Light/Dark Mode Image Variants */
+/* Hide dark mode images in light mode */
+html:not(.dark) img[src$="#dark"] {
+  display: none;
+}
+
+/* Hide light mode images in dark mode */
+html.dark img[src$="#light"] {
+  display: none;
+}
