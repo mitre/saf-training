@@ -40,10 +40,28 @@ Understanding of version control
 
 ---
 
+## What Is the Delta Process?
+
+When security guidance is updated (such as a new STIG version release), InSpec profiles need to be updated to match the new requirements. Manually updating profiles is:
+- ⏱️ Time-consuming (reviewing 200+ controls one by one)
+- 🐛 Error-prone (easy to miss changes or introduce mistakes)
+- 😓 Tedious (repetitive metadata updates)
+
+**The SAF delta process automates this update**, handling:
+- ✅ Renamed controls (ID changed between versions)
+- ✅ New controls (added in new guidance)
+- ✅ Removed controls (deprecated in new guidance)
+- ✅ Metadata updates (severity, descriptions, check/fix procedures)
+- ✅ Preserving your test code (the Ruby describe blocks you wrote)
+
+**Result**: What previously took days now takes minutes, with detailed reports of all changes.
+
+---
+
 ## Ready to Start?
 
 ::: tip Begin Learning
-Start your journey into saf delta.
+Start your journey with SAF Delta.
 
 [Begin Lesson 2 →](02.md)
 :::
