@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.26",
-    "cypress": "^15.8.0",
+    "cypress": "^15.8.1",
     "cypress-each": "^1.14.1",
     "flowchart.ts": "^3.0.1",
     "mermaid": "^11.12.2",
