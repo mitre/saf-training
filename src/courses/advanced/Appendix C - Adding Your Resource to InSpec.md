@@ -2,7 +2,8 @@
 order: 16
 title: Appendix C - Adding Your Resource to InSpec
 author: Aaron Lippold
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 Many of the official InSpec resources were written by community members. If you have created a resource for your project and would like to make it part of the official library, you can open a pull request against the InSpec codebase.
