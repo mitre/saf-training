@@ -24,6 +24,9 @@ actions:
   - text: SAF Delta
     link: /courses/delta/
     type: primary
+  - text: OHDF Mapper Development Class
+    link: /courses/mappers/
+    type: primary
  
 highlights:
   - header: What You Will Learn
