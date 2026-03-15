@@ -23,9 +23,14 @@ export default {
     const { frontmatter } = toRefs(useData())
     const route = useRoute()
 
-    // Image zoom functionality
+    // Image zoom functionality - single instance to avoid listener leaks
+    let zoom: ReturnType<typeof mediumZoom> | null = null
+
     const initZoom = () => {
-      mediumZoom('.main img', { background: 'var(--vp-c-bg)' })
+      if (zoom) {
+        zoom.detach()
+      }
+      zoom = mediumZoom('.main img', { background: 'var(--vp-c-bg)' })
     }
 
     onMounted(() => {

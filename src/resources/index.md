@@ -7,7 +7,7 @@ author: Mo
 
 ## Security Guidance
 
-- [DISA Cyber.mil STIG Downlaods](https://public.cyber.mil/stigs/downloads/)
+- [DISA Cyber.mil STIG Downloads](https://public.cyber.mil/stigs/downloads/)
 - [Center for Internet Security Benchmarks](https://www.cisecurity.org/cis-benchmarks/)
 
 ## MITRE SAF(tm) InSpec Profiles

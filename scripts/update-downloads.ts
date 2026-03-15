@@ -13,7 +13,7 @@
 
 import { readFileSync, writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
+import { dirname, join, resolve } from 'path'
 import { execSync } from 'child_process'
 
 // Get project root
@@ -32,9 +32,10 @@ interface UpdateOptions {
 function getVersion(): string {
   try {
     // Try to get current git tag
-    const tag = execSync('git describe --tags --exact-match 2>/dev/null', {
+    const tag = execSync('git describe --tags --exact-match', {
       cwd: projectRoot,
       encoding: 'utf-8',
+      stdio: ['pipe', 'pipe', 'pipe'],
     }).trim()
     return tag
   } catch {
@@ -129,7 +130,7 @@ Examples:
 }
 
 // Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   const options = parseArgs()
   updateDownloads(options)
 }

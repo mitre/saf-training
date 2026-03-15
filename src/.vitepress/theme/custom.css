@@ -19,7 +19,7 @@
   --vp-c-bg: #ffffff;
   --vp-c-bg-soft: #f6f6f7;
   --vp-c-bg-alt: #f1f1f2;
-  --vp-c-text-1: rgba(60, 60, 67);
+  --vp-c-text-1: rgba(60, 60, 67, 1);
   --vp-c-text-2: rgba(60, 60, 67, 0.78);
   --vp-c-text-3: rgba(60, 60, 67, 0.56);
   --vp-c-divider: rgba(60, 60, 67, 0.12);
