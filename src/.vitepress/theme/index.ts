@@ -5,11 +5,13 @@ import { useData, useRoute } from 'vitepress'
 import { toRefs, onMounted, watch, nextTick } from 'vue'
 import mediumZoom from 'medium-zoom'
 import CourseVersion from './components/CourseVersion.vue'
+import Layout from './Layout.vue'
 import './custom.css'
 import './print.css'
 
 export default {
   extends: DefaultTheme,
+  Layout,
 
   enhanceApp({ app }) {
     enhanceAppWithTabs(app)

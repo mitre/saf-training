@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import { markdownItSmartScript } from './plugins/markdown-it-smartscript'
 import { generateSidebar } from 'vitepress-sidebar'
 import { fileURLToPath, URL } from 'node:url'
 import type MarkdownIt from 'markdown-it'
@@ -33,8 +34,8 @@ function detailsOpenPlugin(md: MarkdownIt) {
 // https://vitepress.dev/reference/site-config
 export default withMermaid(
   defineConfig({
-    title: 'MITRE SAF Training',
-    titleTemplate: ':title - InSpec, STIG Development & Security Automation',
+    title: 'MITRE SAF™ Training',
+    titleTemplate: ':title - MITRE SAF Training',
     description: 'Free comprehensive training for InSpec profile development, STIG creation, and security automation. Learn compliance as code, security testing, and infrastructure validation.',
 
     base: process.env.GITHUB_DEPLOY === 'true' ? '/saf-training/' : '/',
@@ -64,6 +65,11 @@ export default withMermaid(
 
     // SEO: Meta tags
     head: [
+      ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+      // Osano cookie consent (required by MITRE Privacy - must be first script)
+      ['script', { src: 'https://cmp.osano.com/AzyhULTdPkqmy4aDN/f0e8e901-3feb-47c4-bd04-96df98c75dab/osano.js' }],
+      // Hide Osano's default widget (we trigger via footer link instead)
+      ['style', {}, '.osano-cm-widget{display: none;}'],
       ['meta', { name: 'keywords', content: 'InSpec training, STIG development, security automation, compliance as code, InSpec tutorial, STIG automation, security testing, infrastructure testing, DoD compliance, FedRAMP' }],
       ['meta', { property: 'og:title', content: 'MITRE SAF Training - Free InSpec & Security Automation Courses' }],
       ['meta', { property: 'og:description', content: 'Master InSpec, STIG development, and security automation with hands-on training from MITRE.' }],
@@ -198,13 +204,20 @@ export default withMermaid(
         { icon: 'github', link: 'https://github.com/mitre/saf-training' }
       ],
 
-      footer: {
-        message: 'Apache-2.0 | Copyright © 2023 | The MITRE Corporation',
-      },
+      // Footer is rendered in Layout.vue for customization (privacy policy + cookie management)
 
-      // Search
+      // Search - tuned to match saf-site configuration
       search: {
-        provider: 'local'
+        provider: 'local',
+        options: {
+          miniSearch: {
+            searchOptions: {
+              fuzzy: 0.2,
+              prefix: true,
+              boost: { title: 6, text: 2, titles: 1 },
+            },
+          },
+        }
       }
     },
 
@@ -216,6 +229,11 @@ export default withMermaid(
       // Markdown-it plugins
       config: (md) => {
         md.use(tabsMarkdownPlugin)
+        md.use(markdownItSmartScript, {
+          trademark: true,
+          registered: true,
+          copyright: true,
+        })
         // Force details open for PDF export (when PDF_BUILD=true)
         md.use(detailsOpenPlugin)
       },

@@ -10,7 +10,7 @@ author: Mo
 - [DISA Cyber.mil STIG Downlaods](https://public.cyber.mil/stigs/downloads/)
 - [Center for Internet Security Benchmarks](https://www.cisecurity.org/cis-benchmarks/)
 
-## MITRE SAF InSpec Profiles
+## MITRE SAF(tm) InSpec Profiles
 
 - [All MITRE InSpec Profile Repositories](https://github.com/mitre?q=inspec+baseline+profile)
 - [RedHat 8 Profile](https://github.com/CMSgov/redhat-enterprise-linux-8-stig-baseline)
@@ -18,11 +18,11 @@ author: Mo
 
 ## MITRE SAF Tools
 - [SAF CLI](https://github.com/mitre/saf)  
-- [Heimdall Lite](https://mitre.github.io/heimdall-lite/#)  
+- [Heimdall(tm) Lite](https://mitre.github.io/heimdall-lite/#)  
 - [Heimdall Lite Github Repo](https://github.com/mitre/heimdall-lite)  
 - [Heimdall Server (with backend database, compare and trending)](https://github.com/mitre/heimdall)
 
-## Vulcan Resources
+## Vulcan(tm) Resources
 
 ### Docs
 1. [Vulcan full documentation](https://saf.mitre.org/docs/vulcan-install)

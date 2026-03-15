@@ -6,7 +6,7 @@ description: Learn to use the MITRE Security Automation Framework for automated 
 outline: [2, 5]
 ---
 
-# SAF User Class
+# SAF(tm) User Class
 
 <CourseVersion />
 
@@ -20,7 +20,7 @@ By the end of this course, you'll be able to:
 - ✅ Identify and locate security guidance for software components
 - ✅ Understand the SAF pillars: Plan, Harden, Validate, Normalize, Visualize
 - ✅ Run InSpec profiles to validate security compliance
-- ✅ Visualize security results in Heimdall
+- ✅ Visualize security results in Heimdall(tm)
 - ✅ Export compliance data for reporting
 - ✅ Integrate SAF tools into your security workflow
 

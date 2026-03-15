@@ -1,6 +1,43 @@
 /**
  * Custom styles for VitePress theme
+ *
+ * Brand colors aligned with saf.mitre.org (saf-site)
  */
+
+/* ==========================================================================
+   MITRE SAF Brand Colors
+   Aligned with saf-site to maintain consistent identity across properties
+   ========================================================================== */
+
+:root {
+  /* MITRE brand */
+  --vp-c-brand-1: #005288;
+  --vp-c-brand-2: #0066a8;
+  --vp-c-brand-3: #0080cc;
+
+  /* Background & text */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-soft: #f6f6f7;
+  --vp-c-bg-alt: #f1f1f2;
+  --vp-c-text-1: rgba(60, 60, 67);
+  --vp-c-text-2: rgba(60, 60, 67, 0.78);
+  --vp-c-text-3: rgba(60, 60, 67, 0.56);
+  --vp-c-divider: rgba(60, 60, 67, 0.12);
+}
+
+.dark {
+  --vp-c-brand-1: #005288;
+  --vp-c-brand-2: #0066a8;
+  --vp-c-brand-3: #0080cc;
+
+  --vp-c-bg: #1b1b1f;
+  --vp-c-bg-soft: #202127;
+  --vp-c-bg-alt: #161618;
+  --vp-c-text-1: rgba(255, 255, 245, 0.86);
+  --vp-c-text-2: rgba(235, 235, 245, 0.6);
+  --vp-c-text-3: rgba(235, 235, 245, 0.38);
+  --vp-c-divider: rgba(82, 82, 89, 0.32);
+}
 
 /* Enhanced medium-zoom modal with blurred background */
 .medium-zoom-overlay {
@@ -45,4 +82,46 @@ html:not(.dark) img[src$="#dark"] {
 /* Hide light mode images in dark mode */
 html.dark img[src$="#light"] {
   display: none;
+}
+
+/* ==========================================================================
+   SmartScript - Smart Typography Transformations
+   Aligned with saf-site for consistent trademark/registered symbol rendering
+   ========================================================================== */
+
+:root {
+  --ss-tm-font-size: 0.75em;
+  --ss-tm-top: -0.35em;
+  --ss-heading-font-size: 0.6em;
+  --ss-heading-tm-top: -0.5em;
+  --ss-margin-left: 0.05em;
+  --ss-margin-right: 0.1em;
+}
+
+.ss-tm {
+  font-size: var(--ss-tm-font-size);
+  line-height: 0;
+  position: relative;
+  top: var(--ss-tm-top);
+  vertical-align: baseline;
+  margin-left: var(--ss-margin-left);
+  margin-right: var(--ss-margin-right);
+  font-weight: inherit;
+}
+
+.ss-reg {
+  font-size: var(--ss-tm-font-size);
+  line-height: 0;
+  position: relative;
+  top: calc(var(--ss-tm-top) + 0.05em);
+  vertical-align: baseline;
+  margin-left: var(--ss-margin-left);
+  margin-right: var(--ss-margin-right);
+  font-weight: inherit;
+}
+
+:is(h1, h2, h3, h4, h5, h6) .ss-tm,
+:is(h1, h2, h3, h4, h5, h6) .ss-reg {
+  font-size: var(--ss-heading-font-size);
+  top: var(--ss-heading-tm-top);
 }

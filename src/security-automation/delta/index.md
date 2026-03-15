@@ -6,7 +6,7 @@ description: Compare and analyze changes between InSpec profiles
 outline: [2, 5]
 ---
 
-# SAF Delta
+# SAF(tm) Delta
 
 <CourseVersion />
 

@@ -11,7 +11,7 @@ outline: [2, 5]
 <CourseVersion />
 
 
-> Create STIG-ready security guidance with Vulcan
+> Create STIG-ready security guidance with Vulcan(tm)
 
 ## What You'll Learn
 
@@ -43,7 +43,7 @@ Basic YAML and markdown knowledge
 ## Ready to Start?
 
 ::: tip Begin Learning
-Start your journey into stig development.
+Start your journey into STIG development.
 
 [Begin Lesson 2 →](02.md)
 :::

@@ -17,7 +17,7 @@ All PDFs below are from this release. Filenames include the release date for ver
 
 ### Getting Started
 
-**SAF User Class** - Learn to use the MITRE Security Automation Framework
+**SAF(tm) User Class** - Learn to use the MITRE Security Automation Framework
 - 16 lessons + 1 appendix
 - No coding required
 
@@ -51,7 +51,7 @@ All PDFs below are from this release. Filenames include the release date for ver
 
 **STIG Development** - Create STIG-ready security guidance
 - 14 lessons
-- Vulcan platform
+- Vulcan(tm) platform
 
 📥 [Download STIG Development PDF](https://github.com/mitre/saf-training/releases/download/v2.0.0/STIG-Development-2025-12-13.pdf)
 

@@ -9,7 +9,7 @@ description: Learn to build OHDF mappers to convert security tool outputs into t
 
 <CourseVersion />
 
-> Transform any security tool output into the standardized OASIS Heimdall Data Format (OHDF)
+> Transform any security tool output into the standardized OASIS Heimdall(tm) Data Format (OHDF)
 
 ## What You'll Learn
 
@@ -19,7 +19,7 @@ By the end of this course, you'll be able to:
 - ✅ Identify and break down key components of security tool exports
 - ✅ Map security data fields to OHDF schema fields
 - ✅ Build production-ready *-to-OHDF mappers
-- ✅ Integrate mappers into the SAF ecosystem
+- ✅ Integrate mappers into the SAF(tm) ecosystem
 - ✅ Contribute to the open-source OHDF Converters library
 
 ## Course Structure

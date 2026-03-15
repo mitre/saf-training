@@ -21,7 +21,7 @@ By the end of this course, you'll be able to:
 - ✅ Extend InSpec to test new components
 - ✅ Integrate InSpec into CI/CD pipelines
 - ✅ Use GitHub Actions for automated testing
-- ✅ Validate results with SAF CLI
+- ✅ Validate results with SAF(tm) CLI
 - ✅ Contribute resources back to InSpec
 
 ## Prerequisites
