@@ -20,7 +20,7 @@
     "cypress-each": "^1.14.1",
     "flowchart.ts": "^3.0.1",
     "mermaid": "^11.15.0",
-    "start-server-and-test": "^3.0.4",
+    "start-server-and-test": "^3.0.5",
     "vue": "^3.5.34",
     "vuepress": "2.0.0-rc.26",
     "vuepress-theme-hope": "2.0.0-rc.103"
