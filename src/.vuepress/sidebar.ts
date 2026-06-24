@@ -32,7 +32,7 @@ export default sidebar({
       children: "structure",
       collapsible: true
     },
-        {
+    {
       icon: "creative",
       text: "InSpec Profile Development & Testing",
       prefix: "courses/profile-dev-test/",
@@ -46,6 +46,12 @@ export default sidebar({
       children: "structure",
       collapsible: true
     },
-
+    {
+      icon: "creative",
+      text: "OHDF Mapper Class",
+      prefix: "courses/mappers/",
+      children: "structure",
+      collapsible: true
+    },
   ],
 });

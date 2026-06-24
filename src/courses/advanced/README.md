@@ -4,7 +4,8 @@ next: 02.md
 title: 1. InSpec Advanced Profile Development
 shortTitle: 1. Advanced Profile Development
 author: Aaron Lippold
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 ## 1.1 Class Objectives
