@@ -21,7 +21,7 @@
     "flowchart.ts": "^3.0.1",
     "mermaid": "^11.16.1",
     "start-server-and-test": "^3.0.12",
-    "vue": "^3.5.40",
+    "vue": "^3.5.41",
     "vuepress": "2.0.0-rc.26",
     "vuepress-theme-hope": "2.0.0-rc.103"
   }
