@@ -1,0 +1,6 @@
+[build]
+  publish = "src/.vuepress/dist"
+  command = "npm ci && npm run docs:build"
+
+[build.environment]
+  NODE_VERSION = "22"

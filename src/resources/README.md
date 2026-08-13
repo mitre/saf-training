@@ -3,7 +3,8 @@ next: 02.md
 icon: page
 title: Class Resources
 author: Mo
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 # Class Resources

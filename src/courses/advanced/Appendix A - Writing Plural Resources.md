@@ -2,7 +2,8 @@
 order: 14
 title: Appendix A - Writing Plural Resources
 author: Aaron Lippold
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 ## Plural Resources
