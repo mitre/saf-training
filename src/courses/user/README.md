@@ -4,7 +4,8 @@ next: 02.md
 title: SAF User Class
 shortTitle: 1. SAF User Class
 author: Aaron Lippold
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 ## 1.1 Class Overview
