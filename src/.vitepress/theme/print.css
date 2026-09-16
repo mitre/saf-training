@@ -1,0 +1,305 @@
+/**
+ * Print Styles for PDF Export
+ *
+ * Battle-tested patterns from Tailwind, Bootstrap, and CSS-Tricks
+ * https://dev.to/andreasbergstrom/how-to-easily-use-media-queries-for-print-in-tailwind-2o9a
+ * https://css-tricks.com/forums/topic/how-do-i-expand-accordions-for-printing-pages-using-css/
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/print-color-adjust
+ */
+
+/* ==========================================================================
+   Page Setup
+   ========================================================================== */
+
+@page {
+  /* Tighter margins = more content per page = fewer awkward breaks */
+  margin: 15mm 10mm 15mm 10mm;
+}
+
+@media print {
+
+  /* ==========================================================================
+     Color Preservation - Syntax Highlighting
+     Force browsers to print background colors and images (especially for code)
+     https://developer.mozilla.org/en-US/docs/Web/CSS/print-color-adjust
+     ========================================================================== */
+
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important; /* deprecated but still needed for some browsers */
+  }
+
+  /* Explicit targeting for Shiki/Prism syntax highlighting */
+  .vp-code,
+  .vp-code span,
+  pre[class*="language-"],
+  pre[class*="language-"] span,
+  code[class*="language-"],
+  div[class*="language-"] span,
+  .shiki,
+  .shiki span {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* ==========================================================================
+     Accordion/Details Elements - Force Open for Print
+     https://css-tricks.com/forums/topic/how-do-i-expand-accordions-for-printing-pages-using-css/
+     https://github.com/twbs/bootstrap/issues/12130
+     ========================================================================== */
+
+  /* Force all <details> elements to display as open */
+  details {
+    display: block !important;
+  }
+
+  details > summary {
+    display: block !important;
+    cursor: default !important;
+  }
+
+  /* Hide the disclosure triangle in print */
+  details > summary::marker,
+  details > summary::-webkit-details-marker {
+    display: none !important;
+  }
+
+  /* Force details content to be visible */
+  details > *:not(summary) {
+    display: block !important;
+  }
+
+  /* VitePress custom container details blocks */
+  .details,
+  .vp-doc details,
+  div[class*="details"] {
+    display: block !important;
+  }
+
+  .details > summary,
+  .vp-doc details > summary {
+    display: block !important;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+
+  .details > *:not(summary),
+  .vp-doc details > *:not(summary) {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* ==========================================================================
+     Hide Interactive & Navigation Elements
+     Best practice: nav, footer, search, buttons serve no purpose in print
+     https://didoesdigital.com/blog/print-styles/
+     ========================================================================== */
+
+  /* VitePress navigation */
+  .VPNav,
+  .VPLocalNav,
+  .VPSidebar,
+  .VPDocFooter,
+  .VPFooter,
+  .VPNavBar,
+  .VPNavBarTitle,
+  .VPNavBarMenu {
+    display: none !important;
+  }
+
+  /* Sidebar and outline */
+  .VPDocAsideOutline,
+  .VPDocAside,
+  aside {
+    display: none !important;
+  }
+
+  /* Search */
+  .VPNavBarSearch,
+  .DocSearch,
+  .search-box {
+    display: none !important;
+  }
+
+  /* Giscus comments - comprehensive selectors */
+  iframe.giscus-frame,
+  iframe[src*="giscus"],
+  .giscus,
+  .giscus-frame,
+  [class*="giscus"],
+  [id*="giscus"],
+  [data-giscus],
+  .comments,
+  .comment-section,
+  #giscus-comments {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide content after main doc (catches any trailing widgets) */
+  .VPDoc .container ~ * {
+    display: none !important;
+  }
+
+  /* ==========================================================================
+     Layout - Full Width Content
+     ========================================================================== */
+
+  .VPDoc,
+  .VPContent {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .vp-doc {
+    max-width: 100% !important;
+  }
+
+  /* ==========================================================================
+     Code Blocks - Prevent Overflow
+     Long lines should wrap rather than overflow the page margin
+     ========================================================================== */
+
+  pre,
+  code,
+  .vp-code,
+  div[class*="language-"] {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  div[class*="language-"] pre {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* ==========================================================================
+     Page Break Control
+     Prevent awkward breaks in the middle of content
+     ========================================================================== */
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+    /* Prevent orphaned headings at bottom of page */
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep heading + following paragraph + code block together as a unit */
+  h2 + p,
+  h3 + p,
+  h2 + p + pre,
+  h2 + p + div[class*="language-"],
+  h3 + p + pre,
+  h3 + p + div[class*="language-"] {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* If a heading would be orphaned at page bottom, move it to next page */
+  h2, h3 {
+    /* Require at least 150px of content after heading on same page */
+    /* If not available, heading moves to next page */
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  pre,
+  code,
+  img,
+  table,
+  figure,
+  blockquote {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep details/accordion blocks together when possible */
+  details {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* CRITICAL: Keep summary attached to its content - prevents blank pages */
+  details > summary {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* If details block is too large, at least keep summary with first chunk of content */
+  details > summary + * {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* Prevent widows and orphans - increased for better page flow */
+  p {
+    widows: 4;
+    orphans: 4;
+  }
+
+  /* Apply to list items and other text blocks too */
+  li, dd, dt {
+    widows: 3;
+    orphans: 3;
+  }
+
+  /* ==========================================================================
+     Blank Page Fix - Puppeteer Bug Workaround
+     https://github.com/puppeteer/puppeteer/issues/6704
+     https://github.com/puppeteer/puppeteer/issues/589
+     ========================================================================== */
+
+  html,
+  body {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Remove VitePress min-height that can cause blank pages */
+  .VPContent,
+  .VPDoc,
+  .VPDoc .container,
+  .vp-doc,
+  main,
+  #app,
+  #VPContent {
+    min-height: unset !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Remove trailing margins/padding */
+  .VPContent:last-child,
+  .VPDoc:last-child,
+  .vp-doc:last-child,
+  main:last-child,
+  .content:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Prevent page break after last content */
+  .vp-doc > *:last-child,
+  .VPDoc > *:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+    margin-bottom: 0 !important;
+  }
+}
