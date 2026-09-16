@@ -23,4 +23,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build: npm run docs:build
-          start: npm run ci
+          start: npm run start-server
+          wait-on: "http://localhost:8080"
