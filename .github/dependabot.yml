@@ -17,3 +17,7 @@ updates:
           - "@vuepress/*"
           - "vuepress"
           - "vuepress-theme-hope"
+          # These are peer dependencies of the theme and its chart plugin.
+          - "vue"
+          - "sass"
+          - "mermaid"
