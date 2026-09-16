@@ -6,7 +6,7 @@
  */
 
 import cac from 'cac'
-import { execSync } from 'child_process'
+import { execFileSync } from 'child_process'
 import { existsSync, mkdirSync, writeFileSync, readFileSync, unlinkSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
@@ -16,6 +16,11 @@ import { PDFDocument } from 'pdf-lib'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const projectRoot = join(__dirname, '..')
+
+// Resolve the exporter from the local install rather than relying on a PATH
+// lookup (npx). Passed to execFileSync as argv[0] with no shell, so paths
+// containing spaces or shell metacharacters are handled literally.
+const pressExportPdfBin = join(projectRoot, 'node_modules', '.bin', 'press-export-pdf')
 
 // Import our unified config
 import {
@@ -215,13 +220,20 @@ export default ${JSON.stringify(
     return result
   }
 
+  if (!existsSync(pressExportPdfBin)) {
+    result.error =
+      `press-export-pdf not found at ${pressExportPdfBin}. ` +
+      `Run \`pnpm install\` before generating PDFs.`
+    return result
+  }
+
   writeFileSync(tempConfigPath, configContent)
 
   try {
     if (!options.quiet) {
       console.log(`  Running press-export-pdf...`)
     }
-    execSync(`npx press-export-pdf export src --config ${tempConfigPath}`, {
+    execFileSync(pressExportPdfBin, ['export', 'src', '--config', tempConfigPath], {
       cwd: projectRoot,
       stdio: options.quiet ? 'pipe' : 'inherit',
       // PDF_BUILD=true forces all <details> elements open via VitePress markdown plugin
