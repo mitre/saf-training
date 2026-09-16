@@ -20,6 +20,22 @@ export interface SmartScriptOptions {
 }
 
 /**
+ * Escape HTML-special characters, matching markdown-it's own text renderer.
+ *
+ * Required because a transformed token is emitted as raw html_inline: any
+ * `<` or `&` left in the surrounding prose would otherwise reach Vue's SFC
+ * template compiler unescaped, which fails the build ("Invalid end tag") on
+ * ordinary text like `a<b (tm)`.
+ */
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+/**
  * Transform text with smart typography
  */
 function transformText(text: string, options: SmartScriptOptions): string {
@@ -57,9 +73,12 @@ function processInlineTokens(tokens: any[], options: SmartScriptOptions): void {
 
     // Transform text tokens (but skip code_inline)
     if (token.type === 'text') {
-      const transformed = transformText(token.content, options)
+      // Escape first: the token is emitted raw once reclassified as html_inline,
+      // so every character except our own injected markup must already be safe.
+      const escaped = escapeHtml(token.content)
+      const transformed = transformText(escaped, options)
 
-      if (transformed !== token.content) {
+      if (transformed !== escaped) {
         // Replace text token with html_inline token to preserve transformations
         token.type = 'html_inline'
         token.content = transformed
