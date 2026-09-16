@@ -240,11 +240,16 @@ export default ${JSON.stringify(
       env: { ...process.env, PDF_BUILD: 'true' },
     })
 
-    // Post-process: remove trailing blank pages (Puppeteer bug workaround)
+    // press-export-pdf can exit 0 even when its internal browser launch fails,
+    // so treat a missing output file as a failure rather than reporting success.
     const fullPdfPath = join(projectRoot, result.outFile)
-    if (existsSync(fullPdfPath)) {
-      await removeTrailingBlankPages(fullPdfPath, options.quiet ?? false)
+    if (!existsSync(fullPdfPath)) {
+      result.error = `press-export-pdf exited 0 but produced no file at ${result.outFile}`
+      return result
     }
+
+    // Post-process: remove trailing blank pages (Puppeteer bug workaround)
+    await removeTrailingBlankPages(fullPdfPath, options.quiet ?? false)
 
     result.success = true
     if (!options.quiet) {
@@ -276,6 +281,9 @@ cli
       process.exit(2)
     }
     const result = await generatePdf(courseName as CourseName, options)
+    if (!result.success && result.error) {
+      console.error(`  ✗ ${result.error}`)
+    }
     process.exit(result.success ? 0 : 1)
   })
 
@@ -292,6 +300,9 @@ cli
     }
     const failed = results.filter((r) => !r.success)
     if (failed.length) {
+      for (const f of failed) {
+        console.error(`  ✗ ${f.course}: ${f.error ?? 'unknown error'}`)
+      }
       console.error(`\nFailed: ${failed.map((r) => r.course).join(', ')}`)
       process.exit(1)
     }
