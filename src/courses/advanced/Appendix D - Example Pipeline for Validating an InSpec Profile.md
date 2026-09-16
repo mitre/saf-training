@@ -2,7 +2,8 @@
 order: 17
 title: Appendix D - Example Pipeline for Validating an InSpec Profile
 author: Aaron Lippold
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 ### RHEL7 Pipeline Example

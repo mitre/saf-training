@@ -2,7 +2,8 @@
 order: 17
 title: Appendix A - Running InSpec In An Airgapped Environment
 author: Mo
-headerDepth: 3
+toc:
+  levels: [2, 5]
 ---
 
 ## 15.1 Running an InSpec profile using a local archive (for air-gapped target systems)
