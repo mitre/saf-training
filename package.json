@@ -4,6 +4,7 @@
   "description": "Training site for the MITRE Security Automation Framework",
   "license": "Apache-2.0",
   "type": "module",
+  "packageManager": "pnpm@11.18.0",
   "scripts": {
     "docs:build": "vitepress build src",
     "docs:dev": "vitepress dev src",
@@ -15,20 +16,20 @@
     "pdf": "tsx scripts/generate-pdf.ts"
   },
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
-    "cac": "^6.7.14",
+    "@playwright/test": "^1.63.0",
+    "cac": "^7.0.0",
     "flowchart.ts": "^3.0.1",
     "lucide-static": "^0.577.0",
     "medium-zoom": "^1.1.0",
-    "mermaid": "^11.12.2",
+    "mermaid": "^11.17.2",
     "pdf-lib": "^1.17.1",
-    "tsx": "^4.21.0",
+    "tsx": "^4.23.13",
     "vitepress": "^1.6.4",
     "vitepress-export-pdf": "^1.0.0",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-mermaid": "2.0.17",
-    "vitepress-plugin-tabs": "^0.7.3",
-    "vitepress-sidebar": "^1.33.1",
-    "vue": "^3.5.25"
+    "vitepress-plugin-tabs": "^0.9.1",
+    "vitepress-sidebar": "^1.40.0",
+    "vue": "^3.5.42"
   }
 }
