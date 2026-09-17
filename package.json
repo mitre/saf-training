@@ -6,19 +6,17 @@
   "type": "module",
   "scripts": {
     "docs:build": "vuepress-vite build src",
-    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
     "docs:dev": "vuepress-vite dev src",
-    "docs:update-package": "npm dlx vp-update",
-    "start-server": "npm run docs:clean-dev",
-    "ci": "start-server-and-test start-server http://localhost:8080 cy:run",
+    "docs:serve": "http-server src/.vuepress/dist -a 127.0.0.1 -p 8080 -c-1 --silent",
     "cypress:open": "cypress open",
-    "cy:run": "cypress run --e2e"
+    "cypress:run": "cypress run --e2e --browser electron",
+    "test:e2e": "npm run docs:build && start-server-and-test docs:serve http://127.0.0.1:8080 cypress:run"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.31",
     "cypress": "^16.0.0",
-    "cypress-each": "^1.14.1",
     "flowchart.ts": "^3.0.1",
+    "http-server": "^14.1.1",
     "mermaid": "^11.17.2",
     "sass": "^1.104.0",
     "start-server-and-test": "^3.0.12",
