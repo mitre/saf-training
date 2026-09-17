@@ -1,0 +1,1 @@
+var e=`/saf-training/assets/saf-lifecycle-B6dd55dn.jpg`;export{e as t};

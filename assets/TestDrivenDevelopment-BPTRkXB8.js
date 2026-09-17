@@ -1,0 +1,1 @@
+var e=`/saf-training/assets/TestDrivenDevelopment-CyREZzaS.png`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/saf-training/assets/Heimdall_Results-DSrr5UKd.png`;export{e as t};

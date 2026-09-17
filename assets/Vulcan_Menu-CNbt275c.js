@@ -1,0 +1,1 @@
+var e=`/saf-training/assets/Vulcan_Menu-o23R6AfG.png`;export{e as t};
