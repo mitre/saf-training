@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 <p align="center">
-    <img width="240" src="https://saf.mitre.org/_nuxt/safLogo.2eddc71f.svg" style="text-align: center;">
+    <img width="240" src="src/.vuepress/public/logo.svg" alt="MITRE SAF logo" style="text-align: center;">
 </p>
 <h1 align="center">MITRE Security Automation Framework Training Site</h1>
 <h4 align="center">A comprehensive collection of security training classes with numerous features✨</h4>
@@ -35,55 +35,40 @@ We extend our special thanks to the author of this VuePress theme - A New Hope, 
 
 - Node v22.18+
 
-## Running 
-
-This project uses npm, is a Vuepress v2 and Vue3 project, and employs simple cypress tests for basic smoke testing. For debugging, setup issues, or questions about additional capabilities of the VuePress Theme, please refer to the documentation at the link above.
-
 ## Running in Dev
 
 ```shell
-npm install
+npm ci
 npm run docs:dev
 ```
+
+To clear the development cache, use `npm run docs:dev -- --clean-cache`.
+
 ## Building
 
 ```shell
 npm run docs:build
 ```
 
-## Running Cypress Tests
+Preview the build with `npm run docs:serve` at <http://127.0.0.1:8080>.
 
-The Cypress tests are located in the ./cypress directory, adjacent to the ./src directory.
-
-Additional Cypress commands can be found in the package.json file under the scripts section.
-
+## Running Tests
 
 ```shell
-npm run ci
+npx playwright install
+npm run test:e2e
 ```
 
-This command starts the headless Cypress server, builds the current version of the site, runs the site, and then executes the Cypress tests.
+Builds once, serves production files, runs Playwright tests, and stops the server. Leave `GITHUB_DEPLOY` unset.
+
+Use `npm run playwright:run` to test an existing build or `npm run playwright:ui` to debug interactively.
+
+### Continuous integration and deployment
+
+Playwright tests the root (`/`) layout. A separate workflow builds and deploys the GitHub Pages (`/saf-training/`) layout on pushes to `main`.
 
 ## Submitting a Pull Request or Additional Content
 
 We welcome your contributions! Feel free to fork the project and submit a Pull Request to provide updates, content fixes, or even entirely new topics and courses.
 
 If you find something that needs fixing, please open an Issue on the project's issue board (PRs are welcome!).
-
-### NOTICE
-
-© 2018-2024 The MITRE Corporation.
-
-Approved for Public Release; Distribution Unlimited. Case Number 18-3678.
-
-### NOTICE
-
-MITRE grants express written permission to use, reproduce, distribute, modify, and otherwise leverage this software to the extent permitted by the licensed terms provided in the LICENSE.md file included with this project.
-
-### NOTICE
-
-This software was produced for the U. S. Government under Contract Number HHSM-500-2012-00008I, and is subject to Federal Acquisition Regulation Clause 52.227-14, Rights in Data-General.
-
-No other use other than that granted to the U. S. Government, or to those acting on behalf of the U. S. Government under that Clause, is authorized without the express written permission of The MITRE Corporation.
-
-For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA 22102-7539, (703) 983-6000. 
