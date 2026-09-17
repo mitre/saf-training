@@ -35,34 +35,36 @@ We extend our special thanks to the author of this VuePress theme - A New Hope, 
 
 - Node v22.18+
 
-## Running 
-
-This project uses npm, is a Vuepress v2 and Vue3 project, and employs simple cypress tests for basic smoke testing. For debugging, setup issues, or questions about additional capabilities of the VuePress Theme, please refer to the documentation at the link above.
-
 ## Running in Dev
 
 ```shell
-npm install
+npm ci
 npm run docs:dev
 ```
+
+To clear the development cache, use `npm run docs:dev -- --clean-cache`.
+
 ## Building
 
 ```shell
 npm run docs:build
 ```
 
+Preview the build with `npm run docs:serve` at <http://127.0.0.1:8080>.
+
 ## Running Cypress Tests
 
-The Cypress tests are located in the ./cypress directory, adjacent to the ./src directory.
-
-Additional Cypress commands can be found in the package.json file under the scripts section.
-
-
 ```shell
-npm run ci
+npm run test:e2e
 ```
 
-This command starts the headless Cypress server, builds the current version of the site, runs the site, and then executes the Cypress tests.
+Builds once, serves production files, runs Cypress, and stops the server. Leave `GITHUB_DEPLOY` unset.
+
+With `docs:serve` already running, use `npm run cypress:run` to rerun tests or `npm run cypress:open` to debug interactively.
+
+### Continuous integration and deployment
+
+Cypress tests the root (`/`) layout. A separate workflow builds and deploys the GitHub Pages (`/saf-training/`) layout on pushes to `main`.
 
 ## Submitting a Pull Request or Additional Content
 
