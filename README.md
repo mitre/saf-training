@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 <p align="center">
-    <img width="240" src="https://saf.mitre.org/_nuxt/safLogo.2eddc71f.svg" style="text-align: center;">
+    <img width="240" src="src/.vuepress/public/logo.svg" alt="MITRE SAF logo" style="text-align: center;">
 </p>
 <h1 align="center">MITRE Security Automation Framework Training Site</h1>
 <h4 align="center">A comprehensive collection of security training classes with numerous features✨</h4>
