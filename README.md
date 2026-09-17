@@ -52,19 +52,20 @@ npm run docs:build
 
 Preview the build with `npm run docs:serve` at <http://127.0.0.1:8080>.
 
-## Running Cypress Tests
+## Running Tests
 
 ```shell
+npx playwright install
 npm run test:e2e
 ```
 
-Builds once, serves production files, runs Cypress, and stops the server. Leave `GITHUB_DEPLOY` unset.
+Builds once, serves production files, runs Playwright tests, and stops the server. Leave `GITHUB_DEPLOY` unset.
 
-With `docs:serve` already running, use `npm run cypress:run` to rerun tests or `npm run cypress:open` to debug interactively.
+Use `npm run playwright:run` to test an existing build or `npm run playwright:ui` to debug interactively.
 
 ### Continuous integration and deployment
 
-Cypress tests the root (`/`) layout. A separate workflow builds and deploys the GitHub Pages (`/saf-training/`) layout on pushes to `main`.
+Playwright tests the root (`/`) layout. A separate workflow builds and deploys the GitHub Pages (`/saf-training/`) layout on pushes to `main`.
 
 ## Submitting a Pull Request or Additional Content
 
