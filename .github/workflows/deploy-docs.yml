@@ -2,37 +2,43 @@ name: Deploy Docs
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: write
 
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
 jobs:
   deploy-gh-pages:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
 
-      - name: Build VuePress site
-        run: npm ci && npm run docs:build
+      - name: Install dependencies
+        run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: "0"
+
+      - name: Build GitHub Pages site
+        run: npm run docs:build
         env:
           GITHUB_DEPLOY: "true"
 
       - name: Deploy Docs
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: crazy-max/ghaction-github-pages@v5
         with:
           target_branch: gh-pages
           build_dir: src/.vuepress/dist/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_DEPLOY: "true"
