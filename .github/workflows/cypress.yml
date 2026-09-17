@@ -1,23 +1,42 @@
-name: Cypress Tests
+name: Site checks
 
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
           node-version: 22
-          cache: npm
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Build root site and run Cypress
+        uses: cypress-io/github-action@v7
         with:
-          build: npm run docs:build
-          start: npm run start-server
-          wait-on: "http://localhost:8080"
+          command: npm run test:e2e
+        env:
+          GITHUB_DEPLOY: "false"
+
+      - name: Upload failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots/
+          if-no-files-found: ignore
+          retention-days: 7

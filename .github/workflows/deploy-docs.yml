@@ -14,7 +14,6 @@ concurrency:
 jobs:
   deploy-gh-pages:
     runs-on: ubuntu-22.04
-    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7
