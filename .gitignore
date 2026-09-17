@@ -3,6 +3,5 @@ src/.vuepress/.cache/**
 src/.vuepress/dist/**
 src/.vuepress/.temp/**
 .DS_Store
-cypress/screenshots/
-cypress/videos/
-cypress/downloads/
+test-results/
+playwright-report/

@@ -8,18 +8,17 @@
     "docs:build": "vuepress-vite build src",
     "docs:dev": "vuepress-vite dev src",
     "docs:serve": "http-server src/.vuepress/dist -a 127.0.0.1 -p 8080 -c-1 --silent",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run --e2e --browser electron",
-    "test:e2e": "npm run docs:build && start-server-and-test docs:serve http://127.0.0.1:8080 cypress:run"
+    "playwright:ui": "playwright test --ui",
+    "playwright:run": "playwright test",
+    "test:e2e": "npm run docs:build && playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@vuepress/bundler-vite": "2.0.0-rc.31",
-    "cypress": "^16.0.0",
     "flowchart.ts": "^3.0.1",
     "http-server": "^14.1.1",
     "mermaid": "^11.17.2",
     "sass": "^1.104.0",
-    "start-server-and-test": "^3.0.12",
     "vue": "^3.5.42",
     "vuepress": "2.0.0-rc.31",
     "vuepress-theme-hope": "2.0.0-rc.109"
