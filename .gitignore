@@ -62,3 +62,9 @@ pdfs/
 
 # Chromium for PDF generation
 chrome/
+
+# Beads issue tracker — local working state only.
+# The canonical issue history lives in the remote Dolt ref (refs/dolt/data),
+# which serves as the offsite backup, so .beads/ is deliberately untracked to
+# keep it out of the git history.
+.beads/
