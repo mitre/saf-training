@@ -100,6 +100,6 @@ You could also add manual attestations with the SAF CLI to the pipeline to combi
 
 In a general sense we can use the SAF CLI to manage security data in the pipeline, supporting activities for managing POA&Ms.
 
-To practice doing manual attestations, take a look at the [User Class](../user/12.md).
+To practice doing manual attestations, take a look at the [User Class](/getting-started/12.md).
 
 ![The CI Pipeline - Attestation](/assets/img/CI_Pipeline_Flow_EC2_Example_With_Attestation.png)
