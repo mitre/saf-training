@@ -9,11 +9,13 @@
     "docs:build": "vitepress build src",
     "docs:dev": "vitepress dev src",
     "docs:preview": "vitepress preview src",
+    "docs:serve": "vitepress preview src --port 8080 --host 127.0.0.1",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
-    "pdf": "tsx scripts/generate-pdf.ts"
+    "pdf": "tsx scripts/generate-pdf.ts",
+    "test:e2e": "pnpm run docs:build && playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",

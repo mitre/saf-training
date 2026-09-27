@@ -1,46 +1,36 @@
 import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './tests/e2e',
 
-  // Run tests in files in parallel
   fullyParallel: true,
 
   // Fail the build on CI if you accidentally left test.only in the source code
   forbidOnly: !!process.env.CI,
 
-  // Retry on CI only
   retries: process.env.CI ? 2 : 0,
 
-  // Opt out of parallel tests on CI
   workers: process.env.CI ? 1 : undefined,
 
-  // Reporter to use
-  reporter: 'html',
+  reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
 
   use: {
-    // Base URL to use in actions like `await page.goto('/')`
-    baseURL: 'http://localhost:5173',
-
-    // Collect trace when retrying the failed test
-    trace: 'on-first-retry',
-
-    // Screenshot on failure
+    baseURL: 'http://127.0.0.1:8080',
     screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
   },
 
-  // Configure projects for major browsers
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
 
-  // Run local dev server before starting tests
+  // Serve the production build, not the dev server, so the suite exercises what
+  // actually ships (asset hashing, clean 404s, the real base path).
   webServer: {
-    command: 'pnpm run docs:dev',
-    url: 'http://localhost:5173',
+    command: 'pnpm run docs:serve',
+    url: 'http://127.0.0.1:8080',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },
