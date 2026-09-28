@@ -1,23 +1,31 @@
-name: Playwright Tests
+name: Site checks
 
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
-  pull-requests: write
+
+# Only the latest run per PR/branch matters; supersede in-flight ones.
+concurrency:
+  group: site-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  test:
+  e2e:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: pnpm
@@ -26,15 +34,22 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright browsers
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
 
-      - name: Run Playwright tests
-        run: pnpm test
+      # test:e2e builds first: the suite runs against the production build via
+      # `vitepress preview`, so dist/ must exist before the webServer starts.
+      - name: Build site and run tests
+        run: pnpm run test:e2e
+        env:
+          GITHUB_DEPLOY: "false"
 
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Upload failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v7
         with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+          name: playwright-results
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7
