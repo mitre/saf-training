@@ -1,0 +1,20 @@
+packages:
+  - '.'
+
+# Build scripts we explicitly trust. esbuild ships the vite/vitepress native
+# binary; puppeteer downloads the Chromium used by `pnpm run pdf`.
+allowBuilds:
+  esbuild: true
+  puppeteer: true
+
+# Mermaid's transitive deps (dayjs, cytoscape, debug, @braintree/sanitize-url)
+# are resolved by Vite's optimizeDeps from the project root, so they must be
+# hoisted there. Without this, `vitepress dev` logs "Failed to resolve
+# dependency: cytoscape" and Mermaid diagrams fail to render.
+# pnpm 11 reads these from here, not .npmrc (which is auth/registry only).
+publicHoistPattern:
+  - '*mermaid*'
+  - '*dayjs*'
+  - '*@braintree*'
+  - '*cytoscape*'
+  - 'debug'
