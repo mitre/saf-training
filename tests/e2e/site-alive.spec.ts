@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test'
-import { visitPage, headingText } from '../support/visit-page'
+import { visitPage } from '../support/visit-page'
 
 test.describe('Page content', () => {
   test('renders the homepage title and tagline', async ({ page }) => {
     await visitPage(page, '/')
     await expect(page).toHaveTitle('MITRE SAF Training - MITRE SAF Training')
-    // VitePress renders the home hero name as the h1, inside VPHero.
-    const heading = page.getByRole('main').getByRole('heading', { level: 1 })
+    // The VPHero home layout renders no <main> landmark, so scope to the hero.
+    const heading = page.getByRole('heading', { level: 1 })
     await expect(heading).toBeVisible()
     await expect(heading).toContainText('MITRE SAF')
     const tagline = page.locator('.VPHero .tagline')
@@ -17,7 +17,7 @@ test.describe('Page content', () => {
   test('renders a course landing heading and body text on a direct page load', async ({ page }) => {
     await visitPage(page, '/inspec-training/beginner/')
     await expect(
-      page.getByRole('main').getByRole('heading', { level: 1, name: headingText('InSpec Beginner') })
+      page.getByRole('main').getByRole('heading', { level: 1, name: 'InSpec Beginner' })
     ).toBeVisible()
     await expect(page.locator('main')).toContainText('Before You Start')
   })
@@ -28,7 +28,7 @@ test.describe('Page content', () => {
     await visitPage(page, '/inspec-training/beginner/02.html')
     await expect(page).toHaveTitle(/What is an InSpec Profile\?/)
     await expect(
-      page.getByRole('main').getByRole('heading', { level: 2, name: headingText('What is an InSpec Profile?') })
+      page.getByRole('main').getByRole('heading', { level: 2, name: 'What is an InSpec Profile?' })
     ).toBeVisible()
   })
 

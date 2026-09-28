@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { visitPage, headingText } from '../support/visit-page'
+import { visitPage } from '../support/visit-page'
 
 test.describe('STIG Development course assets and links', () => {
   test('loads a bundled image', async ({ page }) => {
@@ -22,7 +22,7 @@ test.describe('STIG Development course assets and links', () => {
     await link.click()
     await expect(page).toHaveURL('/inspec-training/beginner/')
     await expect(
-      page.getByRole('main').getByRole('heading', { level: 1, name: headingText('InSpec Beginner') })
+      page.getByRole('main').getByRole('heading', { level: 1, name: 'InSpec Beginner' })
     ).toBeVisible()
   })
 })

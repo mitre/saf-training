@@ -9,9 +9,10 @@ test.describe('Interactive course content', () => {
     const diagram = page.locator('main .mermaid svg')
     await expect(diagram).toHaveCount(1, { timeout: 20000 })
     await expect(diagram).toBeVisible()
-    await expect
-      .poll(() => diagram.locator('text').allTextContents().then((t) => t.join(' ')))
-      .toContain('my_nginx_overlay')
+    // Mermaid renders node labels as HTML inside <foreignObject>, not as SVG
+    // <text>, so main's .locator('text') finds nothing here.
+    await expect(diagram).toContainText('my_nginx_overlay')
+    await expect(diagram).toContainText('my_nginx')
   })
 
   test('expands and collapses the overlay instructions', async ({ page }) => {
@@ -33,7 +34,11 @@ test.describe('Interactive course content', () => {
     await visitPage(page, '/inspec-training/beginner/11.html')
     // vitepress-plugin-tabs renders .plugin-tabs (VuePress used .vp-code-tabs)
     // and exposes role=tab / aria-selected, so the interaction ports directly.
-    const example = page.locator('main .plugin-tabs').filter({ hasText: 'saf generate inspec_profile --help' })
+    // vitepress-plugin-tabs removes the inactive panel from the DOM, so a group
+    // located by its Command-panel text stops matching the moment Output is
+    // selected. Pin the group positionally, then confirm it is the right one.
+    const example = page.locator('main .plugin-tabs').first()
+    await expect(example).toContainText('saf generate inspec_profile --help')
     const commandTab = example.getByRole('tab', { name: 'Command', exact: true })
     const outputTab = example.getByRole('tab', { name: 'Output', exact: true })
     const command = example

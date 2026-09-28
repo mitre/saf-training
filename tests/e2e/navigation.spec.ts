@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { visitPage, headingText } from '../support/visit-page'
+import { visitPage } from '../support/visit-page'
 
 test.describe('Course navigation', () => {
   test('opens a course from the InSpec Training dropdown', async ({ page }) => {
@@ -10,7 +10,7 @@ test.describe('Course navigation', () => {
     await navigation.getByRole('link', { name: 'Beginner Tutorial', exact: true }).click()
     await expect(page).toHaveURL('/inspec-training/beginner/')
     await expect(
-      page.getByRole('main').getByRole('heading', { level: 1, name: headingText('InSpec Beginner') })
+      page.getByRole('main').getByRole('heading', { level: 1, name: 'InSpec Beginner' })
     ).toBeVisible()
   })
 
@@ -19,7 +19,7 @@ test.describe('Course navigation', () => {
     await page.locator('aside').getByRole('link', { name: '2. What is an InSpec Profile?', exact: true }).click()
     await expect(page).toHaveURL('/inspec-training/beginner/02.html')
     await expect(
-      page.getByRole('main').getByRole('heading', { level: 2, name: headingText('What is an InSpec Profile?') })
+      page.getByRole('main').getByRole('heading', { level: 2, name: 'What is an InSpec Profile?' })
     ).toBeVisible()
   })
 
