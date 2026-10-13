@@ -13,7 +13,7 @@
     "test:e2e": "npm run docs:build && playwright test"
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
+    "@playwright/test": "^1.64.0",
     "@vuepress/bundler-vite": "2.0.0-rc.31",
     "flowchart.ts": "^3.0.1",
     "http-server": "^14.1.1",
